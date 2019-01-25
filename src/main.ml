@@ -2,10 +2,12 @@ let compile oc e =
   Id.count := 0;
   let e = Parser.exp Lexer.token e in
   let e = Typing.f e in
-  Syntax.print_t e
+  Syntax.print_t e;
+  let e = Virtual.f e in
+  Emit.f oc e
 
 let file f =
-  let ofilename = (String.sub f 0 ((String.length f) - 3)) ^ ".s" in
+  let ofilename = (String.sub f 0 ((String.length f) - 3)) ^ ".j" in
   let inchan = open_in f in
   let outchan = open_out ofilename in
   try

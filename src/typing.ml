@@ -192,7 +192,7 @@ let f e =
   | Type.Unit -> ()
   | _ -> Format.eprintf "warning: final result does not have type unit@.");
 *)
-  (try unify Type.Unit (g M.empty e) Lexing.dummy_pos
-   with Unify _ -> failwith "top level does not have type unit");
+  (* (try unify Type.Unit (g M.empty e) Lexing.dummy_pos
+   with Unify _ -> failwith "top level does not have type unit"); *)
   extenv := M.map deref_typ !extenv;
   deref_term e

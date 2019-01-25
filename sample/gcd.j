@@ -20,8 +20,7 @@
     ifeq Label1
     iload 0     ; 注: ここでもう一度loadが必要
     iload 1
-    isub
-    ifle Label2
+    if_icmple Label2
     iload 1
     iload 0
     iload 1

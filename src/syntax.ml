@@ -54,8 +54,8 @@ let rec string_of_t ?(do_indent = true) ?(endline = "\n") (exp : t) (depth : int
   | FSub (e1, e2, _) -> prefix ^ "FSUB\n" ^ (string_of_t e1 (depth + 1)) ^ (string_of_t e2 (depth + 1))
   | FMul (e1, e2, _) -> prefix ^ "FMUL\n" ^ (string_of_t e1 (depth + 1)) ^ (string_of_t e2 (depth + 1))
   | FDiv (e1, e2, _) -> prefix ^ "FDIV\n" ^ (string_of_t e1 (depth + 1)) ^ (string_of_t e2 (depth + 1))
-  | Eq (e1, e2, _, _)   -> prefix ^ "EQ\n" ^ (string_of_t e1 (depth + 1)) ^ (string_of_t e2 (depth + 1))
-  | LE (e1, e2, _, _)   -> prefix ^ "LE\n" ^ (string_of_t e1 (depth + 1)) ^ (string_of_t e2 (depth + 1))
+  | Eq (e1, e2, _, _) -> prefix ^ "EQ\n" ^ (string_of_t e1 (depth + 1)) ^ (string_of_t e2 (depth + 1))
+  | LE (e1, e2, _, _) -> prefix ^ "LE\n" ^ (string_of_t e1 (depth + 1)) ^ (string_of_t e2 (depth + 1))
   | If (b, e1, e2, _) -> prefix ^ "IF\n" ^ (string_of_t b (depth + 1)) ^
                          prefix ^ "THEN\n" ^ (string_of_t e1 (depth + 1)) ^
                          prefix ^ "ELSE\n" ^ (string_of_t e2 (depth + 1))

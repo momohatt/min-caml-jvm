@@ -11,8 +11,7 @@
     .limit locals 5
     iload 0     ; arg[0]
     ldc 1
-    isub
-    ifle Label1
+    if_icmple Label1
     iload 0
     ldc 1
     isub
