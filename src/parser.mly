@@ -126,7 +126,7 @@ exp:
 | LET REC fundef IN exp
     %prec prec_let
     { LetRec($3, $5, get_pos ()) }
-| simple_exp actual_args
+| IDENT actual_args
     %prec prec_app
     { App($1, $2, get_pos ()) }
 | elems

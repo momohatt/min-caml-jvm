@@ -18,12 +18,17 @@ let rec type_signature t =
 
 let g oc e =
   match e with
-  | Iload n -> Printf.fprintf oc "\tiload %d\n" n
-  | Ldc n -> Printf.fprintf oc "\tldc %d\n" n
+  | Load(I(n)) -> Printf.fprintf oc "\tiload %d\n" n
+  | Load(F(n)) -> Printf.fprintf oc "\tfload %f\n" n
+  | Ldc(I(n))  -> Printf.fprintf oc "\tldc %d\n" n
+  | Ldc(F(n))  -> Printf.fprintf oc "\tldc %f\n" n
+  | Neg t -> Printf.fprintf oc "\t%seg\n" (str_of_type t)
+  | IXor  -> Printf.fprintf oc "\tixor\n"
   | Add t -> Printf.fprintf oc "\t%sadd\n" (str_of_type t)
   | Sub t -> Printf.fprintf oc "\t%ssub\n" (str_of_type t)
   | Mul t -> Printf.fprintf oc "\t%smul\n" (str_of_type t)
   | Div t -> Printf.fprintf oc "\t%sdiv\n" (str_of_type t)
+  | FCmp  -> Printf.fprintf oc "\tfcmpl\n"
   | IfEq(e1, e2, e3, e4) -> ()
   | IfLE(e1, e2, e3, e4) -> ()
   | Return t -> Printf.fprintf oc "\t%sreturn\n" (str_of_type t)

@@ -3,6 +3,7 @@ let compile oc e =
   let e = Parser.exp Lexer.token e in
   let e = Typing.f e in
   Syntax.print_t e;
+  let e = Closure.f e in
   let e = Virtual.f e in
   Emit.f oc e
 

@@ -1,44 +1,43 @@
 open Asm
 
-let toplevel : fundef list ref = ref []
-
-let extenv = [("print_int", Type.Fun([Type.Int], Type.Unit))]
-let is_extfun f = List.exists (fun (n, _) -> n = f) extenv
-
 let rec g e =
   match e with
-  | Syntax.Unit -> []
-  | Syntax.Bool b -> assert false
-  | Syntax.Int n   -> [Ldc n]
-  | Syntax.Float f -> assert false
-  | Syntax.Not (e, _) -> assert false
-  | Syntax.Neg (e, _) -> assert false
-  | Syntax.Add (e1, e2, _)  -> g e1 @ g e2 @ [Add Type.Int]
-  | Syntax.Sub (e1, e2, _)  -> g e1 @ g e2 @ [Sub Type.Int]
-  | Syntax.Mul (e1, e2, _)  -> g e1 @ g e2 @ [Mul Type.Int]
-  | Syntax.Div (e1, e2, _)  -> g e1 @ g e2 @ [Div Type.Int]
-  | Syntax.FNeg (e, _)      -> assert false
-  | Syntax.FAdd (e1, e2, _) -> g e1 @ g e2 @ [Add Type.Float]
-  | Syntax.FSub (e1, e2, _) -> g e1 @ g e2 @ [Sub Type.Float]
-  | Syntax.FMul (e1, e2, _) -> g e1 @ g e2 @ [Mul Type.Float]
-  | Syntax.FDiv (e1, e2, _) -> g e1 @ g e2 @ [Div Type.Float]
-  | Syntax.Eq (e1, e2, t, _) -> assert false
-  | Syntax.LE (e1, e2, t, _) -> assert false
-  | Syntax.If (b, e1, e2, _) -> assert false
-  | Syntax.Let ((x, t), e1, e2, _) ->
-    g e1
-  | Syntax.Var x -> assert false
-  | Syntax.LetRec (f, e, _) -> assert false
-  | Syntax.App (Var(f), e2, _) when is_extfun f ->
-    List.concat (List.map g e2) @ [CallLib("min_caml_" ^ f, List.assoc f extenv)]
-  | Syntax.App (e1, e2, _) -> assert false
-  | Syntax.Tuple e -> assert false
-  | Syntax.LetTuple (l, e1, e2, _) -> assert false
-  | Syntax.Array (e1, e2, _) -> assert false
-  | Syntax.Get (e1, e2, _) -> assert false
-  | Syntax.Put (e1, e2, e3, _) -> assert false
+  | Closure.Unit -> []
+  | Closure.Int(n)   -> [Ldc(I(n))]
+  | Closure.Float(f) -> [Ldc(F(f))]
+  | Closure.Not(e) -> g e @ [Ldc(I(1)); IXor]
+  | Closure.Neg(e) ->  g e @ [Neg Type.Int]
+  | Closure.Add(e1, e2)  -> g e1 @ g e2 @ [Add Type.Int]
+  | Closure.Sub(e1, e2)  -> g e1 @ g e2 @ [Sub Type.Int]
+  | Closure.Mul(e1, e2)  -> g e1 @ g e2 @ [Mul Type.Int]
+  | Closure.Div(e1, e2)  -> g e1 @ g e2 @ [Div Type.Int]
+  | Closure.FNeg(e)      -> g e @ [Neg Type.Float]
+  | Closure.FAdd(e1, e2) -> g e1 @ g e2 @ [Add Type.Float]
+  | Closure.FSub(e1, e2) -> g e1 @ g e2 @ [Sub Type.Float]
+  | Closure.FMul(e1, e2) -> g e1 @ g e2 @ [Mul Type.Float]
+  | Closure.FDiv(e1, e2) -> g e1 @ g e2 @ [Div Type.Float]
+  | Closure.FCmp(e1, e2) -> g e1 @ g e2 @ [FCmp]
+  | Closure.IfEq(e1, e2, e3, e4) -> [IfEq(g e1, g e2, g e3, g e4)]
+  | Closure.IfLE(e1, e2, e3, e4) -> [IfLE(g e1, g e2, g e3, g e4)]
+  | Closure.Let((x, t), e1, e2) ->
+    g e1 (* TODO *)
+  | Closure.Var x -> assert false
+  | Closure.ExtFunApp(f, e2) ->
+    List.concat (List.map g e2) @ [CallLib("min_caml_" ^ f, M.find f !Typing.extenv)]
+  | Closure.AppDir(f, e2) ->
+    List.concat (List.map g e2) @ [InvokeStatic(f, M.find f !Typing.extenv)]
+  | Closure.AppCls(e1, e2) -> assert false
+  | Closure.Tuple(e) -> assert false
+  | Closure.LetTuple(l, e1, e2) -> assert false
+  | Closure.Get(e1, e2) -> assert false
+  | Closure.Put(e1, e2, e3) -> assert false
+  | Closure.MakeCls _ -> assert false
+  | Closure.ExtArray _ -> assert false
 
-let f e =
-  toplevel := [];
+let h { Closure.name = (x, t); Closure.args = yts; Closure.formal_fv = zts; Closure.body = e } =
+  { name = (x, t); args = yts; formal_fv = zts; body = g e }
+
+let f (Closure.Prog(fundef, e)) =
   let e' = g e in
-  (!toplevel, e')
+  let fundef' = List.map h fundef in
+  (fundef', e')

@@ -41,7 +41,7 @@ let rec deref_term = function
              args = List.map deref_id_typ yts;
              body = deref_term e1 },
            deref_term e2, p)
-  | App(e, es, p) -> App(deref_term e, List.map deref_term es, p)
+  | App(x, es, p) -> App(x, List.map deref_term es, p)
   | Tuple(es) -> Tuple(List.map deref_term es)
   | LetTuple(xts, e1, e2, p) -> LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2, p)
   | Array(e1, e2, p) -> Array(deref_term e1, deref_term e2, p)
@@ -131,14 +131,14 @@ let rec g env e =
       let env = M.add x t env in
       unify t (Type.Fun(List.map snd yts, g (M.add_list yts env) e1)) p;
       g env e2
-    | App(Var "create_array", [e1; e2], p) ->
+    | App("create_array", [e1; e2], p) ->
       unify Type.Int (g env e1) p;
       let t = Type.gentyp () in
       unify (g env e2) t p;
       Type.Array(t)
-    | App(e, es, p) ->
+    | App(x, es, p) ->
       let t = Type.gentyp () in
-      unify (g env e) (Type.Fun(List.map (g env) es, t)) p;
+      unify (M.find x env) (Type.Fun(List.map (g env) es, t)) p;
       t
     | Tuple(es) -> Type.Tuple(List.map (g env) es)
     | LetTuple(xts, e1, e2, p) ->
@@ -185,6 +185,7 @@ let f e =
   extenv := M.add "print_newline" (Type.Fun([Unit], Unit)) !extenv;
   extenv := M.add "print_int"     (Type.Fun([Int], Unit)) !extenv;
   extenv := M.add "print_char"    (Type.Fun([Int], Unit)) !extenv;
+  extenv := M.add "print_float"   (Type.Fun([Float], Unit)) !extenv;
   extenv := M.add "read_int"      (Type.Fun([Unit], Int)) !extenv;
   extenv := M.add "read_float"    (Type.Fun([Unit], Float)) !extenv;
 (*
@@ -193,6 +194,6 @@ let f e =
   | _ -> Format.eprintf "warning: final result does not have type unit@.");
 *)
   (* (try unify Type.Unit (g M.empty e) Lexing.dummy_pos
-   with Unify _ -> failwith "top level does not have type unit"); *)
+     with Unify _ -> failwith "top level does not have type unit"); *)
   extenv := M.map deref_typ !extenv;
   deref_term e

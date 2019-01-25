@@ -1,5 +1,12 @@
 type t = string
 
+type l = L of string
+
+let rec pp_list = function
+  | [] -> ""
+  | [x] -> x
+  | x :: xs -> x ^ " " ^ pp_list xs
+
 let count = ref 0
 
 let genid s =
