@@ -1,5 +1,7 @@
 open Asm
 
+let env = ref []
+
 let rec g e =
   match e with
   | Closure.Unit -> []
@@ -25,7 +27,7 @@ let rec g e =
   | Closure.ExtFunApp(f, e2) ->
     List.concat (List.map g e2) @ [CallLib("min_caml_" ^ f, M.find f !Typing.extenv)]
   | Closure.AppDir(f, e2) ->
-    List.concat (List.map g e2) @ [InvokeStatic(f, M.find f !Typing.extenv)]
+    List.concat (List.map g e2) @ [InvokeStatic(f, List.assoc f !env)]
   | Closure.AppCls(e1, e2) -> assert false
   | Closure.Tuple(e) -> assert false
   | Closure.LetTuple(l, e1, e2) -> assert false
@@ -35,9 +37,10 @@ let rec g e =
   | Closure.ExtArray _ -> assert false
 
 let h { Closure.name = (x, t); Closure.args = yts; Closure.formal_fv = zts; Closure.body = e } =
+  env := (x, t) :: !env;
   { name = (x, t); args = yts; formal_fv = zts; body = g e }
 
 let f (Closure.Prog(fundef, e)) =
-  let e' = g e in
   let fundef' = List.map h fundef in
+  let e' = g e in
   (fundef', e')

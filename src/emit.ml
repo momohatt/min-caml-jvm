@@ -16,7 +16,7 @@ let rec type_signature t =
   | Type.Float -> "F"
   | _ -> assert false
 
-let g oc e =
+let rec g oc e =
   match e with
   | Load(I(n)) -> Printf.fprintf oc "\tiload %d\n" n
   | Load(F(n)) -> Printf.fprintf oc "\tfload %f\n" n
@@ -29,8 +29,28 @@ let g oc e =
   | Mul t -> Printf.fprintf oc "\t%smul\n" (str_of_type t)
   | Div t -> Printf.fprintf oc "\t%sdiv\n" (str_of_type t)
   | FCmp  -> Printf.fprintf oc "\tfcmpl\n"
-  | IfEq(e1, e2, e3, e4) -> ()
-  | IfLE(e1, e2, e3, e4) -> ()
+  | IfEq(e1, e2, e3, e4) ->
+    let l_else = Id.genid "IfEq_else" in
+    let l_cont = Id.genid "IfEq_cont" in
+    List.iter (g oc) e1;
+    List.iter (g oc) e2;
+    Printf.fprintf oc "\tif_icmpne %s\n" l_else;
+    List.iter (g oc) e3;
+    Printf.fprintf oc "\tgoto %s\n" l_cont;
+    Printf.fprintf oc "%s:\n" l_else;
+    List.iter (g oc) e4;
+    Printf.fprintf oc "%s:\n" l_cont
+  | IfLE(e1, e2, e3, e4) ->
+    let l_else = Id.genid "IfLE_else" in
+    let l_cont = Id.genid "IfLE_cont" in
+    List.iter (g oc) e1;
+    List.iter (g oc) e2;
+    Printf.fprintf oc "\tif_icmpgt %s\n" l_else;
+    List.iter (g oc) e3;
+    Printf.fprintf oc "\tgoto %s\n" l_cont;
+    Printf.fprintf oc "%s:\n" l_else;
+    List.iter (g oc) e4;
+    Printf.fprintf oc "%s:\n" l_cont
   | Return t -> Printf.fprintf oc "\t%sreturn\n" (str_of_type t)
   | InvokeStatic(f, t) ->
     (match t with

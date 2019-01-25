@@ -4,6 +4,7 @@ let compile oc e =
   let e = Typing.f e in
   Syntax.print_t e;
   let e = Closure.f e in
+  print_endline "-------After Closure.f-------";
   let e = Virtual.f e in
   Emit.f oc e
 
