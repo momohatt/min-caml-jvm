@@ -4,6 +4,7 @@ type imm =
 
 type inst =
   | Load of Type.t * int
+  | Store of Type.t * int
   | Ldc of imm
   | Neg of Type.t
   | IXor
@@ -11,6 +12,8 @@ type inst =
   | Sub of Type.t
   | Mul of Type.t
   | Div of Type.t
+  | Ftoi
+  | Itof
   | IfEq of inst list * inst list * inst list * inst list
   | IfLE of inst list * inst list * inst list * inst list
   | FCmp

@@ -34,6 +34,57 @@ type fundef = { name : Id.t * Type.t;
                 body : t }
 type prog = Prog of fundef list * t
 
+let rec str_of_t (exp : t) : string =
+  match exp with
+  | Unit -> "()"
+  | Int(n)  -> "INT " ^ (string_of_int n)
+  | Float(f) -> "FLOAT " ^ (string_of_float f)
+  | Not(e)  -> "~ " ^ (str_of_t e)
+  | Neg(e)  -> "- " ^ (str_of_t e)
+  | Add(e1, e2) -> (str_of_t e1) ^ " + " ^ (str_of_t e2)
+  | Sub(e1, e2) -> (str_of_t e1) ^ " - " ^ (str_of_t e2)
+  | Mul(e1, e2) -> (str_of_t e1) ^ " * " ^ (str_of_t e2)
+  | Div(e1, e2) -> (str_of_t e1) ^ " / " ^ (str_of_t e2)
+  | FNeg(e)   -> "-. " ^ (str_of_t e)
+  | FAdd(e1, e2) -> (str_of_t e1) ^ " +. " ^ (str_of_t e2)
+  | FSub(e1, e2) -> (str_of_t e1) ^ " -. " ^ (str_of_t e2)
+  | FMul(e1, e2) -> (str_of_t e1) ^ " *. " ^ (str_of_t e2)
+  | FDiv(e1, e2) -> (str_of_t e1) ^ " /. " ^ (str_of_t e2)
+  | FCmp(e1, e2) -> (str_of_t e1) ^ " `cmp` " ^ (str_of_t e2)
+  | IfEq(e1, e2, et, ef) ->
+    Printf.sprintf "IF ( %s = %s ) THEN\n%sELSE\n%s" (str_of_t e1) (str_of_t e2) (str_of_t et) (str_of_t ef)
+  | IfLE(e1, e2, et, ef) ->
+    Printf.sprintf "IF ( %s <= %s ) THEN\n%sELSE\n%s" (str_of_t e1) (str_of_t e2) (str_of_t et) (str_of_t ef)
+  | Let((x, _), e1, e2) ->
+    (match e1 with
+     | IfEq _ | IfLE _ -> "LET " ^ x ^ " =\n" ^ (str_of_t e1) ^ ( "IN\n") ^ (str_of_t e2)
+     | _ -> "LET " ^ x ^ " = " ^ (str_of_t e1) ^ " IN\n" ^ (str_of_t e2))
+  | Var(x) -> "VAR " ^ x
+  | MakeCls((f, _), { entry = Id.L(l); actual_fv = xl }, e) ->
+    "MAKECLS " ^ f ^ " = <" ^ l ^ ", {" ^ (String.concat ", " xl) ^ "}> IN\n" ^ (str_of_t e)
+  | AppCls(e1, e2) -> e1 ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) e2)
+  | AppDir(e1, e2) -> e1 ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) e2)
+  | ExtFunApp(e1, e2) -> e1 ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) e2)
+  | Tuple(e) -> ( "( ") ^ String.concat ", " (List.map (fun e -> str_of_t e) e) ^ " )"
+  | LetTuple(l, e1, e2) -> "LET (" ^ (String.concat ", " (List.map fst l)) ^ ") = " ^ (str_of_t e1) ^ " IN\n" ^
+                           (str_of_t e2)
+  | Get(e1, e2)   -> (str_of_t e1) ^ "[ " ^ (str_of_t e2) ^ " ]"
+  | Put(e1, e2, e3) -> (str_of_t e1) ^ "[ " ^ (str_of_t e2) ^ " ] <- " ^ (str_of_t e3)
+  | ExtArray Id.L(e) -> e
+
+let string_of_t (exp : t) = str_of_t exp
+
+let string_of_fundef (f : fundef) =
+  let { name = (l, _); args = yts; formal_fv = zts; body = e } = f in
+  l ^ " (" ^ (String.concat ", " (List.map fst f.args)) ^ ") =\n" ^ (str_of_t e)
+
+let rec string_of_prog (Prog (fundefs, e)) =
+  String.concat "\n\n" (List.map string_of_fundef fundefs) ^ "\n" ^ string_of_t e
+
+let print_t (exp : t) = print_string (string_of_t exp)
+let print_fundef f = print_string (string_of_fundef f)
+let print_prog p = print_string (string_of_prog p)
+
 let rec fv = function
   | Unit | Int(_) | Float(_) | ExtArray(_) -> S.empty
   | Not(e) | Neg(e) | FNeg(e) -> fv e
@@ -77,6 +128,8 @@ let rec g env known e =
       | _ -> assert false)
   | Syntax.If(Syntax.Eq(x, y, Type.Int, _), e1, e2, _) -> IfEq(g env known x, g env known y, g env known e1, g env known e2)
   | Syntax.If(Syntax.LE(x, y, Type.Int, _), e1, e2, _) -> IfLE(g env known x, g env known y, g env known e1, g env known e2)
+  | Syntax.If(Syntax.Eq(x, y, Type.Float, _), e1, e2, _) -> IfEq(FCmp(g env known x, g env known y), Int(0), g env known e1, g env known e2)
+  | Syntax.If(Syntax.LE(x, y, Type.Float, _), e1, e2, _) -> IfLE(FCmp(g env known x, g env known y), Int(0), g env known e1, g env known e2)
   | Syntax.If(Syntax.Not(x, _), e1, e2, t) -> g env known (Syntax.If(x, e2, e1, t))
   | Syntax.If(e1, e2, e3, _) -> IfEq(g env known e1, Int(0), g env known e3, g env known e2)
   | Syntax.Let((x, t), e1, e2, _) -> Let((x, t), g env known e1, g (M.add x t env) known e2)

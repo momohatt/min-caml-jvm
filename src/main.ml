@@ -5,6 +5,7 @@ let compile oc e =
   Syntax.print_t e;
   let e = Closure.f e in
   print_endline "-------After Closure.f-------";
+  Closure.print_prog e;
   let e = Virtual.f e in
   Emit.f oc e
 

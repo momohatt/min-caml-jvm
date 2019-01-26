@@ -84,7 +84,7 @@ rule token = parse
     { Lexing.new_line lexbuf; token lexbuf }
 | eof
     { EOF }
-| lower (digit|lower|upper|'_')* (* must come later than other reserved word *)
+| lower (digit|lower|upper|'_'|'\'')* (* must come later than other reserved word *)
     { IDENT(Lexing.lexeme lexbuf) }
 | _
     { failwith

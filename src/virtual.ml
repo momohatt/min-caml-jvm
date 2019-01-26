@@ -7,10 +7,13 @@ let getindex x env =
     match env with
     | [] -> assert false
     | (y, _) :: ys when x = y -> i
-    | y :: ys -> inner_ x ys (i + 1)
-  in inner_ x env 0
+    | y :: ys -> inner_ x ys (i - 1)
+  in inner_ x env ((List.length env) - 1)
 
 let rec g env e =
+  Closure.print_t e;
+  print_newline ();
+  Id.print_env env;
   match e with
   | Closure.Unit -> []
   | Closure.Int(n)   -> [Ldc(I(n))]
@@ -30,8 +33,12 @@ let rec g env e =
   | Closure.IfEq(e1, e2, e3, e4) -> [IfEq(g env e1, g env e2, g env e3, g env e4)]
   | Closure.IfLE(e1, e2, e3, e4) -> [IfLE(g env e1, g env e2, g env e3, g env e4)]
   | Closure.Let((x, t), e1, e2) ->
-    g env e1 (* TODO *)
+    g env e1 @ [Store(t, List.length env)] @ g ((x, t) :: env) e2
   | Closure.Var(x) -> [Load(List.assoc x env, getindex x env)]
+  | Closure.ExtFunApp("float_of_int", e2) ->
+    List.concat (List.map (g env) e2) @ [Itof]
+  | Closure.ExtFunApp("int_of_float", e2) ->
+    List.concat (List.map (g env) e2) @ [Ftoi]
   | Closure.ExtFunApp(f, e2) ->
     List.concat (List.map (g env) e2) @ [CallLib("min_caml_" ^ f, M.find f !Typing.extenv)]
   | Closure.AppDir(f, e2) ->
@@ -47,7 +54,7 @@ let rec g env e =
 let h { Closure.name = (x, t); Closure.args = yts; Closure.formal_fv = zts; Closure.body = e } =
   toplevel := (x, t) :: !toplevel;
   match t with
-  | Type.Fun(_, t') -> { name = (x, t); args = yts; formal_fv = zts; body = g yts e @ [Return t'] }
+  | Type.Fun(_, t') -> { name = (x, t); args = yts; formal_fv = zts; body = g (List.rev yts) e @ [Return t'] }
   | _ -> assert false
 
 let f (Closure.Prog(fundef, e)) =
