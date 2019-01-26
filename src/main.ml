@@ -3,6 +3,7 @@ let compile oc e =
   let e = Parser.exp Lexer.token e in
   let e = Typing.f e in
   Syntax.print_t e;
+  (* let e = ConstFold.f e in *)
   let e = Closure.f e in
   print_endline "-------After Closure.f-------";
   Closure.print_prog e;

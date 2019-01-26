@@ -11,9 +11,6 @@ let getindex x env =
   in inner_ x env ((List.length env) - 1)
 
 let rec g env e =
-  Closure.print_t e;
-  print_newline ();
-  Id.print_env env;
   match e with
   | Closure.Unit -> []
   | Closure.Int(n)   -> [Ldc(I(n))]
