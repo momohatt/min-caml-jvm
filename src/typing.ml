@@ -138,7 +138,7 @@ let rec g env e =
       Type.Array(t)
     | App(x, es, p) ->
       let t = Type.gentyp () in
-      unify (M.find x env) (Type.Fun(List.map (g env) es, t)) p;
+      unify (g env (Var(x))) (Type.Fun(List.map (g env) es, t)) p;
       t
     | Tuple(es) -> Type.Tuple(List.map (g env) es)
     | LetTuple(xts, e1, e2, p) ->
@@ -193,7 +193,7 @@ let f e =
   | Type.Unit -> ()
   | _ -> Format.eprintf "warning: final result does not have type unit@.");
 *)
-  (* (try unify Type.Unit (g M.empty e) Lexing.dummy_pos
-     with Unify _ -> failwith "top level does not have type unit"); *)
+  (try unify Type.Unit (g M.empty e) Lexing.dummy_pos
+   with Unify _ -> failwith "top level does not have type unit");
   extenv := M.map deref_typ !extenv;
   deref_term e

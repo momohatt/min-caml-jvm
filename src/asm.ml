@@ -3,7 +3,7 @@ type imm =
   | F of float
 
 type inst =
-  | Load of imm
+  | Load of Type.t * int
   | Ldc of imm
   | Neg of Type.t
   | IXor

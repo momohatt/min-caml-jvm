@@ -18,8 +18,7 @@ let rec type_signature t =
 
 let rec g oc e =
   match e with
-  | Load(I(n)) -> Printf.fprintf oc "\tiload %d\n" n
-  | Load(F(n)) -> Printf.fprintf oc "\tfload %f\n" n
+  | Load(t, n) -> Printf.fprintf oc "\t%sload %d\n" (str_of_type t) n
   | Ldc(I(n))  -> Printf.fprintf oc "\tldc %d\n" n
   | Ldc(F(n))  -> Printf.fprintf oc "\tldc %f\n" n
   | Neg t -> Printf.fprintf oc "\t%seg\n" (str_of_type t)
@@ -65,6 +64,8 @@ let rec g oc e =
 
 let h oc f =
   Printf.fprintf oc ".method public static %s%s\n" (fst f.name) (type_signature (snd f.name));
+  Printf.fprintf oc "\t.limit stack 5\n"; (*TODO*)
+  Printf.fprintf oc "\t.limit locals 5\n";
   List.iter (fun e -> g oc e) f.body;
   Printf.fprintf oc ".end method\n\n"
 

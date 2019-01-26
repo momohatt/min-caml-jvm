@@ -74,7 +74,7 @@ let rec string_of_t ?(do_indent = true) ?(endline = "\n") (exp : t) (depth : int
                            ^ (string_of_t e3 (depth + 1)) ^ endline
 and
   string_of_fundef (f : fundef) (depth : int) =
-  (fst f.name) ^ " (" ^ (String.concat ", " (List.map fst f.args)) ^ ") =\n" ^ (string_of_t f.body depth)
+  Printf.sprintf "%s (%s) : %s =\n%s" (fst f.name) (String.concat ", " (List.map fst f.args)) (Type.string_of_t (snd f.name)) (string_of_t f.body depth)
 
 (* [WEEK1 Q1] pretty print for Syntax.t *)
 let print_t (exp : t) =
