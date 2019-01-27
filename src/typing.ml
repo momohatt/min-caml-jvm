@@ -44,9 +44,9 @@ let rec deref_term = function
   | App(x, es, p) -> App(x, List.map deref_term es, p)
   | Tuple(es) -> Tuple(List.map deref_term es)
   | LetTuple(xts, e1, e2, p) -> LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2, p)
-  | Array(e1, e2, p) -> Array(deref_term e1, deref_term e2, p)
-  | Get(e1, e2, p) -> Get(deref_term e1, deref_term e2, p)
-  | Put(e1, e2, e3, p) -> Put(deref_term e1, deref_term e2, deref_term e3, p)
+  | Array(e1, e2, t, p) -> Array(deref_term e1, deref_term e2, deref_typ t, p)
+  | Get(e1, e2, t, p) -> Get(deref_term e1, deref_term e2, deref_typ t, p)
+  | Put(e1, e2, e3, t, p) -> Put(deref_term e1, deref_term e2, deref_term e3, deref_typ t, p)
   | e -> e
 
 let rec occur r1 = function (* occur check (caml2html: typing_occur) *)
@@ -144,16 +144,15 @@ let rec g env e =
     | LetTuple(xts, e1, e2, p) ->
       unify (Type.Tuple(List.map snd xts)) (g env e1) p;
       g (M.add_list xts env) e2
-    | Array(e1, e2, p) -> (* must be a primitive for "polymorphic" typing *)
+    | Array(e1, e2, t, p) -> (* must be a primitive for "polymorphic" typing *)
       unify (g env e1) Type.Int p;
-      Type.Array(g env e2)
-    | Get(e1, e2, p) ->
-      let t = Type.gentyp () in
+      unify t (g env e2) p;
+      Type.Array(t)
+    | Get(e1, e2, t, p) ->
       unify (Type.Array(t)) (g env e1) p;
       unify Type.Int (g env e2) p;
       t
-    | Put(e1, e2, e3, p) ->
-      let t = g env e3 in
+    | Put(e1, e2, e3, t, p) ->
       unify (Type.Array(t)) (g env e1) p;
       unify Type.Int (g env e2) p;
       Type.Unit

@@ -25,8 +25,9 @@ type t = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | ExtFunApp of Id.t * t list
   | Tuple of t list
   | LetTuple of (Id.t * Type.t) list * t * t
-  | Get of t * t
-  | Put of t * t * t
+  | Array of t * t * Type.t
+  | Get of t * t * Type.t
+  | Put of t * t * t * Type.t
   | ExtArray of Id.l
 type fundef = { name : Id.t * Type.t;
                 args : (Id.t * Type.t) list;
@@ -68,8 +69,9 @@ let rec str_of_t (exp : t) : string =
   | Tuple(e) -> ( "( ") ^ String.concat ", " (List.map (fun e -> str_of_t e) e) ^ " )"
   | LetTuple(l, e1, e2) -> "LET (" ^ (String.concat ", " (List.map fst l)) ^ ") = " ^ (str_of_t e1) ^ " IN\n" ^
                            (str_of_t e2)
-  | Get(e1, e2)   -> (str_of_t e1) ^ "[ " ^ (str_of_t e2) ^ " ]"
-  | Put(e1, e2, e3) -> (str_of_t e1) ^ "[ " ^ (str_of_t e2) ^ " ] <- " ^ (str_of_t e3)
+  | Array(e1, e2, _) -> "create_array (" ^ (str_of_t e1) ^ ", " ^ (str_of_t e2) ^ ")"
+  | Get(e1, e2, _)   -> (str_of_t e1) ^ "[ " ^ (str_of_t e2) ^ " ]"
+  | Put(e1, e2, e3, _) -> (str_of_t e1) ^ "[ " ^ (str_of_t e2) ^ " ] <- " ^ (str_of_t e3)
   | ExtArray Id.L(e) -> e
 
 let string_of_t (exp : t) = str_of_t exp
@@ -89,7 +91,7 @@ let rec fv = function
   | Unit | Int(_) | Float(_) | ExtArray(_) -> S.empty
   | Not(e) | Neg(e) | FNeg(e) -> fv e
   | Add(e1, e2) | Sub(e1, e2) | Mul(e1, e2) | Div(e1, e2)
-  | FAdd(e1, e2) | FSub(e1, e2) | FMul(e1, e2) | FDiv(e1, e2) | FCmp(e1, e2) | Get(e1, e2) -> S.union (fv e1) (fv e2)
+  | FAdd(e1, e2) | FSub(e1, e2) | FMul(e1, e2) | FDiv(e1, e2) | FCmp(e1, e2) | Array(e1, e2, _) | Get(e1, e2, _) -> S.union (fv e1) (fv e2)
   | IfEq(e1, e2, e3, e4)| IfLE(e1, e2, e3, e4) -> (S.union (fv e1) (S.union (fv e2) (S.union (fv e3) (fv e4))))
   | Let((x, t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
   | Var(x) -> S.singleton x
@@ -97,7 +99,7 @@ let rec fv = function
   | AppCls(x, ys) -> S.add x (List.fold_left (fun s n -> S.union (fv n) s) S.empty ys)
   | ExtFunApp(_, xs) | AppDir(_, xs) | Tuple(xs) -> List.fold_left (fun s n -> S.union (fv n) s) S.empty xs
   | LetTuple(xts, y, e) -> S.union (fv y) (S.diff (fv e) (S.of_list (List.map fst xts)))
-  | Put(x, y, z) -> S.union (fv x) (S.union (fv y) (fv z))
+  | Put(x, y, z, _) -> S.union (fv x) (S.union (fv y) (fv z))
 
 let toplevel : fundef list ref = ref []
 
@@ -170,9 +172,9 @@ let rec g env known e =
   | Syntax.App(f, xs, _) -> AppCls(f, List.map (g env known) xs)
   | Syntax.Tuple(xs) -> Tuple(List.map (g env known) xs)
   | Syntax.LetTuple(xts, y, e, _) -> LetTuple(xts, g env known y, g (M.add_list xts env) known e)
-  | Syntax.Get(x, y, _) -> Get(g env known x, g env known y)
-  | Syntax.Put(x, y, z, _) -> Put(g env known x, g env known y, g env known z)
-  | Syntax.Array _ -> assert false
+  | Syntax.Get(x, y, t, _) -> Get(g env known x, g env known y, t)
+  | Syntax.Put(x, y, z, t, _) -> Put(g env known x, g env known y, g env known z, t)
+  | Syntax.Array(e1, e2, t, _) -> Array(g env known e1, g env known e2, t)
 
 let f e =
   toplevel := [];

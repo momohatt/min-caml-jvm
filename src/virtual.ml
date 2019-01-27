@@ -43,8 +43,16 @@ let rec g env e =
   | Closure.AppCls(e1, e2) -> assert false
   | Closure.Tuple(e) -> assert false
   | Closure.LetTuple(l, e1, e2) -> assert false
-  | Closure.Get(e1, e2) -> assert false
-  | Closure.Put(e1, e2, e3) -> assert false
+  | Closure.Array(e1, e2, t) ->
+    let f = match t with
+      | Type.Int | Type.Bool -> "create_iarray"
+      | Type.Float -> "create_farray"
+      | _ -> "create_aarray" in
+    g env e1 @ g env e2 @ [CallLib("min_caml_" ^ f, Type.Fun([Type.Int; t], Type.Array(t)))]
+  | Closure.Get(e1, e2, t) ->
+    g env e1 @ g env e2 @ [ALoad(t)]
+  | Closure.Put(e1, e2, e3, t) ->
+    g env e1 @ g env e2 @ g env e3 @ [AStore(t)]
   | Closure.MakeCls _ -> assert false
   | Closure.ExtArray _ -> assert false
 

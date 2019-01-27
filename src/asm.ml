@@ -5,6 +5,8 @@ type imm =
 type inst =
   | Load of Type.t * int
   | Store of Type.t * int
+  | ALoad of Type.t (* array load *)
+  | AStore of Type.t (* array store *)
   | Ldc of imm
   | Neg of Type.t
   | IXor

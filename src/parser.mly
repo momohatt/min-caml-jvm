@@ -73,7 +73,7 @@ simple_exp:
 | IDENT
     { Var($1) }
 | simple_exp DOT LPAREN exp RPAREN
-    { Get($1, $4, get_pos ()) }
+    { Get($1, $4, Type.gentyp (), get_pos ()) }
 
 exp:
 | simple_exp
@@ -135,14 +135,14 @@ exp:
 | LET LPAREN pat RPAREN EQUAL exp IN exp
     { LetTuple($3, $6, $8, get_pos ()) }
 | simple_exp DOT LPAREN exp RPAREN LESS_MINUS exp
-    { Put($1, $4, $7, get_pos ()) }
+    { Put($1, $4, $7, Type.gentyp (), get_pos ()) }
 | exp SEMICOLON exp
     { Let((Id.gentmp Type.Unit, Type.Unit), $1, $3, get_pos ()) }
 | exp SEMICOLON
     { Let((Id.gentmp Type.Unit, Type.Unit), $1, Unit, get_pos ()) }
 | ARRAY_CREATE simple_exp simple_exp
     %prec prec_app
-    { Array($2, $3, get_pos ()) }
+    { Array($2, $3, Type.gentyp (), get_pos ()) }
 | error
     { let start_pos = Parsing.symbol_start_pos () in
       let end_pos = Parsing.symbol_end_pos () in

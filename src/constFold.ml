@@ -36,7 +36,7 @@ let rec g env e =
   | App(e1, e2, p) -> App(e1, List.map (g env) e2, p)
   | Tuple(e) -> Tuple(List.map (g env) e)
   | LetTuple(e1, e2, e3, p) -> LetTuple(e1, e2, g env e3, p)
-  | Array(e1, e2, p) -> Array(g env e1, g env e2, p)
+  | Array(e1, e2, t, p) -> Array(g env e1, g env e2, t, p)
   | _ -> e
 
 let f e = g [] e

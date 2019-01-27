@@ -25,9 +25,9 @@ type t =
   | App of Id.t * t list * pos
   | Tuple of t list
   | LetTuple of (Id.t * Type.t) list * t * t * pos
-  | Array of t * t * pos
-  | Get of t * t * pos
-  | Put of t * t * t * pos
+  | Array of t * t * Type.t * pos
+  | Get of t * t * Type.t * pos
+  | Put of t * t * t * Type.t * pos
 and fundef = { name : Id.t * Type.t; args : (Id.t * Type.t) list; body : t }
 
 (* [WEEK1 Q1] output pretty string for Syntax.t *)
@@ -68,10 +68,10 @@ let rec string_of_t ?(do_indent = true) ?(endline = "\n") (exp : t) (depth : int
                String.concat ", " (List.map (fun ex -> string_of_t ex (depth + 1) ~do_indent:false ~endline:"") e) ^ " )" ^ endline
   | LetTuple (l, e1, e2, _) -> prefix ^ "LET (" ^ (String.concat ", " (List.map fst l)) ^ ") =\n"
                                ^ (string_of_t e1 (depth + 1)) ^ (indent ^ "IN\n") ^ (string_of_t e2 depth)
-  | Array (e1, e2, _) -> prefix ^ "[ " ^ (string_of_t e1 depth ~do_indent:false) ^ (string_of_t e2 (depth + 1) ~endline:" ]\n")
-  | Get (e1, e2, _) -> (string_of_t e1 depth ~endline:"[ ") ^ (string_of_t e2 (depth + 1) ~do_indent:false ~endline:" ]") ^ endline
-  | Put (e1, e2, e3, _) -> (string_of_t e1 depth ~endline:"[ ") ^ (string_of_t e2 (depth + 1) ~do_indent:false ~endline:" ] <-\n")
-                           ^ (string_of_t e3 (depth + 1)) ^ endline
+  | Array (e1, e2, _, _) -> prefix ^ "[ " ^ (string_of_t e1 depth ~do_indent:false) ^ (string_of_t e2 (depth + 1) ~endline:" ]\n")
+  | Get (e1, e2, _, _) -> (string_of_t e1 depth ~endline:"[ ") ^ (string_of_t e2 (depth + 1) ~do_indent:false ~endline:" ]") ^ endline
+  | Put (e1, e2, e3, _, _) -> (string_of_t e1 depth ~endline:"[ ") ^ (string_of_t e2 (depth + 1) ~do_indent:false ~endline:" ] <-\n")
+                              ^ (string_of_t e3 (depth + 1)) ^ endline
 and
   string_of_fundef (f : fundef) (depth : int) =
   Printf.sprintf "%s (%s) : %s =\n%s" (fst f.name) (String.concat ", " (List.map fst f.args)) (Type.string_of_t (snd f.name)) (string_of_t f.body depth)

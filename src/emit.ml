@@ -5,6 +5,7 @@ let str_of_type t =
   | Type.Int -> "i"
   | Type.Float -> "f"
   | Type.Unit -> ""
+  | Type.Array _ -> "a"
   | _ -> assert false
 
 let rec type_signature t =
@@ -16,6 +17,7 @@ let rec type_signature t =
   | Type.Unit  -> "V"
   | Type.Int   -> "I"
   | Type.Float -> "F"
+  | Type.Array(t) -> "[" ^ (type_signature t)
   | _ -> assert false
 
 let rec g oc e =
@@ -24,6 +26,8 @@ let rec g oc e =
   | Store(t, n) -> (match t with
       | Type.Unit -> ()
       | _ -> Printf.fprintf oc "\t%sstore %d\n" (str_of_type t) n)
+  | ALoad(t)   -> Printf.fprintf oc "\t%saload\n" (str_of_type t)
+  | AStore(t)  -> Printf.fprintf oc "\t%sastore\n" (str_of_type t)
   | Ldc(I(n))  -> Printf.fprintf oc "\tldc %d\n" n
   | Ldc(F(n))  -> Printf.fprintf oc "\tldc %f\n" n
   | Neg t -> Printf.fprintf oc "\t%sneg\n" (str_of_type t)
