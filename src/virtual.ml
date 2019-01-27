@@ -43,7 +43,13 @@ let rec g env e =
   | Closure.AppCls(e1, e2) -> assert false
   | Closure.Tuple(e) -> assert false
   | Closure.LetTuple(l, e1, e2) -> assert false
-  | Closure.Array(e1, e2, t) ->
+  | Closure.Array(Int(n) as e1, e2, t) ->
+    let inst = ref (g env e2 @ [Store(t, List.length env)] @ g env e1 @ [NewArray(t)]) in
+    for i = 0 to n - 1 do
+      inst := !inst @ [Dup; Ldc(I(i)); Load(t, List.length env); AStore(t)];
+    done;
+    !inst
+  | Closure.Array(e1, e2, t) -> (* TODO *)
     let f = match t with
       | Type.Int | Type.Bool -> "create_iarray"
       | Type.Float -> "create_farray"

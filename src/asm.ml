@@ -7,6 +7,7 @@ type inst =
   | Store of Type.t * int
   | ALoad of Type.t (* array load *)
   | AStore of Type.t (* array store *)
+  | NewArray of Type.t
   | Ldc of imm
   | Neg of Type.t
   | IXor
@@ -16,6 +17,7 @@ type inst =
   | Div of Type.t
   | Ftoi
   | Itof
+  | Dup
   | IfEq of inst list * inst list * inst list * inst list
   | IfLE of inst list * inst list * inst list * inst list
   | FCmp

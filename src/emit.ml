@@ -28,6 +28,8 @@ let rec g oc e =
       | _ -> Printf.fprintf oc "\t%sstore %d\n" (str_of_type t) n)
   | ALoad(t)   -> Printf.fprintf oc "\t%saload\n" (str_of_type t)
   | AStore(t)  -> Printf.fprintf oc "\t%sastore\n" (str_of_type t)
+  | NewArray(Type.Array(t)) -> Printf.fprintf oc "\tanewarray [%s\n" (type_signature t)
+  | NewArray(t) -> Printf.fprintf oc "\tnewarray %s\n" (Type.string_of_t t)
   | Ldc(I(n))  -> Printf.fprintf oc "\tldc %d\n" n
   | Ldc(F(n))  -> Printf.fprintf oc "\tldc %f\n" n
   | Neg t -> Printf.fprintf oc "\t%sneg\n" (str_of_type t)
@@ -39,6 +41,7 @@ let rec g oc e =
   | Ftoi  -> Printf.fprintf oc "\tf2i\n"
   | Itof  -> Printf.fprintf oc "\ti2f\n"
   | FCmp  -> Printf.fprintf oc "\tfcmpl\n"
+  | Dup   -> Printf.fprintf oc "\tdup\n"
   | IfEq(e1, e2, e3, e4) ->
     let l_else = Id.genid "IfEq_else" in
     let l_cont = Id.genid "IfEq_cont" in

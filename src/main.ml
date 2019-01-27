@@ -7,6 +7,7 @@ let compile oc e =
   let e = Closure.f e in
   print_endline "-------After Closure.f-------";
   Closure.print_prog e;
+  print_newline ();
   let e = Virtual.f e in
   Emit.f oc e
 
