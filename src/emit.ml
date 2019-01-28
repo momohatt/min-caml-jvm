@@ -42,6 +42,8 @@ let rec g oc e =
   | Itof  -> Printf.fprintf oc "\ti2f\n"
   | FCmp  -> Printf.fprintf oc "\tfcmpl\n"
   | Dup   -> Printf.fprintf oc "\tdup\n"
+  | PutStatic(x, t) -> Printf.fprintf oc "\tputstatic caml/%s %s\n" x (type_signature t)
+  | GetStatic(x, t) -> Printf.fprintf oc "\tgetstatic caml/%s %s\n" x (type_signature t)
   | IfEq(e1, e2, e3, e4) ->
     let l_else = Id.genid "IfEq_else" in
     let l_cont = Id.genid "IfEq_cont" in
@@ -83,12 +85,24 @@ let h oc f =
   List.iter (fun e -> g oc e) f.body;
   Printf.fprintf oc ".end method\n\n"
 
-let f oc (fundef, body) =
+let initialize t =
+  match t with
+  | Type.Int -> [Ldc(I(0))]
+  | Type.Float -> [Ldc(F(0.0))]
+  | Type.Array(t) -> [NewArray(t)]
+  | _ -> []
+
+let f oc { fields = xts; funs = fundef; main = body } =
   Printf.fprintf oc ".class public caml\n";
   Printf.fprintf oc ".super java/lang/Object\n";
+  List.iter (fun (x, t) ->
+      Printf.fprintf oc ".field private static %s %s\n" x (type_signature t)) xts;
   Printf.fprintf oc ".method public <init>()V\n";
   Printf.fprintf oc "\taload_0\n";
   Printf.fprintf oc "\tinvokespecial java/lang/Object/<init>()V\n";
+  List.iter (fun (x, t) ->
+      List.iter (g oc) (initialize t);
+      Printf.fprintf oc "\tputstatic caml/%s %s\n" x (type_signature t)) xts;
   Printf.fprintf oc "\treturn\n";
   Printf.fprintf oc ".end method\n\n";
   List.iter (fun f -> h oc f) fundef;

@@ -27,5 +27,8 @@ let gentmp typ =
   incr count;
   Printf.sprintf "T%s%d" (id_of_typ typ) !count
 
+let mem x (env : (t * 'a) list) =
+  List.exists (fun (y, _) -> x = y) env
+
 let print_env (env : (t * 'a) list) =
   Printf.printf "env:[%s]\n" (String.concat ", " (List.map fst env))

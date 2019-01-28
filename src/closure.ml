@@ -1,4 +1,4 @@
-type closure = { entry : Id.l; actual_fv : Id.t list }
+type closure = { entry : Id.l; fv : (Id.t * Type.t) list }
 type t = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | Unit
   | Int of int
@@ -31,7 +31,7 @@ type t = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | ExtArray of Id.l
 type fundef = { name : Id.t * Type.t;
                 args : (Id.t * Type.t) list;
-                formal_fv : (Id.t * Type.t) list;
+                fv : (Id.t * Type.t) list;
                 body : t }
 type prog = Prog of fundef list * t
 
@@ -53,16 +53,16 @@ let rec str_of_t (exp : t) : string =
   | FDiv(e1, e2) -> (str_of_t e1) ^ " /. " ^ (str_of_t e2)
   | FCmp(e1, e2) -> (str_of_t e1) ^ " `cmp` " ^ (str_of_t e2)
   | IfEq(e1, e2, et, ef) ->
-    Printf.sprintf "IF ( %s = %s ) THEN\n%sELSE\n%s" (str_of_t e1) (str_of_t e2) (str_of_t et) (str_of_t ef)
+    Printf.sprintf "IF ( %s = %s ) THEN\n%s ELSE\n%s" (str_of_t e1) (str_of_t e2) (str_of_t et) (str_of_t ef)
   | IfLE(e1, e2, et, ef) ->
-    Printf.sprintf "IF ( %s <= %s ) THEN\n%sELSE\n%s" (str_of_t e1) (str_of_t e2) (str_of_t et) (str_of_t ef)
+    Printf.sprintf "IF ( %s <= %s ) THEN\n%s ELSE\n%s" (str_of_t e1) (str_of_t e2) (str_of_t et) (str_of_t ef)
   | Let((x, _), e1, e2) ->
     (match e1 with
      | IfEq _ | IfLE _ -> "LET " ^ x ^ " =\n" ^ (str_of_t e1) ^ ( "IN\n") ^ (str_of_t e2)
      | _ -> "LET " ^ x ^ " = " ^ (str_of_t e1) ^ " IN\n" ^ (str_of_t e2))
   | Var(x) -> "VAR " ^ x
-  | MakeCls((f, _), { entry = Id.L(l); actual_fv = xl }, e) ->
-    "MAKECLS " ^ f ^ " = <" ^ l ^ ", {" ^ (String.concat ", " xl) ^ "}> IN\n" ^ (str_of_t e)
+  | MakeCls((f, _), { entry = Id.L(l); fv = xl }, e) ->
+    "MAKECLS " ^ f ^ " = <" ^ l ^ ", {" ^ (String.concat ", " (List.map fst xl)) ^ "}> IN\n" ^ (str_of_t e)
   | AppCls(e1, e2) -> e1 ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) e2)
   | AppDir(e1, e2) -> e1 ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) e2)
   | ExtFunApp(e1, e2) -> e1 ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) e2)
@@ -77,7 +77,7 @@ let rec str_of_t (exp : t) : string =
 let string_of_t (exp : t) = str_of_t exp
 
 let string_of_fundef (f : fundef) =
-  let { name = (l, _); args = yts; formal_fv = zts; body = e } = f in
+  let { name = (l, _); args = yts; fv = zts; body = e } = f in
   l ^ " (" ^ (String.concat ", " (List.map fst f.args)) ^ ") =\n" ^ (str_of_t e)
 
 let rec string_of_prog (Prog (fundefs, e)) =
@@ -95,7 +95,7 @@ let rec fv = function
   | IfEq(e1, e2, e3, e4)| IfLE(e1, e2, e3, e4) -> (S.union (fv e1) (S.union (fv e2) (S.union (fv e3) (fv e4))))
   | Let((x, t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
   | Var(x) -> S.singleton x
-  | MakeCls((x, t), { entry = l; actual_fv = ys }, e) -> S.remove x (S.union (S.of_list ys) (fv e))
+  | MakeCls((x, t), { entry = l; fv = ys }, e) -> S.remove x (S.union (S.of_list (List.map fst ys)) (fv e))
   | AppCls(x, ys) -> S.add x (List.fold_left (fun s n -> S.union (fv n) s) S.empty ys)
   | ExtFunApp(_, xs) | AppDir(_, xs) | Tuple(xs) -> List.fold_left (fun s n -> S.union (fv n) s) S.empty xs
   | LetTuple(xts, y, e) -> S.union (fv y) (S.diff (fv e) (S.of_list (List.map fst xts)))
@@ -158,10 +158,10 @@ let rec g env known e =
          known, e1') in
     let zs = S.elements (S.diff (fv e1') (S.add x (S.of_list (List.map fst yts)))) in (* 自由変数のリスト *)
     let zts = List.map (fun z -> (z, M.find z env')) zs in (* ここで自由変数zの型を引くために引数envが必要 *)
-    toplevel := { name = (x, t); args = yts; formal_fv = zts; body = e1' } :: !toplevel; (* トップレベル関数を追加 *)
+    toplevel := { name = (x, t); args = yts; fv = zts; body = e1' } :: !toplevel; (* トップレベル関数を追加 *)
     let e2' = g env' known' e2 in
     if S.mem x (fv e2') then (* xが変数としてe2'に出現するか *)
-      MakeCls((x, t), { entry = Id.L(x); actual_fv = zs }, e2') (* 出現していたら削除しない *)
+      MakeCls((x, t), { entry = Id.L(x); fv = zts }, e2') (* 出現していたら削除しない *)
     else
       (Format.eprintf "eliminating closure(s) %s@." x;
        e2') (* 出現しなければMakeClsを削除 *)

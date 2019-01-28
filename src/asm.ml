@@ -18,6 +18,8 @@ type inst =
   | Ftoi
   | Itof
   | Dup
+  | PutStatic of Id.t * Type.t
+  | GetStatic of Id.t * Type.t
   | IfEq of inst list * inst list * inst list * inst list
   | IfLE of inst list * inst list * inst list * inst list
   | FCmp
@@ -28,8 +30,12 @@ type inst =
 type fundef = {
   name : (Id.t * Type.t);
   args : (Id.t * Type.t) list;
-  formal_fv : (Id.t * Type.t) list;
+  fv : (Id.t * Type.t) list;
   body : inst list
 }
 
-type prog = fundef list * inst list (* main *)
+type prog = {
+  fields : (Id.t * Type.t) list;
+  funs : fundef list;
+  main : inst list;
+}
