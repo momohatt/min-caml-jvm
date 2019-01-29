@@ -12,7 +12,9 @@ let compile oc e =
   Emit.f oc e
 
 let file f =
-  let ofilename = (String.sub f 0 ((String.length f) - 3)) ^ ".j" in
+  let id = String.sub f 0 ((String.length f) - 3) in
+  Sys.command ("mkdir -p " ^ id) |> ignore;
+  let ofilename = id ^ "/main.j" in
   let inchan = open_in f in
   let outchan = open_out ofilename in
   try

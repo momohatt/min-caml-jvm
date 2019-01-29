@@ -165,11 +165,12 @@ let rec g env known e =
     else
       (Format.eprintf "eliminating closure(s) %s@." x;
        e2') (* 出現しなければMakeClsを削除 *)
-  | Syntax.App(x, ys, _) when S.mem x known -> (* 関数適用の場合 (caml2html: closure_app) *)
+  | Syntax.App(Var(x), ys, _) when S.mem x known -> (* 関数適用の場合 (caml2html: closure_app) *)
     Format.eprintf "directly applying %s@." x;
     AppDir(x, List.map (g env known) ys)
-  | Syntax.App(x, ys, _) when M.mem x !Typing.extenv -> ExtFunApp(x, (List.map (g env known) ys))
-  | Syntax.App(f, xs, _) -> AppCls(f, List.map (g env known) xs)
+  | Syntax.App(Var(x), ys, _) when M.mem x !Typing.extenv -> ExtFunApp(x, (List.map (g env known) ys))
+  | Syntax.App(Var(f), xs, _) -> AppCls(f, List.map (g env known) xs)
+  | Syntax.App(f, xs, _) -> assert false
   | Syntax.Tuple(xs) -> Tuple(List.map (g env known) xs)
   | Syntax.LetTuple(xts, y, e, _) -> LetTuple(xts, g env known y, g (M.add_list xts env) known e)
   | Syntax.Get(x, y, t, _) -> Get(g env known x, g env known y, t)

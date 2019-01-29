@@ -131,14 +131,14 @@ let rec g env e =
       let env = M.add x t env in
       unify t (Type.Fun(List.map snd yts, g (M.add_list yts env) e1)) p;
       g env e2
-    | App("create_array", [e1; e2], p) ->
+    | App(Var("create_array"), [e1; e2], p) ->
       unify Type.Int (g env e1) p;
       let t = Type.gentyp () in
       unify (g env e2) t p;
       Type.Array(t)
     | App(x, es, p) ->
       let t = Type.gentyp () in
-      unify (g env (Var(x))) (Type.Fun(List.map (g env) es, t)) p;
+      unify (g env x) (Type.Fun(List.map (g env) es, t)) p;
       t
     | Tuple(es) -> Type.Tuple(List.map (g env) es)
     | LetTuple(xts, e1, e2, p) ->
