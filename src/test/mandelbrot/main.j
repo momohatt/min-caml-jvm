@@ -1,7 +1,9 @@
-.class public caml
+.class public main
 .super java/lang/Object
 .method public <init>()V
-	aload_0
+	.limit stack 10
+	.limit locals 10
+	aload 0
 	invokespecial java/lang/Object/<init>()V
 	return
 .end method
@@ -60,7 +62,7 @@ IfEq_else_4:
 	fload 12
 	fload 5
 	fload 6
-	invokestatic caml.iloop(IFFFFFF)V
+	invokestatic main.iloop(IFFFFFF)V
 	goto IfLE_cont_7
 IfLE_else_6:
 	ldc 0
@@ -103,12 +105,12 @@ IfLE_else_8:
 	ldc 0.000000
 	fload 2
 	fload 3
-	invokestatic caml.iloop(IFFFFFF)V
+	invokestatic main.iloop(IFFFFFF)V
 	iload 0
 	ldc 1
 	iadd
 	iload 1
-	invokestatic caml.xloop(II)V
+	invokestatic main.xloop(II)V
 IfLE_cont_9:
 	return
 .end method
@@ -124,11 +126,11 @@ IfLE_else_10:
 	invokestatic libmincaml.min_caml_print_newline()V
 	ldc 0
 	iload 0
-	invokestatic caml.xloop(II)V
+	invokestatic main.xloop(II)V
 	iload 0
 	ldc 1
 	iadd
-	invokestatic caml.yloop(I)V
+	invokestatic main.yloop(I)V
 IfLE_cont_11:
 	return
 .end method
@@ -137,6 +139,7 @@ IfLE_cont_11:
 	.limit stack 100
 	.limit locals 100
 	ldc 0
-	invokestatic caml.yloop(I)V
+	invokestatic main.yloop(I)V
 	return
 .end method
+
