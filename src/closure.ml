@@ -33,7 +33,7 @@ type fundef = { name : Id.t * Type.t;
                 args : (Id.t * Type.t) list;
                 fv : (Id.t * Type.t) list;
                 body : t }
-type prog = Prog of fundef list * t
+type prog = Prog of (Id.t list) * fundef list * t
 
 let rec str_of_t (exp : t) : string =
   match exp with
@@ -77,10 +77,10 @@ let rec str_of_t (exp : t) : string =
 let string_of_t (exp : t) = str_of_t exp
 
 let string_of_fundef (f : fundef) =
-  let { name = (l, _); args = yts; fv = zts; body = e } = f in
-  l ^ " (" ^ (String.concat ", " (List.map fst f.args)) ^ ") =\n" ^ (str_of_t e)
+  let { name = (l, t); args = yts; fv = zts; body = e } = f in
+  Printf.sprintf "%s (%s) : %s=\n%s" l (String.concat ", " (List.map fst f.args)) (Type.string_of_t t) (str_of_t e)
 
-let rec string_of_prog (Prog (fundefs, e)) =
+let rec string_of_prog (Prog(_, fundefs, e)) =
   String.concat "\n\n" (List.map string_of_fundef fundefs) ^ "\n" ^ string_of_t e
 
 let print_t (exp : t) = print_string (string_of_t exp)
@@ -103,6 +103,7 @@ let rec fv = function
   | Put(x, y, z, _) -> S.union (fv x) (S.union (fv y) (fv z))
 
 let toplevel : fundef list ref = ref []
+let closures : Id.t list ref = ref []
 
 let rec g env known e =
   match e with
@@ -162,7 +163,8 @@ let rec g env known e =
     toplevel := { name = (x, t); args = yts; fv = zts; body = e1' } :: !toplevel; (* トップレベル関数を追加 *)
     let e2' = g env' known' e2 in
     if S.mem x (fv e2') then (* xが変数としてe2'に出現するか *)
-      MakeCls((x, t), { entry = Id.L(x); fv = zts }, e2') (* 出現していたら削除しない *)
+      (closures := x :: !closures;
+       MakeCls((x, t), { entry = Id.L(x); fv = zts }, e2')) (* 出現していたら削除しない *)
     else
       (Format.eprintf "eliminating closure(s) %s@." x;
        e2') (* 出現しなければMakeClsを削除 *)
@@ -180,4 +182,4 @@ let rec g env known e =
 let f e =
   toplevel := [];
   let e' = g M.empty S.empty e in
-  Prog(List.rev !toplevel, e')
+  Prog(!closures, List.rev !toplevel, e')

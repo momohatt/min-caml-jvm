@@ -17,12 +17,19 @@ let typet2ty (t : Type.t) : ty = match Typing.deref_typ t with
   | Type.Array _ | Type.Tuple _ -> `A
   | _ -> assert false
 
+let returntype (t : Type.t) = match Typing.deref_typ t with
+  | Type.Int | Type.Bool -> `I
+  | Type.Float -> `F
+  | Type.Array _ | Type.Tuple _ -> `A
+  | Type.Unit -> `V
+  | _ -> assert false
+
 let rec typet2tysig (t : Type.t) : ty_sig = match t with
   | Type.Unit -> Void
   | Type.Int | Type.Bool -> Int
   | Type.Float -> Float
   | Type.Array(t) -> Array (typet2tysig t)
-  | Type.Tuple _ -> Array (Obj)
+  | Type.Tuple _ -> Array(Obj)
   | Type.Fun(ts, t) -> Fun(List.map typet2tysig ts, typet2tysig t)
   | _ -> assert false
 
@@ -70,7 +77,9 @@ let rec g fv env e =
   | Closure.ExtFunApp(f, e2) ->
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("libmincaml.min_caml_" ^ f, typet2tysig (M.find f !Typing.extenv))]
   | Closure.AppDir(f, e2) ->
-    List.concat (List.map (g fv env) e2) @ [InvokeStatic("caml." ^ f, List.assoc f !toplevel)]
+    List.concat (List.map (g fv env) e2) @ [InvokeStatic("main." ^ f, List.assoc f !toplevel)]
+  | Closure.AppCls(Var(f), e2) ->
+    assert false
   | Closure.AppCls(e1, e2) ->
     assert false
   (* List.concat (List.map (g fv env) e2) @ [InvokeStatic(f, List.assoc f !toplevel)] *)
@@ -116,19 +125,31 @@ let rec g fv env e =
 
 let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.body = e } =
   match t with
-  | Type.Fun(_, t) ->
+  | Type.Fun(_, rt) ->
     let t' = typet2tysig t in
     let args = List.map (fun (y, t) -> y, typet2tysig t) yts in
     let fv = List.map (fun (y, t) -> y, typet2tysig t) zts in
     toplevel := (x, t') :: !toplevel;
     current_fun := x;
-    { name = (x, t'); args = args; fv = fv; body = g fv (List.rev yts) e @ [Return (typet2ty t)] }
+    { name = (x, t'); args = args; fv = fv; body = g fv (List.rev yts) e @ [Return (returntype rt)] }
   | _ -> assert false
 
-let f (Closure.Prog(fundef, e)) =
+let rec to_files closures acc main_funs fundefs =
+  match fundefs with
+  | [] ->
+    let main_init = [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V] in
+    { classname = "main"; init = Fun([Void], Void), main_init;
+      funs = main_funs; super = "java/lang/Object"; fields = [] } ::
+    acc
+  | f :: xf when List.mem (fst f.name) closures ->
+    let acc' =
+      { classname = "cls_" ^ fst f.name; init = (Int, []); (* TODO *)
+        funs = [f]; super = "cls"; fields = f.fv (* TODO *) } :: acc in
+    to_files closures acc' main_funs xf
+  | f :: xf -> to_files closures acc (main_funs @ [f]) xf
+
+let f (Closure.Prog(closures, fundef, e)) : Asm.prog =
   let fundef' = List.map h fundef in
   current_fun := "main";
-  let e' = g [] [] e in
-  let collect_fv { Closure.name = _; Closure.args = _; Closure.fv = fv; Closure.body = _ } = fv in
-  let all_fvs = List.map (fun (y, t) -> y, typet2tysig t) (List.concat (List.map collect_fv fundef)) in
-  { fields = all_fvs; funs = fundef'; main = e' }
+  let main = { name = ("main", Fun([Array(C "java/lang/String")], Void)); args = []; fv = []; body = (g [] [] e) @ [Return `V] } in
+  to_files closures [] [] (fundef' @ [main])

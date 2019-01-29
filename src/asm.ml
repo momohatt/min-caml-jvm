@@ -38,9 +38,10 @@ type inst =
   | IfEq of inst list * inst list * inst list * inst list
   | IfLE of inst list * inst list * inst list * inst list
   | FCmp
-  | Return of ty
+  | Return of [`I | `F | `A | `V]
   | InvokeStatic of Id.t * ty_sig
   | InvokeVirtual of Id.t * ty_sig
+  | InvokeSpecial of Id.t * ty_sig
 
 type fundef = {
   name : (Id.t * ty_sig);
@@ -49,8 +50,12 @@ type fundef = {
   body : inst list
 }
 
-type prog = {
-  fields : (Id.t * ty_sig) list;
+type file = {
+  classname : string; (* this also becomes the filename (without .j) *)
+  init : ty_sig * inst list;
   funs : fundef list;
-  main : inst list;
+  super : string;
+  fields : (Id.t * ty_sig) list
 }
+
+type prog = file list

@@ -1,4 +1,4 @@
-let compile oc e =
+let compile oc dirname e =
   Id.count := 0;
   let e = Parser.exp Lexer.token e in
   let e = Typing.f e in
@@ -9,7 +9,7 @@ let compile oc e =
   Closure.print_prog e;
   print_newline ();
   let e = Virtual.f e in
-  Emit.f oc e
+  Emit.f oc dirname e
 
 let file f =
   let id = String.sub f 0 ((String.length f) - 3) in
@@ -18,7 +18,7 @@ let file f =
   let inchan = open_in f in
   let outchan = open_out ofilename in
   try
-    compile outchan (Lexing.from_channel inchan);
+    compile outchan id (Lexing.from_channel inchan);
     close_in inchan;
     close_out outchan;
   with e -> (close_in inchan; close_out outchan; raise e)

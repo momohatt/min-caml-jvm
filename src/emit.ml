@@ -5,6 +5,7 @@ let str_of_ty t =
   | `I -> "i"
   | `F -> "f"
   | `A -> "a"
+  | `V -> ""
 
 let rec str_of_ty_sig (t : ty_sig) =
   match t with
@@ -79,6 +80,8 @@ let rec g oc e =
     Printf.fprintf oc "\tinvokestatic %s%s\n" f (str_of_ty_sig t)
   | InvokeVirtual(f, t) ->
     Printf.fprintf oc "\tinvokevirtual %s%s\n" f (str_of_ty_sig t)
+  | InvokeSpecial(f, t) ->
+    Printf.fprintf oc "\tinvokespecial %s%s\n" f (str_of_ty_sig t)
 
 let h oc f =
   Printf.fprintf oc ".method public static %s%s\n" (fst f.name) (str_of_ty_sig (snd f.name));
@@ -87,18 +90,17 @@ let h oc f =
   List.iter (fun e -> g oc e) f.body;
   Printf.fprintf oc ".end method\n\n"
 
-let f oc { fields = xts; funs = fundef; main = body } =
-  Printf.fprintf oc ".class public caml\n";
-  Printf.fprintf oc ".super java/lang/Object\n";
-  Printf.fprintf oc ".method public <init>()V\n";
-  Printf.fprintf oc "\taload_0\n";
-  Printf.fprintf oc "\tinvokespecial java/lang/Object/<init>()V\n";
-  Printf.fprintf oc "\treturn\n";
-  Printf.fprintf oc ".end method\n\n";
-  List.iter (fun f -> h oc f) fundef;
-  Printf.fprintf oc ".method public static main([Ljava/lang/String;)V\n";
-  Printf.fprintf oc "\t.limit stack 100\n"; (*TODO*)
-  Printf.fprintf oc "\t.limit locals 100\n";
-  List.iter (fun e -> g oc e) body;
-  Printf.fprintf oc "\treturn\n";
-  Printf.fprintf oc ".end method\n";
+let f oc dirname (files : Asm.prog) =
+  List.iter (fun file ->
+      Printf.fprintf oc ".class public %s\n" file.classname;
+      Printf.fprintf oc ".super %s\n" (file.super);
+      List.iter (fun field ->
+          Printf.fprintf oc ".field publid %s %s\n" (fst field) (str_of_ty_sig (snd field)))
+        file.fields;
+      Printf.fprintf oc ".method public <init>%s\n" (str_of_ty_sig (fst file.init));
+      Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
+      Printf.fprintf oc "\t.limit locals 10\n";
+      List.iter (g oc) (snd file.init);
+      Printf.fprintf oc ".end method\n\n";
+      List.iter (fun f -> h oc f) file.funs)
+    files
