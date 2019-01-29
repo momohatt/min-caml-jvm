@@ -173,9 +173,9 @@ actual_args:
 
 elems:
 | elems COMMA exp
-    { $1 @ [$3] }
+    { $1 @ [($3, Type.gentyp ())] }
 | exp COMMA exp
-    { [$1; $3] }
+    { [($1, Type.gentyp ()); ($3, Type.gentyp ())] }
 
 pat:
 | pat COMMA IDENT

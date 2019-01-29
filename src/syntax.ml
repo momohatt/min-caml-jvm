@@ -23,7 +23,7 @@ type t =
   | Var of Id.t
   | LetRec of fundef * t * pos
   | App of t * t list * pos
-  | Tuple of t list
+  | Tuple of (t * Type.t) list
   | LetTuple of (Id.t * Type.t) list * t * t * pos
   | Array of t * t * Type.t * pos
   | Get of t * t * Type.t * pos
@@ -65,7 +65,7 @@ let rec string_of_t ?(do_indent = true) ?(endline = "\n") (exp : t) (depth : int
   | LetRec (f, e, _) -> prefix ^ "LET REC " ^ (string_of_fundef f (depth + 1)) ^ (indent ^ "IN\n") ^ (string_of_t e depth)
   | App (e1, e2, _) -> prefix ^ (string_of_t e1 0) ^ String.concat "" (List.map (fun e -> string_of_t e (depth + 1)) e2)
   | Tuple e -> prefix ^ "( " ^
-               String.concat ", " (List.map (fun ex -> string_of_t ex (depth + 1) ~do_indent:false ~endline:"") e) ^ " )" ^ endline
+               String.concat ", " (List.map (fun ex -> string_of_t (fst ex) (depth + 1) ~do_indent:false ~endline:"") e) ^ " )" ^ endline
   | LetTuple (l, e1, e2, _) -> prefix ^ "LET (" ^ (String.concat ", " (List.map fst l)) ^ ") =\n"
                                ^ (string_of_t e1 (depth + 1)) ^ (indent ^ "IN\n") ^ (string_of_t e2 depth)
   | Array (e1, e2, _, _) -> prefix ^ "[ " ^ (string_of_t e1 depth ~do_indent:false) ^ (string_of_t e2 (depth + 1) ~endline:" ]\n")

@@ -42,7 +42,7 @@ let rec deref_term = function
              body = deref_term e1 },
            deref_term e2, p)
   | App(x, es, p) -> App(x, List.map deref_term es, p)
-  | Tuple(es) -> Tuple(List.map deref_term es)
+  | Tuple(es) -> Tuple(List.map (fun (e, t) -> deref_term e, t) es)
   | LetTuple(xts, e1, e2, p) -> LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2, p)
   | Array(e1, e2, t, p) -> Array(deref_term e1, deref_term e2, deref_typ t, p)
   | Get(e1, e2, t, p) -> Get(deref_term e1, deref_term e2, deref_typ t, p)
@@ -140,7 +140,10 @@ let rec g env e =
       let t = Type.gentyp () in
       unify (g env x) (Type.Fun(List.map (g env) es, t)) p;
       t
-    | Tuple(es) -> Type.Tuple(List.map (g env) es)
+    | Tuple(ets) ->
+      List.iter (fun (e, t) ->
+          unify t (g env e) Lexing.dummy_pos) ets;
+      Type.Tuple(List.map snd ets)
     | LetTuple(xts, e1, e2, p) ->
       unify (Type.Tuple(List.map snd xts)) (g env e1) p;
       g (M.add_list xts env) e2
