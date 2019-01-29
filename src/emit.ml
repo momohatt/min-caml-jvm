@@ -22,7 +22,7 @@ let rec g oc e =
   | Store(t, n) -> Printf.fprintf oc "\t%sstore %d\n" (str_of_ty t) n
   | ALoad(t)   -> Printf.fprintf oc "\t%saload\n" (str_of_ty t)
   | AStore(t)  -> Printf.fprintf oc "\t%sastore\n" (str_of_ty t)
-  | NewArray(t) -> Printf.fprintf oc "\tnewarray %s\n" (str_of_ty t)
+  | NewArray(t) -> Printf.fprintf oc "\tnewarray %s\n" (match t with `I -> "int" | `F -> "float")
   | ANewArray(t) -> Printf.fprintf oc "\tanewarray %s\n" (str_of_ty_sig t)
   | Ldc(I(n))  -> Printf.fprintf oc "\tldc %d\n" n
   | Ldc(F(n))  -> Printf.fprintf oc "\tldc %f\n" n

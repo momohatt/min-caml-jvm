@@ -36,6 +36,35 @@
     return
 .end method
 
+.method public static min_caml_create_array(ILjava/lang/Object;)[Ljava/lang/Object;
+    .limit stack 5
+    .limit locals 5
+    iload 0
+    anewarray Ljava/lang/Object;
+Label1:
+    dup
+    iload 0
+    ldc 1
+    isub
+    dup
+    ;; ref, ref, (n - 1), (n - 1)
+    istore 0
+    ;; ref, ref, (n - 1)
+    dup
+    ;; ref, ref, (n - 1), (n - 1)
+    iflt Label2   ; index < 0
+    ;; ref, ref, (n - 1)
+    aload 1
+    ;; ref, ref, (n - 1), init
+    aastore
+    ;; ref
+    goto Label1
+Label2:
+    ;; ref, ref, (n - 1)
+    pop
+    areturn
+.end method
+
 .method public static min_caml_create_iarray(II)[I
     .limit stack 5
     .limit locals 5
