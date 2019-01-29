@@ -30,6 +30,9 @@ type inst =
   | Ftoi
   | Itof
   | Dup
+  | Boxing of ty
+  | Unboxing of ty
+  | Checkcast of ty
   | PutStatic of Id.t * ty_sig
   | GetStatic of Id.t * ty_sig
   | IfEq of inst list * inst list * inst list * inst list
@@ -37,7 +40,7 @@ type inst =
   | FCmp
   | Return of ty
   | InvokeStatic of Id.t * ty_sig
-  | CallLib of Id.t * ty_sig
+  | InvokeVirtual of Id.t * ty_sig
 
 type fundef = {
   name : (Id.t * ty_sig);

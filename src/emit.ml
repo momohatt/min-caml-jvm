@@ -36,6 +36,20 @@ let rec g oc e =
   | Itof  -> Printf.fprintf oc "\ti2f\n"
   | FCmp  -> Printf.fprintf oc "\tfcmpl\n"
   | Dup   -> Printf.fprintf oc "\tdup\n"
+  | Boxing t -> (match t with
+      | `I -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([Int], Obj "java/lang/Integer")))
+      | `F -> g oc (InvokeStatic("java/lang/Float/valueOf", Fun([Float], Obj "java/lang/Float")))
+      | `A -> ())
+  | Unboxing t -> (match t with
+      | `I -> g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], Int)))
+      | `F -> g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], Float)))
+      | `A -> ())
+  | Checkcast t -> Printf.fprintf oc "\tcheckcast %s\n"
+                     (match t with
+                      | `I -> "java/lang/Integer"
+                      | `F -> "java/lang/Float"
+                      | `A -> "[Ljava/lang/Object;")
+
   | PutStatic(x, t) -> Printf.fprintf oc "\tputstatic caml/%s %s\n" x (str_of_ty_sig t)
   | GetStatic(x, t) -> Printf.fprintf oc "\tgetstatic caml/%s %s\n" x (str_of_ty_sig t)
   | IfEq(e1, e2, e3, e4) ->
@@ -62,9 +76,9 @@ let rec g oc e =
     Printf.fprintf oc "%s:\n" l_cont
   | Return t -> Printf.fprintf oc "\t%sreturn\n" (str_of_ty t)
   | InvokeStatic(f, t) ->
-    Printf.fprintf oc "\tinvokestatic caml.%s%s\n" f (str_of_ty_sig t)
-  | CallLib(f, t) ->
-    Printf.fprintf oc "\tinvokestatic libmincaml.%s%s\n" f (str_of_ty_sig t)
+    Printf.fprintf oc "\tinvokestatic %s%s\n" f (str_of_ty_sig t)
+  | InvokeVirtual(f, t) ->
+    Printf.fprintf oc "\tinvokevirtual %s%s\n" f (str_of_ty_sig t)
 
 let h oc f =
   Printf.fprintf oc ".method public static %s%s\n" (fst f.name) (str_of_ty_sig (snd f.name));
