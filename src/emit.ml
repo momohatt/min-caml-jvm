@@ -1,10 +1,10 @@
 open Asm
 
-let str_of_ty (t : ty) =
+let str_of_ty t =
   match t with
-  | I -> "i"
-  | F -> "f"
-  | A -> "a"
+  | `I -> "i"
+  | `F -> "f"
+  | `A -> "a"
 
 let rec str_of_ty_sig (t : ty_sig) =
   match t with
@@ -16,27 +16,22 @@ let rec str_of_ty_sig (t : ty_sig) =
   | Fun(t, Void) -> Printf.sprintf "(%s)V" (String.concat "" (List.map str_of_ty_sig t))
   | Fun(t1, t2) -> Printf.sprintf "(%s)%s" (String.concat "" (List.map str_of_ty_sig t1)) (str_of_ty_sig t2)
 
-let str_of_ty_prim (t : ty_prim) =
-  match t with
-  | I -> "i"
-  | F -> "f"
-
 let rec g oc e =
   match e with
   | Load(t, n) -> Printf.fprintf oc "\t%sload %d\n" (str_of_ty t) n
   | Store(t, n) -> Printf.fprintf oc "\t%sstore %d\n" (str_of_ty t) n
   | ALoad(t)   -> Printf.fprintf oc "\t%saload\n" (str_of_ty t)
   | AStore(t)  -> Printf.fprintf oc "\t%sastore\n" (str_of_ty t)
-  | NewArray(t) -> Printf.fprintf oc "\tnewarray %s\n" (str_of_ty_prim t)
+  | NewArray(t) -> Printf.fprintf oc "\tnewarray %s\n" (str_of_ty t)
   | ANewArray(t) -> Printf.fprintf oc "\tanewarray %s\n" (str_of_ty_sig t)
   | Ldc(I(n))  -> Printf.fprintf oc "\tldc %d\n" n
   | Ldc(F(n))  -> Printf.fprintf oc "\tldc %f\n" n
-  | Neg t -> Printf.fprintf oc "\t%sneg\n" (str_of_ty_prim t)
+  | Neg t -> Printf.fprintf oc "\t%sneg\n" (str_of_ty t)
   | IXor  -> Printf.fprintf oc "\tixor\n"
-  | Add t -> Printf.fprintf oc "\t%sadd\n" (str_of_ty_prim t)
-  | Sub t -> Printf.fprintf oc "\t%ssub\n" (str_of_ty_prim t)
-  | Mul t -> Printf.fprintf oc "\t%smul\n" (str_of_ty_prim t)
-  | Div t -> Printf.fprintf oc "\t%sdiv\n" (str_of_ty_prim t)
+  | Add t -> Printf.fprintf oc "\t%sadd\n" (str_of_ty t)
+  | Sub t -> Printf.fprintf oc "\t%ssub\n" (str_of_ty t)
+  | Mul t -> Printf.fprintf oc "\t%smul\n" (str_of_ty t)
+  | Div t -> Printf.fprintf oc "\t%sdiv\n" (str_of_ty t)
   | Ftoi  -> Printf.fprintf oc "\tf2i\n"
   | Itof  -> Printf.fprintf oc "\ti2f\n"
   | FCmp  -> Printf.fprintf oc "\tfcmpl\n"

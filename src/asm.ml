@@ -2,14 +2,8 @@ type imm =
   | I of int
   | F of float
 
-type ty =
-  | I
-  | F
-  | A
-
-type ty_prim =
-  | I
-  | F
+type ty = [`I | `F | `A]
+type ty_prim = [`I | `F]
 
 type ty_sig =
   | Int

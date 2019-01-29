@@ -12,9 +12,9 @@ let getindex x env =
   in inner_ x env ((List.length env) - 1)
 
 let typet2ty (t : Type.t) : ty = match t with
-  | Type.Int | Type.Bool -> I
-  | Type.Float -> F
-  | Type.Array _ | Type.Tuple _ -> A
+  | Type.Int | Type.Bool -> `I
+  | Type.Float -> `F
+  | Type.Array _ | Type.Tuple _ -> `A
   | _ -> assert false
 
 let rec typet2tysig (t : Type.t) : ty_sig = match t with
@@ -33,16 +33,16 @@ let rec g fv env e =
   | Closure.Int(n)   -> [Ldc(I(n))]
   | Closure.Float(f) -> [Ldc(F(f))]
   | Closure.Not(e) -> g fv env e @ [Ldc(I(1)); IXor]
-  | Closure.Neg(e) -> g fv env e @ [Neg I]
-  | Closure.Add(e1, e2)  -> g fv env e1 @ g fv env e2 @ [Add I]
-  | Closure.Sub(e1, e2)  -> g fv env e1 @ g fv env e2 @ [Sub I]
-  | Closure.Mul(e1, e2)  -> g fv env e1 @ g fv env e2 @ [Mul I]
-  | Closure.Div(e1, e2)  -> g fv env e1 @ g fv env e2 @ [Div I]
-  | Closure.FNeg(e)      -> g fv env e @ [Neg F]
-  | Closure.FAdd(e1, e2) -> g fv env e1 @ g fv env e2 @ [Add F]
-  | Closure.FSub(e1, e2) -> g fv env e1 @ g fv env e2 @ [Sub F]
-  | Closure.FMul(e1, e2) -> g fv env e1 @ g fv env e2 @ [Mul F]
-  | Closure.FDiv(e1, e2) -> g fv env e1 @ g fv env e2 @ [Div F]
+  | Closure.Neg(e) -> g fv env e @ [Neg `I]
+  | Closure.Add(e1, e2)  -> g fv env e1 @ g fv env e2 @ [Add `I]
+  | Closure.Sub(e1, e2)  -> g fv env e1 @ g fv env e2 @ [Sub `I]
+  | Closure.Mul(e1, e2)  -> g fv env e1 @ g fv env e2 @ [Mul `I]
+  | Closure.Div(e1, e2)  -> g fv env e1 @ g fv env e2 @ [Div `I]
+  | Closure.FNeg(e)      -> g fv env e @ [Neg `F]
+  | Closure.FAdd(e1, e2) -> g fv env e1 @ g fv env e2 @ [Add `F]
+  | Closure.FSub(e1, e2) -> g fv env e1 @ g fv env e2 @ [Sub `F]
+  | Closure.FMul(e1, e2) -> g fv env e1 @ g fv env e2 @ [Mul `F]
+  | Closure.FDiv(e1, e2) -> g fv env e1 @ g fv env e2 @ [Div `F]
   | Closure.FCmp(e1, e2) -> g fv env e1 @ g fv env e2 @ [FCmp]
   | Closure.IfEq(e1, e2, e3, e4) -> [IfEq(g fv env e1, g fv env e2, g fv env e3, g fv env e4)]
   | Closure.IfLE(e1, e2, e3, e4) -> [IfLE(g fv env e1, g fv env e2, g fv env e3, g fv env e4)]
@@ -69,8 +69,8 @@ let rec g fv env e =
   | Closure.Array(Int(n) as e1, e2, t) ->
     let inst =
       match t with
-      | Type.Int -> ref (g fv env e2 @ [Store(typet2ty t, List.length env)] @ g fv env e1 @ [NewArray(I)])
-      | Type.Float -> ref (g fv env e2 @ [Store(typet2ty t, List.length env)] @ g fv env e1 @ [NewArray(F)])
+      | Type.Int -> ref (g fv env e2 @ [Store(typet2ty t, List.length env)] @ g fv env e1 @ [NewArray(`I)])
+      | Type.Float -> ref (g fv env e2 @ [Store(typet2ty t, List.length env)] @ g fv env e1 @ [NewArray(`F)])
       | _ -> ref (g fv env e2 @ [Store(typet2ty t, List.length env)] @ g fv env e1 @ [ANewArray(typet2tysig t)])
     in
     (* 初期値をlocal variableに(一時的に)store *)
