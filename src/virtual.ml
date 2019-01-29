@@ -22,7 +22,7 @@ let rec typet2tysig (t : Type.t) : ty_sig = match t with
   | Type.Int | Type.Bool -> Int
   | Type.Float -> Float
   | Type.Array(t) -> Array (typet2tysig t)
-  | Type.Tuple _ -> Array (Obj "java/lang/Object")
+  | Type.Tuple _ -> Array (Obj)
   | Type.Fun(ts, t) -> Fun(List.map typet2tysig ts, typet2tysig t)
   | _ -> assert false
 
@@ -67,7 +67,7 @@ let rec g fv env e =
   (* List.concat (List.map (g fv env) e2) @ [InvokeStatic(f, List.assoc f !toplevel)] *)
   | Closure.Tuple(e) ->
     Ldc(I(List.length e)) ::
-    ANewArray(Obj "java/lang/Object") ::
+    ANewArray(Obj) ::
     List.concat (List.mapi
                    (fun n (y, t) -> [Dup; Ldc(I(n))] @
                                     (g fv env y) @
@@ -81,30 +81,25 @@ let rec g fv env e =
                       let t' = typet2ty t in
                       [Dup; Ldc(I(n));
                        ALoad(`A);
-                       Checkcast(t');
                        Unboxing(t');
                        Store(t', List.length env + n)]) xts) @
     g fv ((List.rev xts) @ env) e2
   | Closure.Array(Int(n) as e1, e2, t) ->
-    let inst =
-      match t with
-      | Type.Int -> ref (g fv env e2 @ [Boxing(`I); Store(`A, List.length env)] @ g fv env e1 @ [ANewArray(Obj "java/lang/Integer")])
-      | Type.Float -> ref (g fv env e2 @ [Boxing(`F); Store(`A, List.length env)] @ g fv env e1 @ [ANewArray(Obj "java/lang/Float")])
-      | _ -> ref (g fv env e2 @ [Store(`A, List.length env)] @ g fv env e1 @ [ANewArray(typet2tysig t)]) (* [XXX] *)
-    in
     (* 初期値をlocal variableに(一時的に)store *)
+    let inst = ref (g fv env e2 @ [Boxing(typet2ty t); Store(`A, List.length env)] @ g fv env e1) in
+    inst := !inst @ (match t with
+        | Type.Int | Type.Bool -> [ANewArray(C "java/lang/Integer")]
+        | Type.Float -> [ANewArray(C "java/lang/Float")]
+        | _ -> [ANewArray(typet2tysig t)]);
     for i = 0 to n - 1 do
       inst := !inst @ [Dup; Ldc(I(i)); Load(`A, List.length env); AStore(`A)];
     done;
     !inst
-  | Closure.Array(e1, e2, t) -> (* TODO *)
-    let f = match t with
-      | Type.Int | Type.Bool -> "create_iarray"
-      | Type.Float -> "create_farray"
-      | _ -> "create_aarray" in
-    g fv env e1 @ g fv env e2 @ [InvokeStatic("libmincaml.min_caml_" ^ f, (Fun([Int; typet2tysig t], Array(typet2tysig t))))]
+  | Closure.Array(e1, e2, t) ->
+    g fv env e1 @ g fv env e2 @
+    [Boxing(typet2ty t); InvokeStatic("libmincaml.min_caml_create_array", Fun([Int; Obj], Array(Obj)))]
   | Closure.Get(e1, e2, t) ->
-    g fv env e1 @ g fv env e2 @ [ALoad(`A); Checkcast(typet2ty t); Unboxing(typet2ty t)]
+    g fv env e1 @ g fv env e2 @ [ALoad(`A); Unboxing(typet2ty t)]
   | Closure.Put(e1, e2, e3, t) ->
     g fv env e1 @ g fv env e2 @ g fv env e3 @ [Boxing(typet2ty t); AStore(`A)]
   | Closure.MakeCls(_, { entry = Id.L(f); fv = yts }, e) ->

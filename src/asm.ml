@@ -10,7 +10,8 @@ type ty_sig =
   | Float
   | Void
   | Array of ty_sig
-  | Obj of string
+  | Obj
+  | C of string (* class *)
   | Fun of ty_sig list * ty_sig
 
 type inst =
@@ -32,7 +33,6 @@ type inst =
   | Dup
   | Boxing of ty
   | Unboxing of ty
-  | Checkcast of ty
   | PutStatic of Id.t * ty_sig
   | GetStatic of Id.t * ty_sig
   | IfEq of inst list * inst list * inst list * inst list

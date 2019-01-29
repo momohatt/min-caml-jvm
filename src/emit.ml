@@ -12,7 +12,8 @@ let rec str_of_ty_sig (t : ty_sig) =
   | Float -> "F"
   | Void -> ""
   | Array(t) -> "[" ^ (str_of_ty_sig t)
-  | Obj(s) -> "L" ^ s ^ ";"
+  | Obj -> "Ljava/lang/Object;"
+  | C(s) -> "L" ^ s ^ ";"
   | Fun(t, Void) -> Printf.sprintf "(%s)V" (String.concat "" (List.map str_of_ty_sig t))
   | Fun(t1, t2) -> Printf.sprintf "(%s)%s" (String.concat "" (List.map str_of_ty_sig t1)) (str_of_ty_sig t2)
 
@@ -37,18 +38,17 @@ let rec g oc e =
   | FCmp  -> Printf.fprintf oc "\tfcmpl\n"
   | Dup   -> Printf.fprintf oc "\tdup\n"
   | Boxing t -> (match t with
-      | `I -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([Int], Obj "java/lang/Integer")))
-      | `F -> g oc (InvokeStatic("java/lang/Float/valueOf", Fun([Float], Obj "java/lang/Float")))
+      | `I -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([Int], C "java/lang/Integer")))
+      | `F -> g oc (InvokeStatic("java/lang/Float/valueOf", Fun([Float], C "java/lang/Float")))
       | `A -> ())
   | Unboxing t -> (match t with
-      | `I -> g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], Int)))
-      | `F -> g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], Float)))
-      | `A -> ())
-  | Checkcast t -> Printf.fprintf oc "\tcheckcast %s\n"
-                     (match t with
-                      | `I -> "java/lang/Integer"
-                      | `F -> "java/lang/Float"
-                      | `A -> "[Ljava/lang/Object;")
+      | `I ->
+        Printf.fprintf oc "\tcheckcast java/lang/Integer\n";
+        g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], Int)))
+      | `F ->
+        Printf.fprintf oc "\tcheckcast java/lang/Float\n";
+        g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], Float)))
+      | `A -> Printf.fprintf oc "\tcheckcast [Ljava/lang/Object;\n")
 
   | PutStatic(x, t) -> Printf.fprintf oc "\tputstatic caml/%s %s\n" x (str_of_ty_sig t)
   | GetStatic(x, t) -> Printf.fprintf oc "\tgetstatic caml/%s %s\n" x (str_of_ty_sig t)
