@@ -26,6 +26,15 @@ let rec typet2tysig (t : Type.t) : ty_sig = match t with
   | Type.Fun(ts, t) -> Fun(List.map typet2tysig ts, typet2tysig t)
   | _ -> assert false
 
+let rec typet2tysig_obj (t : Type.t) : ty_sig = match t with
+  | Type.Unit -> Void
+  | Type.Int | Type.Bool -> C "java/lang/Integer"
+  | Type.Float -> C "java/lang/Float"
+  | Type.Array(t) -> Array (typet2tysig_obj t)
+  | Type.Tuple _ -> Array (Obj)
+  | Type.Fun(ts, t) -> Fun(List.map typet2tysig_obj ts, typet2tysig_obj t)
+  | _ -> assert false
+
 (* fv: fvs of *current* function *)
 let rec g fv env e =
   match e with
@@ -87,10 +96,7 @@ let rec g fv env e =
   | Closure.Array(Int(n) as e1, e2, t) ->
     (* 初期値をlocal variableに(一時的に)store *)
     let inst = ref (g fv env e2 @ [Boxing(typet2ty t); Store(`A, List.length env)] @ g fv env e1) in
-    inst := !inst @ (match t with
-        | Type.Int | Type.Bool -> [ANewArray(C "java/lang/Integer")]
-        | Type.Float -> [ANewArray(C "java/lang/Float")]
-        | _ -> [ANewArray(typet2tysig t)]);
+    inst := !inst @ [ANewArray(typet2tysig_obj t)];
     for i = 0 to n - 1 do
       inst := !inst @ [Dup; Ldc(I(i)); Load(`A, List.length env); AStore(`A)];
     done;
