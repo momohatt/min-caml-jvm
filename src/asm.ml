@@ -2,40 +2,58 @@ type imm =
   | I of int
   | F of float
 
+type ty =
+  | I
+  | F
+  | A
+
+type ty_prim =
+  | I
+  | F
+
+type ty_sig =
+  | Int
+  | Float
+  | Void
+  | Array of ty_sig
+  | Obj of string
+  | Fun of ty_sig list * ty_sig
+
 type inst =
-  | Load of Type.t * int
-  | Store of Type.t * int
-  | ALoad of Type.t (* array load *)
-  | AStore of Type.t (* array store *)
-  | NewArray of Type.t
+  | Load of ty * int
+  | Store of ty * int
+  | ALoad of ty (* array load *)
+  | AStore of ty (* array store *)
+  | NewArray of ty_prim
+  | ANewArray of ty_sig
   | Ldc of imm
-  | Neg of Type.t
+  | Neg of ty_prim
   | IXor
-  | Add of Type.t
-  | Sub of Type.t
-  | Mul of Type.t
-  | Div of Type.t
+  | Add of ty_prim
+  | Sub of ty_prim
+  | Mul of ty_prim
+  | Div of ty_prim
   | Ftoi
   | Itof
   | Dup
-  | PutStatic of Id.t * Type.t
-  | GetStatic of Id.t * Type.t
+  | PutStatic of Id.t * ty_sig
+  | GetStatic of Id.t * ty_sig
   | IfEq of inst list * inst list * inst list * inst list
   | IfLE of inst list * inst list * inst list * inst list
   | FCmp
-  | Return of Type.t
-  | InvokeStatic of Id.t * Type.t
-  | CallLib of Id.t * Type.t
+  | Return of ty
+  | InvokeStatic of Id.t * ty_sig
+  | CallLib of Id.t * ty_sig
 
 type fundef = {
-  name : (Id.t * Type.t);
-  args : (Id.t * Type.t) list;
-  fv : (Id.t * Type.t) list;
+  name : (Id.t * ty_sig);
+  args : (Id.t * ty_sig) list;
+  fv : (Id.t * ty_sig) list;
   body : inst list
 }
 
 type prog = {
-  fields : (Id.t * Type.t) list;
+  fields : (Id.t * ty_sig) list;
   funs : fundef list;
   main : inst list;
 }
