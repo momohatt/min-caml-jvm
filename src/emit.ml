@@ -57,10 +57,10 @@ let rec g oc e =
      | C s     -> Printf.fprintf oc "\tcheckcast %s\n" s
      | Fun _   -> Printf.fprintf oc "\tcheckcast cls\n"
      | Obj | Void -> ())
-  | PutField (x, c, t) -> Printf.fprintf oc "\tputfield %s/%s %s\n"  x c (str_of_ty_sig t)
-  | GetField (x, c, t) -> Printf.fprintf oc "\tgetfield %s/%s %s\n"  x c (str_of_ty_sig t)
-  | PutStatic(x, c, t) -> Printf.fprintf oc "\tputstatic %s/%s %s\n" x c (str_of_ty_sig t)
-  | GetStatic(x, c, t) -> Printf.fprintf oc "\tgetstatic %s/%s %s\n" x c (str_of_ty_sig t)
+  | PutField (x, c, t) -> Printf.fprintf oc "\tputfield %s/%s %s\n"  c x (str_of_ty_sig t)
+  | GetField (x, c, t) -> Printf.fprintf oc "\tgetfield %s/%s %s\n"  c x (str_of_ty_sig t)
+  | PutStatic(x, c, t) -> Printf.fprintf oc "\tputstatic %s/%s %s\n" c x (str_of_ty_sig t)
+  | GetStatic(x, c, t) -> Printf.fprintf oc "\tgetstatic %s/%s %s\n" c x (str_of_ty_sig t)
   | IfEq(e1, e2, e3, e4) ->
     let l_else = Id.genid "IfEq_else" in
     let l_cont = Id.genid "IfEq_cont" in

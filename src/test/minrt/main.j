@@ -41,181 +41,181 @@
 	ldc 0
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield n_objects/main [I
+	putfield main/n_objects [I
 	aload 0
 	aload 1
 	ldc 1
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield objects/main [[Ljava/lang/Object;
+	putfield main/objects [[Ljava/lang/Object;
 	aload 0
 	aload 1
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield screen/main [F
+	putfield main/screen [F
 	aload 0
 	aload 1
 	ldc 3
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield viewpoint/main [F
+	putfield main/viewpoint [F
 	aload 0
 	aload 1
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield light/main [F
+	putfield main/light [F
 	aload 0
 	aload 1
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield beam/main [F
+	putfield main/beam [F
 	aload 0
 	aload 1
 	ldc 6
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield and_net/main [[I
+	putfield main/and_net [[I
 	aload 0
 	aload 1
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield or_net/main [[[I
+	putfield main/or_net [[[I
 	aload 0
 	aload 1
 	ldc 8
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield solver_dist/main [F
+	putfield main/solver_dist [F
 	aload 0
 	aload 1
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield intsec_rectside/main [I
+	putfield main/intsec_rectside [I
 	aload 0
 	aload 1
 	ldc 10
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield tmin/main [F
+	putfield main/tmin [F
 	aload 0
 	aload 1
 	ldc 11
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield intersection_point/main [F
+	putfield main/intersection_point [F
 	aload 0
 	aload 1
 	ldc 12
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield intersected_object_id/main [I
+	putfield main/intersected_object_id [I
 	aload 0
 	aload 1
 	ldc 13
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield nvector/main [F
+	putfield main/nvector [F
 	aload 0
 	aload 1
 	ldc 14
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield texture_color/main [F
+	putfield main/texture_color [F
 	aload 0
 	aload 1
 	ldc 15
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield diffuse_ray/main [F
+	putfield main/diffuse_ray [F
 	aload 0
 	aload 1
 	ldc 16
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield rgb/main [F
+	putfield main/rgb [F
 	aload 0
 	aload 1
 	ldc 17
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield image_size/main [I
+	putfield main/image_size [I
 	aload 0
 	aload 1
 	ldc 18
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield image_center/main [I
+	putfield main/image_center [I
 	aload 0
 	aload 1
 	ldc 19
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield scan_pitch/main [F
+	putfield main/scan_pitch [F
 	aload 0
 	aload 1
 	ldc 20
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield startp/main [F
+	putfield main/startp [F
 	aload 0
 	aload 1
 	ldc 21
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield startp_fast/main [F
+	putfield main/startp_fast [F
 	aload 0
 	aload 1
 	ldc 22
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield screenx_dir/main [F
+	putfield main/screenx_dir [F
 	aload 0
 	aload 1
 	ldc 23
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield screeny_dir/main [F
+	putfield main/screeny_dir [F
 	aload 0
 	aload 1
 	ldc 24
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield screenz_dir/main [F
+	putfield main/screenz_dir [F
 	aload 0
 	aload 1
 	ldc 25
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield ptrace_dirvec/main [F
+	putfield main/ptrace_dirvec [F
 	aload 0
 	aload 1
 	ldc 26
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield dirvecs/main [[[Ljava/lang/Object;
+	putfield main/dirvecs [[[Ljava/lang/Object;
 	aload 0
 	aload 1
 	ldc 27
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield light_dirvec/main [Ljava/lang/Object;
+	putfield main/light_dirvec [Ljava/lang/Object;
 	aload 0
 	aload 1
 	ldc 28
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield reflections/main [[Ljava/lang/Object;
+	putfield main/reflections [[Ljava/lang/Object;
 	aload 0
 	aload 1
 	ldc 29
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield n_reflections/main [I
+	putfield main/n_reflections [I
 	return
 .end method
 
@@ -2791,17 +2791,17 @@ IfEq_cont_257:
 .method public static read_screen_settings()V
 	.limit stack 100
 	.limit locals 100
-	getstatic screen/main [F
+	getstatic main/screen [F
 	ldc 0
 	invokestatic libmincaml.min_caml_read_float()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screen/main [F
+	getstatic main/screen [F
 	ldc 1
 	invokestatic libmincaml.min_caml_read_float()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screen/main [F
+	getstatic main/screen [F
 	ldc 2
 	invokestatic libmincaml.min_caml_read_float()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2824,7 +2824,7 @@ IfEq_cont_257:
 	fload 4
 	invokestatic libmincaml.min_caml_sin(F)F
 	fstore 6
-	getstatic screenz_dir/main [F
+	getstatic main/screenz_dir [F
 	ldc 0
 	fload 2
 	fload 6
@@ -2833,14 +2833,14 @@ IfEq_cont_257:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screenz_dir/main [F
+	getstatic main/screenz_dir [F
 	ldc 1
 	fload 3
 	ldc -200.000000
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screenz_dir/main [F
+	getstatic main/screenz_dir [F
 	ldc 2
 	fload 2
 	fload 5
@@ -2849,23 +2849,23 @@ IfEq_cont_257:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screenx_dir/main [F
+	getstatic main/screenx_dir [F
 	ldc 0
 	fload 5
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screenx_dir/main [F
+	getstatic main/screenx_dir [F
 	ldc 1
 	ldc 0.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screenx_dir/main [F
+	getstatic main/screenx_dir [F
 	ldc 2
 	fload 6
 	invokestatic libmincaml.min_caml_fneg(F)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screeny_dir/main [F
+	getstatic main/screeny_dir [F
 	ldc 0
 	fload 3
 	invokestatic libmincaml.min_caml_fneg(F)F
@@ -2873,13 +2873,13 @@ IfEq_cont_257:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screeny_dir/main [F
+	getstatic main/screeny_dir [F
 	ldc 1
 	fload 2
 	invokestatic libmincaml.min_caml_fneg(F)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic screeny_dir/main [F
+	getstatic main/screeny_dir [F
 	ldc 2
 	fload 3
 	invokestatic libmincaml.min_caml_fneg(F)F
@@ -2887,14 +2887,14 @@ IfEq_cont_257:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic viewpoint/main [F
+	getstatic main/viewpoint [F
 	ldc 0
-	getstatic screen/main [F
+	getstatic main/screen [F
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	getstatic screenz_dir/main [F
+	getstatic main/screenz_dir [F
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -2902,14 +2902,14 @@ IfEq_cont_257:
 	fsub
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic viewpoint/main [F
+	getstatic main/viewpoint [F
 	ldc 1
-	getstatic screen/main [F
+	getstatic main/screen [F
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	getstatic screenz_dir/main [F
+	getstatic main/screenz_dir [F
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
@@ -2917,14 +2917,14 @@ IfEq_cont_257:
 	fsub
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic viewpoint/main [F
+	getstatic main/viewpoint [F
 	ldc 2
-	getstatic screen/main [F
+	getstatic main/screen [F
 	ldc 2
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	getstatic screenz_dir/main [F
+	getstatic main/screenz_dir [F
 	ldc 2
 	aaload
 	checkcast java/lang/Integer
@@ -2946,7 +2946,7 @@ IfEq_cont_257:
 	fload 2
 	invokestatic libmincaml.min_caml_sin(F)F
 	fstore 3
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 1
 	fload 3
 	invokestatic libmincaml.min_caml_fneg(F)F
@@ -2961,7 +2961,7 @@ IfEq_cont_257:
 	fload 4
 	invokestatic libmincaml.min_caml_sin(F)F
 	fstore 6
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 0
 	fload 5
 	fload 6
@@ -2971,14 +2971,14 @@ IfEq_cont_257:
 	fload 4
 	invokestatic libmincaml.min_caml_cos(F)F
 	fstore 7
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 2
 	fload 5
 	fload 7
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic beam/main [F
+	getstatic main/beam [F
 	ldc 0
 	invokestatic libmincaml.min_caml_read_float()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -3503,7 +3503,7 @@ IfEq_cont_265:
 	aload 12
 	aastore
 	astore 13
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 0
 	aload 13
 	aastore
@@ -3619,7 +3619,7 @@ IfLE_else_278:
 	invokestatic main.read_nth_object(I)I
 	ldc 0
 	if_icmpne IfEq_else_280
-	getstatic n_objects/main [I
+	getstatic main/n_objects [I
 	ldc 0
 	iload 0
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
@@ -3727,7 +3727,7 @@ IfEq_cont_285:
 	if_icmpne IfEq_else_286
 	goto IfEq_cont_287
 IfEq_else_286:
-	getstatic and_net/main [[I
+	getstatic main/and_net [[I
 	iload 0
 	aload 1
 	aastore
@@ -3747,7 +3747,7 @@ IfEq_cont_287:
 	invokestatic main.read_all_object()V
 	ldc 0
 	invokestatic main.read_and_network(I)V
-	getstatic or_net/main [[[I
+	getstatic main/or_net [[[I
 	ldc 0
 	ldc 0
 	invokestatic main.read_or_network(I)[[I
@@ -3837,7 +3837,7 @@ IfEq_else_290:
 	ldc 0
 	goto IfEq_cont_293
 IfEq_else_292:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	fload 10
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -3921,7 +3921,7 @@ IfEq_cont_295:
 	ldc 0
 	goto IfEq_cont_301
 IfEq_else_300:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	aload 5
 	fload 2
@@ -4154,7 +4154,7 @@ IfEq_else_312:
 	fload 10
 IfEq_cont_313:
 	fstore 11
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	fload 11
 	fload 6
@@ -4175,7 +4175,7 @@ IfEq_cont_307:
 .method public static solver(I[F[F)I
 	.limit stack 100
 	.limit locals 100
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -4435,7 +4435,7 @@ IfEq_cont_333:
 	ldc 0
 	goto IfEq_cont_331
 IfEq_else_330:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	fload 8
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -4444,7 +4444,7 @@ IfEq_else_330:
 IfEq_cont_331:
 	goto IfEq_cont_325
 IfEq_else_324:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	fload 7
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -4453,7 +4453,7 @@ IfEq_else_324:
 IfEq_cont_325:
 	goto IfEq_cont_319
 IfEq_else_318:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	fload 6
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -4477,7 +4477,7 @@ IfEq_cont_319:
 	ldc 0
 	goto IfEq_cont_337
 IfEq_else_336:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	aload 1
 	ldc 1
@@ -4582,7 +4582,7 @@ IfEq_else_342:
 	invokestatic main.o_isinvert([Ljava/lang/Object;)I
 	ldc 0
 	if_icmpne IfEq_else_344
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	fload 6
 	fload 9
@@ -4598,7 +4598,7 @@ IfEq_else_342:
 	aastore
 	goto IfEq_cont_345
 IfEq_else_344:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	fload 6
 	fload 9
@@ -4625,7 +4625,7 @@ IfEq_cont_339:
 .method public static solver_fast(I[Ljava/lang/Object;[F)I
 	.limit stack 100
 	.limit locals 100
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -4717,7 +4717,7 @@ IfEq_cont_347:
 	ldc 0
 	goto IfEq_cont_351
 IfEq_else_350:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	aload 1
 	ldc 0
@@ -4798,7 +4798,7 @@ IfEq_else_354:
 	invokestatic main.o_isinvert([Ljava/lang/Object;)I
 	ldc 0
 	if_icmpne IfEq_else_356
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	fload 7
 	fload 9
@@ -4814,7 +4814,7 @@ IfEq_else_354:
 	aastore
 	goto IfEq_cont_357
 IfEq_else_356:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	fload 7
 	fload 9
@@ -4841,7 +4841,7 @@ IfEq_cont_353:
 .method public static solver_fast2(I[Ljava/lang/Object;)I
 	.limit stack 100
 	.limit locals 100
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -5383,7 +5383,7 @@ IfEq_cont_373:
 	ldc 0
 	iload 1
 	if_icmpgt IfLE_else_374
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 1
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -5442,7 +5442,7 @@ IfLE_cont_375:
 	.limit stack 100
 	.limit locals 100
 	aload 0
-	getstatic n_objects/main [I
+	getstatic main/n_objects [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -5459,7 +5459,7 @@ IfLE_cont_375:
 	ldc 0
 	iload 1
 	if_icmpgt IfLE_else_380
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 1
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -5586,11 +5586,11 @@ IfLE_cont_381:
 .method public static setup_startp([F)V
 	.limit stack 100
 	.limit locals 100
-	getstatic startp_fast/main [F
+	getstatic main/startp_fast [F
 	aload 0
 	invokestatic main.veccpy([F[F)V
 	aload 0
-	getstatic n_objects/main [I
+	getstatic main/n_objects [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -5763,7 +5763,7 @@ IfEq_cont_397:
 	ldc 1
 	goto IfEq_cont_401
 IfEq_else_400:
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 5
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -5810,11 +5810,11 @@ IfEq_else_404:
 	invokevirtual java/lang/Integer/intValue()I
 	istore 2
 	iload 2
-	getstatic light_dirvec/main [Ljava/lang/Object;
-	getstatic intersection_point/main [F
+	getstatic main/light_dirvec [Ljava/lang/Object;
+	getstatic main/intersection_point [F
 	invokestatic main.solver_fast(I[Ljava/lang/Object;[F)I
 	istore 3
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -5832,7 +5832,7 @@ IfEq_else_408:
 IfEq_cont_409:
 	ldc 0
 	if_icmpne IfEq_else_406
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 2
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -5854,42 +5854,42 @@ IfEq_else_406:
 	ldc 0.010000
 	fadd
 	fstore 5
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fload 5
 	fmul
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fadd
 	fstore 6
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fload 5
 	fmul
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fadd
 	fstore 7
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fload 5
 	fmul
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -5934,7 +5934,7 @@ IfEq_cont_405:
 	ldc 0
 	goto IfEq_cont_415
 IfEq_else_414:
-	getstatic and_net/main [[I
+	getstatic main/and_net [[I
 	iload 2
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -5987,8 +5987,8 @@ IfEq_else_418:
 	goto IfEq_cont_423
 IfEq_else_422:
 	iload 3
-	getstatic light_dirvec/main [Ljava/lang/Object;
-	getstatic intersection_point/main [F
+	getstatic main/light_dirvec [Ljava/lang/Object;
+	getstatic main/intersection_point [F
 	invokestatic main.solver_fast(I[Ljava/lang/Object;[F)I
 	istore 4
 	iload 4
@@ -5997,7 +5997,7 @@ IfEq_else_422:
 	ldc 0
 	goto IfEq_cont_425
 IfEq_else_424:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6067,13 +6067,13 @@ IfEq_cont_419:
 IfEq_else_432:
 	iload 3
 	aload 2
-	getstatic startp/main [F
+	getstatic main/startp [F
 	invokestatic main.solver(I[F[F)I
 	istore 4
 	iload 4
 	ldc 0
 	if_icmpne IfEq_else_434
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 3
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -6091,7 +6091,7 @@ IfEq_else_436:
 IfEq_cont_437:
 	goto IfEq_cont_435
 IfEq_else_434:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6105,7 +6105,7 @@ IfEq_else_434:
 	goto IfEq_cont_439
 IfEq_else_438:
 	fload 5
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6126,7 +6126,7 @@ IfEq_else_440:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 6
 	fmul
-	getstatic startp/main [F
+	getstatic main/startp [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6140,7 +6140,7 @@ IfEq_else_440:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 6
 	fmul
-	getstatic startp/main [F
+	getstatic main/startp [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -6154,7 +6154,7 @@ IfEq_else_440:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 6
 	fmul
-	getstatic startp/main [F
+	getstatic main/startp [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -6171,22 +6171,22 @@ IfEq_else_440:
 	if_icmpne IfEq_else_442
 	goto IfEq_cont_443
 IfEq_else_442:
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	fload 6
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	fload 7
 	fload 8
 	fload 9
 	invokestatic main.vecset([FFFF)V
-	getstatic intersected_object_id/main [I
+	getstatic main/intersected_object_id [I
 	ldc 0
 	iload 3
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-	getstatic intsec_rectside/main [I
+	getstatic main/intsec_rectside [I
 	ldc 0
 	iload 4
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
@@ -6220,7 +6220,7 @@ IfEq_cont_433:
 	if_icmpne IfEq_else_444
 	goto IfEq_cont_445
 IfEq_else_444:
-	getstatic and_net/main [[I
+	getstatic main/and_net [[I
 	iload 3
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -6270,7 +6270,7 @@ IfEq_else_446:
 IfEq_else_448:
 	iload 4
 	aload 2
-	getstatic startp/main [F
+	getstatic main/startp [F
 	invokestatic main.solver(I[F[F)I
 	istore 5
 	iload 5
@@ -6278,14 +6278,14 @@ IfEq_else_448:
 	if_icmpne IfEq_else_450
 	goto IfEq_cont_451
 IfEq_else_450:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fstore 6
 	fload 6
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6315,19 +6315,19 @@ IfEq_cont_447:
 .method public static judge_intersection([F)I
 	.limit stack 100
 	.limit locals 100
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	ldc 1000000000.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 0
-	getstatic or_net/main [[[I
+	getstatic main/or_net [[[I
 	ldc 0
 	aaload
 	checkcast [Ljava/lang/Object;
 	aload 0
 	invokestatic main.trace_or_matrix(I[[I[F)V
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6373,7 +6373,7 @@ IfEq_else_456:
 	iload 5
 	ldc 0
 	if_icmpne IfEq_else_458
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 4
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -6391,7 +6391,7 @@ IfEq_else_460:
 IfEq_cont_461:
 	goto IfEq_cont_459
 IfEq_else_458:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6405,7 +6405,7 @@ IfEq_else_458:
 	goto IfEq_cont_463
 IfEq_else_462:
 	fload 6
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6426,7 +6426,7 @@ IfEq_else_464:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 7
 	fmul
-	getstatic startp_fast/main [F
+	getstatic main/startp_fast [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6440,7 +6440,7 @@ IfEq_else_464:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 7
 	fmul
-	getstatic startp_fast/main [F
+	getstatic main/startp_fast [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -6454,7 +6454,7 @@ IfEq_else_464:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 7
 	fmul
-	getstatic startp_fast/main [F
+	getstatic main/startp_fast [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -6471,22 +6471,22 @@ IfEq_else_464:
 	if_icmpne IfEq_else_466
 	goto IfEq_cont_467
 IfEq_else_466:
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	fload 7
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	fload 8
 	fload 9
 	fload 10
 	invokestatic main.vecset([FFFF)V
-	getstatic intersected_object_id/main [I
+	getstatic main/intersected_object_id [I
 	ldc 0
 	iload 4
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-	getstatic intsec_rectside/main [I
+	getstatic main/intsec_rectside [I
 	ldc 0
 	iload 5
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
@@ -6520,7 +6520,7 @@ IfEq_cont_457:
 	if_icmpne IfEq_else_468
 	goto IfEq_cont_469
 IfEq_else_468:
-	getstatic and_net/main [[I
+	getstatic main/and_net [[I
 	iload 3
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -6577,14 +6577,14 @@ IfEq_else_472:
 	if_icmpne IfEq_else_474
 	goto IfEq_cont_475
 IfEq_else_474:
-	getstatic solver_dist/main [F
+	getstatic main/solver_dist [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fstore 6
 	fload 6
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6614,19 +6614,19 @@ IfEq_cont_471:
 .method public static judge_intersection_fast([Ljava/lang/Object;)I
 	.limit stack 100
 	.limit locals 100
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	ldc 1000000000.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 0
-	getstatic or_net/main [[[I
+	getstatic main/or_net [[[I
 	ldc 0
 	aaload
 	checkcast [Ljava/lang/Object;
 	aload 0
 	invokestatic main.trace_or_matrix_fast(I[[I[Ljava/lang/Object;)V
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6650,15 +6650,15 @@ IfEq_cont_479:
 .method public static get_nvector_rect([F)V
 	.limit stack 100
 	.limit locals 100
-	getstatic intsec_rectside/main [I
+	getstatic main/intsec_rectside [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	istore 1
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	invokestatic main.vecbzero([F)V
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	iload 1
 	ldc 1
 	isub
@@ -6679,21 +6679,21 @@ IfEq_cont_479:
 .method public static get_nvector_plane([Ljava/lang/Object;)V
 	.limit stack 100
 	.limit locals 100
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	ldc 0
 	aload 0
 	invokestatic main.o_param_a([Ljava/lang/Object;)F
 	invokestatic libmincaml.min_caml_fneg(F)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	ldc 1
 	aload 0
 	invokestatic main.o_param_b([Ljava/lang/Object;)F
 	invokestatic libmincaml.min_caml_fneg(F)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	ldc 2
 	aload 0
 	invokestatic main.o_param_c([Ljava/lang/Object;)F
@@ -6706,7 +6706,7 @@ IfEq_cont_479:
 .method public static get_nvector_second([Ljava/lang/Object;)V
 	.limit stack 100
 	.limit locals 100
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6715,7 +6715,7 @@ IfEq_cont_479:
 	invokestatic main.o_param_x([Ljava/lang/Object;)F
 	fsub
 	fstore 1
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -6724,7 +6724,7 @@ IfEq_cont_479:
 	invokestatic main.o_param_y([Ljava/lang/Object;)F
 	fsub
 	fstore 2
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -6752,24 +6752,24 @@ IfEq_cont_479:
 	invokestatic main.o_isrot([Ljava/lang/Object;)I
 	ldc 0
 	if_icmpne IfEq_else_480
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	ldc 0
 	fload 4
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	ldc 1
 	fload 5
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	ldc 2
 	fload 6
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	goto IfEq_cont_481
 IfEq_else_480:
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	ldc 0
 	fload 4
 	fload 2
@@ -6785,7 +6785,7 @@ IfEq_else_480:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	ldc 1
 	fload 5
 	fload 1
@@ -6801,7 +6801,7 @@ IfEq_else_480:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	ldc 2
 	fload 6
 	fload 1
@@ -6818,7 +6818,7 @@ IfEq_else_480:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 IfEq_cont_481:
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	aload 0
 	invokestatic main.o_isinvert([Ljava/lang/Object;)I
 	invokestatic main.vecunit_sgn([FI)V
@@ -6858,19 +6858,19 @@ IfEq_cont_483:
 	aload 0
 	invokestatic main.o_texturetype([Ljava/lang/Object;)I
 	istore 2
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	ldc 0
 	aload 0
 	invokestatic main.o_color_red([Ljava/lang/Object;)I
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	ldc 1
 	aload 0
 	invokestatic main.o_color_green([Ljava/lang/Object;)I
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	ldc 2
 	aload 0
 	invokestatic main.o_color_blue([Ljava/lang/Object;)I
@@ -6923,7 +6923,7 @@ IfEq_cont_483:
 	ldc 10.000000
 	invokestatic libmincaml.min_caml_fless(FF)I
 	istore 6
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	ldc 1
 	iload 4
 	ldc 0
@@ -6964,14 +6964,14 @@ IfEq_else_486:
 	invokestatic libmincaml.min_caml_sin(F)F
 	invokestatic libmincaml.min_caml_fsqr(F)F
 	fstore 3
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	ldc 0
 	ldc 255.000000
 	fload 3
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	ldc 1
 	ldc 255.000000
 	ldc 1.000000
@@ -7023,14 +7023,14 @@ IfEq_else_494:
 	invokestatic libmincaml.min_caml_cos(F)F
 	invokestatic libmincaml.min_caml_fsqr(F)F
 	fstore 7
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	ldc 1
 	fload 7
 	ldc 255.000000
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	ldc 2
 	ldc 1.000000
 	fload 7
@@ -7165,7 +7165,7 @@ IfEq_else_504:
 	ldc 0.000000
 IfEq_cont_505:
 	fstore 12
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	ldc 2
 	ldc 255.000000
 	fload 12
@@ -7192,9 +7192,9 @@ IfEq_cont_487:
 	if_icmpne IfEq_else_506
 	goto IfEq_cont_507
 IfEq_else_506:
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	fload 0
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	invokestatic main.vecaccum([FF[F)V
 IfEq_cont_507:
 	fload 1
@@ -7209,9 +7209,9 @@ IfEq_else_508:
 	fload 2
 	fmul
 	fstore 3
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 0
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -7220,9 +7220,9 @@ IfEq_else_508:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 1
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
@@ -7231,9 +7231,9 @@ IfEq_else_508:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 2
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 2
 	aaload
 	checkcast java/lang/Integer
@@ -7252,7 +7252,7 @@ IfEq_cont_509:
 	ldc 0
 	iload 0
 	if_icmpgt IfLE_else_510
-	getstatic reflections/main [[Ljava/lang/Object;
+	getstatic main/reflections [[Ljava/lang/Object;
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -7266,14 +7266,14 @@ IfEq_cont_509:
 	if_icmpne IfEq_else_512
 	goto IfEq_cont_513
 IfEq_else_512:
-	getstatic intersected_object_id/main [I
+	getstatic main/intersected_object_id [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ldc 4
 	imul
-	getstatic intsec_rectside/main [I
+	getstatic main/intsec_rectside [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -7285,14 +7285,14 @@ IfEq_else_512:
 	invokestatic main.r_surface_id([Ljava/lang/Object;)I
 	if_icmpne IfEq_else_514
 	ldc 0
-	getstatic or_net/main [[[I
+	getstatic main/or_net [[[I
 	ldc 0
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.shadow_check_one_or_matrix(I[[I)I
 	ldc 0
 	if_icmpne IfEq_else_516
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	aload 5
 	invokestatic main.d_vec([Ljava/lang/Object;)[F
 	invokestatic main.veciprod([F[F)F
@@ -7362,7 +7362,7 @@ IfLE_cont_511:
 	goto IfEq_cont_523
 IfEq_else_522:
 	aload 2
-	getstatic light/main [F
+	getstatic main/light [F
 	invokestatic main.veciprod([F[F)F
 	invokestatic libmincaml.min_caml_fneg(F)F
 	fstore 6
@@ -7378,16 +7378,16 @@ IfEq_else_524:
 	fmul
 	fload 1
 	fmul
-	getstatic beam/main [F
+	getstatic main/beam [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fstore 7
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 0
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -7396,9 +7396,9 @@ IfEq_else_524:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 1
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
@@ -7407,9 +7407,9 @@ IfEq_else_524:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 2
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 2
 	aaload
 	checkcast java/lang/Integer
@@ -7422,13 +7422,13 @@ IfEq_cont_525:
 IfEq_cont_523:
 	goto IfEq_cont_521
 IfEq_else_520:
-	getstatic intersected_object_id/main [I
+	getstatic main/intersected_object_id [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	istore 6
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 6
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -7444,18 +7444,18 @@ IfEq_else_520:
 	aload 7
 	aload 2
 	invokestatic main.get_nvector([Ljava/lang/Object;[F)V
-	getstatic startp/main [F
-	getstatic intersection_point/main [F
+	getstatic main/startp [F
+	getstatic main/intersection_point [F
 	invokestatic main.veccpy([F[F)V
 	aload 7
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	invokestatic main.utexture([Ljava/lang/Object;[F)V
 	aload 5
 	iload 0
 	iload 6
 	ldc 4
 	imul
-	getstatic intsec_rectside/main [I
+	getstatic main/intsec_rectside [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -7470,7 +7470,7 @@ IfEq_else_520:
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	invokestatic main.veccpy([F[F)V
 	aload 3
 	invokestatic main.p_calc_diffuse([Ljava/lang/Object;)[I
@@ -7493,7 +7493,7 @@ IfEq_else_520:
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	invokestatic main.veccpy([F[F)V
 	aload 12
 	iload 0
@@ -7512,7 +7512,7 @@ IfEq_else_520:
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	invokestatic main.veccpy([F[F)V
 	goto IfEq_cont_527
 IfEq_else_526:
@@ -7524,13 +7524,13 @@ IfEq_else_526:
 IfEq_cont_527:
 	ldc -2.000000
 	aload 2
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	invokestatic main.veciprod([F[F)F
 	fmul
 	fstore 12
 	aload 2
 	fload 12
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	invokestatic main.vecaccum([FF[F)V
 	fload 1
 	aload 7
@@ -7538,22 +7538,22 @@ IfEq_cont_527:
 	fmul
 	fstore 13
 	ldc 0
-	getstatic or_net/main [[[I
+	getstatic main/or_net [[[I
 	ldc 0
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.shadow_check_one_or_matrix(I[[I)I
 	ldc 0
 	if_icmpne IfEq_else_528
-	getstatic nvector/main [F
-	getstatic light/main [F
+	getstatic main/nvector [F
+	getstatic main/light [F
 	invokestatic main.veciprod([F[F)F
 	invokestatic libmincaml.min_caml_fneg(F)F
 	fload 9
 	fmul
 	fstore 14
 	aload 2
-	getstatic light/main [F
+	getstatic main/light [F
 	invokestatic main.veciprod([F[F)F
 	invokestatic libmincaml.min_caml_fneg(F)F
 	fstore 15
@@ -7564,9 +7564,9 @@ IfEq_cont_527:
 	goto IfEq_cont_529
 IfEq_else_528:
 IfEq_cont_529:
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	invokestatic main.setup_startp([F)V
-	getstatic n_reflections/main [I
+	getstatic main/n_reflections [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -7615,7 +7615,7 @@ IfLE_cont_533:
 	aload 2
 	aload 3
 	fload 4
-	getstatic tmin/main [F
+	getstatic main/tmin [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7642,8 +7642,8 @@ IfLE_cont_519:
 	if_icmpne IfEq_else_536
 	goto IfEq_cont_537
 IfEq_else_536:
-	getstatic objects/main [[Ljava/lang/Object;
-	getstatic intersected_object_id/main [I
+	getstatic main/objects [[Ljava/lang/Object;
+	getstatic main/intersected_object_id [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -7656,18 +7656,18 @@ IfEq_else_536:
 	invokestatic main.d_vec([Ljava/lang/Object;)[F
 	invokestatic main.get_nvector([Ljava/lang/Object;[F)V
 	aload 2
-	getstatic intersection_point/main [F
+	getstatic main/intersection_point [F
 	invokestatic main.utexture([Ljava/lang/Object;[F)V
 	ldc 0
-	getstatic or_net/main [[[I
+	getstatic main/or_net [[[I
 	ldc 0
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.shadow_check_one_or_matrix(I[[I)I
 	ldc 0
 	if_icmpne IfEq_else_538
-	getstatic nvector/main [F
-	getstatic light/main [F
+	getstatic main/nvector [F
+	getstatic main/light [F
 	invokestatic main.veciprod([F[F)F
 	invokestatic libmincaml.min_caml_fneg(F)F
 	fstore 3
@@ -7681,14 +7681,14 @@ IfEq_else_540:
 	fload 3
 IfEq_cont_541:
 	fstore 4
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	fload 1
 	fload 4
 	fmul
 	aload 2
 	invokestatic main.o_diffuse([Ljava/lang/Object;)F
 	fmul
-	getstatic texture_color/main [F
+	getstatic main/texture_color [F
 	invokestatic main.vecaccum([FF[F)V
 	goto IfEq_cont_539
 IfEq_else_538:
@@ -7708,7 +7708,7 @@ IfEq_cont_537:
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.d_vec([Ljava/lang/Object;)[F
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	invokestatic main.veciprod([F[F)F
 	fstore 4
 	fload 4
@@ -7737,7 +7737,7 @@ IfEq_else_544:
 	invokestatic main.trace_diffuse_ray([Ljava/lang/Object;F)V
 IfEq_cont_545:
 	aload 0
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	aload 2
 	iload 3
 	ldc 2
@@ -7755,7 +7755,7 @@ IfLE_cont_543:
 	aload 2
 	invokestatic main.setup_startp([F)V
 	aload 0
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	aload 2
 	ldc 118
 	invokestatic main.iter_trace_diffuse_rays([[Ljava/lang/Object;[F[FI)V
@@ -7770,11 +7770,11 @@ IfLE_cont_543:
 	if_icmpne IfEq_else_546
 	goto IfEq_cont_547
 IfEq_else_546:
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	ldc 0
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	aload 2
 	invokestatic main.trace_diffuse_rays([[Ljava/lang/Object;[F[F)V
 IfEq_cont_547:
@@ -7783,11 +7783,11 @@ IfEq_cont_547:
 	if_icmpne IfEq_else_548
 	goto IfEq_cont_549
 IfEq_else_548:
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	ldc 1
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	aload 2
 	invokestatic main.trace_diffuse_rays([[Ljava/lang/Object;[F[F)V
 IfEq_cont_549:
@@ -7796,11 +7796,11 @@ IfEq_cont_549:
 	if_icmpne IfEq_else_550
 	goto IfEq_cont_551
 IfEq_else_550:
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	aload 2
 	invokestatic main.trace_diffuse_rays([[Ljava/lang/Object;[F[F)V
 IfEq_cont_551:
@@ -7809,11 +7809,11 @@ IfEq_cont_551:
 	if_icmpne IfEq_else_552
 	goto IfEq_cont_553
 IfEq_else_552:
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	ldc 3
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	aload 2
 	invokestatic main.trace_diffuse_rays([[Ljava/lang/Object;[F[F)V
 IfEq_cont_553:
@@ -7822,11 +7822,11 @@ IfEq_cont_553:
 	if_icmpne IfEq_else_554
 	goto IfEq_cont_555
 IfEq_else_554:
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic nvector/main [F
+	getstatic main/nvector [F
 	aload 2
 	invokestatic main.trace_diffuse_rays([[Ljava/lang/Object;[F[F)V
 IfEq_cont_555:
@@ -7848,7 +7848,7 @@ IfEq_cont_555:
 	aload 0
 	invokestatic main.p_energy([Ljava/lang/Object;)[[F
 	astore 5
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	aload 2
 	iload 1
 	aaload
@@ -7865,12 +7865,12 @@ IfEq_cont_555:
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.trace_diffuse_ray_80percent(I[F[F)V
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	aload 5
 	iload 1
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	invokestatic main.vecaccumv([F[F[F)V
 	return
 .end method
@@ -7912,31 +7912,31 @@ IfEq_cont_555:
 	checkcast [Ljava/lang/Object;
 	invokestatic main.p_received_ray_20percent([Ljava/lang/Object;)[[F
 	astore 9
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	aload 5
 	iload 4
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.veccpy([F[F)V
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	aload 6
 	iload 4
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.vecadd([F[F)V
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	aload 7
 	iload 4
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.vecadd([F[F)V
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	aload 8
 	iload 4
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.vecadd([F[F)V
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	aload 9
 	iload 4
 	aaload
@@ -7948,12 +7948,12 @@ IfEq_cont_555:
 	checkcast [Ljava/lang/Object;
 	invokestatic main.p_energy([Ljava/lang/Object;)[[F
 	astore 10
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	aload 10
 	iload 4
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	invokestatic main.vecaccumv([F[F[F)V
 	return
 .end method
@@ -8007,7 +8007,7 @@ IfLE_cont_557:
 .method public static neighbors_exist(II[[Ljava/lang/Object;)I
 	.limit stack 100
 	.limit locals 100
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
@@ -8025,7 +8025,7 @@ IfLE_else_562:
 	ldc 0
 	goto IfLE_cont_565
 IfLE_else_564:
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -8212,7 +8212,7 @@ IfLE_cont_579:
 	invokestatic libmincaml.min_caml_print_char(I)V
 	ldc 10
 	invokestatic libmincaml.min_caml_print_char(I)V
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -8220,7 +8220,7 @@ IfLE_cont_579:
 	invokestatic libmincaml.min_caml_print_int(I)V
 	ldc 32
 	invokestatic libmincaml.min_caml_print_char(I)V
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
@@ -8265,7 +8265,7 @@ IfLE_cont_587:
 .method public static write_rgb()V
 	.limit stack 100
 	.limit locals 100
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -8273,7 +8273,7 @@ IfLE_cont_587:
 	invokestatic main.write_rgb_element(F)V
 	ldc 32
 	invokestatic libmincaml.min_caml_print_char(I)V
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -8281,7 +8281,7 @@ IfLE_cont_587:
 	invokestatic main.write_rgb_element(F)V
 	ldc 32
 	invokestatic libmincaml.min_caml_print_char(I)V
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -8320,7 +8320,7 @@ IfEq_else_594:
 	aload 0
 	invokestatic main.p_group_id([Ljava/lang/Object;)I
 	istore 4
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	invokestatic main.vecbzero([F)V
 	aload 0
 	invokestatic main.p_nvectors([Ljava/lang/Object;)[[F
@@ -8328,7 +8328,7 @@ IfEq_else_594:
 	aload 0
 	invokestatic main.p_intersection_points([Ljava/lang/Object;)[[F
 	astore 6
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	iload 4
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -8348,7 +8348,7 @@ IfEq_else_594:
 	iload 1
 	aaload
 	checkcast [Ljava/lang/Object;
-	getstatic diffuse_ray/main [F
+	getstatic main/diffuse_ray [F
 	invokestatic main.veccpy([F[F)V
 IfEq_cont_595:
 	aload 0
@@ -8371,13 +8371,13 @@ IfLE_cont_591:
 	ldc 0
 	iload 1
 	if_icmpgt IfLE_else_596
-	getstatic scan_pitch/main [F
+	getstatic main/scan_pitch [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	iload 1
-	getstatic image_center/main [I
+	getstatic main/image_center [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -8386,10 +8386,10 @@ IfLE_cont_591:
 	i2f
 	fmul
 	fstore 6
-	getstatic ptrace_dirvec/main [F
+	getstatic main/ptrace_dirvec [F
 	ldc 0
 	fload 6
-	getstatic screenx_dir/main [F
+	getstatic main/screenx_dir [F
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -8399,10 +8399,10 @@ IfLE_cont_591:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic ptrace_dirvec/main [F
+	getstatic main/ptrace_dirvec [F
 	ldc 1
 	fload 6
-	getstatic screenx_dir/main [F
+	getstatic main/screenx_dir [F
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
@@ -8412,10 +8412,10 @@ IfLE_cont_591:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic ptrace_dirvec/main [F
+	getstatic main/ptrace_dirvec [F
 	ldc 2
 	fload 6
-	getstatic screenx_dir/main [F
+	getstatic main/screenx_dir [F
 	ldc 2
 	aaload
 	checkcast java/lang/Integer
@@ -8425,17 +8425,17 @@ IfLE_cont_591:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	getstatic ptrace_dirvec/main [F
+	getstatic main/ptrace_dirvec [F
 	ldc 0
 	invokestatic main.vecunit_sgn([FI)V
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	invokestatic main.vecbzero([F)V
-	getstatic startp/main [F
-	getstatic viewpoint/main [F
+	getstatic main/startp [F
+	getstatic main/viewpoint [F
 	invokestatic main.veccpy([F[F)V
 	ldc 0
 	ldc 1.000000
-	getstatic ptrace_dirvec/main [F
+	getstatic main/ptrace_dirvec [F
 	aload 0
 	iload 1
 	aaload
@@ -8447,7 +8447,7 @@ IfLE_cont_591:
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.p_rgb([Ljava/lang/Object;)[F
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	invokestatic main.veccpy([F[F)V
 	aload 0
 	iload 1
@@ -8481,13 +8481,13 @@ IfLE_cont_597:
 .method public static pretrace_line([[Ljava/lang/Object;II)V
 	.limit stack 100
 	.limit locals 100
-	getstatic scan_pitch/main [F
+	getstatic main/scan_pitch [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	iload 1
-	getstatic image_center/main [I
+	getstatic main/image_center [I
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
@@ -8497,13 +8497,13 @@ IfLE_cont_597:
 	fmul
 	fstore 3
 	fload 3
-	getstatic screeny_dir/main [F
+	getstatic main/screeny_dir [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fmul
-	getstatic screenz_dir/main [F
+	getstatic main/screenz_dir [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -8511,13 +8511,13 @@ IfLE_cont_597:
 	fadd
 	fstore 4
 	fload 3
-	getstatic screeny_dir/main [F
+	getstatic main/screeny_dir [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fmul
-	getstatic screenz_dir/main [F
+	getstatic main/screenz_dir [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -8525,13 +8525,13 @@ IfLE_cont_597:
 	fadd
 	fstore 5
 	fload 3
-	getstatic screeny_dir/main [F
+	getstatic main/screeny_dir [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fmul
-	getstatic screenz_dir/main [F
+	getstatic main/screenz_dir [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -8539,7 +8539,7 @@ IfLE_cont_597:
 	fadd
 	fstore 6
 	aload 0
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -8557,7 +8557,7 @@ IfLE_cont_597:
 .method public static scan_pixel(II[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;)V
 	.limit stack 100
 	.limit locals 100
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -8566,7 +8566,7 @@ IfLE_cont_597:
 	if_icmpgt IfLE_else_598
 	goto IfLE_cont_599
 IfLE_else_598:
-	getstatic rgb/main [F
+	getstatic main/rgb [F
 	aload 3
 	iload 0
 	aaload
@@ -8611,7 +8611,7 @@ IfLE_cont_599:
 .method public static scan_line(I[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
 	.limit stack 100
 	.limit locals 100
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
@@ -8620,7 +8620,7 @@ IfLE_cont_599:
 	if_icmpgt IfLE_else_602
 	goto IfLE_cont_603
 IfLE_else_602:
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
@@ -8941,7 +8941,7 @@ IfLE_cont_607:
 .method public static create_pixelline()[[Ljava/lang/Object;
 	.limit stack 100
 	.limit locals 100
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -8950,7 +8950,7 @@ IfLE_cont_607:
 	invokestatic libmincaml.min_caml_create_array(ILjava/lang/Object;)[Ljava/lang/Object;
 	astore 1
 	aload 1
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -9027,7 +9027,7 @@ IfLE_cont_607:
 	fload 7
 	fdiv
 	fstore 10
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	iload 5
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -9235,7 +9235,7 @@ IfLE_cont_613:
 	aload 1
 	aastore
 	astore 1
-	getstatic n_objects/main [I
+	getstatic main/n_objects [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -9283,7 +9283,7 @@ IfLE_cont_615:
 	ldc 0
 	iload 0
 	if_icmpgt IfLE_else_616
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	iload 0
 	invokestatic main.create_dirvec()[Ljava/lang/Object;
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
@@ -9771,7 +9771,7 @@ IfLE_cont_615:
 	aload 1
 	aastore
 	aastore
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -9815,7 +9815,7 @@ IfLE_cont_619:
 	ldc 0
 	iload 0
 	if_icmpgt IfLE_else_620
-	getstatic dirvecs/main [[[Ljava/lang/Object;
+	getstatic main/dirvecs [[[Ljava/lang/Object;
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -9858,7 +9858,7 @@ IfLE_cont_621:
 	invokestatic main.vecset([FFFF)V
 	aload 6
 	invokestatic main.setup_dirvec_constants([Ljava/lang/Object;)V
-	getstatic reflections/main [[Ljava/lang/Object;
+	getstatic main/reflections [[Ljava/lang/Object;
 	iload 0
 	ldc 3
 	anewarray Ljava/lang/Object;
@@ -9888,7 +9888,7 @@ IfLE_cont_621:
 	ldc 4
 	imul
 	istore 2
-	getstatic n_reflections/main [I
+	getstatic main/n_reflections [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -9899,21 +9899,21 @@ IfLE_cont_621:
 	invokestatic main.o_diffuse([Ljava/lang/Object;)F
 	fsub
 	fstore 4
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	invokestatic libmincaml.min_caml_fneg(F)F
 	fstore 5
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	invokestatic libmincaml.min_caml_fneg(F)F
 	fstore 6
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -9925,7 +9925,7 @@ IfLE_cont_621:
 	ldc 1
 	iadd
 	fload 4
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -9941,7 +9941,7 @@ IfLE_cont_621:
 	iadd
 	fload 4
 	fload 5
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -9957,13 +9957,13 @@ IfLE_cont_621:
 	fload 4
 	fload 5
 	fload 6
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	invokestatic main.add_reflection(IIFFFF)V
-	getstatic n_reflections/main [I
+	getstatic main/n_reflections [I
 	ldc 0
 	iload 3
 	ldc 3
@@ -9982,7 +9982,7 @@ IfLE_cont_621:
 	ldc 1
 	iadd
 	istore 2
-	getstatic n_reflections/main [I
+	getstatic main/n_reflections [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -9993,7 +9993,7 @@ IfLE_cont_621:
 	invokestatic main.o_diffuse([Ljava/lang/Object;)F
 	fsub
 	fstore 4
-	getstatic light/main [F
+	getstatic main/light [F
 	aload 1
 	invokestatic main.o_param_abc([Ljava/lang/Object;)[F
 	invokestatic main.veciprod([F[F)F
@@ -10007,7 +10007,7 @@ IfLE_cont_621:
 	fmul
 	fload 5
 	fmul
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -10019,7 +10019,7 @@ IfLE_cont_621:
 	fmul
 	fload 5
 	fmul
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -10031,14 +10031,14 @@ IfLE_cont_621:
 	fmul
 	fload 5
 	fmul
-	getstatic light/main [F
+	getstatic main/light [F
 	ldc 2
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fsub
 	invokestatic main.add_reflection(IIFFFF)V
-	getstatic n_reflections/main [I
+	getstatic main/n_reflections [I
 	ldc 0
 	iload 3
 	ldc 1
@@ -10054,7 +10054,7 @@ IfLE_cont_621:
 	ldc 0
 	iload 0
 	if_icmpgt IfLE_else_622
-	getstatic objects/main [[Ljava/lang/Object;
+	getstatic main/objects [[Ljava/lang/Object;
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
@@ -10105,31 +10105,31 @@ IfLE_cont_623:
 .method public static rt(II)V
 	.limit stack 100
 	.limit locals 100
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 0
 	iload 0
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-	getstatic image_size/main [I
+	getstatic main/image_size [I
 	ldc 1
 	iload 1
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-	getstatic image_center/main [I
+	getstatic main/image_center [I
 	ldc 0
 	iload 0
 	ldc 2
 	idiv
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-	getstatic image_center/main [I
+	getstatic main/image_center [I
 	ldc 1
 	iload 1
 	ldc 2
 	idiv
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-	getstatic scan_pitch/main [F
+	getstatic main/scan_pitch [F
 	ldc 0
 	ldc 128.000000
 	iload 0
@@ -10146,13 +10146,13 @@ IfLE_cont_623:
 	invokestatic main.read_parameter()V
 	invokestatic main.write_ppm_header()V
 	invokestatic main.init_dirvecs()V
-	getstatic light_dirvec/main [Ljava/lang/Object;
+	getstatic main/light_dirvec [Ljava/lang/Object;
 	invokestatic main.d_vec([Ljava/lang/Object;)[F
-	getstatic light/main [F
+	getstatic main/light [F
 	invokestatic main.veccpy([F[F)V
-	getstatic light_dirvec/main [Ljava/lang/Object;
+	getstatic main/light_dirvec [Ljava/lang/Object;
 	invokestatic main.setup_dirvec_constants([Ljava/lang/Object;)V
-	getstatic n_objects/main [I
+	getstatic main/n_objects [I
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
