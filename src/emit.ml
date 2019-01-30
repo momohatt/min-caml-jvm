@@ -96,7 +96,7 @@ let h oc f =
   Printf.fprintf oc "\t.limit stack 100\n"; (*TODO*)
   Printf.fprintf oc "\t.limit locals 100\n";
   List.iter (fun e -> g oc e) f.body;
-  Printf.fprintf oc ".end method\n\n"
+  Printf.fprintf oc ".end method\t; %s\n\n" (fst f.name)
 
 let f oc dirname (files : Asm.prog) =
   let has_closure = ref false in
@@ -113,7 +113,7 @@ let f oc dirname (files : Asm.prog) =
          Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
          Printf.fprintf oc "\t.limit locals 10\n";
          List.iter (g oc) (snd file.init);
-         Printf.fprintf oc ".end method\n\n";
+         Printf.fprintf oc ".end method\t; <init>\n\n";
          List.iter (fun f -> h oc f) file.funs;
          close_out oc)
       else
@@ -126,7 +126,7 @@ let f oc dirname (files : Asm.prog) =
          Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
          Printf.fprintf oc "\t.limit locals 10\n";
          List.iter (g oc) (snd file.init);
-         Printf.fprintf oc ".end method\n\n";
+         Printf.fprintf oc ".end method\t; <init>\n\n";
          List.iter (fun f -> h oc f) file.funs))
     files;
   if !has_closure then

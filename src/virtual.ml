@@ -190,17 +190,6 @@ let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.bod
           body = prologue @ g fv env' e @ epilogue })
   | _ -> assert false
 
-let make_init init_super fields =
-  init_super @
-  (List.concat @@ List.mapi
-     (fun n (x, t) -> [Load(`A, 0);
-                       Load(`A, 1);
-                       Ldc(I(n));
-                       ALoad(`A);
-                       Checkcast(t);
-                       PutField(x, !classname, t)]) fields) @
-  [Return `V]
-
 (* gをfundefsに適用して変換しながらファイルに分ける (files, main_funs)を返す *)
 let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.fundef list) =
   match fundefs with
@@ -218,9 +207,15 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
     let closure : Closure.closure = List.assoc (fst f.name) closures in
     let fields = List.map (fun (x, t) -> x, typet2tysig_obj t) closure.fv in
     let init =
-      make_init
-        [Load(`A, 0); Load(`A, 1); InvokeSpecial("cls/<init>", Fun([Array(Obj)], Void))]
-        fields
+      [Load(`A, 0); Load(`A, 1); InvokeSpecial("cls/<init>", Fun([Array(Obj)], Void))] @
+      (List.concat @@ List.mapi
+         (fun n (x, t) -> [Load(`A, 0);
+                           Load(`A, 1);
+                           Ldc(I(n));
+                           ALoad(`A);
+                           Checkcast(t);
+                           PutField(x, !classname, t)]) fields) @
+      [Return `V]
     in
     let app_tysig = match snd f.name with
       | Fun(_, t) -> Fun([Array(Obj)], tysig2tysig_obj t)
@@ -245,9 +240,13 @@ let f { Closure.closures = closures; Closure.globals = glb; Closure.funs = funde
                modifiers = "static ";
                args = []; fv = []; body = main_body } in
   let main_init =
-    make_init
-      [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V]
-      main_field in
+    [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void))] @
+    (List.concat @@ List.mapi
+       (fun n (x, t, e) ->
+          let t' = typet2tysig t in
+          g [] [] e @
+          [PutField(x, !classname, t')]) !main_globals) @
+    [Return `V] in
   { classname = "main";
     init = Fun([Void], Void), main_init;
     funs = main_funs @ [main];

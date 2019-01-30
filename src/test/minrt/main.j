@@ -35,189 +35,1994 @@
 	.limit locals 10
 	aload 0
 	invokespecial java/lang/Object/<init>()V
-	return
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 0
+	ldc 1
+	anewarray Ljava/lang/Integer;
+	dup
+	ldc 0
 	aload 0
+	aastore
+	putfield main/n_objects [I
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 0
+	anewarray Ljava/lang/Float;
+	astore 0
+	ldc 11
+	anewarray Ljava/lang/Object;
+	dup
+	ldc 0
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	aastore
+	dup
+	ldc 1
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	aastore
+	dup
+	ldc 2
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	aastore
+	dup
+	ldc 3
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	aastore
+	dup
+	ldc 4
+	aload 0
+	aastore
+	dup
+	ldc 5
+	aload 0
+	aastore
+	dup
+	ldc 6
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	aastore
+	dup
+	ldc 7
+	aload 0
+	aastore
+	dup
+	ldc 8
+	aload 0
+	aastore
+	dup
+	ldc 9
+	aload 0
+	aastore
+	dup
+	ldc 10
+	aload 0
+	aastore
+	astore 1
+	ldc 60
+	anewarray [Ljava/lang/Object;
+	dup
+	ldc 0
 	aload 1
+	aastore
+	dup
+	ldc 1
+	aload 1
+	aastore
+	dup
+	ldc 2
+	aload 1
+	aastore
+	dup
+	ldc 3
+	aload 1
+	aastore
+	dup
+	ldc 4
+	aload 1
+	aastore
+	dup
+	ldc 5
+	aload 1
+	aastore
+	dup
+	ldc 6
+	aload 1
+	aastore
+	dup
+	ldc 7
+	aload 1
+	aastore
+	dup
+	ldc 8
+	aload 1
+	aastore
+	dup
+	ldc 9
+	aload 1
+	aastore
+	dup
+	ldc 10
+	aload 1
+	aastore
+	dup
+	ldc 11
+	aload 1
+	aastore
+	dup
+	ldc 12
+	aload 1
+	aastore
+	dup
+	ldc 13
+	aload 1
+	aastore
+	dup
+	ldc 14
+	aload 1
+	aastore
+	dup
+	ldc 15
+	aload 1
+	aastore
+	dup
+	ldc 16
+	aload 1
+	aastore
+	dup
+	ldc 17
+	aload 1
+	aastore
+	dup
+	ldc 18
+	aload 1
+	aastore
+	dup
+	ldc 19
+	aload 1
+	aastore
+	dup
+	ldc 20
+	aload 1
+	aastore
+	dup
+	ldc 21
+	aload 1
+	aastore
+	dup
+	ldc 22
+	aload 1
+	aastore
+	dup
+	ldc 23
+	aload 1
+	aastore
+	dup
+	ldc 24
+	aload 1
+	aastore
+	dup
+	ldc 25
+	aload 1
+	aastore
+	dup
+	ldc 26
+	aload 1
+	aastore
+	dup
+	ldc 27
+	aload 1
+	aastore
+	dup
+	ldc 28
+	aload 1
+	aastore
+	dup
+	ldc 29
+	aload 1
+	aastore
+	dup
+	ldc 30
+	aload 1
+	aastore
+	dup
+	ldc 31
+	aload 1
+	aastore
+	dup
+	ldc 32
+	aload 1
+	aastore
+	dup
+	ldc 33
+	aload 1
+	aastore
+	dup
+	ldc 34
+	aload 1
+	aastore
+	dup
+	ldc 35
+	aload 1
+	aastore
+	dup
+	ldc 36
+	aload 1
+	aastore
+	dup
+	ldc 37
+	aload 1
+	aastore
+	dup
+	ldc 38
+	aload 1
+	aastore
+	dup
+	ldc 39
+	aload 1
+	aastore
+	dup
+	ldc 40
+	aload 1
+	aastore
+	dup
+	ldc 41
+	aload 1
+	aastore
+	dup
+	ldc 42
+	aload 1
+	aastore
+	dup
+	ldc 43
+	aload 1
+	aastore
+	dup
+	ldc 44
+	aload 1
+	aastore
+	dup
+	ldc 45
+	aload 1
+	aastore
+	dup
+	ldc 46
+	aload 1
+	aastore
+	dup
+	ldc 47
+	aload 1
+	aastore
+	dup
+	ldc 48
+	aload 1
+	aastore
+	dup
+	ldc 49
+	aload 1
+	aastore
+	dup
+	ldc 50
+	aload 1
+	aastore
+	dup
+	ldc 51
+	aload 1
+	aastore
+	dup
+	ldc 52
+	aload 1
+	aastore
+	dup
+	ldc 53
+	aload 1
+	aastore
+	dup
+	ldc 54
+	aload 1
+	aastore
+	dup
+	ldc 55
+	aload 1
+	aastore
+	dup
+	ldc 56
+	aload 1
+	aastore
+	dup
+	ldc 57
+	aload 1
+	aastore
+	dup
+	ldc 58
+	aload 1
+	aastore
+	dup
+	ldc 59
+	aload 1
+	aastore
+	putfield main/objects [[Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
+	aload 0
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
+	putfield main/screen [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
+	aload 0
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
+	putfield main/viewpoint [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
+	aload 0
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
+	putfield main/light [F
+	ldc 255.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 1
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
+	aload 0
+	aastore
+	putfield main/beam [F
+	ldc 1
+	ineg
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 0
+	ldc 1
+	anewarray Ljava/lang/Integer;
+	dup
+	ldc 0
+	aload 0
+	aastore
+	astore 0
+	ldc 50
+	anewarray [Ljava/lang/Integer;
+	dup
+	ldc 0
+	aload 0
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
+	dup
+	ldc 3
+	aload 0
+	aastore
+	dup
+	ldc 4
+	aload 0
+	aastore
+	dup
+	ldc 5
+	aload 0
+	aastore
+	dup
+	ldc 6
+	aload 0
+	aastore
+	dup
+	ldc 7
+	aload 0
+	aastore
+	dup
+	ldc 8
+	aload 0
+	aastore
+	dup
+	ldc 9
+	aload 0
+	aastore
+	dup
+	ldc 10
+	aload 0
+	aastore
+	dup
+	ldc 11
+	aload 0
+	aastore
+	dup
+	ldc 12
+	aload 0
+	aastore
+	dup
+	ldc 13
+	aload 0
+	aastore
+	dup
+	ldc 14
+	aload 0
+	aastore
+	dup
+	ldc 15
+	aload 0
+	aastore
+	dup
+	ldc 16
+	aload 0
+	aastore
+	dup
+	ldc 17
+	aload 0
+	aastore
+	dup
+	ldc 18
+	aload 0
+	aastore
+	dup
+	ldc 19
+	aload 0
+	aastore
+	dup
+	ldc 20
+	aload 0
+	aastore
+	dup
+	ldc 21
+	aload 0
+	aastore
+	dup
+	ldc 22
+	aload 0
+	aastore
+	dup
+	ldc 23
+	aload 0
+	aastore
+	dup
+	ldc 24
+	aload 0
+	aastore
+	dup
+	ldc 25
+	aload 0
+	aastore
+	dup
+	ldc 26
+	aload 0
+	aastore
+	dup
+	ldc 27
+	aload 0
+	aastore
+	dup
+	ldc 28
+	aload 0
+	aastore
+	dup
+	ldc 29
+	aload 0
+	aastore
+	dup
+	ldc 30
+	aload 0
+	aastore
+	dup
+	ldc 31
+	aload 0
+	aastore
+	dup
+	ldc 32
+	aload 0
+	aastore
+	dup
+	ldc 33
+	aload 0
+	aastore
+	dup
+	ldc 34
+	aload 0
+	aastore
+	dup
+	ldc 35
+	aload 0
+	aastore
+	dup
+	ldc 36
+	aload 0
+	aastore
+	dup
+	ldc 37
+	aload 0
+	aastore
+	dup
+	ldc 38
+	aload 0
+	aastore
+	dup
+	ldc 39
+	aload 0
+	aastore
+	dup
+	ldc 40
+	aload 0
+	aastore
+	dup
+	ldc 41
+	aload 0
+	aastore
+	dup
+	ldc 42
+	aload 0
+	aastore
+	dup
+	ldc 43
+	aload 0
+	aastore
+	dup
+	ldc 44
+	aload 0
+	aastore
+	dup
+	ldc 45
+	aload 0
+	aastore
+	dup
+	ldc 46
+	aload 0
+	aastore
+	dup
+	ldc 47
+	aload 0
+	aastore
+	dup
+	ldc 48
+	aload 0
+	aastore
+	dup
+	ldc 49
+	aload 0
+	aastore
+	putfield main/and_net [[I
+	getstatic main/and_net [[I
 	ldc 0
 	aaload
 	checkcast [Ljava/lang/Object;
-	putfield main/n_objects [I
-	aload 0
-	aload 1
+	astore 0
 	ldc 1
-	aaload
-	checkcast [Ljava/lang/Object;
-	putfield main/objects [[Ljava/lang/Object;
+	anewarray [Ljava/lang/Integer;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 2
-	aaload
-	checkcast [Ljava/lang/Object;
-	putfield main/screen [F
+	aastore
+	astore 0
+	ldc 1
+	anewarray [[Ljava/lang/Integer;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 3
-	aaload
-	checkcast [Ljava/lang/Object;
-	putfield main/viewpoint [F
-	aload 0
-	aload 1
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Object;
-	putfield main/light [F
-	aload 0
-	aload 1
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Object;
-	putfield main/beam [F
-	aload 0
-	aload 1
-	ldc 6
-	aaload
-	checkcast [Ljava/lang/Object;
-	putfield main/and_net [[I
-	aload 0
-	aload 1
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
 	putfield main/or_net [[[I
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 1
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
 	putfield main/solver_dist [F
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 0
+	ldc 1
+	anewarray Ljava/lang/Integer;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
 	putfield main/intsec_rectside [I
+	ldc 1000000000.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 1
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
 	putfield main/tmin [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 11
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/intersection_point [F
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 0
+	ldc 1
+	anewarray Ljava/lang/Integer;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 12
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
 	putfield main/intersected_object_id [I
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 13
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/nvector [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 14
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/texture_color [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 15
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/diffuse_ray [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 16
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/rgb [F
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 0
+	ldc 2
+	anewarray Ljava/lang/Integer;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 17
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
 	putfield main/image_size [I
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 0
+	ldc 2
+	anewarray Ljava/lang/Integer;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 18
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
 	putfield main/image_center [I
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 1
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 19
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
 	putfield main/scan_pitch [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 20
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/startp [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 21
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/startp_fast [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 22
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/screenx_dir [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 23
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/screeny_dir [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 24
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/screenz_dir [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 0
-	aload 1
-	ldc 25
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	dup
+	ldc 1
+	aload 0
+	aastore
+	dup
+	ldc 2
+	aload 0
+	aastore
 	putfield main/ptrace_dirvec [F
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 0
+	anewarray Ljava/lang/Float;
+	astore 0
 	aload 0
+	astore 1
+	ldc 0
+	anewarray [Ljava/lang/Float;
+	astore 1
+	ldc 2
+	anewarray Ljava/lang/Object;
+	dup
+	ldc 0
+	aload 0
+	aastore
+	dup
+	ldc 1
 	aload 1
-	ldc 26
-	aaload
-	checkcast [Ljava/lang/Object;
+	aastore
+	astore 2
+	ldc 0
+	anewarray [Ljava/lang/Object;
+	astore 2
+	aload 2
+	astore 3
+	ldc 5
+	anewarray [[Ljava/lang/Object;
+	dup
+	ldc 0
+	aload 3
+	aastore
+	dup
+	ldc 1
+	aload 3
+	aastore
+	dup
+	ldc 2
+	aload 3
+	aastore
+	dup
+	ldc 3
+	aload 3
+	aastore
+	dup
+	ldc 4
+	aload 3
+	aastore
 	putfield main/dirvecs [[[Ljava/lang/Object;
-	aload 0
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 0
+	anewarray Ljava/lang/Float;
+	astore 0
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 1
+	ldc 3
+	anewarray Ljava/lang/Float;
+	dup
+	ldc 0
 	aload 1
+	aastore
+	dup
+	ldc 1
+	aload 1
+	aastore
+	dup
+	ldc 2
+	aload 1
+	aastore
+	astore 1
+	aload 0
+	astore 2
+	ldc 60
+	anewarray [Ljava/lang/Float;
+	dup
+	ldc 0
+	aload 2
+	aastore
+	dup
+	ldc 1
+	aload 2
+	aastore
+	dup
+	ldc 2
+	aload 2
+	aastore
+	dup
+	ldc 3
+	aload 2
+	aastore
+	dup
+	ldc 4
+	aload 2
+	aastore
+	dup
+	ldc 5
+	aload 2
+	aastore
+	dup
+	ldc 6
+	aload 2
+	aastore
+	dup
+	ldc 7
+	aload 2
+	aastore
+	dup
+	ldc 8
+	aload 2
+	aastore
+	dup
+	ldc 9
+	aload 2
+	aastore
+	dup
+	ldc 10
+	aload 2
+	aastore
+	dup
+	ldc 11
+	aload 2
+	aastore
+	dup
+	ldc 12
+	aload 2
+	aastore
+	dup
+	ldc 13
+	aload 2
+	aastore
+	dup
+	ldc 14
+	aload 2
+	aastore
+	dup
+	ldc 15
+	aload 2
+	aastore
+	dup
+	ldc 16
+	aload 2
+	aastore
+	dup
+	ldc 17
+	aload 2
+	aastore
+	dup
+	ldc 18
+	aload 2
+	aastore
+	dup
+	ldc 19
+	aload 2
+	aastore
+	dup
+	ldc 20
+	aload 2
+	aastore
+	dup
+	ldc 21
+	aload 2
+	aastore
+	dup
+	ldc 22
+	aload 2
+	aastore
+	dup
+	ldc 23
+	aload 2
+	aastore
+	dup
+	ldc 24
+	aload 2
+	aastore
+	dup
+	ldc 25
+	aload 2
+	aastore
+	dup
+	ldc 26
+	aload 2
+	aastore
+	dup
 	ldc 27
-	aaload
-	checkcast [Ljava/lang/Object;
-	putfield main/light_dirvec [Ljava/lang/Object;
-	aload 0
-	aload 1
+	aload 2
+	aastore
+	dup
 	ldc 28
-	aaload
-	checkcast [Ljava/lang/Object;
-	putfield main/reflections [[Ljava/lang/Object;
-	aload 0
-	aload 1
+	aload 2
+	aastore
+	dup
 	ldc 29
-	aaload
-	checkcast [Ljava/lang/Object;
+	aload 2
+	aastore
+	dup
+	ldc 30
+	aload 2
+	aastore
+	dup
+	ldc 31
+	aload 2
+	aastore
+	dup
+	ldc 32
+	aload 2
+	aastore
+	dup
+	ldc 33
+	aload 2
+	aastore
+	dup
+	ldc 34
+	aload 2
+	aastore
+	dup
+	ldc 35
+	aload 2
+	aastore
+	dup
+	ldc 36
+	aload 2
+	aastore
+	dup
+	ldc 37
+	aload 2
+	aastore
+	dup
+	ldc 38
+	aload 2
+	aastore
+	dup
+	ldc 39
+	aload 2
+	aastore
+	dup
+	ldc 40
+	aload 2
+	aastore
+	dup
+	ldc 41
+	aload 2
+	aastore
+	dup
+	ldc 42
+	aload 2
+	aastore
+	dup
+	ldc 43
+	aload 2
+	aastore
+	dup
+	ldc 44
+	aload 2
+	aastore
+	dup
+	ldc 45
+	aload 2
+	aastore
+	dup
+	ldc 46
+	aload 2
+	aastore
+	dup
+	ldc 47
+	aload 2
+	aastore
+	dup
+	ldc 48
+	aload 2
+	aastore
+	dup
+	ldc 49
+	aload 2
+	aastore
+	dup
+	ldc 50
+	aload 2
+	aastore
+	dup
+	ldc 51
+	aload 2
+	aastore
+	dup
+	ldc 52
+	aload 2
+	aastore
+	dup
+	ldc 53
+	aload 2
+	aastore
+	dup
+	ldc 54
+	aload 2
+	aastore
+	dup
+	ldc 55
+	aload 2
+	aastore
+	dup
+	ldc 56
+	aload 2
+	aastore
+	dup
+	ldc 57
+	aload 2
+	aastore
+	dup
+	ldc 58
+	aload 2
+	aastore
+	dup
+	ldc 59
+	aload 2
+	aastore
+	astore 2
+	ldc 2
+	anewarray Ljava/lang/Object;
+	dup
+	ldc 0
+	aload 1
+	aastore
+	dup
+	ldc 1
+	aload 2
+	aastore
+	putfield main/light_dirvec [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	astore 0
+	ldc 0
+	anewarray Ljava/lang/Float;
+	astore 0
+	aload 0
+	astore 1
+	ldc 0
+	anewarray [Ljava/lang/Float;
+	astore 1
+	ldc 2
+	anewarray Ljava/lang/Object;
+	dup
+	ldc 0
+	aload 0
+	aastore
+	dup
+	ldc 1
+	aload 1
+	aastore
+	astore 2
+	ldc 3
+	anewarray Ljava/lang/Object;
+	dup
+	ldc 0
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	aastore
+	dup
+	ldc 1
+	aload 2
+	aastore
+	dup
+	ldc 2
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	aastore
+	astore 3
+	ldc 180
+	anewarray [Ljava/lang/Object;
+	dup
+	ldc 0
+	aload 3
+	aastore
+	dup
+	ldc 1
+	aload 3
+	aastore
+	dup
+	ldc 2
+	aload 3
+	aastore
+	dup
+	ldc 3
+	aload 3
+	aastore
+	dup
+	ldc 4
+	aload 3
+	aastore
+	dup
+	ldc 5
+	aload 3
+	aastore
+	dup
+	ldc 6
+	aload 3
+	aastore
+	dup
+	ldc 7
+	aload 3
+	aastore
+	dup
+	ldc 8
+	aload 3
+	aastore
+	dup
+	ldc 9
+	aload 3
+	aastore
+	dup
+	ldc 10
+	aload 3
+	aastore
+	dup
+	ldc 11
+	aload 3
+	aastore
+	dup
+	ldc 12
+	aload 3
+	aastore
+	dup
+	ldc 13
+	aload 3
+	aastore
+	dup
+	ldc 14
+	aload 3
+	aastore
+	dup
+	ldc 15
+	aload 3
+	aastore
+	dup
+	ldc 16
+	aload 3
+	aastore
+	dup
+	ldc 17
+	aload 3
+	aastore
+	dup
+	ldc 18
+	aload 3
+	aastore
+	dup
+	ldc 19
+	aload 3
+	aastore
+	dup
+	ldc 20
+	aload 3
+	aastore
+	dup
+	ldc 21
+	aload 3
+	aastore
+	dup
+	ldc 22
+	aload 3
+	aastore
+	dup
+	ldc 23
+	aload 3
+	aastore
+	dup
+	ldc 24
+	aload 3
+	aastore
+	dup
+	ldc 25
+	aload 3
+	aastore
+	dup
+	ldc 26
+	aload 3
+	aastore
+	dup
+	ldc 27
+	aload 3
+	aastore
+	dup
+	ldc 28
+	aload 3
+	aastore
+	dup
+	ldc 29
+	aload 3
+	aastore
+	dup
+	ldc 30
+	aload 3
+	aastore
+	dup
+	ldc 31
+	aload 3
+	aastore
+	dup
+	ldc 32
+	aload 3
+	aastore
+	dup
+	ldc 33
+	aload 3
+	aastore
+	dup
+	ldc 34
+	aload 3
+	aastore
+	dup
+	ldc 35
+	aload 3
+	aastore
+	dup
+	ldc 36
+	aload 3
+	aastore
+	dup
+	ldc 37
+	aload 3
+	aastore
+	dup
+	ldc 38
+	aload 3
+	aastore
+	dup
+	ldc 39
+	aload 3
+	aastore
+	dup
+	ldc 40
+	aload 3
+	aastore
+	dup
+	ldc 41
+	aload 3
+	aastore
+	dup
+	ldc 42
+	aload 3
+	aastore
+	dup
+	ldc 43
+	aload 3
+	aastore
+	dup
+	ldc 44
+	aload 3
+	aastore
+	dup
+	ldc 45
+	aload 3
+	aastore
+	dup
+	ldc 46
+	aload 3
+	aastore
+	dup
+	ldc 47
+	aload 3
+	aastore
+	dup
+	ldc 48
+	aload 3
+	aastore
+	dup
+	ldc 49
+	aload 3
+	aastore
+	dup
+	ldc 50
+	aload 3
+	aastore
+	dup
+	ldc 51
+	aload 3
+	aastore
+	dup
+	ldc 52
+	aload 3
+	aastore
+	dup
+	ldc 53
+	aload 3
+	aastore
+	dup
+	ldc 54
+	aload 3
+	aastore
+	dup
+	ldc 55
+	aload 3
+	aastore
+	dup
+	ldc 56
+	aload 3
+	aastore
+	dup
+	ldc 57
+	aload 3
+	aastore
+	dup
+	ldc 58
+	aload 3
+	aastore
+	dup
+	ldc 59
+	aload 3
+	aastore
+	dup
+	ldc 60
+	aload 3
+	aastore
+	dup
+	ldc 61
+	aload 3
+	aastore
+	dup
+	ldc 62
+	aload 3
+	aastore
+	dup
+	ldc 63
+	aload 3
+	aastore
+	dup
+	ldc 64
+	aload 3
+	aastore
+	dup
+	ldc 65
+	aload 3
+	aastore
+	dup
+	ldc 66
+	aload 3
+	aastore
+	dup
+	ldc 67
+	aload 3
+	aastore
+	dup
+	ldc 68
+	aload 3
+	aastore
+	dup
+	ldc 69
+	aload 3
+	aastore
+	dup
+	ldc 70
+	aload 3
+	aastore
+	dup
+	ldc 71
+	aload 3
+	aastore
+	dup
+	ldc 72
+	aload 3
+	aastore
+	dup
+	ldc 73
+	aload 3
+	aastore
+	dup
+	ldc 74
+	aload 3
+	aastore
+	dup
+	ldc 75
+	aload 3
+	aastore
+	dup
+	ldc 76
+	aload 3
+	aastore
+	dup
+	ldc 77
+	aload 3
+	aastore
+	dup
+	ldc 78
+	aload 3
+	aastore
+	dup
+	ldc 79
+	aload 3
+	aastore
+	dup
+	ldc 80
+	aload 3
+	aastore
+	dup
+	ldc 81
+	aload 3
+	aastore
+	dup
+	ldc 82
+	aload 3
+	aastore
+	dup
+	ldc 83
+	aload 3
+	aastore
+	dup
+	ldc 84
+	aload 3
+	aastore
+	dup
+	ldc 85
+	aload 3
+	aastore
+	dup
+	ldc 86
+	aload 3
+	aastore
+	dup
+	ldc 87
+	aload 3
+	aastore
+	dup
+	ldc 88
+	aload 3
+	aastore
+	dup
+	ldc 89
+	aload 3
+	aastore
+	dup
+	ldc 90
+	aload 3
+	aastore
+	dup
+	ldc 91
+	aload 3
+	aastore
+	dup
+	ldc 92
+	aload 3
+	aastore
+	dup
+	ldc 93
+	aload 3
+	aastore
+	dup
+	ldc 94
+	aload 3
+	aastore
+	dup
+	ldc 95
+	aload 3
+	aastore
+	dup
+	ldc 96
+	aload 3
+	aastore
+	dup
+	ldc 97
+	aload 3
+	aastore
+	dup
+	ldc 98
+	aload 3
+	aastore
+	dup
+	ldc 99
+	aload 3
+	aastore
+	dup
+	ldc 100
+	aload 3
+	aastore
+	dup
+	ldc 101
+	aload 3
+	aastore
+	dup
+	ldc 102
+	aload 3
+	aastore
+	dup
+	ldc 103
+	aload 3
+	aastore
+	dup
+	ldc 104
+	aload 3
+	aastore
+	dup
+	ldc 105
+	aload 3
+	aastore
+	dup
+	ldc 106
+	aload 3
+	aastore
+	dup
+	ldc 107
+	aload 3
+	aastore
+	dup
+	ldc 108
+	aload 3
+	aastore
+	dup
+	ldc 109
+	aload 3
+	aastore
+	dup
+	ldc 110
+	aload 3
+	aastore
+	dup
+	ldc 111
+	aload 3
+	aastore
+	dup
+	ldc 112
+	aload 3
+	aastore
+	dup
+	ldc 113
+	aload 3
+	aastore
+	dup
+	ldc 114
+	aload 3
+	aastore
+	dup
+	ldc 115
+	aload 3
+	aastore
+	dup
+	ldc 116
+	aload 3
+	aastore
+	dup
+	ldc 117
+	aload 3
+	aastore
+	dup
+	ldc 118
+	aload 3
+	aastore
+	dup
+	ldc 119
+	aload 3
+	aastore
+	dup
+	ldc 120
+	aload 3
+	aastore
+	dup
+	ldc 121
+	aload 3
+	aastore
+	dup
+	ldc 122
+	aload 3
+	aastore
+	dup
+	ldc 123
+	aload 3
+	aastore
+	dup
+	ldc 124
+	aload 3
+	aastore
+	dup
+	ldc 125
+	aload 3
+	aastore
+	dup
+	ldc 126
+	aload 3
+	aastore
+	dup
+	ldc 127
+	aload 3
+	aastore
+	dup
+	ldc 128
+	aload 3
+	aastore
+	dup
+	ldc 129
+	aload 3
+	aastore
+	dup
+	ldc 130
+	aload 3
+	aastore
+	dup
+	ldc 131
+	aload 3
+	aastore
+	dup
+	ldc 132
+	aload 3
+	aastore
+	dup
+	ldc 133
+	aload 3
+	aastore
+	dup
+	ldc 134
+	aload 3
+	aastore
+	dup
+	ldc 135
+	aload 3
+	aastore
+	dup
+	ldc 136
+	aload 3
+	aastore
+	dup
+	ldc 137
+	aload 3
+	aastore
+	dup
+	ldc 138
+	aload 3
+	aastore
+	dup
+	ldc 139
+	aload 3
+	aastore
+	dup
+	ldc 140
+	aload 3
+	aastore
+	dup
+	ldc 141
+	aload 3
+	aastore
+	dup
+	ldc 142
+	aload 3
+	aastore
+	dup
+	ldc 143
+	aload 3
+	aastore
+	dup
+	ldc 144
+	aload 3
+	aastore
+	dup
+	ldc 145
+	aload 3
+	aastore
+	dup
+	ldc 146
+	aload 3
+	aastore
+	dup
+	ldc 147
+	aload 3
+	aastore
+	dup
+	ldc 148
+	aload 3
+	aastore
+	dup
+	ldc 149
+	aload 3
+	aastore
+	dup
+	ldc 150
+	aload 3
+	aastore
+	dup
+	ldc 151
+	aload 3
+	aastore
+	dup
+	ldc 152
+	aload 3
+	aastore
+	dup
+	ldc 153
+	aload 3
+	aastore
+	dup
+	ldc 154
+	aload 3
+	aastore
+	dup
+	ldc 155
+	aload 3
+	aastore
+	dup
+	ldc 156
+	aload 3
+	aastore
+	dup
+	ldc 157
+	aload 3
+	aastore
+	dup
+	ldc 158
+	aload 3
+	aastore
+	dup
+	ldc 159
+	aload 3
+	aastore
+	dup
+	ldc 160
+	aload 3
+	aastore
+	dup
+	ldc 161
+	aload 3
+	aastore
+	dup
+	ldc 162
+	aload 3
+	aastore
+	dup
+	ldc 163
+	aload 3
+	aastore
+	dup
+	ldc 164
+	aload 3
+	aastore
+	dup
+	ldc 165
+	aload 3
+	aastore
+	dup
+	ldc 166
+	aload 3
+	aastore
+	dup
+	ldc 167
+	aload 3
+	aastore
+	dup
+	ldc 168
+	aload 3
+	aastore
+	dup
+	ldc 169
+	aload 3
+	aastore
+	dup
+	ldc 170
+	aload 3
+	aastore
+	dup
+	ldc 171
+	aload 3
+	aastore
+	dup
+	ldc 172
+	aload 3
+	aastore
+	dup
+	ldc 173
+	aload 3
+	aastore
+	dup
+	ldc 174
+	aload 3
+	aastore
+	dup
+	ldc 175
+	aload 3
+	aastore
+	dup
+	ldc 176
+	aload 3
+	aastore
+	dup
+	ldc 177
+	aload 3
+	aastore
+	dup
+	ldc 178
+	aload 3
+	aastore
+	dup
+	ldc 179
+	aload 3
+	aastore
+	putfield main/reflections [[Ljava/lang/Object;
+	ldc 0
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	astore 0
+	ldc 1
+	anewarray Ljava/lang/Integer;
+	dup
+	ldc 0
+	aload 0
+	aastore
 	putfield main/n_reflections [I
 	return
-.end method
+.end method	; <init>
 
 .method public static sgn(F)F
 	.limit stack 100
@@ -240,7 +2045,7 @@ IfEq_else_248:
 	ldc 0.000000
 IfEq_cont_249:
 	freturn
-.end method
+.end method	; sgn
 
 .method public static fneg_cond(IF)F
 	.limit stack 100
@@ -255,7 +2060,7 @@ IfEq_else_252:
 	fload 1
 IfEq_cont_253:
 	freturn
-.end method
+.end method	; fneg_cond
 
 .method public static add_mod5(II)I
 	.limit stack 100
@@ -275,7 +2080,7 @@ IfLE_else_254:
 	iload 2
 IfLE_cont_255:
 	ireturn
-.end method
+.end method	; add_mod5
 
 .method public static vecset([FFFF)V
 	.limit stack 100
@@ -296,7 +2101,7 @@ IfLE_cont_255:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; vecset
 
 .method public static vecfill([FF)V
 	.limit stack 100
@@ -317,7 +2122,7 @@ IfLE_cont_255:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; vecfill
 
 .method public static vecbzero([F)V
 	.limit stack 100
@@ -326,7 +2131,7 @@ IfLE_cont_255:
 	ldc 0.000000
 	invokestatic main.vecfill([FF)V
 	return
-.end method
+.end method	; vecbzero
 
 .method public static veccpy([F[F)V
 	.limit stack 100
@@ -359,7 +2164,7 @@ IfLE_cont_255:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; veccpy
 
 .method public static vecunit_sgn([FI)V
 	.limit stack 100
@@ -441,7 +2246,7 @@ IfEq_cont_257:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; vecunit_sgn
 
 .method public static veciprod([F[F)F
 	.limit stack 100
@@ -482,7 +2287,7 @@ IfEq_cont_257:
 	fmul
 	fadd
 	freturn
-.end method
+.end method	; veciprod
 
 .method public static veciprod2([FFFF)F
 	.limit stack 100
@@ -511,7 +2316,7 @@ IfEq_cont_257:
 	fmul
 	fadd
 	freturn
-.end method
+.end method	; veciprod2
 
 .method public static vecaccum([FF[F)V
 	.limit stack 100
@@ -568,7 +2373,7 @@ IfEq_cont_257:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; vecaccum
 
 .method public static vecadd([F[F)V
 	.limit stack 100
@@ -619,7 +2424,7 @@ IfEq_cont_257:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; vecadd
 
 .method public static vecscale([FF)V
 	.limit stack 100
@@ -658,7 +2463,7 @@ IfEq_cont_257:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; vecscale
 
 .method public static vecaccumv([F[F[F)V
 	.limit stack 100
@@ -727,7 +2532,7 @@ IfEq_cont_257:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; vecaccumv
 
 .method public static o_texturetype([Ljava/lang/Object;)I
 	.limit stack 100
@@ -795,7 +2600,7 @@ IfEq_cont_257:
 	astore 11
 	iload 1
 	ireturn
-.end method
+.end method	; o_texturetype
 
 .method public static o_form([Ljava/lang/Object;)I
 	.limit stack 100
@@ -863,7 +2668,7 @@ IfEq_cont_257:
 	astore 11
 	iload 2
 	ireturn
-.end method
+.end method	; o_form
 
 .method public static o_reflectiontype([Ljava/lang/Object;)I
 	.limit stack 100
@@ -931,7 +2736,7 @@ IfEq_cont_257:
 	astore 11
 	iload 3
 	ireturn
-.end method
+.end method	; o_reflectiontype
 
 .method public static o_isinvert([Ljava/lang/Object;)I
 	.limit stack 100
@@ -999,7 +2804,7 @@ IfEq_cont_257:
 	astore 11
 	iload 7
 	ireturn
-.end method
+.end method	; o_isinvert
 
 .method public static o_isrot([Ljava/lang/Object;)I
 	.limit stack 100
@@ -1067,7 +2872,7 @@ IfEq_cont_257:
 	astore 11
 	iload 4
 	ireturn
-.end method
+.end method	; o_isrot
 
 .method public static o_param_a([Ljava/lang/Object;)F
 	.limit stack 100
@@ -1139,7 +2944,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_param_a
 
 .method public static o_param_b([Ljava/lang/Object;)F
 	.limit stack 100
@@ -1211,7 +3016,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_param_b
 
 .method public static o_param_c([Ljava/lang/Object;)F
 	.limit stack 100
@@ -1283,7 +3088,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_param_c
 
 .method public static o_param_abc([Ljava/lang/Object;)[F
 	.limit stack 100
@@ -1351,7 +3156,7 @@ IfEq_cont_257:
 	astore 11
 	aload 5
 	areturn
-.end method
+.end method	; o_param_abc
 
 .method public static o_param_x([Ljava/lang/Object;)F
 	.limit stack 100
@@ -1423,7 +3228,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_param_x
 
 .method public static o_param_y([Ljava/lang/Object;)F
 	.limit stack 100
@@ -1495,7 +3300,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_param_y
 
 .method public static o_param_z([Ljava/lang/Object;)F
 	.limit stack 100
@@ -1567,7 +3372,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_param_z
 
 .method public static o_diffuse([Ljava/lang/Object;)F
 	.limit stack 100
@@ -1639,7 +3444,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_diffuse
 
 .method public static o_hilight([Ljava/lang/Object;)F
 	.limit stack 100
@@ -1711,7 +3516,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_hilight
 
 .method public static o_color_red([Ljava/lang/Object;)I
 	.limit stack 100
@@ -1788,7 +3593,7 @@ IfEq_cont_257:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ireturn
-.end method
+.end method	; o_color_red
 
 .method public static o_color_green([Ljava/lang/Object;)I
 	.limit stack 100
@@ -1865,7 +3670,7 @@ IfEq_cont_257:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ireturn
-.end method
+.end method	; o_color_green
 
 .method public static o_color_blue([Ljava/lang/Object;)I
 	.limit stack 100
@@ -1942,7 +3747,7 @@ IfEq_cont_257:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ireturn
-.end method
+.end method	; o_color_blue
 
 .method public static o_param_r1([Ljava/lang/Object;)F
 	.limit stack 100
@@ -2014,7 +3819,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_param_r1
 
 .method public static o_param_r2([Ljava/lang/Object;)F
 	.limit stack 100
@@ -2086,7 +3891,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_param_r2
 
 .method public static o_param_r3([Ljava/lang/Object;)F
 	.limit stack 100
@@ -2158,7 +3963,7 @@ IfEq_cont_257:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	freturn
-.end method
+.end method	; o_param_r3
 
 .method public static o_param_ctbl([Ljava/lang/Object;)[F
 	.limit stack 100
@@ -2226,7 +4031,7 @@ IfEq_cont_257:
 	astore 11
 	aload 11
 	areturn
-.end method
+.end method	; o_param_ctbl
 
 .method public static p_rgb([Ljava/lang/Object;)[F
 	.limit stack 100
@@ -2274,7 +4079,7 @@ IfEq_cont_257:
 	astore 8
 	aload 1
 	areturn
-.end method
+.end method	; p_rgb
 
 .method public static p_intersection_points([Ljava/lang/Object;)[[F
 	.limit stack 100
@@ -2322,7 +4127,7 @@ IfEq_cont_257:
 	astore 8
 	aload 2
 	areturn
-.end method
+.end method	; p_intersection_points
 
 .method public static p_surface_ids([Ljava/lang/Object;)[I
 	.limit stack 100
@@ -2370,7 +4175,7 @@ IfEq_cont_257:
 	astore 8
 	aload 3
 	areturn
-.end method
+.end method	; p_surface_ids
 
 .method public static p_calc_diffuse([Ljava/lang/Object;)[I
 	.limit stack 100
@@ -2418,7 +4223,7 @@ IfEq_cont_257:
 	astore 8
 	aload 4
 	areturn
-.end method
+.end method	; p_calc_diffuse
 
 .method public static p_energy([Ljava/lang/Object;)[[F
 	.limit stack 100
@@ -2466,7 +4271,7 @@ IfEq_cont_257:
 	astore 8
 	aload 5
 	areturn
-.end method
+.end method	; p_energy
 
 .method public static p_received_ray_20percent([Ljava/lang/Object;)[[F
 	.limit stack 100
@@ -2514,7 +4319,7 @@ IfEq_cont_257:
 	astore 8
 	aload 6
 	areturn
-.end method
+.end method	; p_received_ray_20percent
 
 .method public static p_group_id([Ljava/lang/Object;)I
 	.limit stack 100
@@ -2566,7 +4371,7 @@ IfEq_cont_257:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ireturn
-.end method
+.end method	; p_group_id
 
 .method public static p_set_group_id([Ljava/lang/Object;I)V
 	.limit stack 100
@@ -2618,7 +4423,7 @@ IfEq_cont_257:
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	return
-.end method
+.end method	; p_set_group_id
 
 .method public static p_nvectors([Ljava/lang/Object;)[[F
 	.limit stack 100
@@ -2666,7 +4471,7 @@ IfEq_cont_257:
 	astore 8
 	aload 8
 	areturn
-.end method
+.end method	; p_nvectors
 
 .method public static d_vec([Ljava/lang/Object;)[F
 	.limit stack 100
@@ -2684,7 +4489,7 @@ IfEq_cont_257:
 	astore 2
 	aload 1
 	areturn
-.end method
+.end method	; d_vec
 
 .method public static d_const([Ljava/lang/Object;)[[F
 	.limit stack 100
@@ -2702,7 +4507,7 @@ IfEq_cont_257:
 	astore 2
 	aload 2
 	areturn
-.end method
+.end method	; d_const
 
 .method public static r_surface_id([Ljava/lang/Object;)I
 	.limit stack 100
@@ -2727,7 +4532,7 @@ IfEq_cont_257:
 	fstore 3
 	iload 1
 	ireturn
-.end method
+.end method	; r_surface_id
 
 .method public static r_dvec([Ljava/lang/Object;)[Ljava/lang/Object;
 	.limit stack 100
@@ -2752,7 +4557,7 @@ IfEq_cont_257:
 	fstore 3
 	aload 2
 	areturn
-.end method
+.end method	; r_dvec
 
 .method public static r_bright([Ljava/lang/Object;)F
 	.limit stack 100
@@ -2777,7 +4582,7 @@ IfEq_cont_257:
 	fstore 3
 	fload 3
 	freturn
-.end method
+.end method	; r_bright
 
 .method public static rad(F)F
 	.limit stack 100
@@ -2786,7 +4591,7 @@ IfEq_cont_257:
 	ldc 0.017453
 	fmul
 	freturn
-.end method
+.end method	; rad
 
 .method public static read_screen_settings()V
 	.limit stack 100
@@ -2933,7 +4738,7 @@ IfEq_cont_257:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; read_screen_settings
 
 .method public static read_light()V
 	.limit stack 100
@@ -2984,7 +4789,7 @@ IfEq_cont_257:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; read_light
 
 .method public static rotate_quadratic_matrix([F[F)V
 	.limit stack 100
@@ -3232,7 +5037,7 @@ IfEq_cont_257:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; rotate_quadratic_matrix
 
 .method public static read_nth_object(I)I
 	.limit stack 100
@@ -3605,7 +5410,7 @@ IfEq_cont_277:
 	ldc 1
 IfEq_cont_261:
 	ireturn
-.end method
+.end method	; read_nth_object
 
 .method public static read_object(I)V
 	.limit stack 100
@@ -3633,7 +5438,7 @@ IfEq_else_280:
 IfEq_cont_281:
 IfLE_cont_279:
 	return
-.end method
+.end method	; read_object
 
 .method public static read_all_object()V
 	.limit stack 100
@@ -3641,7 +5446,7 @@ IfLE_cont_279:
 	ldc 0
 	invokestatic main.read_object(I)V
 	return
-.end method
+.end method	; read_all_object
 
 .method public static read_net_item(I)[I
 	.limit stack 100
@@ -3674,7 +5479,7 @@ IfEq_else_282:
 	aload 2
 IfEq_cont_283:
 	areturn
-.end method
+.end method	; read_net_item
 
 .method public static read_or_network(I)[[I
 	.limit stack 100
@@ -3709,7 +5514,7 @@ IfEq_else_284:
 	aload 2
 IfEq_cont_285:
 	areturn
-.end method
+.end method	; read_or_network
 
 .method public static read_and_network(I)V
 	.limit stack 100
@@ -3737,7 +5542,7 @@ IfEq_else_286:
 	invokestatic main.read_and_network(I)V
 IfEq_cont_287:
 	return
-.end method
+.end method	; read_and_network
 
 .method public static read_parameter()V
 	.limit stack 100
@@ -3753,7 +5558,7 @@ IfEq_cont_287:
 	invokestatic main.read_or_network(I)[[I
 	aastore
 	return
-.end method
+.end method	; read_parameter
 
 .method public static solver_rect_surface([Ljava/lang/Object;[FFFFIII)I
 	.limit stack 100
@@ -3850,7 +5655,7 @@ IfEq_else_288:
 	ldc 0
 IfEq_cont_289:
 	ireturn
-.end method
+.end method	; solver_rect_surface
 
 .method public static solver_rect([Ljava/lang/Object;[FFFF)I
 	.limit stack 100
@@ -3902,7 +5707,7 @@ IfEq_else_294:
 	ldc 1
 IfEq_cont_295:
 	ireturn
-.end method
+.end method	; solver_rect
 
 .method public static solver_surface([Ljava/lang/Object;[FFFF)I
 	.limit stack 100
@@ -3936,7 +5741,7 @@ IfEq_else_300:
 	ldc 1
 IfEq_cont_301:
 	ireturn
-.end method
+.end method	; solver_surface
 
 .method public static quadratic([Ljava/lang/Object;FFF)F
 	.limit stack 100
@@ -3990,7 +5795,7 @@ IfEq_else_302:
 	fadd
 IfEq_cont_303:
 	freturn
-.end method
+.end method	; quadratic
 
 .method public static bilinear([Ljava/lang/Object;FFFFFF)F
 	.limit stack 100
@@ -4060,7 +5865,7 @@ IfEq_else_304:
 	fadd
 IfEq_cont_305:
 	freturn
-.end method
+.end method	; bilinear
 
 .method public static solver_second([Ljava/lang/Object;[FFFF)I
 	.limit stack 100
@@ -4170,7 +5975,7 @@ IfEq_else_306:
 	ldc 0
 IfEq_cont_307:
 	ireturn
-.end method
+.end method	; solver_second
 
 .method public static solver(I[F[F)I
 	.limit stack 100
@@ -4241,7 +6046,7 @@ IfEq_else_316:
 IfEq_cont_317:
 IfEq_cont_315:
 	ireturn
-.end method
+.end method	; solver
 
 .method public static solver_rect_fast([Ljava/lang/Object;[F[FFFF)I
 	.limit stack 100
@@ -4461,7 +6266,7 @@ IfEq_else_318:
 	ldc 1
 IfEq_cont_319:
 	ireturn
-.end method
+.end method	; solver_rect_fast
 
 .method public static solver_surface_fast([Ljava/lang/Object;[FFFF)I
 	.limit stack 100
@@ -4507,7 +6312,7 @@ IfEq_else_336:
 	ldc 1
 IfEq_cont_337:
 	ireturn
-.end method
+.end method	; solver_surface_fast
 
 .method public static solver_second_fast([Ljava/lang/Object;[FFFF)I
 	.limit stack 100
@@ -4620,7 +6425,7 @@ IfEq_else_338:
 	ldc 0
 IfEq_cont_339:
 	ireturn
-.end method
+.end method	; solver_second_fast
 
 .method public static solver_fast(I[Ljava/lang/Object;[F)I
 	.limit stack 100
@@ -4701,7 +6506,7 @@ IfEq_else_348:
 IfEq_cont_349:
 IfEq_cont_347:
 	ireturn
-.end method
+.end method	; solver_fast
 
 .method public static solver_surface_fast2([Ljava/lang/Object;[F[FFFF)I
 	.limit stack 100
@@ -4735,7 +6540,7 @@ IfEq_else_350:
 	ldc 1
 IfEq_cont_351:
 	ireturn
-.end method
+.end method	; solver_surface_fast2
 
 .method public static solver_second_fast2([Ljava/lang/Object;[F[FFFF)I
 	.limit stack 100
@@ -4836,7 +6641,7 @@ IfEq_else_352:
 	ldc 0
 IfEq_cont_353:
 	ireturn
-.end method
+.end method	; solver_second_fast2
 
 .method public static solver_fast2(I[Ljava/lang/Object;)I
 	.limit stack 100
@@ -4913,7 +6718,7 @@ IfEq_else_360:
 IfEq_cont_361:
 IfEq_cont_359:
 	ireturn
-.end method
+.end method	; solver_fast2
 
 .method public static setup_rect_table([FI)[F
 	.limit stack 100
@@ -5079,7 +6884,7 @@ IfEq_else_366:
 IfEq_cont_367:
 	aload 2
 	areturn
-.end method
+.end method	; setup_rect_table
 
 .method public static setup_surface_table([F[Ljava/lang/Object;)[F
 	.limit stack 100
@@ -5181,7 +6986,7 @@ IfEq_else_368:
 IfEq_cont_369:
 	aload 2
 	areturn
-.end method
+.end method	; setup_surface_table
 
 .method public static setup_second_table([F[Ljava/lang/Object;)[F
 	.limit stack 100
@@ -5375,7 +7180,7 @@ IfEq_else_372:
 IfEq_cont_373:
 	aload 2
 	areturn
-.end method
+.end method	; setup_second_table
 
 .method public static iter_setup_dirvec_constants([Ljava/lang/Object;I)V
 	.limit stack 100
@@ -5436,7 +7241,7 @@ IfEq_cont_377:
 IfLE_else_374:
 IfLE_cont_375:
 	return
-.end method
+.end method	; iter_setup_dirvec_constants
 
 .method public static setup_dirvec_constants([Ljava/lang/Object;)V
 	.limit stack 100
@@ -5451,7 +7256,7 @@ IfLE_cont_375:
 	isub
 	invokestatic main.iter_setup_dirvec_constants([Ljava/lang/Object;I)V
 	return
-.end method
+.end method	; setup_dirvec_constants
 
 .method public static setup_startp_constants([FI)V
 	.limit stack 100
@@ -5581,7 +7386,7 @@ IfEq_cont_383:
 IfLE_else_380:
 IfLE_cont_381:
 	return
-.end method
+.end method	; setup_startp_constants
 
 .method public static setup_startp([F)V
 	.limit stack 100
@@ -5599,7 +7404,7 @@ IfLE_cont_381:
 	isub
 	invokestatic main.setup_startp_constants([FI)V
 	return
-.end method
+.end method	; setup_startp
 
 .method public static is_rect_outside([Ljava/lang/Object;FFF)I
 	.limit stack 100
@@ -5643,7 +7448,7 @@ IfEq_else_388:
 	invokestatic main.o_isinvert([Ljava/lang/Object;)I
 IfEq_cont_389:
 	ireturn
-.end method
+.end method	; is_rect_outside
 
 .method public static is_plane_outside([Ljava/lang/Object;FFF)I
 	.limit stack 100
@@ -5663,7 +7468,7 @@ IfEq_cont_389:
 	ldc 1
 	ixor
 	ireturn
-.end method
+.end method	; is_plane_outside
 
 .method public static is_second_outside([Ljava/lang/Object;FFF)I
 	.limit stack 100
@@ -5694,7 +7499,7 @@ IfEq_cont_395:
 	ldc 1
 	ixor
 	ireturn
-.end method
+.end method	; is_second_outside
 
 .method public static is_outside([Ljava/lang/Object;FFF)I
 	.limit stack 100
@@ -5745,7 +7550,7 @@ IfEq_else_398:
 IfEq_cont_399:
 IfEq_cont_397:
 	ireturn
-.end method
+.end method	; is_outside
 
 .method public static check_all_inside(I[IFFF)I
 	.limit stack 100
@@ -5787,7 +7592,7 @@ IfEq_else_402:
 IfEq_cont_403:
 IfEq_cont_401:
 	ireturn
-.end method
+.end method	; check_all_inside
 
 .method public static shadow_check_and_group(I[I)I
 	.limit stack 100
@@ -5916,7 +7721,7 @@ IfEq_cont_413:
 IfEq_cont_407:
 IfEq_cont_405:
 	ireturn
-.end method
+.end method	; shadow_check_and_group
 
 .method public static shadow_check_one_or_group(I[I)I
 	.limit stack 100
@@ -5957,7 +7762,7 @@ IfEq_else_416:
 IfEq_cont_417:
 IfEq_cont_415:
 	ireturn
-.end method
+.end method	; shadow_check_one_or_group
 
 .method public static shadow_check_one_or_matrix(I[[I)I
 	.limit stack 100
@@ -6048,7 +7853,7 @@ IfEq_cont_431:
 IfEq_cont_421:
 IfEq_cont_419:
 	ireturn
-.end method
+.end method	; shadow_check_one_or_matrix
 
 .method public static solve_each_element(I[I[F)V
 	.limit stack 100
@@ -6203,7 +8008,7 @@ IfEq_cont_439:
 IfEq_cont_435:
 IfEq_cont_433:
 	return
-.end method
+.end method	; solve_each_element
 
 .method public static solve_one_or_network(I[I[F)V
 	.limit stack 100
@@ -6237,7 +8042,7 @@ IfEq_else_444:
 	invokestatic main.solve_one_or_network(I[I[F)V
 IfEq_cont_445:
 	return
-.end method
+.end method	; solve_one_or_network
 
 .method public static trace_or_matrix(I[[I[F)V
 	.limit stack 100
@@ -6310,7 +8115,7 @@ IfEq_cont_449:
 	invokestatic main.trace_or_matrix(I[[I[F)V
 IfEq_cont_447:
 	return
-.end method
+.end method	; trace_or_matrix
 
 .method public static judge_intersection([F)I
 	.limit stack 100
@@ -6346,7 +8151,7 @@ IfEq_else_454:
 	invokestatic libmincaml.min_caml_fless(FF)I
 IfEq_cont_455:
 	ireturn
-.end method
+.end method	; judge_intersection
 
 .method public static solve_each_element_fast(I[I[Ljava/lang/Object;)V
 	.limit stack 100
@@ -6503,7 +8308,7 @@ IfEq_cont_463:
 IfEq_cont_459:
 IfEq_cont_457:
 	return
-.end method
+.end method	; solve_each_element_fast
 
 .method public static solve_one_or_network_fast(I[I[Ljava/lang/Object;)V
 	.limit stack 100
@@ -6537,7 +8342,7 @@ IfEq_else_468:
 	invokestatic main.solve_one_or_network_fast(I[I[Ljava/lang/Object;)V
 IfEq_cont_469:
 	return
-.end method
+.end method	; solve_one_or_network_fast
 
 .method public static trace_or_matrix_fast(I[[I[Ljava/lang/Object;)V
 	.limit stack 100
@@ -6609,7 +8414,7 @@ IfEq_cont_473:
 	invokestatic main.trace_or_matrix_fast(I[[I[Ljava/lang/Object;)V
 IfEq_cont_471:
 	return
-.end method
+.end method	; trace_or_matrix_fast
 
 .method public static judge_intersection_fast([Ljava/lang/Object;)I
 	.limit stack 100
@@ -6645,7 +8450,7 @@ IfEq_else_478:
 	invokestatic libmincaml.min_caml_fless(FF)I
 IfEq_cont_479:
 	ireturn
-.end method
+.end method	; judge_intersection_fast
 
 .method public static get_nvector_rect([F)V
 	.limit stack 100
@@ -6674,7 +8479,7 @@ IfEq_cont_479:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; get_nvector_rect
 
 .method public static get_nvector_plane([Ljava/lang/Object;)V
 	.limit stack 100
@@ -6701,7 +8506,7 @@ IfEq_cont_479:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
-.end method
+.end method	; get_nvector_plane
 
 .method public static get_nvector_second([Ljava/lang/Object;)V
 	.limit stack 100
@@ -6823,7 +8628,7 @@ IfEq_cont_481:
 	invokestatic main.o_isinvert([Ljava/lang/Object;)I
 	invokestatic main.vecunit_sgn([FI)V
 	return
-.end method
+.end method	; get_nvector_second
 
 .method public static get_nvector([Ljava/lang/Object;[F)V
 	.limit stack 100
@@ -6850,7 +8655,7 @@ IfEq_else_484:
 IfEq_cont_485:
 IfEq_cont_483:
 	return
-.end method
+.end method	; get_nvector
 
 .method public static utexture([Ljava/lang/Object;[F)V
 	.limit stack 100
@@ -7181,7 +8986,7 @@ IfEq_cont_497:
 IfEq_cont_495:
 IfEq_cont_487:
 	return
-.end method
+.end method	; utexture
 
 .method public static add_light(FFF)V
 	.limit stack 100
@@ -7244,7 +9049,7 @@ IfEq_else_508:
 	aastore
 IfEq_cont_509:
 	return
-.end method
+.end method	; add_light
 
 .method public static trace_reflections(IFF[F)V
 	.limit stack 100
@@ -7335,7 +9140,7 @@ IfEq_cont_513:
 IfLE_else_510:
 IfLE_cont_511:
 	return
-.end method
+.end method	; trace_reflections
 
 .method public static trace_ray(IF[F[Ljava/lang/Object;F)V
 	.limit stack 100
@@ -7631,7 +9436,7 @@ IfEq_cont_521:
 IfLE_else_518:
 IfLE_cont_519:
 	return
-.end method
+.end method	; trace_ray
 
 .method public static trace_diffuse_ray([Ljava/lang/Object;F)V
 	.limit stack 100
@@ -7695,7 +9500,7 @@ IfEq_else_538:
 IfEq_cont_539:
 IfEq_cont_537:
 	return
-.end method
+.end method	; trace_diffuse_ray
 
 .method public static iter_trace_diffuse_rays([[Ljava/lang/Object;[F[FI)V
 	.limit stack 100
@@ -7747,7 +9552,7 @@ IfEq_cont_545:
 IfLE_else_542:
 IfLE_cont_543:
 	return
-.end method
+.end method	; iter_trace_diffuse_rays
 
 .method public static trace_diffuse_rays([[Ljava/lang/Object;[F[F)V
 	.limit stack 100
@@ -7760,7 +9565,7 @@ IfLE_cont_543:
 	ldc 118
 	invokestatic main.iter_trace_diffuse_rays([[Ljava/lang/Object;[F[FI)V
 	return
-.end method
+.end method	; trace_diffuse_rays
 
 .method public static trace_diffuse_ray_80percent(I[F[F)V
 	.limit stack 100
@@ -7831,7 +9636,7 @@ IfEq_else_554:
 	invokestatic main.trace_diffuse_rays([[Ljava/lang/Object;[F[F)V
 IfEq_cont_555:
 	return
-.end method
+.end method	; trace_diffuse_ray_80percent
 
 .method public static calc_diffuse_using_1point([Ljava/lang/Object;I)V
 	.limit stack 100
@@ -7873,7 +9678,7 @@ IfEq_cont_555:
 	getstatic main/diffuse_ray [F
 	invokestatic main.vecaccumv([F[F[F)V
 	return
-.end method
+.end method	; calc_diffuse_using_1point
 
 .method public static calc_diffuse_using_5points(I[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
 	.limit stack 100
@@ -7956,7 +9761,7 @@ IfEq_cont_555:
 	getstatic main/diffuse_ray [F
 	invokestatic main.vecaccumv([F[F[F)V
 	return
-.end method
+.end method	; calc_diffuse_using_5points
 
 .method public static do_without_neighbors([Ljava/lang/Object;I)V
 	.limit stack 100
@@ -8002,7 +9807,7 @@ IfLE_cont_559:
 IfLE_else_556:
 IfLE_cont_557:
 	return
-.end method
+.end method	; do_without_neighbors
 
 .method public static neighbors_exist(II[[Ljava/lang/Object;)I
 	.limit stack 100
@@ -8049,7 +9854,7 @@ IfLE_cont_567:
 IfLE_cont_565:
 IfLE_cont_563:
 	ireturn
-.end method
+.end method	; neighbors_exist
 
 .method public static get_surface_id([Ljava/lang/Object;I)I
 	.limit stack 100
@@ -8063,7 +9868,7 @@ IfLE_cont_563:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ireturn
-.end method
+.end method	; get_surface_id
 
 .method public static neighbors_are_available(I[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)I
 	.limit stack 100
@@ -8129,7 +9934,7 @@ IfEq_else_570:
 	ldc 0
 IfEq_cont_571:
 	ireturn
-.end method
+.end method	; neighbors_are_available
 
 .method public static try_exploit_neighbors(II[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
 	.limit stack 100
@@ -8199,7 +10004,7 @@ IfLE_cont_581:
 IfLE_else_578:
 IfLE_cont_579:
 	return
-.end method
+.end method	; try_exploit_neighbors
 
 .method public static write_ppm_header()V
 	.limit stack 100
@@ -8233,7 +10038,7 @@ IfLE_cont_579:
 	ldc 10
 	invokestatic libmincaml.min_caml_print_char(I)V
 	return
-.end method
+.end method	; write_ppm_header
 
 .method public static write_rgb_element(F)V
 	.limit stack 100
@@ -8260,7 +10065,7 @@ IfLE_cont_587:
 	iload 2
 	invokestatic libmincaml.min_caml_print_int(I)V
 	return
-.end method
+.end method	; write_rgb_element
 
 .method public static write_rgb()V
 	.limit stack 100
@@ -8290,7 +10095,7 @@ IfLE_cont_587:
 	ldc 10
 	invokestatic libmincaml.min_caml_print_char(I)V
 	return
-.end method
+.end method	; write_rgb
 
 .method public static pretrace_diffuse_rays([Ljava/lang/Object;I)V
 	.limit stack 100
@@ -8363,7 +10168,7 @@ IfLE_cont_593:
 IfLE_else_590:
 IfLE_cont_591:
 	return
-.end method
+.end method	; pretrace_diffuse_rays
 
 .method public static pretrace_pixels([[Ljava/lang/Object;IIFFF)V
 	.limit stack 100
@@ -8476,7 +10281,7 @@ IfLE_cont_591:
 IfLE_else_596:
 IfLE_cont_597:
 	return
-.end method
+.end method	; pretrace_pixels
 
 .method public static pretrace_line([[Ljava/lang/Object;II)V
 	.limit stack 100
@@ -8552,7 +10357,7 @@ IfLE_cont_597:
 	fload 6
 	invokestatic main.pretrace_pixels([[Ljava/lang/Object;IIFFF)V
 	return
-.end method
+.end method	; pretrace_line
 
 .method public static scan_pixel(II[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;)V
 	.limit stack 100
@@ -8606,7 +10411,7 @@ IfEq_cont_601:
 	invokestatic main.scan_pixel(II[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;)V
 IfLE_cont_599:
 	return
-.end method
+.end method	; scan_pixel
 
 .method public static scan_line(I[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
 	.limit stack 100
@@ -8656,7 +10461,7 @@ IfLE_cont_605:
 	invokestatic main.scan_line(I[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
 IfLE_cont_603:
 	return
-.end method
+.end method	; scan_line
 
 .method public static create_float5x3array()[[F
 	.limit stack 100
@@ -8786,7 +10591,7 @@ IfLE_cont_603:
 	aastore
 	aload 2
 	areturn
-.end method
+.end method	; create_float5x3array
 
 .method public static create_pixel()[Ljava/lang/Object;
 	.limit stack 100
@@ -8914,7 +10719,7 @@ IfLE_cont_603:
 	aload 8
 	aastore
 	areturn
-.end method
+.end method	; create_pixel
 
 .method public static init_line_elements([[Ljava/lang/Object;I)[[Ljava/lang/Object;
 	.limit stack 100
@@ -8936,7 +10741,7 @@ IfLE_else_606:
 	aload 0
 IfLE_cont_607:
 	areturn
-.end method
+.end method	; init_line_elements
 
 .method public static create_pixelline()[[Ljava/lang/Object;
 	.limit stack 100
@@ -8959,7 +10764,7 @@ IfLE_cont_607:
 	isub
 	invokestatic main.init_line_elements([[Ljava/lang/Object;I)[[Ljava/lang/Object;
 	areturn
-.end method
+.end method	; create_pixelline
 
 .method public static tan(F)F
 	.limit stack 100
@@ -8970,7 +10775,7 @@ IfLE_cont_607:
 	invokestatic libmincaml.min_caml_cos(F)F
 	fdiv
 	freturn
-.end method
+.end method	; tan
 
 .method public static adjust_position(FF)F
 	.limit stack 100
@@ -8998,7 +10803,7 @@ IfLE_cont_607:
 	fload 2
 	fmul
 	freturn
-.end method
+.end method	; adjust_position
 
 .method public static calc_dirvec(IFFFFII)V
 	.limit stack 100
@@ -9125,7 +10930,7 @@ IfLE_else_608:
 	invokestatic main.calc_dirvec(IFFFFII)V
 IfLE_cont_609:
 	return
-.end method
+.end method	; calc_dirvec
 
 .method public static calc_dirvecs(IFII)V
 	.limit stack 100
@@ -9178,7 +10983,7 @@ IfLE_cont_609:
 IfLE_else_610:
 IfLE_cont_611:
 	return
-.end method
+.end method	; calc_dirvecs
 
 .method public static calc_dirvec_rows(III)V
 	.limit stack 100
@@ -9212,7 +11017,7 @@ IfLE_cont_611:
 IfLE_else_612:
 IfLE_cont_613:
 	return
-.end method
+.end method	; calc_dirvec_rows
 
 .method public static create_dirvec()[Ljava/lang/Object;
 	.limit stack 100
@@ -9254,7 +11059,7 @@ IfLE_cont_613:
 	aload 2
 	aastore
 	areturn
-.end method
+.end method	; create_dirvec
 
 .method public static create_dirvec_elements([[Ljava/lang/Object;I)V
 	.limit stack 100
@@ -9275,7 +11080,7 @@ IfLE_cont_613:
 IfLE_else_614:
 IfLE_cont_615:
 	return
-.end method
+.end method	; create_dirvec_elements
 
 .method public static create_dirvecs(I)V
 	.limit stack 100
@@ -9785,7 +11590,7 @@ IfLE_cont_615:
 IfLE_else_616:
 IfLE_cont_617:
 	return
-.end method
+.end method	; create_dirvecs
 
 .method public static init_dirvec_constants([[Ljava/lang/Object;I)V
 	.limit stack 100
@@ -9807,7 +11612,7 @@ IfLE_cont_617:
 IfLE_else_618:
 IfLE_cont_619:
 	return
-.end method
+.end method	; init_dirvec_constants
 
 .method public static init_vecset_constants(I)V
 	.limit stack 100
@@ -9829,7 +11634,7 @@ IfLE_cont_619:
 IfLE_else_620:
 IfLE_cont_621:
 	return
-.end method
+.end method	; init_vecset_constants
 
 .method public static init_dirvecs()V
 	.limit stack 100
@@ -9843,7 +11648,7 @@ IfLE_cont_621:
 	ldc 4
 	invokestatic main.init_vecset_constants(I)V
 	return
-.end method
+.end method	; init_dirvecs
 
 .method public static add_reflection(IIFFFF)V
 	.limit stack 100
@@ -9879,7 +11684,7 @@ IfLE_cont_621:
 	aastore
 	aastore
 	return
-.end method
+.end method	; add_reflection
 
 .method public static setup_rect_reflection(I[Ljava/lang/Object;)V
 	.limit stack 100
@@ -9971,7 +11776,7 @@ IfLE_cont_621:
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	return
-.end method
+.end method	; setup_rect_reflection
 
 .method public static setup_surface_reflection(I[Ljava/lang/Object;)V
 	.limit stack 100
@@ -10046,7 +11851,7 @@ IfLE_cont_621:
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	return
-.end method
+.end method	; setup_surface_reflection
 
 .method public static setup_reflections(I)V
 	.limit stack 100
@@ -10100,7 +11905,7 @@ IfEq_cont_625:
 IfLE_else_622:
 IfLE_cont_623:
 	return
-.end method
+.end method	; setup_reflections
 
 .method public static rt(II)V
 	.limit stack 100
@@ -10171,7 +11976,7 @@ IfLE_cont_623:
 	ldc 2
 	invokestatic main.scan_line(I[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
 	return
-.end method
+.end method	; rt
 
 .method public static main([Ljava/lang/String;)V
 	.limit stack 100
@@ -10180,5 +11985,5 @@ IfLE_cont_623:
 	ldc 128
 	invokestatic main.rt(II)V
 	return
-.end method
+.end method	; main
 
