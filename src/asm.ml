@@ -31,10 +31,12 @@ type inst =
   | Ftoi
   | Itof
   | Dup
+  | New of Id.t
   | Boxing of ty
   | Unboxing of ty
-  | PutStatic of Id.t * ty_sig
-  | GetStatic of Id.t * ty_sig
+  | Checkcast of ty_sig
+  | PutField of Id.t * ty_sig
+  | GetField of Id.t * ty_sig
   | IfEq of inst list * inst list * inst list * inst list
   | IfLE of inst list * inst list * inst list * inst list
   | FCmp
@@ -45,6 +47,7 @@ type inst =
 
 type fundef = {
   name : (Id.t * ty_sig);
+  modifiers : string;
   args : (Id.t * ty_sig) list;
   fv : (Id.t * ty_sig) list;
   body : inst list

@@ -2,12 +2,10 @@
 *.cmo
 *.o
 *.top
-*.j
 min-caml
 ._bcdi/
 ._d/
 lexer.ml
 parser.ml
 parser.mli
-test/
 *.class

@@ -5,10 +5,11 @@ let compile oc dirname e =
   (* Syntax.print_t e; *)
   (* let e = ConstFold.f e in *)
   let e = Closure.f e in
-  print_endline "-------After Closure.f-------";
+  print_endline "-------Passed Closure.f-------";
   Closure.print_prog e;
   print_newline ();
   let e = Virtual.f e in
+  print_endline "-------Passed Virtual.f-------";
   Emit.f oc dirname e
 
 let file f =

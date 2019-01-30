@@ -38,21 +38,24 @@ let rec g oc e =
   | Itof  -> Printf.fprintf oc "\ti2f\n"
   | FCmp  -> Printf.fprintf oc "\tfcmpl\n"
   | Dup   -> Printf.fprintf oc "\tdup\n"
+  | New x -> Printf.fprintf oc "\tnew %s\n" x
   | Boxing t -> (match t with
       | `I -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([Int], C "java/lang/Integer")))
       | `F -> g oc (InvokeStatic("java/lang/Float/valueOf", Fun([Float], C "java/lang/Float")))
       | `A -> ())
   | Unboxing t -> (match t with
-      | `I ->
-        Printf.fprintf oc "\tcheckcast java/lang/Integer\n";
-        g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], Int)))
-      | `F ->
-        Printf.fprintf oc "\tcheckcast java/lang/Float\n";
-        g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], Float)))
-      | `A -> Printf.fprintf oc "\tcheckcast [Ljava/lang/Object;\n")
-
-  | PutStatic(x, t) -> Printf.fprintf oc "\tputstatic caml/%s %s\n" x (str_of_ty_sig t)
-  | GetStatic(x, t) -> Printf.fprintf oc "\tgetstatic caml/%s %s\n" x (str_of_ty_sig t)
+      | `I -> g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], Int)))
+      | `F -> g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], Float)))
+      | `A -> ())
+  | Checkcast t -> Printf.fprintf oc "\tcheckcast %s\n"
+                     (match t with
+                      | Int -> "java/lang/Integer"
+                      | Float -> "java/lang/Float"
+                      | Array _ -> "[Ljava/lang/Object;"
+                      | C s -> s
+                      | _ -> assert false)
+  | PutField(x, t) -> Printf.fprintf oc "\tputfield %s %s\n" x (str_of_ty_sig t)
+  | GetField(x, t) -> Printf.fprintf oc "\tgetfield %s %s\n" x (str_of_ty_sig t)
   | IfEq(e1, e2, e3, e4) ->
     let l_else = Id.genid "IfEq_else" in
     let l_cont = Id.genid "IfEq_cont" in
@@ -84,23 +87,54 @@ let rec g oc e =
     Printf.fprintf oc "\tinvokespecial %s%s\n" f (str_of_ty_sig t)
 
 let h oc f =
-  Printf.fprintf oc ".method public static %s%s\n" (fst f.name) (str_of_ty_sig (snd f.name));
+  Printf.fprintf oc ".method public %s%s%s\n" f.modifiers (fst f.name) (str_of_ty_sig (snd f.name));
   Printf.fprintf oc "\t.limit stack 100\n"; (*TODO*)
   Printf.fprintf oc "\t.limit locals 100\n";
   List.iter (fun e -> g oc e) f.body;
   Printf.fprintf oc ".end method\n\n"
 
 let f oc dirname (files : Asm.prog) =
+  let has_closure = ref false in
   List.iter (fun file ->
-      Printf.fprintf oc ".class public %s\n" file.classname;
-      Printf.fprintf oc ".super %s\n" (file.super);
-      List.iter (fun field ->
-          Printf.fprintf oc ".field publid %s %s\n" (fst field) (str_of_ty_sig (snd field)))
-        file.fields;
-      Printf.fprintf oc ".method public <init>%s\n" (str_of_ty_sig (fst file.init));
-      Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
-      Printf.fprintf oc "\t.limit locals 10\n";
-      List.iter (g oc) (snd file.init);
-      Printf.fprintf oc ".end method\n\n";
-      List.iter (fun f -> h oc f) file.funs)
-    files
+      if file.classname <> "main" then
+        (has_closure := true;
+         let oc = open_out (Printf.sprintf "%s/%s.j" dirname file.classname) in
+         Printf.fprintf oc ".class public %s\n" (file.classname);
+         Printf.fprintf oc ".super %s\n" (file.super);
+         List.iter (fun field ->
+             Printf.fprintf oc ".field public %s %s\n" (fst field) (str_of_ty_sig (snd field)))
+           file.fields;
+         Printf.fprintf oc ".method public <init>%s\n" (str_of_ty_sig (fst file.init));
+         Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
+         Printf.fprintf oc "\t.limit locals 10\n";
+         List.iter (g oc) (snd file.init);
+         Printf.fprintf oc ".end method\n\n";
+         List.iter (fun f -> h oc f) file.funs;
+         close_out oc)
+      else
+        (Printf.fprintf oc ".class public main\n";
+         Printf.fprintf oc ".super %s\n" (file.super);
+         List.iter (fun field ->
+             Printf.fprintf oc ".field public %s %s\n" (fst field) (str_of_ty_sig (snd field)))
+           file.fields;
+         Printf.fprintf oc ".method public <init>%s\n" (str_of_ty_sig (fst file.init));
+         Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
+         Printf.fprintf oc "\t.limit locals 10\n";
+         List.iter (g oc) (snd file.init);
+         Printf.fprintf oc ".end method\n\n";
+         List.iter (fun f -> h oc f) file.funs))
+    files;
+  if !has_closure then
+    let oc = open_out (dirname ^  "/cls.j") in
+    (Printf.fprintf oc ".class abstract cls\n";
+     Printf.fprintf oc ".super java/lang/Object\n\n";
+     Printf.fprintf oc ".method public <init>([Ljava/lang/Object;)V\n";
+     Printf.fprintf oc "\t.limit stack 5\n";
+     Printf.fprintf oc "\t.limit locals 5\n";
+     Printf.fprintf oc "\taload_0\n";
+     Printf.fprintf oc "\tinvokespecial java/lang/Object/<init>()V\n";
+     Printf.fprintf oc "\treturn\n";
+     Printf.fprintf oc ".end method\n\n";
+     Printf.fprintf oc ".method public abstract app([Ljava/lang/Object;)Ljava/lang/Object;\n";
+     Printf.fprintf oc ".end method\n";
+     close_out oc)

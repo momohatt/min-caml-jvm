@@ -14,13 +14,13 @@ let getindex x env =
 let typet2ty (t : Type.t) : ty = match Typing.deref_typ t with
   | Type.Int | Type.Bool -> `I
   | Type.Float -> `F
-  | Type.Array _ | Type.Tuple _ -> `A
+  | Type.Array _ | Type.Tuple _ | Type.Fun _ -> `A
   | _ -> assert false
 
 let returntype (t : Type.t) = match Typing.deref_typ t with
   | Type.Int | Type.Bool -> `I
   | Type.Float -> `F
-  | Type.Array _ | Type.Tuple _ -> `A
+  | Type.Array _ | Type.Tuple _ | Type.Fun _ -> `A
   | Type.Unit -> `V
   | _ -> assert false
 
@@ -37,10 +37,17 @@ let rec typet2tysig_obj (t : Type.t) : ty_sig = match t with
   | Type.Unit -> Void
   | Type.Int | Type.Bool -> C "java/lang/Integer"
   | Type.Float -> C "java/lang/Float"
-  | Type.Array(t) -> Array (typet2tysig_obj t)
-  | Type.Tuple _ -> Array (Obj)
-  | Type.Fun(ts, t) -> Fun(List.map typet2tysig_obj ts, typet2tysig_obj t)
+  | Type.Array(t) -> Array(typet2tysig_obj t)
+  | Type.Tuple _ -> Array(Obj)
+  | Type.Fun(ts, t) -> C "cls"
   | _ -> assert false
+
+let rec tysig2tysig_obj t = match t with
+  | Int -> C "java/lang/Integer"
+  | Float -> C "java/lang/Float"
+  | Array(t) -> Array(tysig2tysig_obj t)
+  | Fun _ -> C "cls"
+  | _ -> t
 
 (* fv: fvs of *current* function *)
 let rec g fv env e =
@@ -67,7 +74,7 @@ let rec g fv env e =
   | Closure.Let((x, t), e1, e2) ->
     g fv env e1 @ [Store(typet2ty t, List.length env)] @ g fv ((x, t) :: env) e2
   | Closure.Var(x) when Id.mem x fv ->
-    [GetStatic(x, List.assoc x fv)]
+    [Load(`A, 0); GetField(x, List.assoc x fv)]
   | Closure.Var(x) ->
     [Load(typet2ty (List.assoc x env), getindex x env)]
   | Closure.ExtFunApp("float_of_int", e2) ->
@@ -78,10 +85,19 @@ let rec g fv env e =
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("libmincaml.min_caml_" ^ f, typet2tysig (M.find f !Typing.extenv))]
   | Closure.AppDir(f, e2) ->
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("main." ^ f, List.assoc f !toplevel)]
-  | Closure.AppCls(Var(f), e2) ->
-    assert false
+  | Closure.AppCls(Var(f) as e1, e2) ->
+    (g fv env e1) @
+    g fv env (Tuple(e2)) @
+    (if Id.mem f !toplevel then
+       (match List.assoc f !toplevel with
+        | Fun(_, t) -> [InvokeVirtual("cls_" ^ f ^ "/app", Fun([Array(Obj)], tysig2tysig_obj t))]
+        | _ -> assert false)
+     else
+       [InvokeVirtual("cls_" ^ f ^ "/app", Fun([Array(Obj)], Obj))])
   | Closure.AppCls(e1, e2) ->
-    assert false
+    (g fv env e1) @
+    g fv env (Tuple(e2)) @
+    [InvokeVirtual("cls/app", Fun([Array(Obj)], Obj))]
   (* List.concat (List.map (g fv env) e2) @ [InvokeStatic(f, List.assoc f !toplevel)] *)
   | Closure.Tuple(e) ->
     Ldc(I(List.length e)) ::
@@ -99,6 +115,7 @@ let rec g fv env e =
                       let t' = typet2ty t in
                       [Dup; Ldc(I(n));
                        ALoad(`A);
+                       Checkcast(typet2tysig t);
                        Unboxing(t');
                        Store(t', List.length env + n)]) xts) @
     g fv ((List.rev xts) @ env) e2
@@ -114,42 +131,65 @@ let rec g fv env e =
     g fv env e1 @ g fv env e2 @
     [Boxing(typet2ty t); InvokeStatic("libmincaml.min_caml_create_array", Fun([Int; Obj], Array(Obj)))]
   | Closure.Get(e1, e2, t) ->
-    g fv env e1 @ g fv env e2 @ [ALoad(`A); Unboxing(typet2ty t)]
+    g fv env e1 @ g fv env e2 @ [ALoad(`A); Checkcast(typet2tysig t); Unboxing(typet2ty t)]
   | Closure.Put(e1, e2, e3, t) ->
     g fv env e1 @ g fv env e2 @ g fv env e3 @ [Boxing(typet2ty t); AStore(`A)]
-  | Closure.MakeCls(_, { entry = Id.L(f); fv = yts }, e) ->
-    (* actual_fvはすでに環境の中にある(Loadでとれる)はず *)
-    List.iter (fun (x, t) -> print_endline x) yts;
-    List.concat (List.map (fun (x, t) -> [Load(typet2ty @@ List.assoc x env, getindex x env); PutStatic(x, typet2tysig t)]) yts) @ (g fv env e)
+  | Closure.MakeCls((_, t), { entry = Id.L(f); fv = yts }, e) ->
+    let args = List.map (fun (x, t) -> (Closure.Var(x), t)) yts in
+    [New("cls_" ^ f); Dup] @ (g fv env (Closure.Tuple(args))) @
+    [InvokeSpecial("cls_" ^ f ^ "/<init>", Fun([Array(Obj)], Void)); Store(`A, List.length env)] @
+    (g fv ((f, t) :: env) e)
   | Closure.ExtArray _ -> assert false
 
-let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.body = e } =
+let h is_static { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.body = e } =
   match t with
   | Type.Fun(_, rt) ->
     let t' = typet2tysig t in
     let args = List.map (fun (y, t) -> y, typet2tysig t) yts in
-    let fv = List.map (fun (y, t) -> y, typet2tysig t) zts in
+    let fv = List.map (fun (y, t) -> y, typet2tysig_obj t) zts in
     toplevel := (x, t') :: !toplevel;
     current_fun := x;
-    { name = (x, t'); args = args; fv = fv; body = g fv (List.rev yts) e @ [Return (returntype rt)] }
+    if is_static then
+      let env' = List.rev yts in
+      { name = (x, t'); modifiers = "static "; args = args; fv = fv; body = g fv env' e @ [Return (returntype rt)] }
+    else
+      let env' = List.rev (("", Type.Unit) (* dummy('this' ptr) *) :: yts) in
+      { name = (x, t'); modifiers = "static "; args = args; fv = fv; body = g fv env' e @ [Return (returntype rt)] }
   | _ -> assert false
 
-let rec to_files closures acc main_funs fundefs =
+(* (files, main_funs)を返す *)
+let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.fundef list) =
   match fundefs with
   | [] ->
-    let main_init = [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V] in
-    { classname = "main"; init = Fun([Void], Void), main_init;
-      funs = main_funs; super = "java/lang/Object"; fields = [] } ::
-    acc
-  | f :: xf when List.mem (fst f.name) closures ->
+    (acc, main_funs)
+  | f :: xf when not (Id.mem (fst f.name) closures) ->
+    to_files closures acc (main_funs @ [h true f]) xf
+  | f :: xf ->
+    let f = h false f in
+    let closure : Closure.closure = List.assoc (fst f.name) closures in
+    let classname = "cls_" ^ fst f.name in
+    let fields = List.map (fun (x, t) -> x, typet2tysig_obj t) closure.fv in
+    let init =
+      [Load(`A, 0); Load(`A, 1); InvokeSpecial("cls/<init>", Fun([Array(Obj)], Void))] @ (* super() *)
+      (List.concat @@ List.mapi
+         (fun n (x, t) -> [Load(`A, 0); Load(`A, 1); Ldc(I(n)); ALoad(`A); Checkcast(t); PutField(classname ^ "/" ^ x, t)]) fields) @
+      [Return `V]
+    in
+    let app_tysig = match snd f.name with
+      | Fun(_, Fun _) -> Fun([Array(Obj)], C"cls")
+      | _ -> Fun([Array(Obj)], Obj) in
     let acc' =
-      { classname = "cls_" ^ fst f.name; init = (Int, []); (* TODO *)
-        funs = [f]; super = "cls"; fields = f.fv (* TODO *) } :: acc in
+      { classname = classname; init = (Fun([Array(Obj)], Void), init);
+        funs = [{ name = ("app", app_tysig); modifiers = ""; args = f.args; fv = f.fv; body = f.body }];
+        super = "cls"; fields = fields } :: acc in
     to_files closures acc' main_funs xf
-  | f :: xf -> to_files closures acc (main_funs @ [f]) xf
 
 let f (Closure.Prog(closures, fundef, e)) : Asm.prog =
-  let fundef' = List.map h fundef in
+  (* let fundef' = List.map h fundef in*)
+  let files, main_funs = to_files closures [] [] fundef in
   current_fun := "main";
-  let main = { name = ("main", Fun([Array(C "java/lang/String")], Void)); args = []; fv = []; body = (g [] [] e) @ [Return `V] } in
-  to_files closures [] [] (fundef' @ [main])
+  let main = { name = ("main", Fun([Array(C "java/lang/String")], Void)); modifiers = "static "; args = []; fv = []; body = (g [] [] e) @ [Return `V] } in
+  let main_init = [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V] in
+  { classname = "main"; init = Fun([Void], Void), main_init;
+    funs = main_funs @ [main]; super = "java/lang/Object"; fields = [] } ::
+  files

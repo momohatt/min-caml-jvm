@@ -166,10 +166,10 @@ formal_args:
 actual_args:
 | actual_args simple_exp
     %prec prec_app
-    { $1 @ [$2] }
+    { $1 @ [($2, Type.gentyp())] }
 | simple_exp
     %prec prec_app
-    { [$1] }
+    { [($1, Type.gentyp())] }
 
 elems:
 | elems COMMA exp
