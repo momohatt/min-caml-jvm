@@ -30,5 +30,8 @@ let gentmp typ =
 let mem x (env : (t * 'a) list) =
   List.exists (fun (y, _) -> x = y) env
 
+let mem3 x (env : (t * 'a * 'b) list) =
+  List.exists (fun (y, _, _) -> x = y) env
+
 let print_env (env : (t * 'a) list) =
   Printf.printf "env:[%s]\n" (String.concat ", " (List.map fst env))

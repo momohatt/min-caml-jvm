@@ -13,7 +13,7 @@ let rec deref_typ = function (* replace type variable with its decoded ones (cam
   | Type.Tuple(ts) -> Type.Tuple(List.map deref_typ ts)
   | Type.Array(t) -> Type.Array(deref_typ t)
   | Type.Var({ contents = None } as r) ->
-    Format.eprintf "uninstantiated type variable detected; assuming int@.";
+    (* Format.eprintf "uninstantiated type variable detected; assuming int@."; *)
     r := Some(Type.Int);
     Type.Int
   | Type.Var({ contents = Some(t) } as r) ->
@@ -42,7 +42,7 @@ let rec deref_term = function
              body = deref_term e1 },
            deref_term e2, p)
   | App((x, t), es, p) -> App((deref_term x, deref_typ t), List.map deref_term es, p)
-  | Tuple(es) -> Tuple(List.map (fun (e, t) -> deref_term e, t) es)
+  | Tuple(es) -> Tuple(List.map (fun (e, t) -> deref_term e, deref_typ t) es)
   | LetTuple(xts, e1, e2, p) -> LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2, p)
   | Array(e1, e2, t, p) -> Array(deref_term e1, deref_term e2, deref_typ t, p)
   | Get(e1, e2, t, p) -> Get(deref_term e1, deref_term e2, deref_typ t, p)

@@ -33,7 +33,12 @@ type fundef = { name : Id.t * Type.t;
                 args : (Id.t * Type.t) list;
                 fv : (Id.t * Type.t) list;
                 body : t }
-type prog = Prog of ((Id.t * closure) list) * fundef list * t
+type prog = {
+  closures : (Id.t * closure) list;
+  globals : (Id.t * Type.t * t) list;
+  funs : fundef list;
+  body : t;
+}
 
 let rec str_of_t (exp : t) : string =
   match exp with
@@ -81,12 +86,25 @@ let string_of_fundef (f : fundef) =
   let { name = (l, t); body = e; _ } = f in
   Printf.sprintf "%s (%s) : %s=\n%s" l (String.concat ", " (List.map fst f.args)) (Type.string_of_t t) (str_of_t e)
 
-let rec string_of_prog (Prog(_, fundefs, e)) =
-  String.concat "\n\n" (List.map string_of_fundef fundefs) ^ "\n" ^ string_of_t e
+let rec string_of_prog p =
+  String.concat "\n\n" (List.map string_of_fundef p.funs) ^ "\n" ^ string_of_t p.body
 
 let print_t (exp : t) = print_endline (string_of_t exp)
 let print_fundef f = print_endline (string_of_fundef f)
 let print_prog p = print_endline (string_of_prog p)
+
+let toplevel : fundef list ref = ref []
+let closures : (Id.t * closure) list ref = ref []
+let globals : (Id.t * Type.t * Syntax.t) list ref = ref []
+
+let rec collect_globals e =
+  match e with
+  | Syntax.Let((x, t), e1, e2, _) ->
+    globals := (x, t, e1) :: !globals;
+    collect_globals e2
+  | Syntax.LetRec(e1, e2, p) -> Syntax.LetRec(e1, collect_globals e2, p)
+  | Syntax.LetTuple(e1, e2, e3, p) -> Syntax.LetTuple(e1, e2, collect_globals e3, p) (* [XXX] tupleの場合は集めないことにする *)
+  | _ -> e
 
 let rec fv = function
   | Unit | Int(_) | Float(_) | ExtArray(_) -> S.empty
@@ -95,6 +113,7 @@ let rec fv = function
   | FAdd(e1, e2) | FSub(e1, e2) | FMul(e1, e2) | FDiv(e1, e2) | FCmp(e1, e2) | Array(e1, e2, _) | Get(e1, e2, _) -> S.union (fv e1) (fv e2)
   | IfEq(e1, e2, e3, e4)| IfLE(e1, e2, e3, e4) -> (S.union (fv e1) (S.union (fv e2) (S.union (fv e3) (fv e4))))
   | Let((x, t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
+  | Var(x) when Id.mem3 x !globals -> S.empty
   | Var(x) -> S.singleton x
   | MakeCls((x, t), { fv = ys; _ }, e) -> S.remove x (S.union (S.of_list (List.map fst ys)) (fv e))
   | AppCls(x, ys, _) -> S.union (fv x) (List.fold_left (fun s n -> S.union (fv n) s) S.empty ys)
@@ -102,9 +121,6 @@ let rec fv = function
   | Tuple(xs) -> List.fold_left (fun s n -> S.union (fv n) s) S.empty (List.map fst xs)
   | LetTuple(xts, y, e) -> S.union (fv y) (S.diff (fv e) (S.of_list (List.map fst xts)))
   | Put(x, y, z, _) -> S.union (fv x) (S.union (fv y) (fv z))
-
-let toplevel : fundef list ref = ref []
-let closures : (Id.t * closure) list ref = ref []
 
 let rec g env known e =
   match e with
@@ -171,10 +187,10 @@ let rec g env known e =
        toplevel := { (List.hd !toplevel) with body = e1'' } :: (List.tl !toplevel);
        MakeCls((x, t), { entry = Id.L(x); fv = zts }, e2')) (* 出現していたら削除しない *)
     else
-      (Format.eprintf "eliminating closure(s) %s@." x;
+      ((* Format.eprintf "eliminating closure(s) %s@." x; *)
        e2') (* 出現しなければMakeClsを削除 *)
   | Syntax.App((Var(x), _), ys, _) when S.mem x known -> (* 関数適用の場合 (caml2html: closure_app) *)
-    Format.eprintf "directly applying %s@." x;
+    (* Format.eprintf "directly applying %s@." x; *)
     AppDir(x, List.map (g env known) ys)
   | Syntax.App((Var(x), _), yts, _) when M.mem x !Typing.extenv -> ExtFunApp(x, (List.map (g env known) yts))
   | Syntax.App((x, t), yts, _) -> AppCls(g env known x, List.map (g env known) yts, t)
@@ -186,5 +202,8 @@ let rec g env known e =
 
 let f e =
   toplevel := [];
+  globals := [];
+  let e = collect_globals e in
   let e' = g M.empty S.empty e in
-  Prog(!closures, List.rev !toplevel, e')
+  let globals = List.map (fun (x, t, e) -> (x, t, g M.empty S.empty e)) !globals in
+  { closures = !closures; globals = globals; funs = !toplevel; body = e' }

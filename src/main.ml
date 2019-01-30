@@ -6,7 +6,7 @@ let compile oc dirname e =
   (* let e = ConstFold.f e in *)
   let e = Closure.f e in
   print_endline "-------Passed Closure.f-------";
-  Closure.print_prog e;
+  (* Closure.print_prog e; *)
   let e = Virtual.f e in
   print_endline "-------Passed Virtual.f-------";
   Emit.f oc dirname e

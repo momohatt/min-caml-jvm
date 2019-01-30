@@ -2,6 +2,8 @@ open Asm
 
 let toplevel = ref []
 let classname = ref ""
+let main_globals = ref []
+let is_main = ref false
 
 let getindex x env =
   let rec inner_ x env i =
@@ -18,7 +20,7 @@ let typet2ty (t : Type.t) : ty = match Typing.deref_typ t with
   | Type.Unit -> `V
   | Type.Var _ -> assert false
 
-let rec typet2tysig (t : Type.t) : ty_sig = match t with
+let rec typet2tysig (t : Type.t) : ty_sig = match Typing.deref_typ t with
   | Type.Unit -> Void
   | Type.Int | Type.Bool -> Int
   | Type.Float -> Float
@@ -27,7 +29,7 @@ let rec typet2tysig (t : Type.t) : ty_sig = match t with
   | Type.Fun(ts, t) -> Fun(List.map typet2tysig ts, typet2tysig t)
   | Type.Var _ -> assert false
 
-let rec typet2tysig_obj (t : Type.t) : ty_sig = match t with
+let rec typet2tysig_obj (t : Type.t) : ty_sig = match Typing.deref_typ t with
   | Type.Unit -> Void
   | Type.Int | Type.Bool -> C "java/lang/Integer"
   | Type.Float -> C "java/lang/Float"
@@ -45,6 +47,8 @@ let rec tysig2tysig_obj t = match t with
 
 (* fv: fvs of *current* function *)
 let rec g fv env e =
+  Closure.print_t e;
+  print_newline ();
   match e with
   | Closure.Unit -> []
   | Closure.Int(n)   -> [Ldc(I(n))]
@@ -68,8 +72,13 @@ let rec g fv env e =
   | Closure.Let((x, t), e1, e2) ->
     g fv env e1 @ [Store(typet2ty t, List.length env)] @ g fv ((x, t) :: env) e2
   | Closure.Var(x) when Id.mem x fv ->
-    [Load(`A, 0); GetField(!classname ^ "/" ^ x, List.assoc x fv)]
+    [Load(`A, 0); GetField(x, !classname, List.assoc x fv)]
+  | Closure.Var(x) when !is_main && Id.mem3 x !main_globals ->
+    (* Printf.printf "case of Closure.Var(x) when x is global (x = %s)\n" x; *)
+    let (_, t, _) = List.find (fun (y, _, _) -> x = y) !main_globals in
+    [GetStatic(x, !classname, typet2tysig t)]
   | Closure.Var(x) ->
+    (* Printf.printf "case of Closure.Var(x) (x = %s)\n" x; *)
     assert (Id.mem x env);
     [Load(typet2ty (List.assoc x env), getindex x env)]
   | Closure.ExtFunApp("float_of_int", e2) ->
@@ -138,6 +147,8 @@ let rec g fv env e =
     g fv env e1 @ g fv env e2 @
     [Boxing(typet2ty t); InvokeStatic("libmincaml.min_caml_create_array", Fun([Int; Obj], Array(Obj)))]
   | Closure.Get(e1, e2, t) ->
+    Closure.print_t e;
+    Type.print_t t;
     g fv env e1 @ g fv env e2 @ [ALoad(`A); Checkcast(typet2tysig t); Unboxing(typet2ty t)]
   | Closure.Put(e1, e2, e3, t) ->
     g fv env e1 @ g fv env e2 @ g fv env e3 @ [Boxing(typet2ty t); AStore(`A)]
@@ -148,36 +159,47 @@ let rec g fv env e =
     (g fv ((f, t) :: env) e)
   | Closure.ExtArray _ -> assert false
 
-let h is_static { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.body = e } =
+let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.body = e } =
   match t with
   | Type.Fun(_, rt) ->
     let t' = typet2tysig t in
     let args = List.map (fun (y, t) -> y, typet2tysig t) yts in
     let fv = List.map (fun (y, t) -> y, typet2tysig_obj t) zts in
     toplevel := (x, t') :: !toplevel;
-    if is_static then
+    if !is_main then
       let env' = List.rev yts in
       { name = (x, t'); modifiers = "static "; args; fv;
         body = g fv env' e @ [Return (typet2ty rt)] }
     else
-      (* closure *)
-      let env' = List.rev (("", Type.Unit) (* dummy ('this' ptr) *) :: yts) in
-      let prologue =
-        (* TODO: 引数が使われない場合はUnboxしない *)
-        Load(`A, 1) ::
-        List.concat (List.mapi
-                       (fun n (y, t) ->
-                          let t' = typet2ty t in
-                          [Dup; Ldc(I(n));
-                           ALoad(`A);
-                           Checkcast(typet2tysig t);
-                           Unboxing(t');
-                           Store(t', List.length env' + n)]) yts) in
-      let epilogue = [Boxing(typet2ty rt); Return(`A)] in
-      let env' = (List.rev yts) @ env' in
-      { name = (x, t'); modifiers = "static "; args; fv;
-        body = prologue @ g fv env' e @ epilogue }
+      ((* closure *)
+        let env' = List.rev (("", Type.Unit) (* dummy ('this' ptr) *) :: yts) in
+        let prologue =
+          (* TODO: 引数が使われない場合はUnboxしない *)
+          Load(`A, 1) ::
+          List.concat (List.mapi
+                         (fun n (y, t) ->
+                            let t' = typet2ty t in
+                            [Dup; Ldc(I(n));
+                             ALoad(`A);
+                             Checkcast(typet2tysig t);
+                             Unboxing(t');
+                             Store(t', List.length env' + n)]) yts) in
+        let epilogue = [Boxing(typet2ty rt); Return(`A)] in
+        let env' = (List.rev yts) @ env' in
+        { name = (x, t'); modifiers = "static "; args; fv;
+          body = prologue @ g fv env' e @ epilogue })
   | _ -> assert false
+
+let make_init init_super fields =
+  init_super @
+  (List.concat @@ List.mapi
+     (fun n (x, t) -> [Load(`A, 0);
+                       Load(`A, 1);
+                       Ldc(I(n));
+                       ALoad(`A);
+                       Checkcast(t);
+                       PutField(x, !classname, t)]) fields) @
+  [Return `V]
 
 (* gをfundefsに適用して変換しながらファイルに分ける (files, main_funs)を返す *)
 let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.fundef list) =
@@ -185,25 +207,20 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
   | [] ->
     (acc, main_funs)
   | f :: xf when not (Id.mem (fst f.name) closures) ->
+    print_endline (fst f.name);
     classname := "main";
-    to_files closures acc (main_funs @ [h true f]) xf
+    is_main := true;
+    to_files closures acc (main_funs @ [h f]) xf
   | f :: xf ->
     classname := "cls_" ^ fst f.name;
-    let f = h false f in
+    is_main := false;
+    let f = h f in
     let closure : Closure.closure = List.assoc (fst f.name) closures in
     let fields = List.map (fun (x, t) -> x, typet2tysig_obj t) closure.fv in
     let init =
-      (* super() *)
-      [Load(`A, 0); Load(`A, 1);
-       InvokeSpecial("cls/<init>", Fun([Array(Obj)], Void))] @
-      (List.concat @@ List.mapi
-         (fun n (x, t) -> [Load(`A, 0);
-                           Load(`A, 1);
-                           Ldc(I(n));
-                           ALoad(`A);
-                           Checkcast(t);
-                           PutField(!classname ^ "/" ^ x, t)]) fields) @
-      [Return `V]
+      make_init
+        [Load(`A, 0); Load(`A, 1); InvokeSpecial("cls/<init>", Fun([Array(Obj)], Void))]
+        fields
     in
     let app_tysig = match snd f.name with
       | Fun(_, t) -> Fun([Array(Obj)], tysig2tysig_obj t)
@@ -214,18 +231,26 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
         super = "cls"; fields = fields } :: acc in
     to_files closures acc' main_funs xf
 
-let f (Closure.Prog(closures, fundef, e)) : Asm.prog =
-  (* let fundef' = List.map h fundef in*)
-  let files, main_funs = to_files closures [] [] fundef in
+let f { Closure.closures = closures; Closure.globals = glb; Closure.funs = fundef; Closure.body = e } : Asm.prog =
+  (* List.iter (fun f -> let { Closure.name = (x, _); _} = f in print_endline x) fundef; *)
+  (* List.iter (fun (x, _, _) -> print_endline x) glb; *)
+  (* この時点でfundefは遅く定義された方から並んでいる *)
+  main_globals := List.rev glb;
+  let files, main_funs = to_files closures [] [] (List.rev fundef) in
   classname := "main";
-  let e' = (g [] [] e) @ [Return `V] in
+  (* call g *)
+  let main_body = (g [] [] e) @ [Return `V] in
+  let main_field = List.map (fun (x, t, e) -> (x, typet2tysig t)) !main_globals in
   let main = { name = ("main", Fun([Array(C "java/lang/String")], Void));
                modifiers = "static ";
-               args = []; fv = []; body = e' } in
-  let main_init = [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V] in
+               args = []; fv = []; body = main_body } in
+  let main_init =
+    make_init
+      [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V]
+      main_field in
   { classname = "main";
     init = Fun([Void], Void), main_init;
     funs = main_funs @ [main];
     super = "java/lang/Object";
-    fields = [] } ::
+    fields = main_field } ::
   files

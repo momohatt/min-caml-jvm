@@ -35,8 +35,10 @@ type inst =
   | Boxing of ty
   | Unboxing of ty
   | Checkcast of ty_sig
-  | PutField of Id.t * ty_sig
-  | GetField of Id.t * ty_sig
+  | PutField  of Id.t * string (* classname *) * ty_sig
+  | GetField  of Id.t * string (* classname *) * ty_sig
+  | PutStatic of Id.t * string (* classname *) * ty_sig
+  | GetStatic of Id.t * string (* classname *) * ty_sig
   | IfEq of inst list * inst list * inst list * inst list
   | IfLE of inst list * inst list * inst list * inst list
   | FCmp
