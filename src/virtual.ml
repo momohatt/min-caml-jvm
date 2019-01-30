@@ -85,8 +85,7 @@ let rec g fv env e =
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("libmincaml.min_caml_" ^ f, typet2tysig (M.find f !Typing.extenv))]
   | Closure.AppDir(f, e2) ->
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("main." ^ f, List.assoc f !toplevel)]
-
-  | Closure.AppCls((Var(f) as e1, Fun(ts, t)), e2) ->
+  | Closure.AppCls(Var(f) as e1, e2, Fun(ts, t)) ->
     (g fv env e1) @
     g fv env (Tuple(List.combine e2 ts)) @
     (if Id.mem f !toplevel then
@@ -95,12 +94,11 @@ let rec g fv env e =
         | _ -> assert false)
      else
        [InvokeVirtual("cls_" ^ f ^ "/app", Fun([Array(Obj)], Obj))])
-  | Closure.AppCls((e1, Fun(ts, t)), e2) ->
+  | Closure.AppCls(e1, e2, Fun(ts, t)) ->
     (g fv env e1) @
     g fv env (Tuple(List.combine e2 ts)) @
     [InvokeVirtual("cls/app", Fun([Array(Obj)], Obj))]
   | Closure.AppCls _ -> assert false (* closure's type should be Fun *)
-
   | Closure.Tuple(e) ->
     Ldc(I(List.length e)) ::
     ANewArray(Obj) ::
@@ -152,7 +150,7 @@ let h is_static { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; C
     toplevel := (x, t') :: !toplevel;
     if is_static then
       let env' = List.rev yts in
-      { name = (x, t'); modifiers = "static "; args = args; fv = fv;
+      { name = (x, t'); modifiers = "static "; args; fv;
         body = g fv env' e @ [Return (returntype rt)] }
     else
       (* closure *)
@@ -170,7 +168,8 @@ let h is_static { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; C
                            Store(t', List.length env' + n)]) yts) in
       let epilogue = [Boxing(typet2ty rt); Return(`A)] in
       let env' = (List.rev yts) @ env' in
-      { name = (x, t'); modifiers = "static "; args = args; fv = fv; body = prologue @ g fv env' e @ epilogue }
+      { name = (x, t'); modifiers = "static "; args; fv;
+        body = prologue @ g fv env' e @ epilogue }
   | _ -> assert false
 
 (* gをfundefsに適用して変換しながらファイルに分ける (files, main_funs)を返す *)
@@ -187,13 +186,20 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
     let closure : Closure.closure = List.assoc (fst f.name) closures in
     let fields = List.map (fun (x, t) -> x, typet2tysig_obj t) closure.fv in
     let init =
-      [Load(`A, 0); Load(`A, 1); InvokeSpecial("cls/<init>", Fun([Array(Obj)], Void))] @ (* super() *)
+      (* super() *)
+      [Load(`A, 0); Load(`A, 1);
+       InvokeSpecial("cls/<init>", Fun([Array(Obj)], Void))] @
       (List.concat @@ List.mapi
-         (fun n (x, t) -> [Load(`A, 0); Load(`A, 1); Ldc(I(n)); ALoad(`A); Checkcast(t); PutField(!classname ^ "/" ^ x, t)]) fields) @
+         (fun n (x, t) -> [Load(`A, 0);
+                           Load(`A, 1);
+                           Ldc(I(n));
+                           ALoad(`A);
+                           Checkcast(t);
+                           PutField(!classname ^ "/" ^ x, t)]) fields) @
       [Return `V]
     in
     let app_tysig = match snd f.name with
-      | Fun(_, Fun _) -> Fun([Array(Obj)], C"cls")
+      | Fun(_, Fun _) -> Fun([Array(Obj)], C "cls")
       | _ -> Fun([Array(Obj)], Obj) in
     let acc' =
       { classname = !classname; init = (Fun([Array(Obj)], Void), init);
@@ -206,9 +212,13 @@ let f (Closure.Prog(closures, fundef, e)) : Asm.prog =
   let files, main_funs = to_files closures [] [] fundef in
   classname := "main";
   let e' = (g [] [] e) @ [Return `V] in
-  let main = { name = ("main", Fun([Array(C "java/lang/String")], Void)); modifiers = "static ";
+  let main = { name = ("main", Fun([Array(C "java/lang/String")], Void));
+               modifiers = "static ";
                args = []; fv = []; body = e' } in
   let main_init = [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V] in
-  { classname = "main"; init = Fun([Void], Void), main_init;
-    funs = main_funs @ [main]; super = "java/lang/Object"; fields = [] } ::
+  { classname = "main";
+    init = Fun([Void], Void), main_init;
+    funs = main_funs @ [main];
+    super = "java/lang/Object";
+    fields = [] } ::
   files
