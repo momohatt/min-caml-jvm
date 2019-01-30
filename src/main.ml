@@ -7,7 +7,6 @@ let compile oc dirname e =
   let e = Closure.f e in
   print_endline "-------Passed Closure.f-------";
   Closure.print_prog e;
-  print_newline ();
   let e = Virtual.f e in
   print_endline "-------Passed Virtual.f-------";
   Emit.f oc dirname e

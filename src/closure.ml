@@ -84,9 +84,9 @@ let string_of_fundef (f : fundef) =
 let rec string_of_prog (Prog(_, fundefs, e)) =
   String.concat "\n\n" (List.map string_of_fundef fundefs) ^ "\n" ^ string_of_t e
 
-let print_t (exp : t) = print_string (string_of_t exp)
-let print_fundef f = print_string (string_of_fundef f)
-let print_prog p = print_string (string_of_prog p)
+let print_t (exp : t) = print_endline (string_of_t exp)
+let print_fundef f = print_endline (string_of_fundef f)
+let print_prog p = print_endline (string_of_prog p)
 
 let rec fv = function
   | Unit | Int(_) | Float(_) | ExtArray(_) -> S.empty
@@ -138,6 +138,8 @@ let rec g env known e =
   | Syntax.If(Syntax.Not(x, _), e1, e2, t) -> g env known (Syntax.If(x, e2, e1, t))
   | Syntax.If(e1, e2, e3, _) -> IfEq(g env known e1, Int(0), g env known e3, g env known e2)
   | Syntax.Let((x, t), e1, e2, _) -> Let((x, t), g env known e1, g (M.add x t env) known e2)
+  | Syntax.Var(x) when Id.mem x !closures ->
+    MakeCls((x, M.find x env), List.assoc x !closures, Var(x))
   | Syntax.Var(x) -> Var(x)
   | Syntax.LetRec({ Syntax.name = (x, t); Syntax.args = yts; Syntax.body = e1 }, e2, _) -> (* 関数定義の場合 (caml2html: closure_letrec) *)
     (* 関数定義let rec x y1 ... yn = e1 in e2の場合は、
@@ -165,6 +167,8 @@ let rec g env known e =
     let e2' = g env' known' e2 in
     if S.mem x (fv e2') then (* xが変数としてe2'に出現するか *)
       (closures := (x, { entry = Id.L(x); fv = zts }) :: !closures;
+       let e1'' = g (M.add_list yts env') known' e1 in
+       toplevel := { (List.hd !toplevel) with body = e1'' } :: (List.tl !toplevel);
        MakeCls((x, t), { entry = Id.L(x); fv = zts }, e2')) (* 出現していたら削除しない *)
     else
       (Format.eprintf "eliminating closure(s) %s@." x;

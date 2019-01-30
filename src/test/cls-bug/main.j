@@ -36,6 +36,7 @@
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	invokevirtual cls_g/app([Ljava/lang/Object;)Lcls;
+	checkcast cls
 	ldc 1
 	anewarray Ljava/lang/Object;
 	dup
@@ -44,6 +45,8 @@
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	invokevirtual cls/app([Ljava/lang/Object;)Ljava/lang/Object;
+	checkcast java/lang/Integer
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic libmincaml.min_caml_print_int(I)V
 	return
 .end method

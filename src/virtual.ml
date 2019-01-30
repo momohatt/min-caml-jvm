@@ -6,7 +6,7 @@ let classname = ref ""
 let getindex x env =
   let rec inner_ x env i =
     match env with
-    | [] -> assert false
+    | [] -> print_endline (x ^ " was not found"); assert false
     | (y, _) :: ys when x = y -> i
     | y :: ys -> inner_ x ys (i - 1)
   in inner_ x env ((List.length env) - 1)
@@ -15,14 +15,8 @@ let typet2ty (t : Type.t) : ty = match Typing.deref_typ t with
   | Type.Int | Type.Bool -> `I
   | Type.Float -> `F
   | Type.Array _ | Type.Tuple _ | Type.Fun _ -> `A
-  | _ -> assert false
-
-let returntype (t : Type.t) = match Typing.deref_typ t with
-  | Type.Int | Type.Bool -> `I
-  | Type.Float -> `F
-  | Type.Array _ | Type.Tuple _ | Type.Fun _ -> `A
   | Type.Unit -> `V
-  | _ -> assert false
+  | Type.Var _ -> assert false
 
 let rec typet2tysig (t : Type.t) : ty_sig = match t with
   | Type.Unit -> Void
@@ -31,7 +25,7 @@ let rec typet2tysig (t : Type.t) : ty_sig = match t with
   | Type.Array(t) -> Array (typet2tysig t)
   | Type.Tuple _ -> Array(Obj)
   | Type.Fun(ts, t) -> Fun(List.map typet2tysig ts, typet2tysig t)
-  | _ -> assert false
+  | Type.Var _ -> assert false
 
 let rec typet2tysig_obj (t : Type.t) : ty_sig = match t with
   | Type.Unit -> Void
@@ -40,7 +34,7 @@ let rec typet2tysig_obj (t : Type.t) : ty_sig = match t with
   | Type.Array(t) -> Array(typet2tysig_obj t)
   | Type.Tuple _ -> Array(Obj)
   | Type.Fun(ts, t) -> C "cls"
-  | _ -> assert false
+  | Type.Var _ -> assert false
 
 let rec tysig2tysig_obj t = match t with
   | Int -> C "java/lang/Integer"
@@ -76,6 +70,7 @@ let rec g fv env e =
   | Closure.Var(x) when Id.mem x fv ->
     [Load(`A, 0); GetField(!classname ^ "/" ^ x, List.assoc x fv)]
   | Closure.Var(x) ->
+    assert (Id.mem x env);
     [Load(typet2ty (List.assoc x env), getindex x env)]
   | Closure.ExtFunApp("float_of_int", e2) ->
     List.concat (List.map (g fv env) e2) @ [Itof]
@@ -86,18 +81,30 @@ let rec g fv env e =
   | Closure.AppDir(f, e2) ->
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("main." ^ f, List.assoc f !toplevel)]
   | Closure.AppCls(Var(f) as e1, e2, Fun(ts, t)) ->
-    (g fv env e1) @
-    g fv env (Tuple(List.combine e2 ts)) @
-    (if Id.mem f !toplevel then
-       (match List.assoc f !toplevel with
-        | Fun(_, t) -> [InvokeVirtual("cls_" ^ f ^ "/app", Fun([Array(Obj)], tysig2tysig_obj t))]
-        | _ -> assert false)
-     else
-       [InvokeVirtual("cls_" ^ f ^ "/app", Fun([Array(Obj)], Obj))])
+    let body =
+      (g fv env e1) @
+      g fv env (Tuple(List.combine e2 ts)) @
+      (if Id.mem f !toplevel then
+         (match List.assoc f !toplevel with
+          | Fun(_, t) -> [InvokeVirtual("cls_" ^ f ^ "/app", Fun([Array(Obj)], tysig2tysig_obj t))]
+          | _ -> assert false)
+       else
+         [InvokeVirtual("cls_" ^ f ^ "/app", Fun([Array(Obj)], Obj))]) in
+    let cast =
+      match t with
+      | Type.Unit -> body
+      | _ -> [Checkcast(typet2tysig_obj t); Unboxing(typet2ty t)] in
+    body @ cast
   | Closure.AppCls(e1, e2, Fun(ts, t)) ->
-    (g fv env e1) @
-    g fv env (Tuple(List.combine e2 ts)) @
-    [InvokeVirtual("cls/app", Fun([Array(Obj)], Obj))]
+    let body =
+      (g fv env e1) @
+      g fv env (Tuple(List.combine e2 ts)) @
+      [InvokeVirtual("cls/app", Fun([Array(Obj)], Obj))] in
+    let cast =
+      match t with
+      | Type.Unit -> body
+      | _ -> [Checkcast(typet2tysig_obj t); Unboxing(typet2ty t)] in
+    body @ cast
   | Closure.AppCls _ -> assert false (* closure's type should be Fun *)
   | Closure.Tuple(e) ->
     Ldc(I(List.length e)) ::
@@ -151,7 +158,7 @@ let h is_static { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; C
     if is_static then
       let env' = List.rev yts in
       { name = (x, t'); modifiers = "static "; args; fv;
-        body = g fv env' e @ [Return (returntype rt)] }
+        body = g fv env' e @ [Return (typet2ty rt)] }
     else
       (* closure *)
       let env' = List.rev (("", Type.Unit) (* dummy ('this' ptr) *) :: yts) in
@@ -199,8 +206,8 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
       [Return `V]
     in
     let app_tysig = match snd f.name with
-      | Fun(_, Fun _) -> Fun([Array(Obj)], C "cls")
-      | _ -> Fun([Array(Obj)], Obj) in
+      | Fun(_, t) -> Fun([Array(Obj)], tysig2tysig_obj t)
+      | _ -> assert false in
     let acc' =
       { classname = !classname; init = (Fun([Array(Obj)], Void), init);
         funs = [{ name = ("app", app_tysig); modifiers = ""; args = f.args; fv = f.fv; body = f.body }];

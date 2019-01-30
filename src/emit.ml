@@ -42,18 +42,21 @@ let rec g oc e =
   | Boxing t -> (match t with
       | `I -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([Int], C "java/lang/Integer")))
       | `F -> g oc (InvokeStatic("java/lang/Float/valueOf", Fun([Float], C "java/lang/Float")))
-      | `A -> ())
+      | `A -> ()
+      | `V -> ())
   | Unboxing t -> (match t with
       | `I -> g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], Int)))
       | `F -> g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], Float)))
-      | `A -> ())
-  | Checkcast t -> Printf.fprintf oc "\tcheckcast %s\n"
-                     (match t with
-                      | Int -> "java/lang/Integer"
-                      | Float -> "java/lang/Float"
-                      | Array _ -> "[Ljava/lang/Object;"
-                      | C s -> s
-                      | _ -> assert false)
+      | `A -> ()
+      | `V -> ())
+  | Checkcast t ->
+    (match t with
+     | Int     -> Printf.fprintf oc "\tcheckcast java/lang/Integer\n"
+     | Float   -> Printf.fprintf oc "\tcheckcast java/lang/Float\n"
+     | Array _ -> Printf.fprintf oc "\tcheckcast [Ljava/lang/Object;\n"
+     | C s     -> Printf.fprintf oc "\tcheckcast %s\n" s
+     | Fun _   -> Printf.fprintf oc "\tcheckcast cls\n"
+     | Obj | Void -> ())
   | PutField(x, t) -> Printf.fprintf oc "\tputfield %s %s\n" x (str_of_ty_sig t)
   | GetField(x, t) -> Printf.fprintf oc "\tgetfield %s %s\n" x (str_of_ty_sig t)
   | IfEq(e1, e2, e3, e4) ->
