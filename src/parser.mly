@@ -128,7 +128,7 @@ exp:
     { LetRec($3, $5, get_pos ()) }
 | simple_exp actual_args
     %prec prec_app
-    { App($1, $2, get_pos ()) }
+    { App(($1, Type.gentyp()), $2, get_pos ()) }
 | elems
     %prec prec_tuple
     { Tuple($1) }
@@ -166,10 +166,10 @@ formal_args:
 actual_args:
 | actual_args simple_exp
     %prec prec_app
-    { $1 @ [($2, Type.gentyp())] }
+    { $1 @ [$2] }
 | simple_exp
     %prec prec_app
-    { [($1, Type.gentyp())] }
+    { [$1] }
 
 elems:
 | elems COMMA exp

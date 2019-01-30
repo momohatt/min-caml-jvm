@@ -20,7 +20,7 @@ type t = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | Let of (Id.t * Type.t) * t * t
   | Var of Id.t
   | MakeCls of (Id.t * Type.t) * closure * t
-  | AppCls of t * (t * Type.t) list
+  | AppCls of (t * Type.t) * t list
   | AppDir of Id.t * t list
   | ExtFunApp of Id.t * t list
   | Tuple of (t * Type.t) list
@@ -63,7 +63,8 @@ let rec str_of_t (exp : t) : string =
   | Var(x) -> "VAR " ^ x
   | MakeCls((f, _), { entry = Id.L(l); fv = xl }, e) ->
     "MAKECLS " ^ f ^ " = <" ^ l ^ ", {" ^ (String.concat ", " (List.map fst xl)) ^ "}> IN\n" ^ (str_of_t e)
-  | AppCls(e1, e2) -> (str_of_t e1) ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) (List.map fst e2))
+  | AppCls((e1, t), e2) ->
+    Printf.sprintf "(AppCls %s : %s (%s))" (str_of_t e1) (Type.string_of_t t) (String.concat " " (List.map (fun e -> str_of_t e) e2))
   | AppDir(e1, e2) -> e1 ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) e2)
   | ExtFunApp(e1, e2) -> e1 ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) e2)
   | Tuple(e) -> ( "( ") ^ String.concat ", " (List.map (fun e -> str_of_t (fst e)) e) ^ " )"
@@ -96,7 +97,7 @@ let rec fv = function
   | Let((x, t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
   | Var(x) -> S.singleton x
   | MakeCls((x, t), { entry = l; fv = ys }, e) -> S.remove x (S.union (S.of_list (List.map fst ys)) (fv e))
-  | AppCls(x, ys) -> S.union (fv x) (List.fold_left (fun s n -> S.union (fv n) s) S.empty (List.map fst ys))
+  | AppCls((x, _), ys) -> S.union (fv x) (List.fold_left (fun s n -> S.union (fv n) s) S.empty ys)
   | ExtFunApp(_, xs) | AppDir(_, xs) -> List.fold_left (fun s n -> S.union (fv n) s) S.empty xs
   | Tuple(xs) -> List.fold_left (fun s n -> S.union (fv n) s) S.empty (List.map fst xs)
   | LetTuple(xts, y, e) -> S.union (fv y) (S.diff (fv e) (S.of_list (List.map fst xts)))
@@ -168,11 +169,11 @@ let rec g env known e =
     else
       (Format.eprintf "eliminating closure(s) %s@." x;
        e2') (* 出現しなければMakeClsを削除 *)
-  | Syntax.App(Var(x), ys, _) when S.mem x known -> (* 関数適用の場合 (caml2html: closure_app) *)
+  | Syntax.App((Var(x), _), ys, _) when S.mem x known -> (* 関数適用の場合 (caml2html: closure_app) *)
     Format.eprintf "directly applying %s@." x;
-    AppDir(x, List.map (fun (x, _) -> g env known x) ys)
-  | Syntax.App(Var(x), yts, _) when M.mem x !Typing.extenv -> ExtFunApp(x, (List.map (g env known) (List.map fst yts)))
-  | Syntax.App(f, xts, _) -> AppCls(g env known f, List.map (fun (x, t) -> g env known x, t) xts)
+    AppDir(x, List.map (g env known) ys)
+  | Syntax.App((Var(x), _), yts, _) when M.mem x !Typing.extenv -> ExtFunApp(x, (List.map (g env known) yts))
+  | Syntax.App((x, t), yts, _) -> AppCls((g env known x, t), List.map (g env known) yts)
   | Syntax.Tuple(xs) -> Tuple(List.map (fun e -> g env known (fst e), snd e) xs)
   | Syntax.LetTuple(xts, y, e, _) -> LetTuple(xts, g env known y, g (M.add_list xts env) known e)
   | Syntax.Get(x, y, t, _) -> Get(g env known x, g env known y, t)

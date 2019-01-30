@@ -33,7 +33,7 @@ let rec g env e =
      | _ -> g env e2)
   | Var(x) when Id.mem x env -> List.assoc x env
   | LetRec(f, e, p) -> LetRec({ name = f.name; args = f.args ; body = g env f.body }, g env e, p)
-  | App(e1, e2, p) -> App(e1, List.map (fun (x, t) -> g env x, t) e2, p)
+  | App(et1, e2, p) -> App(et1, List.map (g env) e2, p)
   | Tuple(e) -> Tuple(List.map (fun e -> g env (fst e), snd e) e)
   | LetTuple(e1, e2, e3, p) -> LetTuple(e1, e2, g env e3, p)
   | Array(e1, e2, t, p) -> Array(g env e1, g env e2, t, p)

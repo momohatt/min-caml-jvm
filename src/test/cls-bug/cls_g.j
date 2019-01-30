@@ -19,8 +19,15 @@
 .method public app([Ljava/lang/Object;)Lcls;
 	.limit stack 100
 	.limit locals 100
+	aload 1
+	dup
+	ldc 0
+	aaload
+	checkcast java/lang/Integer
+	invokevirtual java/lang/Integer/intValue()I
+	istore 2
 	aload 0
-	getfield f Lcls;
+	getfield cls_g/f Lcls;
 	areturn
 .end method
 

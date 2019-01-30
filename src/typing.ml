@@ -41,7 +41,7 @@ let rec deref_term = function
              args = List.map deref_id_typ yts;
              body = deref_term e1 },
            deref_term e2, p)
-  | App(x, es, p) -> App(x, List.map (fun (x, t) -> deref_term x, deref_typ t) es, p)
+  | App((x, t), es, p) -> App((deref_term x, deref_typ t), List.map deref_term es, p)
   | Tuple(es) -> Tuple(List.map (fun (e, t) -> deref_term e, t) es)
   | LetTuple(xts, e1, e2, p) -> LetTuple(List.map deref_id_typ xts, deref_term e1, deref_term e2, p)
   | Array(e1, e2, t, p) -> Array(deref_term e1, deref_term e2, deref_typ t, p)
@@ -131,16 +131,17 @@ let rec g env e =
       let env = M.add x t env in
       unify t (Type.Fun(List.map snd yts, g (M.add_list yts env) e1)) p;
       g env e2
-    | App(Var("create_array"), [(e1, t1); (e2, t2)], p) ->
-      unify Type.Int t1 p;
+    | App((Var("create_array"), t), [e1; e2], p) ->
       unify Type.Int (g env e1) p;
-      unify (g env e2) t2 p;
-      Type.Array(t2)
-    | App(x, es, p) ->
-      let t = Type.gentyp () in
-      unify (g env x) (Type.Fun(List.map (fun (x, t) -> g env x) es, t)) p;
-      List.iter2 (fun t1 t2 -> unify t1 t2 p) (List.map (fun (x, _) -> g env x) es) (List.map snd es);
-      t
+      let t' = Type.gentyp () in
+      unify (g env e2) t' p;
+      unify t (Type.Fun([Type.Int; t'], Type.Array(t'))) p;
+      Type.Array(t')
+    | App((x, t), es, p) ->
+      let t' = Type.gentyp () in
+      unify (g env x) (Type.Fun(List.map (g env) es, t')) p;
+      unify t (Type.Fun(List.map (g env) es, t')) p;
+      t'
     | Tuple(ets) ->
       List.iter (fun (e, t) ->
           unify t (g env e) Lexing.dummy_pos) ets;

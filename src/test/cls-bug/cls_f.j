@@ -12,9 +12,17 @@
 .method public app([Ljava/lang/Object;)Ljava/lang/Object;
 	.limit stack 100
 	.limit locals 100
-	iload 1
+	aload 1
+	dup
+	ldc 0
+	aaload
+	checkcast java/lang/Integer
+	invokevirtual java/lang/Integer/intValue()I
+	istore 2
+	iload 2
 	ldc 123
 	iadd
-	ireturn
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	areturn
 .end method
 
