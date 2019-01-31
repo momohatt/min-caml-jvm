@@ -1,7 +1,6 @@
 open Normal
 
-(* インライン展開する関数の最大サイズ (caml2html: inline_threshold) *)
-let threshold = ref 15 (* Mainで-inlineオプションによりセットされる *)
+let threshold = ref 15
 
 let rec size e = match e with
   | Neg(e) | Not(e) | FNeg(e) -> size e + 1
@@ -14,7 +13,7 @@ let rec size e = match e with
   | App((e1, t), e2s) -> size e1 + (List.fold_left (fun n e -> n + size e) 0 e2s)
   | _ -> 1
 
-let rec g env = function (* インライン展開ルーチン本体 (caml2html: inline_g) *)
+let rec g env = function
   | Neg(e)          -> Neg(g env e)
   | Not(e)          -> Not(g env e)
   | Xor(e1, e2)     -> Xor(g env e1, g env e2)

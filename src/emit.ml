@@ -1,20 +1,31 @@
 open Asm
 
-let str_of_ty t =
-  match t with
+let str_of_ty t = match t with
   | `I -> "i"
   | `F -> "f"
   | `A -> "a"
   | `V -> ""
 
-let rec str_of_ty_sig (t : ty_sig) =
-  match t with
-  | Int -> "I"
-  | Float -> "F"
+let rec str_of_ty_obj t = match t with
+  | Obj     -> "Ljava/lang/Object;"
+  | Integer -> "Ljava/lang/Integer;"
+  | Float   -> "Ljava/lang/Float;"
+  | C(s)    -> Printf.sprintf "L%s;" s
+  | Ary(t') -> "[" ^ (str_of_ty_obj t')
+
+let rec str_of_ty_obj_array t = match t with
+  | Obj     -> "java/lang/Object"
+  | Integer -> "java/lang/Integer"
+  | Float   -> "java/lang/Float"
+  | C(s)    -> s
+  | Ary(t') -> "[" ^ str_of_ty_obj t'
+
+let rec str_of_ty_sig (t : ty_sig) = match t with
+  | PInt -> "I"
+  | PFloat -> "F"
   | Void -> ""
-  | Array(t) -> "[" ^ (str_of_ty_sig t)
-  | Obj -> "Ljava/lang/Object;"
-  | C(s) -> "L" ^ s ^ ";"
+  | Array(t) -> "[" ^ (str_of_ty_obj t)
+  | O(t) -> str_of_ty_obj t
   | Fun(t, Void) -> Printf.sprintf "(%s)V" (String.concat "" (List.map str_of_ty_sig t))
   | Fun(t1, t2) -> Printf.sprintf "(%s)%s" (String.concat "" (List.map str_of_ty_sig t1)) (str_of_ty_sig t2)
 
@@ -25,7 +36,7 @@ let rec g oc e =
   | ALoad(t)   -> Printf.fprintf oc "\t%saload\n" (str_of_ty t)
   | AStore(t)  -> Printf.fprintf oc "\t%sastore\n" (str_of_ty t)
   | NewArray(t) -> Printf.fprintf oc "\tnewarray %s\n" (match t with `I -> "int" | `F -> "float")
-  | ANewArray(t) -> Printf.fprintf oc "\tanewarray %s\n" (str_of_ty_sig t)
+  | ANewArray(t) -> Printf.fprintf oc "\tanewarray %s\n" (str_of_ty_obj_array t)
   | Ldc(I(n))  -> Printf.fprintf oc "\tldc %d\n" n
   | Ldc(F(n))  -> Printf.fprintf oc "\tldc %f\n" n
   | Neg t -> Printf.fprintf oc "\t%sneg\n" (str_of_ty t)
@@ -40,23 +51,22 @@ let rec g oc e =
   | Dup   -> Printf.fprintf oc "\tdup\n"
   | New x -> Printf.fprintf oc "\tnew %s\n" x
   | Boxing t -> (match t with
-      | `I -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([Int], C "java/lang/Integer")))
-      | `F -> g oc (InvokeStatic("java/lang/Float/valueOf", Fun([Float], C "java/lang/Float")))
+      | `I -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([PInt], O(C "java/lang/Integer"))))
+      | `F -> g oc (InvokeStatic("java/lang/Float/valueOf", Fun([PFloat], O(C "java/lang/Float"))))
       | `A -> ()
       | `V -> ())
   | Unboxing t -> (match t with
-      | `I -> g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], Int)))
-      | `F -> g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], Float)))
+      | `I -> g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], PInt)))
+      | `F -> g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], PFloat)))
       | `A -> ()
       | `V -> ())
   | Checkcast t ->
     (match t with
-     | Int     -> Printf.fprintf oc "\tcheckcast java/lang/Integer\n"
+     | Integer -> Printf.fprintf oc "\tcheckcast java/lang/Integer\n"
      | Float   -> Printf.fprintf oc "\tcheckcast java/lang/Float\n"
-     | Array _ -> Printf.fprintf oc "\tcheckcast [Ljava/lang/Object;\n"
+     | Ary _   -> Printf.fprintf oc "\tcheckcast [Ljava/lang/Object;\n"
      | C s     -> Printf.fprintf oc "\tcheckcast %s\n" s
-     | Fun _   -> Printf.fprintf oc "\tcheckcast cls\n"
-     | Obj | Void -> ())
+     | Obj     -> ())
   | PutField (x, c, t) -> Printf.fprintf oc "\tputfield %s/%s %s\n"  c x (str_of_ty_sig t)
   | GetField (x, c, t) -> Printf.fprintf oc "\tgetfield %s/%s %s\n"  c x (str_of_ty_sig t)
   | PutStatic(x, c, t) -> Printf.fprintf oc "\tputstatic %s/%s %s\n" c x (str_of_ty_sig t)
@@ -120,7 +130,8 @@ let f oc dirname (files : Asm.prog) =
         (Printf.fprintf oc ".class public main\n";
          Printf.fprintf oc ".super %s\n" (file.super);
          List.iter (fun field ->
-             Printf.fprintf oc ".field public %s %s\n" (fst field) (str_of_ty_sig (snd field)))
+             (* only main class can have static field *)
+             Printf.fprintf oc ".field public static %s %s\n" (fst field) (str_of_ty_sig (snd field)))
            file.fields;
          Printf.fprintf oc ".method public <init>%s\n" (str_of_ty_sig (fst file.init));
          Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
