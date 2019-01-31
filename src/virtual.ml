@@ -94,8 +94,8 @@ let rec g fv env e =
     (* Printf.printf "case of Closure.Var(x) (x = %s)\n" x; *)
     assert (Id.mem x env);
     [Load(typet2ty (List.assoc x env), getindex x env)]
-  | Closure.ExtFunApp("sin", [e2]) -> g fv env e2 @ [CallMath("sin", "(D)D")]
-  | Closure.ExtFunApp("cos", [e2]) -> g fv env e2 @ [CallMath("cos", "(D)D")]
+  | Closure.ExtFunApp("sin", [e2]) -> g fv env e2 @  [CallMath("sin", "(D)D")]
+  | Closure.ExtFunApp("cos", [e2]) -> g fv env e2 @  [CallMath("cos", "(D)D")]
   | Closure.ExtFunApp("atan", [e2]) -> g fv env e2 @ [CallMath("atan", "(D)D")]
   | Closure.ExtFunApp("sqrt", [e2]) -> g fv env e2 @ [CallMath("sqrt", "(D)D")]
   | Closure.ExtFunApp("abs_float", [e2]) -> g fv env e2 @ [InvokeStatic("java/lang/Math.abs", Fun([PFloat], PFloat))]
@@ -135,18 +135,6 @@ let rec g fv env e =
       | _ -> [Checkcast(typet2tyobj t); Unboxing(typet2ty t)] in
     body @ cast
   | Closure.AppCls _ -> assert false (* closure's type should be Fun *)
-(*
-  | Closure.Tuple(e) when List.for_all (fun (_, t) -> t = snd (List.hd e)) (List.tl e) ->
-    (* 要素の型が全て同じタプル *)
-    let t = snd (List.hd e) in
-    Ldc(I(List.length e)) ::
-    ANewArray(typet2tyobj t) ::
-    List.concat (List.mapi
-                   (fun n (y, t) -> [Dup; Ldc(I(n))] @
-                                    (g fv env y) @
-                                    [AStore(`A)])
-                   e)
-*)
   | Closure.Tuple(e) ->
     Ldc(I(List.length e)) ::
     ANewArray(Obj) ::
@@ -156,32 +144,20 @@ let rec g fv env e =
                                     [Boxing(typet2ty t);
                                      AStore(`A)])
                    e)
-(*
-  | Closure.LetTuple(xts, e1, e2) when List.for_all (fun (_, t) -> t = snd (List.hd xts)) (List.tl xts) ->
-    g fv env e1 @
-    List.concat (List.mapi
-                   (fun n (y, t) ->
-                      let t' = typet2ty t in
-                      [Dup; Ldc(I(n));
-                       ALoad(`A);
-                       Store(t', List.length env + n)]) xts) @
-    g fv ((List.rev xts) @ env) e2
-*)
   | Closure.LetTuple(xts, e1, e2) ->
     g fv env e1 @
-    List.concat (List.mapi
-                   (fun n (y, t) ->
-                      if S.mem y (Closure.fv e2) then
-                        let t' = typet2ty t in
-                        [Dup; Ldc(I(n));
-                         ALoad(`A);
-                         Checkcast(typet2tyobj t);
-                         Unboxing(t');
-                         Store(t', List.length env + n)]
-                      else
-                        (* 使われない分は取り出さない *)
-                        []) xts) @ [Pop] @
-    g fv ((List.rev xts) @ env) e2
+    let xts' = List.filter (fun (y, _, _) -> S.mem y (Closure.fv e2)) (List.mapi (fun n (x, t) -> (x, t, n)) xts) in
+    List.concat
+      (List.mapi
+         (fun n (y, t, i) ->
+            let t' = typet2ty t in
+            [Dup; Ldc(I(i));
+             ALoad(`A);
+             Checkcast(typet2tyobj t);
+             Unboxing(t');
+             Store(t', List.length env + n)])
+         xts') @
+    [Pop] @ g fv ((List.rev (List.map (fun (y, t, _) -> (y, t)) xts')) @ env) e2
   | Closure.Array(Int(n) as e1, e2, t) ->
     (* 初期値をlocal variableに(一時的に)store *)
     let inst = ref (g fv env e2 @ [Boxing(typet2ty t); Store(`A, List.length env)] @ g fv env e1) in
@@ -214,7 +190,7 @@ let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.bod
     toplevel := (x, t') :: !toplevel;
     if !is_main then
       let env' = List.rev yts in
-      { name = (x, t'); modifiers = "static "; args; fv; stack = ref 0; locals = ref 0;
+      { name = (x, t'); modifiers = [Static]; args; fv; stack = ref 100; locals = ref 100;
         body = g fv env' e @ [Return (typet2ty rt)] }
     else
       ((* closure *)
@@ -232,7 +208,7 @@ let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.bod
                              Store(t', List.length env' + n)]) yts) in
         let epilogue = [Boxing(typet2ty rt); Return(`A)] in
         let env' = (List.rev yts) @ env' in
-        { name = (x, t'); modifiers = "static "; args; fv; stack = ref 0; locals = ref 0;
+        { name = (x, t'); modifiers = [Static]; args; fv; stack = ref 100; locals = ref 100;
           body = prologue @ g fv env' e @ epilogue })
   | _ -> assert false
 
@@ -268,9 +244,9 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
     let acc' =
       { classname = !classname;
         init = (Fun([Array(Obj)], Void), init); clinit = None;
-        funs = [{ name = ("app", app_tysig); modifiers = "";
+        funs = [{ name = ("app", app_tysig); modifiers = [];
                   args = f.args; fv = f.fv;
-                  stack = ref 0; locals = ref 0;
+                  stack = ref 100; locals = ref 100;
                   body = f.body }];
         super = "cls"; fields = fields } :: acc in
     to_files closures acc' main_funs xf
@@ -290,22 +266,27 @@ let f { Closure.closures = closures; Closure.globals = glb; Closure.funs = funde
       (fun (x, t, e) -> (x, typet2tysig t))
       !main_globals in
   let main = { name = ("main", Fun([Array(C "java/lang/String")], Void));
-               modifiers = "static ";
+               modifiers = [Static];
                args = []; fv = [];
-               stack = ref 0; locals = ref 0;
+               stack = ref 100; locals = ref 100;
                body = main_body } in
-  let main_clinit =
+  let main_clinit_body =
     (List.concat @@ List.mapi
        (fun n (x, t, e) ->
           let t' = typet2tysig t in
           g [] [] e @
           [PutStatic(x, !classname, t')]) !main_globals) @
     [Return `V] in
+  let main_clinit =
+    { name = "<clinit>", Fun([Void], Void);
+      modifiers = []; args = []; fv = [];
+      stack = ref 100; locals = ref 100;
+      body = main_clinit_body } in
   let main_init =
     [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V] in
   { classname = "main";
     init = Fun([Void], Void), main_init;
-    clinit = if !main_globals = [] then None else Some (Fun([Void], Void), main_clinit);
+    clinit = if !main_globals = [] then None else Some main_clinit;
     funs = main_funs @ [main];
     super = "java/lang/Object";
     fields = main_field } ::

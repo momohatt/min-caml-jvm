@@ -28,6 +28,7 @@ let compile oc dirname e =
   print_newline ();
   let e = Virtual.f e in
   print_endline "-------Passed Virtual.f-------";
+  (* Simulate.f e; *)
   Emit.f oc dirname e
 
 let file f =

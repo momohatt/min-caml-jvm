@@ -3568,9 +3568,9 @@ ifeq_else_21:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 12
+	astore 8
 	pop
-	aload 12
+	aload 8
 	astore 8	; abc_1166
 	aload 0
 	dup
@@ -3578,9 +3578,9 @@ ifeq_else_21:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 15
+	istore 9
 	pop
-	iload 15
+	iload 9
 	ldc 0.000000
 	aload 1
 	iload 5
@@ -3732,9 +3732,9 @@ ifeq_cont_26:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 5
 	pop
-	aload 9
+	aload 5
 	astore 5	; abc_1163
 	aload 1
 	aload 5
@@ -3775,9 +3775,9 @@ ifle_cont_29:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -3791,9 +3791,9 @@ ifle_cont_29:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -3808,9 +3808,9 @@ ifle_cont_29:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -3824,9 +3824,9 @@ ifle_cont_29:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 8
+	istore 5
 	pop
-	iload 8
+	iload 5
 	ifne ifeq_else_30
 	fload 4
 	goto ifeq_cont_30
@@ -3840,9 +3840,9 @@ ifeq_else_30:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 14
+	astore 5
 	pop
-	aload 14
+	aload 5
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -3857,9 +3857,9 @@ ifeq_else_30:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 14
+	astore 5
 	pop
-	aload 14
+	aload 5
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -3874,9 +3874,9 @@ ifeq_else_30:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 14
+	astore 5
 	pop
-	aload 14
+	aload 5
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -3898,9 +3898,9 @@ ifeq_cont_30:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 7
 	pop
-	aload 11
+	aload 7
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -3914,9 +3914,9 @@ ifeq_cont_30:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 7
 	pop
-	aload 11
+	aload 7
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -3931,9 +3931,9 @@ ifeq_cont_30:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 7
 	pop
-	aload 11
+	aload 7
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -3947,9 +3947,9 @@ ifeq_cont_30:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 11
+	istore 8
 	pop
-	iload 11
+	iload 8
 	ifne ifeq_else_31
 	fload 7
 	goto ifeq_cont_31
@@ -3967,9 +3967,9 @@ ifeq_else_31:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 17
+	astore 8
 	pop
-	aload 17
+	aload 8
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -3987,9 +3987,9 @@ ifeq_else_31:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 17
+	astore 8
 	pop
-	aload 17
+	aload 8
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -4008,9 +4008,9 @@ ifeq_else_31:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 17
+	astore 8
 	pop
-	aload 17
+	aload 8
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -4085,9 +4085,9 @@ ifeq_else_32:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 9
+	istore 8
 	pop
-	iload 9
+	iload 8
 	ldc 3
 	if_icmpne ifeq_else_33
 	fload 7
@@ -4124,9 +4124,9 @@ ifle_else_34:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 17
+	istore 11
 	pop
-	iload 17
+	iload 11
 	ifne ifeq_else_35
 	fload 10
 	fneg
@@ -4168,9 +4168,9 @@ ifeq_cont_32:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 4
 	pop
-	aload 9
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -4187,9 +4187,9 @@ ifeq_cont_32:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 5
 	pop
-	aload 10
+	aload 5
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -4206,9 +4206,9 @@ ifeq_cont_32:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 6
 	pop
-	aload 11
+	aload 6
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -4221,9 +4221,9 @@ ifeq_cont_32:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 8
+	istore 7
 	pop
-	iload 8
+	iload 7
 	istore 7	; m_shape_1152
 	iload 7
 	ldc 1
@@ -4280,9 +4280,9 @@ ifeq_cont_36:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 7
 	pop
-	aload 11
+	aload 7
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -4307,9 +4307,9 @@ ifle_else_39:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 7
 	pop
-	aload 11
+	aload 7
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -4366,9 +4366,9 @@ ifle_cont_39:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 12
+	astore 8
 	pop
-	aload 12
+	aload 8
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -4393,9 +4393,9 @@ ifle_else_43:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 12
+	astore 8
 	pop
-	aload 12
+	aload 8
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -4452,9 +4452,9 @@ ifle_cont_43:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 13
+	astore 9
 	pop
-	aload 13
+	aload 9
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -4479,9 +4479,9 @@ ifle_else_47:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 13
+	astore 9
 	pop
-	aload 13
+	aload 9
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -4648,9 +4648,9 @@ ifeq_else_51:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 9
+	istore 8
 	pop
-	iload 9
+	iload 8
 	ldc 3
 	if_icmpne ifeq_else_52
 	fload 7
@@ -4682,9 +4682,9 @@ ifle_else_53:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 16
+	istore 10
 	pop
-	iload 16
+	iload 10
 	ifne ifeq_else_54
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
@@ -4745,9 +4745,9 @@ ifeq_cont_51:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 4
 	pop
-	aload 9
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -4764,9 +4764,9 @@ ifeq_cont_51:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 5
 	pop
-	aload 10
+	aload 5
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -4783,9 +4783,9 @@ ifeq_cont_51:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 6
 	pop
-	aload 11
+	aload 6
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -4797,9 +4797,9 @@ ifeq_cont_51:
 	ldc 1
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 8
+	astore 7
 	pop
-	aload 8
+	aload 7
 	astore 7	; dconsts_1132
 	aload 7
 	iload 0
@@ -4812,9 +4812,9 @@ ifeq_cont_51:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	istore 9
 	pop
-	iload 10
+	iload 9
 	istore 9	; m_shape_1134
 	iload 9
 	ldc 1
@@ -4958,9 +4958,9 @@ ifle_else_59:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 16
+	istore 10
 	pop
-	iload 16
+	iload 10
 	ifne ifeq_else_60
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
@@ -5016,9 +5016,9 @@ ifeq_cont_58:
 	ldc 10
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 13
+	astore 3
 	pop
-	aload 13
+	aload 3
 	astore 3	; sconst_1115
 	aload 3
 	ldc 0
@@ -5043,9 +5043,9 @@ ifeq_cont_58:
 	ldc 1
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 8
+	astore 7
 	pop
-	aload 8
+	aload 7
 	astore 7	; dconsts_1119
 	aload 7
 	iload 0
@@ -5058,9 +5058,9 @@ ifeq_cont_58:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	istore 9
 	pop
-	iload 10
+	iload 9
 	istore 9	; m_shape_1121
 	iload 9
 	ldc 1
@@ -5161,9 +5161,9 @@ ifeq_else_63:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 9
+	istore 3
 	pop
-	iload 9
+	iload 3
 	ldc 0.000000
 	aload 0
 	ldc 0
@@ -5186,9 +5186,9 @@ ifle_cont_64:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -5239,9 +5239,9 @@ ifeq_else_66:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 9
+	istore 3
 	pop
-	iload 9
+	iload 3
 	ldc 0.000000
 	aload 0
 	ldc 1
@@ -5264,9 +5264,9 @@ ifle_cont_67:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -5317,9 +5317,9 @@ ifeq_else_69:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 9
+	istore 3
 	pop
-	iload 9
+	iload 3
 	ldc 0.000000
 	aload 0
 	ldc 2
@@ -5342,9 +5342,9 @@ ifle_cont_70:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -5411,9 +5411,9 @@ ifeq_cont_69:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 7
+	astore 3
 	pop
-	aload 7
+	aload 3
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -5429,9 +5429,9 @@ ifeq_cont_69:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 7
+	astore 3
 	pop
-	aload 7
+	aload 3
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -5448,9 +5448,9 @@ ifeq_cont_69:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 7
+	astore 3
 	pop
-	aload 7
+	aload 3
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -5483,9 +5483,9 @@ ifle_else_72:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -5502,9 +5502,9 @@ ifle_else_72:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -5521,9 +5521,9 @@ ifle_else_72:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -5595,9 +5595,9 @@ ifle_cont_72:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -5615,9 +5615,9 @@ ifle_cont_72:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 5
 	pop
-	aload 9
+	aload 5
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -5635,9 +5635,9 @@ ifle_cont_72:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 6
 	pop
-	aload 10
+	aload 6
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -5656,9 +5656,9 @@ ifle_cont_72:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	istore 7
 	pop
-	iload 10
+	iload 7
 	ifne ifeq_else_73
 	aload 2
 	ldc 1
@@ -5690,9 +5690,9 @@ ifeq_else_73:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -5708,9 +5708,9 @@ ifeq_else_73:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -5735,9 +5735,9 @@ ifeq_else_73:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -5753,9 +5753,9 @@ ifeq_else_73:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -5780,9 +5780,9 @@ ifeq_else_73:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -5798,9 +5798,9 @@ ifeq_else_73:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -5844,9 +5844,9 @@ ifeq_cont_74:
 	ldc 1
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 4
+	astore 3
 	pop
-	aload 4
+	aload 3
 	astore 3	; dconst_1085
 	aload 0
 	dup
@@ -5863,9 +5863,9 @@ ifeq_cont_74:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 6
+	istore 5
 	pop
-	iload 6
+	iload 5
 	istore 5	; m_shape_1087
 	iload 5
 	ldc 1
@@ -5921,9 +5921,9 @@ ifge_cont_75:
 	ldc 10
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 13
+	astore 3
 	pop
-	aload 13
+	aload 3
 	astore 3	; sconst_1077
 	aload 2
 	dup
@@ -5931,9 +5931,9 @@ ifge_cont_75:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 5
+	istore 4
 	pop
-	iload 5
+	iload 4
 	istore 4	; m_shape_1078
 	aload 3
 	ldc 0
@@ -5947,9 +5947,9 @@ ifge_cont_75:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 5
 	pop
-	aload 10
+	aload 5
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -5969,9 +5969,9 @@ ifge_cont_75:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 5
 	pop
-	aload 10
+	aload 5
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -5991,9 +5991,9 @@ ifge_cont_75:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 5
 	pop
-	aload 10
+	aload 5
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -6011,9 +6011,9 @@ ifge_cont_75:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 5
 	pop
-	aload 9
+	aload 5
 	aload 3
 	ldc 0
 	aaload
@@ -6106,9 +6106,9 @@ ifge_cont_78:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6125,9 +6125,9 @@ ifle_else_83:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -6144,9 +6144,9 @@ ifle_else_84:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -6171,9 +6171,9 @@ ifle_cont_83:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	istore 4
 	pop
-	iload 10
+	iload 4
 	ldc 1
 	ixor
 	goto ifeq_cont_82
@@ -6184,9 +6184,9 @@ ifeq_else_82:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	istore 4
 	pop
-	iload 10
+	iload 4
 ifeq_cont_82:
 	ireturn
 .end method	; is_rect_outside_521
@@ -6199,9 +6199,9 @@ ifeq_cont_82:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	fload 1
 	fload 2
 	fload 3
@@ -6213,9 +6213,9 @@ ifeq_cont_82:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 11
+	istore 5
 	pop
-	iload 11
+	iload 5
 	ldc 0.000000
 	fload 4
 	fcmpl
@@ -6248,9 +6248,9 @@ ifle_cont_86:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 6
+	istore 5
 	pop
-	iload 6
+	iload 5
 	ldc 3
 	if_icmpne ifeq_else_87
 	fload 4
@@ -6267,9 +6267,9 @@ ifeq_cont_87:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 12
+	istore 6
 	pop
-	iload 12
+	iload 6
 	ldc 0.000000
 	fload 5
 	fcmpl
@@ -6296,9 +6296,9 @@ ifle_cont_88:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 4
 	pop
-	aload 9
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -6311,9 +6311,9 @@ ifle_cont_88:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 5
 	pop
-	aload 10
+	aload 5
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -6326,9 +6326,9 @@ ifle_cont_88:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 6
 	pop
-	aload 11
+	aload 6
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -6341,9 +6341,9 @@ ifle_cont_88:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 8
+	istore 7
 	pop
-	iload 8
+	iload 7
 	istore 7	; m_shape_1071
 	iload 7
 	ldc 1
@@ -6474,9 +6474,9 @@ ifeq_cont_95:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 12
+	istore 6
 	pop
-	iload 12
+	iload 6
 	ifne ifeq_else_97
 	ldc 0
 	goto ifeq_cont_97
@@ -6710,9 +6710,9 @@ ifeq_cont_101:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 12
+	istore 6
 	pop
-	iload 12
+	iload 6
 	ifeq ifeq_cont_110
 	iload 0
 	ldc 1
@@ -7004,9 +7004,9 @@ ifle_cont_119:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 13
+	istore 7
 	pop
-	iload 13
+	iload 7
 	ifeq ifeq_cont_123
 	iload 0
 	ldc 1
@@ -7299,9 +7299,9 @@ ifle_cont_132:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 5
+	astore 1
 	pop
-	aload 5
+	aload 1
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7316,9 +7316,9 @@ ifle_cont_132:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 5
+	astore 1
 	pop
-	aload 5
+	aload 1
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -7333,9 +7333,9 @@ ifle_cont_132:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 5
+	astore 1
 	pop
-	aload 5
+	aload 1
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -7359,9 +7359,9 @@ ifle_cont_132:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 6
+	astore 1
 	pop
-	aload 6
+	aload 1
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7378,9 +7378,9 @@ ifle_cont_132:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 7
+	astore 2
 	pop
-	aload 7
+	aload 2
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -7397,9 +7397,9 @@ ifle_cont_132:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 3
 	pop
-	aload 8
+	aload 3
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -7412,9 +7412,9 @@ ifle_cont_132:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7427,9 +7427,9 @@ ifle_cont_132:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 5
 	pop
-	aload 9
+	aload 5
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -7442,9 +7442,9 @@ ifle_cont_132:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 6
 	pop
-	aload 10
+	aload 6
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -7457,9 +7457,9 @@ ifle_cont_132:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	istore 7
 	pop
-	iload 10
+	iload 7
 	ifne ifeq_else_134
 	getstatic main/nvector_261 [Ljava/lang/Float;
 	ldc 0
@@ -7487,9 +7487,9 @@ ifeq_else_134:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -7501,9 +7501,9 @@ ifeq_else_134:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -7524,9 +7524,9 @@ ifeq_else_134:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -7538,9 +7538,9 @@ ifeq_else_134:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7561,9 +7561,9 @@ ifeq_else_134:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -7575,9 +7575,9 @@ ifeq_else_134:
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 7
 	pop
-	aload 16
+	aload 7
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7597,9 +7597,9 @@ ifeq_cont_134:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 13
+	istore 7
 	pop
-	iload 13
+	iload 7
 	invokestatic main.vecunit_sgn_299([Ljava/lang/Float;I)V
 	return
 .end method	; get_nvector_second_588
@@ -7613,9 +7613,9 @@ ifeq_cont_134:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 3
+	istore 2
 	pop
-	iload 3
+	iload 2
 	istore 2	; m_shape_993
 	iload 2
 	ldc 1
@@ -7658,9 +7658,9 @@ ifeq_cont_135:
 	ldc 8
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 3
 	pop
-	aload 11
+	aload 3
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7674,9 +7674,9 @@ ifeq_cont_135:
 	ldc 8
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 3
 	pop
-	aload 11
+	aload 3
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -7690,9 +7690,9 @@ ifeq_cont_135:
 	ldc 8
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 3
 	pop
-	aload 11
+	aload 3
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -7712,9 +7712,9 @@ ifeq_cont_135:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 3
 	pop
-	aload 8
+	aload 3
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7754,9 +7754,9 @@ ifle_cont_138:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 5
 	pop
-	aload 10
+	aload 5
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -7867,9 +7867,9 @@ ifeq_else_143:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 3
 	pop
-	aload 8
+	aload 3
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7886,9 +7886,9 @@ ifeq_else_143:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 4
 	pop
-	aload 9
+	aload 4
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -7958,9 +7958,9 @@ ifeq_else_144:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 3
 	pop
-	aload 8
+	aload 3
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7971,9 +7971,9 @@ ifeq_else_144:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 7
+	astore 3
 	pop
-	aload 7
+	aload 3
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -7993,9 +7993,9 @@ ifeq_else_144:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 4
 	pop
-	aload 9
+	aload 4
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -8006,9 +8006,9 @@ ifeq_else_144:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 8
+	astore 4
 	pop
-	aload 8
+	aload 4
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -8066,9 +8066,9 @@ ifle_cont_146:
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 13
+	astore 8
 	pop
-	aload 13
+	aload 8
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -8079,9 +8079,9 @@ ifle_cont_146:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 12
+	astore 8
 	pop
-	aload 12
+	aload 8
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -8243,9 +8243,9 @@ ifle_cont_150:
 	ldc 1
 	aaload
 	checkcast [Ljava/lang/Object;
-	astore 6
+	astore 5
 	pop
-	aload 6
+	aload 5
 	astore 5	; dvec_952
 	aload 5
 	invokestatic main.judge_intersection_fast_582([Ljava/lang/Object;)I
@@ -8299,9 +8299,9 @@ ifle_cont_150:
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
-	fstore 10
+	fstore 8
 	pop
-	fload 10
+	fload 8
 	fstore 8	; scale_956
 	fload 8
 	fload 1
@@ -8351,9 +8351,9 @@ ifge_cont_151:
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 7
+	astore 5
 	pop
-	aload 7
+	aload 5
 	astore 5	; surface_ids_916
 	aload 2
 	invokestatic main.judge_intersection_568([Ljava/lang/Float;)I
@@ -8442,18 +8442,18 @@ ifeq_else_156:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	istore 8
 	pop
-	iload 10
+	iload 8
 	istore 8	; m_surface_924
 	aload 7
 	dup
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 16
+	astore 9
 	pop
-	aload 16
+	aload 9
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -8488,9 +8488,9 @@ ifeq_else_156:
 	ldc 1
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 11
+	astore 10
 	pop
-	aload 11
+	aload 10
 	astore 10	; intersection_points_930
 	aload 10
 	iload 0
@@ -8503,9 +8503,9 @@ ifeq_else_156:
 	ldc 3
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 14
+	astore 11
 	pop
-	aload 14
+	aload 11
 	astore 11	; calc_diffuse_932
 	ldc 0.500000
 	aload 7
@@ -8513,9 +8513,9 @@ ifeq_else_156:
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 19
+	astore 12
 	pop
-	aload 19
+	aload 12
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -8532,9 +8532,9 @@ ifeq_else_156:
 	ldc 4
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 16
+	astore 12
 	pop
-	aload 16
+	aload 12
 	astore 12	; energya_946
 	aload 12
 	iload 0
@@ -8555,9 +8555,9 @@ ifeq_else_156:
 	ldc 7
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 20
+	astore 13
 	pop
-	aload 20
+	aload 13
 	astore 13	; nvectors_949
 	aload 13
 	iload 0
@@ -8589,9 +8589,9 @@ ifle_cont_159:
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 20
+	astore 13
 	pop
-	aload 20
+	aload 13
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -8660,9 +8660,9 @@ ifle_cont_162:
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 21
+	astore 14
 	pop
-	aload 21
+	aload 14
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -8750,9 +8750,9 @@ ifle_cont_166:
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 12
+	astore 5
 	pop
-	aload 12
+	aload 5
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -8915,36 +8915,36 @@ ifeq_cont_173:
 	ldc 5
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 7
+	astore 2
 	pop
-	aload 7
+	aload 2
 	astore 2	; ray20p_898
 	aload 0
 	dup
 	ldc 7
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 10
+	astore 3
 	pop
-	aload 10
+	aload 3
 	astore 3	; nvectors_899
 	aload 0
 	dup
 	ldc 1
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 5
+	astore 4
 	pop
-	aload 5
+	aload 4
 	astore 4	; intersection_points_900
 	aload 0
 	dup
 	ldc 4
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 9
+	astore 5
 	pop
-	aload 9
+	aload 5
 	astore 5	; energya_901
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	aload 2
@@ -8957,9 +8957,9 @@ ifeq_cont_173:
 	ldc 6
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 12
+	astore 6
 	pop
-	aload 12
+	aload 6
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -8996,9 +8996,9 @@ ifeq_cont_173:
 	ldc 5
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 11
+	astore 6
 	pop
-	aload 11
+	aload 6
 	astore 5	; r_up_887
 	aload 2
 	iload 0
@@ -9012,9 +9012,9 @@ ifeq_cont_173:
 	ldc 5
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 12
+	astore 7
 	pop
-	aload 12
+	aload 7
 	astore 6	; r_left_888
 	aload 2
 	iload 0
@@ -9026,9 +9026,9 @@ ifeq_cont_173:
 	ldc 5
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 13
+	astore 8
 	pop
-	aload 13
+	aload 8
 	astore 7	; r_center_889
 	aload 2
 	iload 0
@@ -9042,9 +9042,9 @@ ifeq_cont_173:
 	ldc 5
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 14
+	astore 9
 	pop
-	aload 14
+	aload 9
 	astore 8	; r_right_890
 	aload 3
 	iload 0
@@ -9056,9 +9056,9 @@ ifeq_cont_173:
 	ldc 5
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 15
+	astore 10
 	pop
-	aload 15
+	aload 10
 	astore 9	; r_down_891
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	aload 5
@@ -9100,9 +9100,9 @@ ifeq_cont_173:
 	ldc 4
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 15
+	astore 11
 	pop
-	aload 15
+	aload 11
 	astore 10	; energya_897
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	aload 10
@@ -9125,9 +9125,9 @@ ifeq_cont_173:
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 4
+	astore 2
 	pop
-	aload 4
+	aload 2
 	astore 2	; surface_ids_884
 	aload 2
 	iload 1
@@ -9140,9 +9140,9 @@ ifeq_cont_173:
 	ldc 3
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 6
+	astore 3
 	pop
-	aload 6
+	aload 3
 	astore 3	; calc_diffuse_885
 	aload 3
 	iload 1
@@ -9222,9 +9222,9 @@ ifle_cont_177:
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 8
+	astore 6
 	pop
-	aload 8
+	aload 6
 	astore 6	; surface_ids_883_1862
 	aload 6
 	iload 4
@@ -9242,9 +9242,9 @@ ifle_cont_177:
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 9
+	astore 7
 	pop
-	aload 9
+	aload 7
 	astore 7	; surface_ids_883_1859
 	aload 7
 	iload 4
@@ -9263,9 +9263,9 @@ ifle_cont_177:
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 9
+	astore 7
 	pop
-	aload 9
+	aload 7
 	astore 7	; surface_ids_883_1856
 	aload 7
 	iload 4
@@ -9286,9 +9286,9 @@ ifle_cont_177:
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 9
+	astore 7
 	pop
-	aload 9
+	aload 7
 	astore 7	; surface_ids_883_1853
 	aload 7
 	iload 4
@@ -9309,9 +9309,9 @@ ifle_cont_177:
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 9
+	astore 7
 	pop
-	aload 9
+	aload 7
 	astore 7	; surface_ids_883_1850
 	aload 7
 	iload 4
@@ -9356,9 +9356,9 @@ ifeq_cont_181:
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 9
+	astore 7
 	pop
-	aload 9
+	aload 7
 	astore 7	; surface_ids_883_1847
 	aload 7
 	iload 5
@@ -9386,9 +9386,9 @@ ifeq_else_187:
 	ldc 3
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 10
+	astore 7
 	pop
-	aload 10
+	aload 7
 	astore 7	; calc_diffuse_880
 	aload 7
 	iload 5
@@ -9517,9 +9517,9 @@ ifle_cont_189:
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 4
+	astore 2
 	pop
-	aload 4
+	aload 2
 	astore 2	; surface_ids_883_1835
 	aload 2
 	iload 1
@@ -9534,9 +9534,9 @@ ifle_cont_189:
 	ldc 3
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 6
+	astore 3
 	pop
-	aload 6
+	aload 3
 	astore 3	; calc_diffuse_856
 	aload 3
 	iload 1
@@ -9549,9 +9549,9 @@ ifle_cont_189:
 	ldc 6
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 10
+	astore 4
 	pop
-	aload 10
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Integer
@@ -9565,18 +9565,18 @@ ifle_cont_189:
 	ldc 7
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 12
+	astore 5
 	pop
-	aload 12
+	aload 5
 	astore 5	; nvectors_860
 	aload 0
 	dup
 	ldc 1
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 7
+	astore 6
 	pop
-	aload 7
+	aload 6
 	astore 6	; intersection_points_861
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 4
@@ -9605,9 +9605,9 @@ ifle_cont_189:
 	ldc 5
 	aaload
 	checkcast [[Ljava/lang/Float;
-	astore 12
+	astore 7
 	pop
-	aload 12
+	aload 7
 	astore 7	; ray20p_863
 	aload 7
 	iload 1
@@ -9728,9 +9728,9 @@ ifle_cont_191:
 	ldc 6
 	aaload
 	checkcast [Ljava/lang/Integer;
-	astore 14
+	astore 8
 	pop
-	aload 14
+	aload 8
 	ldc 0
 	iload 2
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
@@ -11226,9 +11226,9 @@ ifge_cont_206:
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 4
 	pop
-	aload 11
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -11330,9 +11330,9 @@ ifge_cont_206:
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 11
+	astore 4
 	pop
-	aload 11
+	aload 4
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -11345,9 +11345,9 @@ ifge_cont_206:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 5
 	pop
-	aload 9
+	aload 5
 	invokestatic main.veciprod_302([Ljava/lang/Float;[Ljava/lang/Float;)F
 	fstore 5	; p_774
 	iload 3
@@ -11359,9 +11359,9 @@ ifge_cont_206:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 6
 	pop
-	aload 10
+	aload 6
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -11381,9 +11381,9 @@ ifge_cont_206:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 6
 	pop
-	aload 10
+	aload 6
 	ldc 1
 	aaload
 	checkcast java/lang/Float
@@ -11403,9 +11403,9 @@ ifge_cont_206:
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 10
+	astore 6
 	pop
-	aload 10
+	aload 6
 	ldc 2
 	aaload
 	checkcast java/lang/Float
@@ -11446,9 +11446,9 @@ ifge_cont_206:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 4
+	istore 2
 	pop
-	iload 4
+	iload 2
 	ldc 2
 	if_icmpne ifeq_cont_208
 	ldc 1.000000
@@ -11457,9 +11457,9 @@ ifge_cont_206:
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
-	astore 9
+	astore 2
 	pop
-	aload 9
+	aload 2
 	ldc 0
 	aaload
 	checkcast java/lang/Float
@@ -11472,9 +11472,9 @@ ifge_cont_206:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	istore 3
+	istore 2
 	pop
-	iload 3
+	iload 2
 	istore 2	; m_shape_770
 	iload 2
 	ldc 1

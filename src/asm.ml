@@ -57,9 +57,12 @@ type inst =
   | InvokeVirtual of Id.t * ty_sig
   | InvokeSpecial of Id.t * ty_sig
 
+type modifiers =
+  | Static
+
 type fundef = {
   name : (Id.t * ty_sig);
-  modifiers : string;
+  modifiers : modifiers list;
   args : (Id.t * ty_sig) list;
   fv : (Id.t * ty_sig) list;
   stack : int ref;
@@ -69,7 +72,7 @@ type fundef = {
 
 type file = {
   classname : string; (* this also becomes the filename (without .j) *)
-  clinit : (ty_sig * inst list) option; (* mainのみ必要(static fieldの初期化のため) *)
+  clinit : fundef option; (* mainのみ必要(static fieldの初期化のため) *)
   init : ty_sig * inst list;
   funs : fundef list;
   super : string;

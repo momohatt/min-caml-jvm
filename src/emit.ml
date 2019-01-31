@@ -29,6 +29,10 @@ let rec str_of_ty_sig (t : ty_sig) = match t with
   | Fun(t, Void) -> Printf.sprintf "(%s)V" (String.concat "" (List.map str_of_ty_sig t))
   | Fun(t1, t2) -> Printf.sprintf "(%s)%s" (String.concat "" (List.map str_of_ty_sig t1)) (str_of_ty_sig t2)
 
+let rec str_of_modifiers m = match m with
+  | [] -> ""
+  | Static :: xm -> "static " ^ (str_of_modifiers xm)
+
 let rec g oc e =
   match e with
   | Load(t, n) -> Printf.fprintf oc "\t%sload %d\n" (str_of_ty t) n
@@ -131,9 +135,9 @@ let rec g oc e =
     Printf.fprintf oc "\tinvokespecial %s%s\n" f (str_of_ty_sig t)
 
 let h oc f =
-  Printf.fprintf oc ".method public %s%s%s\n" f.modifiers (fst f.name) (str_of_ty_sig (snd f.name));
-  Printf.fprintf oc "\t.limit stack 100\n"; (*TODO*)
-  Printf.fprintf oc "\t.limit locals 100\n";
+  Printf.fprintf oc ".method public %s%s%s\n" (str_of_modifiers f.modifiers) (fst f.name) (str_of_ty_sig (snd f.name));
+  Printf.fprintf oc "\t.limit stack %d\n" !(f.stack);
+  Printf.fprintf oc "\t.limit locals %d\n" !(f.locals);
   List.iter (fun e -> g oc e) f.body;
   Printf.fprintf oc ".end method\t; %s\n\n" (fst f.name)
 
@@ -141,6 +145,7 @@ let f oc dirname (files : Asm.prog) =
   let has_closure = ref false in
   List.iter (fun file ->
       if file.classname <> "main" then
+        (* closure classes *)
         (has_closure := true;
          let oc = open_out (Printf.sprintf "%s/%s.j" dirname file.classname) in
          Printf.fprintf oc ".class public %s\n" (file.classname);
@@ -156,28 +161,31 @@ let f oc dirname (files : Asm.prog) =
          List.iter (fun f -> h oc f) file.funs;
          close_out oc)
       else
+        (* main class *)
         (Printf.fprintf oc ".class public main\n";
          Printf.fprintf oc ".super %s\n" (file.super);
          List.iter (fun field ->
              (* only main class can have static field *)
              Printf.fprintf oc ".field public static %s %s\n" (fst field) (str_of_ty_sig (snd field)))
            file.fields;
-         (* clinit *)
+         (* <clinit> *)
          (match file.clinit with
           | None -> ()
-          | Some(ty, clinit) ->
-            Printf.fprintf oc ".method public static <clinit>%s\n" (str_of_ty_sig ty);
-            Printf.fprintf oc "\t.limit stack 100\n"; (*TODO*)
-            Printf.fprintf oc "\t.limit locals 100\n";
-            List.iter (g oc) clinit;
+          | Some(clinit) ->
+            Printf.fprintf oc ".method public static <clinit>%s\n" (str_of_ty_sig (snd clinit.name));
+            Printf.fprintf oc "\t.limit stack %d\n" !(clinit.stack);
+            Printf.fprintf oc "\t.limit locals %d\n" !(clinit.locals);
+            List.iter (g oc) clinit.body;
             Printf.fprintf oc ".end method\t; <clinit>\n\n");
+         (* <init> *)
          Printf.fprintf oc ".method public <init>%s\n" (str_of_ty_sig (fst file.init));
-         Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
+         Printf.fprintf oc "\t.limit stack 10\n"; (* TODO *)
          Printf.fprintf oc "\t.limit locals 10\n";
          List.iter (g oc) (snd file.init);
          Printf.fprintf oc ".end method\t; <init>\n\n";
          List.iter (fun f -> h oc f) file.funs))
     files;
+  (* cls class *)
   if !has_closure then
     let oc = open_out (dirname ^  "/cls.j") in
     (Printf.fprintf oc ".class abstract cls\n";
