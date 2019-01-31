@@ -24,8 +24,8 @@ type inst =
   | Load of ty * int
   | Store of ty * int
   | Store_c of ty * int * string (* comment *)
-  | ALoad of ty (* array load *)
-  | AStore of ty (* array store *)
+  | ALoad of ty  (* load from array *)
+  | AStore of ty (* store to array *)
   | NewArray of ty_prim
   | ANewArray of ty_obj
   | Ldc of imm
@@ -48,14 +48,16 @@ type inst =
   | GetField  of Id.t * string (* classname *) * ty_sig
   | PutStatic of Id.t * string (* classname *) * ty_sig
   | GetStatic of Id.t * string (* classname *) * ty_sig
-  | If0 of string * string * inst list * inst list * inst list
-  | If of string* string * inst list * inst list * inst list * inst list
+  (* If0: comparison with zero *)
+  | If0 of string (* branch cond. *) * string (* negative branch cond. *) * inst list * inst list * inst list
+  | If of  string (* branch cond. *) * string (* negative branch cond. *) * inst list * inst list * inst list * inst list
   | FCmp
   | Return of [`I | `F | `A | `V]
-  | CallMath of Id.t * string (* signature *)
-  | InvokeStatic of Id.t * ty_sig
-  | InvokeVirtual of Id.t * ty_sig
-  | InvokeSpecial of Id.t * ty_sig
+  (* call to java/lang/Math library (sin, cos, ...) *)
+  | CallMath of Id.t * string (* type signature (which often includes double) *)
+  | InvokeStatic of Id.t * ty_sig  (* mainly for calling function declared in main.j (AppDir) *)
+  | InvokeVirtual of Id.t * ty_sig (* mainly for closure application *)
+  | InvokeSpecial of Id.t * ty_sig (* mainly for calling <init> *)
 
 type modifiers =
   | Static
@@ -65,14 +67,14 @@ type fundef = {
   modifiers : modifiers list;
   args : (Id.t * ty_sig) list;
   fv : (Id.t * ty_sig) list;
-  stack : int ref;
-  locals : int ref;
+  stack : int ref;  (* stack limits *)
+  locals : int ref; (* locals limits *)
   body : inst list
 }
 
 type file = {
   classname : string; (* this also becomes the filename (without .j) *)
-  clinit : fundef option; (* mainのみ必要(static fieldの初期化のため) *)
+  clinit : fundef option;    (* class initializer, mainのみ必要(static fieldの初期化のため) *)
   init : ty_sig * inst list;
   funs : fundef list;
   super : string;

@@ -55,8 +55,6 @@ let rec tysig2tyobj t = match t with
 
 (* fv: fvs of *current* function *)
 let rec g fv env e =
-  (* Closure.print_t e;
-     print_newline (); *)
   match e with
   | Closure.Unit -> []
   | Closure.Int(n)   -> [Ldc(I(n))]
@@ -194,6 +192,7 @@ let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.bod
         body = g fv env' e @ [Return (typet2ty rt)] }
     else
       ((* closure *)
+        (* non-static methodの場合はlocalsの0番目がthisポインタになる *)
         let env' = List.rev (("", Type.Unit) (* dummy ('this' ptr) *) :: yts) in
         let prologue =
           (* TODO: 引数が使われない場合はUnboxしない *)
@@ -256,10 +255,12 @@ let f { Closure.closures = closures; Closure.globals = glb; Closure.funs = funde
   Printf.printf "globals = %s\n" (String.concat " " (List.map (fun (x, _, _) -> x) glb));
   (* この時点でfundefは遅く定義された方から並んでいる *)
   main_globals := List.rev glb;
+  (* main以外の関数を変換 *)
+  (* files: main.j以外のファイル(クロージャ), main_funs: main.jに宣言されるmain以外の(非クロージャ)関数 *)
   let files, main_funs = to_files closures [] [] (List.rev fundef) in
+  (* main関数を変換 *)
   classname := "main";
   is_main := true;
-  (* call g *)
   let main_body = (g [] [] e) @ [Return `V] in
   let main_field =
     List.map

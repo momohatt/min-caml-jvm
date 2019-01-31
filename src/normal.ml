@@ -75,11 +75,10 @@ and
   string_of_fundef (f : fundef) (depth : int) =
   Printf.sprintf "%s (%s) : %s =\n%s" (fst f.name) (String.concat ", " (List.map fst f.args)) (Type.string_of_t (snd f.name)) (string_of_t f.body depth)
 
-(* [WEEK1 Q1] pretty print for Syntax.t *)
 let print_t (exp : t) =
   print_string (string_of_t exp 0)
-(* S.t = Id.t *)
-let rec fv = function (* free variable (caml2html: knormal_fv) *)
+
+let rec fv = function
   | Unit | Bool(_) | Int(_) | Float(_) -> S.empty
   | Not(x) | Neg(x) | FNeg(x) -> fv x
   | Xor(x, y) | Add(x, y) | Sub(x, y) | Mul(x, y) | Div(x, y)
@@ -97,48 +96,7 @@ let rec fv = function (* free variable (caml2html: knormal_fv) *)
   | If(x, y, z) | Put(x, y, z, _) -> S.union (fv x) (S.union (fv y) (fv z))
   | LetTuple(xs, y, e) -> S.union (fv y) (S.diff (fv e) (S.of_list (List.map fst xs)))
 
-(*
-(* substitute a free variable 'a' in 'e' with 'b' *)
-let rec id_subst (e : t) (a : Id.t) (b : Id.t) : t =
-  let subst_ x = if x = a then b else x in
-  match e with
-  | Not e   -> Not (subst_ e)
-  | Neg e   -> Neg (subst_ e)
-  | Xor (e1, e2)  -> Xor  (subst_ e1, subst_ e2)
-  | Add (e1, e2)  -> Add  (subst_ e1, subst_ e2)
-  | Sub (e1, e2)  -> Sub  (subst_ e1, subst_ e2)
-  | Mul (e1, e2)  -> Mul  (subst_ e1, subst_ e2)
-  | Div (e1, e2)  -> Div  (subst_ e1, subst_ e2)
-  | FNeg e        -> FNeg (subst_ e)
-  | FAdd (e1, e2) -> FAdd (subst_ e1, subst_ e2)
-  | FSub (e1, e2) -> FSub (subst_ e1, subst_ e2)
-  | FMul (e1, e2) -> FMul (subst_ e1, subst_ e2)
-  | FDiv (e1, e2) -> FDiv (subst_ e1, subst_ e2)
-  | FEq (e1, e2)  -> FEq  (subst_ e1, subst_ e2)
-  | FLE (e1, e2)  -> FLE  (subst_ e1, subst_ e2)
-  | IfEq (e1, e2, et, ef) -> IfEq (subst_ e1, subst_ e2, id_subst et a b, id_subst ef a b)
-  | IfLE (e1, e2, et, ef) -> IfLE (subst_ e1, subst_ e2, id_subst et a b, id_subst ef a b)
-  | Let ((x, t), e1, e2) ->
-    (* Note: after alpha-conversion, variable names won't collapse and x <> a is guaranteed *)
-    Let ((x, t), id_subst e1 a b, id_subst e2 a b)
-  | Var x -> Var (subst_ x)
-  | LetRec (f, e) -> LetRec (id_subst_fun f a b, id_subst e a b)
-  | App (e1, e2) -> App (subst_ e1, List.map subst_ e2)
-  | Tuple e -> Tuple (List.map subst_ e)
-  | LetTuple (l, e1, e2) -> LetTuple (List.map (fun (x, t) -> (subst_ x, t)) l, subst_ e1, id_subst e2 a b)
-  | Get (e1, e2) -> Get (subst_ e1, subst_ e2)
-  | Put (e1, e2, e3) -> Put (subst_ e1, subst_ e2, subst_ e3)
-  | ExtArray e -> ExtArray (subst_ e)
-  | ExtTuple e -> ExtTuple (subst_ e)
-  | ExtFunApp (e, el) -> ExtFunApp (subst_ e, List.map subst_ el)
-  | MakeArray(Id.V(e1), (e2, t)) -> MakeArray(Id.V(subst_ e1), (subst_ e2, t))
-  | MakeArray(Id.C(n), (e2, t)) -> MakeArray(Id.C(n), (subst_ e2, t))
-  | _ -> e
-and id_subst_fun (f : fundef) (a : Id.t) (b : Id.t) : fundef =
-  let subst_ x = if x = a then b else x in
-  { name = ((subst_ (fst f.name)), snd f.name); args = (List.map (fun (x, t) -> (subst_ x, t)) f.args); body = id_subst f.body a b }
-  *)
-
+(* fsqr, fhalf, fnev, fiszero, fispos, fisneg, flessを除く *)
 let rec unfold_extfun (exp : Syntax.t) : Syntax.t =
   match exp with
   | Not(e, p) -> Not(unfold_extfun e, p)
@@ -172,7 +130,7 @@ let rec unfold_extfun (exp : Syntax.t) : Syntax.t =
   | Put(e1, e2, e3, t, p) -> Put(unfold_extfun e1, unfold_extfun e2, unfold_extfun e3, t, p)
   | _ -> exp
 
-(* remove pos *)
+(* pos(入力プログラム中での行番号の情報)を除いて扱いやすくする *)
 let rec g (exp : Syntax.t) : t =
   match exp with
   | Syntax.Unit -> Unit

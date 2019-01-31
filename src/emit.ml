@@ -77,13 +77,13 @@ let rec g oc e =
   | GetField (x, c, t) -> Printf.fprintf oc "\tgetfield %s/%s %s\n"  c x (str_of_ty_sig t)
   | PutStatic(x, c, t) -> Printf.fprintf oc "\tputstatic %s/%s %s\n" c x (str_of_ty_sig t)
   | GetStatic(x, c, t) -> Printf.fprintf oc "\tgetstatic %s/%s %s\n" c x (str_of_ty_sig t)
-  | If0(b, bn, e1, [], e3) ->
+  | If0(b, bn, e1, [], e3) -> (* optimization for less branch *)
     let l_cont = Id.genLabel (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     Printf.fprintf oc "\tif%s %s\n" b l_cont;
     List.iter (g oc) e3;
     Printf.fprintf oc "%s:\n" l_cont
-  | If0(b, bn, e1, e2, []) ->
+  | If0(b, bn, e1, e2, []) -> (* optimization for less branch *)
     let l_cont = Id.genLabel (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     Printf.fprintf oc "\tif%s %s\n" bn l_cont;
@@ -98,14 +98,14 @@ let rec g oc e =
     Printf.fprintf oc "%s:\n" l_else;
     List.iter (g oc) e3;
     Printf.fprintf oc "%s:\n" l_cont
-  | If(b, bn, e1, e2, [], e4) ->
+  | If(b, bn, e1, e2, [], e4) -> (* optimization for less branch *)
     let l_cont = Id.genLabel (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     List.iter (g oc) e2;
     Printf.fprintf oc "\tif_icmp%s %s\n" b l_cont;
     List.iter (g oc) e4;
     Printf.fprintf oc "%s:\n" l_cont
-  | If(b, bn, e1, e2, e3, []) ->
+  | If(b, bn, e1, e2, e3, []) -> (* optimization for less branch *)
     let l_cont = Id.genLabel (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     List.iter (g oc) e2;
@@ -185,7 +185,7 @@ let f oc dirname (files : Asm.prog) =
          Printf.fprintf oc ".end method\t; <init>\n\n";
          List.iter (fun f -> h oc f) file.funs))
     files;
-  (* cls class *)
+  (* if there are any closures, output cls.j *)
   if !has_closure then
     let oc = open_out (dirname ^  "/cls.j") in
     (Printf.fprintf oc ".class abstract cls\n";
