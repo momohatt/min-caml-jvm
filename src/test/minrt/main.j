@@ -2145,8 +2145,8 @@ ifle_cont_1622:
 	aload 1
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	aload 0
@@ -2154,8 +2154,8 @@ ifle_cont_1622:
 	aload 1
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	aload 0
@@ -2163,8 +2163,8 @@ ifle_cont_1622:
 	aload 1
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	return
@@ -2237,8 +2237,8 @@ ifeq_cont_1624:
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 3
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2248,8 +2248,8 @@ ifeq_cont_1624:
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 3
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2259,8 +2259,8 @@ ifeq_cont_1624:
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 3
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2346,14 +2346,14 @@ ifeq_cont_1624:
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 1
 	aload 2
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2363,14 +2363,14 @@ ifeq_cont_1624:
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 1
 	aload 2
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2380,14 +2380,14 @@ ifeq_cont_1624:
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 1
 	aload 2
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2403,13 +2403,13 @@ ifeq_cont_1624:
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -2418,13 +2418,13 @@ ifeq_cont_1624:
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -2433,13 +2433,13 @@ ifeq_cont_1624:
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -2454,8 +2454,8 @@ ifeq_cont_1624:
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 1
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2465,8 +2465,8 @@ ifeq_cont_1624:
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 1
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2476,8 +2476,8 @@ ifeq_cont_1624:
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 1
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2493,18 +2493,18 @@ ifeq_cont_1624:
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 2
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2514,18 +2514,18 @@ ifeq_cont_1624:
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 2
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -2535,18 +2535,18 @@ ifeq_cont_1624:
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 2
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -3538,7 +3538,7 @@ ifeq_cont_1624:
 	freturn
 .end method	; o_hilight_350
 
-.method public static o_color_red_352([Ljava/lang/Object;)I
+.method public static o_color_red_352([Ljava/lang/Object;)F
 	.limit stack 100
 	.limit locals 100
 	aload 0
@@ -3569,15 +3569,13 @@ ifeq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 5
+	checkcast [Ljava/lang/Float;
+	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 6
+	checkcast [Ljava/lang/Float;
+	astore 6
 	dup
 	ldc 6
 	aaload
@@ -3587,35 +3585,32 @@ ifeq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 8
+	checkcast [Ljava/lang/Float;
+	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Integer;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	checkcast [Ljava/lang/Float;
+	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 11
+	checkcast [Ljava/lang/Float;
+	astore 11
 	aload 9
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	ireturn
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
+	freturn
 .end method	; o_color_red_352
 
-.method public static o_color_green_354([Ljava/lang/Object;)I
+.method public static o_color_green_354([Ljava/lang/Object;)F
 	.limit stack 100
 	.limit locals 100
 	aload 0
@@ -3646,15 +3641,13 @@ ifeq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 5
+	checkcast [Ljava/lang/Float;
+	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 6
+	checkcast [Ljava/lang/Float;
+	astore 6
 	dup
 	ldc 6
 	aaload
@@ -3664,35 +3657,32 @@ ifeq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 8
+	checkcast [Ljava/lang/Float;
+	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Integer;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	checkcast [Ljava/lang/Float;
+	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 11
+	checkcast [Ljava/lang/Float;
+	astore 11
 	aload 9
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	ireturn
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
+	freturn
 .end method	; o_color_green_354
 
-.method public static o_color_blue_356([Ljava/lang/Object;)I
+.method public static o_color_blue_356([Ljava/lang/Object;)F
 	.limit stack 100
 	.limit locals 100
 	aload 0
@@ -3723,15 +3713,13 @@ ifeq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 5
+	checkcast [Ljava/lang/Float;
+	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 6
+	checkcast [Ljava/lang/Float;
+	astore 6
 	dup
 	ldc 6
 	aaload
@@ -3741,32 +3729,29 @@ ifeq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 8
+	checkcast [Ljava/lang/Float;
+	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Integer;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 10
+	checkcast [Ljava/lang/Float;
+	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 11
+	checkcast [Ljava/lang/Float;
+	astore 11
 	aload 9
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	ireturn
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
+	freturn
 .end method	; o_color_blue_356
 
 .method public static o_param_r1_358([Ljava/lang/Object;)F
@@ -4725,13 +4710,13 @@ ifeq_cont_1624:
 	getstatic main/screen_250 [Ljava/lang/Float;
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	getstatic main/screenz_dir_272 [Ljava/lang/Float;
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fsub
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -4740,13 +4725,13 @@ ifeq_cont_1624:
 	getstatic main/screen_250 [Ljava/lang/Float;
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	getstatic main/screenz_dir_272 [Ljava/lang/Float;
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fsub
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -4755,13 +4740,13 @@ ifeq_cont_1624:
 	getstatic main/screen_250 [Ljava/lang/Float;
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	getstatic main/screenz_dir_272 [Ljava/lang/Float;
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fsub
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -6368,23 +6353,23 @@ ifle_else_1713:
 	aload 1
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 2
 	fmul
 	aload 1
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 3
 	fmul
 	fadd
 	aload 1
 	ldc 3
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 4
 	fmul
 	fadd
@@ -6482,8 +6467,8 @@ ifle_else_1719:
 	aload 1
 	ldc 4
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -6500,8 +6485,8 @@ ifeq_else_1721:
 	aload 1
 	ldc 4
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -6612,13 +6597,13 @@ ifle_else_1727:
 	aload 1
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 2
 	ldc 3
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -6702,8 +6687,8 @@ ifle_else_1731:
 	aload 1
 	ldc 4
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -6720,8 +6705,8 @@ ifeq_else_1733:
 	aload 1
 	ldc 4
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -6809,7 +6794,7 @@ ifeq_cont_1736:
 	ireturn
 .end method	; solver_fast2_499
 
-.method public static setup_rect_table_502([Ljava/lang/Float;I)[Ljava/lang/Float;
+.method public static setup_rect_table_502([Ljava/lang/Float;[Ljava/lang/Object;)[Ljava/lang/Float;
 	.limit stack 100
 	.limit locals 100
 	ldc 0.000000
@@ -6859,14 +6844,14 @@ ifeq_cont_1736:
 ifeq_else_1739:
 	aload 2
 	ldc 0
-	iload 1
+	aload 1
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
 	ldc 0.000000
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
 	ifgt ifle_else_1741
 	ldc 1
@@ -6877,7 +6862,7 @@ ifle_cont_1742:
 	ldc 1
 	ixor
 	ixor
-	iload 1
+	aload 1
 	invokestatic main.o_param_a_334([Ljava/lang/Object;)F
 	invokestatic main.fneg_cond_280(IF)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -6888,8 +6873,8 @@ ifle_cont_1742:
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fdiv
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -6911,14 +6896,14 @@ ifeq_cont_1740:
 ifeq_else_1743:
 	aload 2
 	ldc 2
-	iload 1
+	aload 1
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
 	ldc 0.000000
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
 	ifgt ifle_else_1745
 	ldc 1
@@ -6929,7 +6914,7 @@ ifle_cont_1746:
 	ldc 1
 	ixor
 	ixor
-	iload 1
+	aload 1
 	invokestatic main.o_param_b_336([Ljava/lang/Object;)F
 	invokestatic main.fneg_cond_280(IF)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -6940,8 +6925,8 @@ ifle_cont_1746:
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fdiv
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -6963,14 +6948,14 @@ ifeq_cont_1744:
 ifeq_else_1747:
 	aload 2
 	ldc 4
-	iload 1
+	aload 1
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
 	ldc 0.000000
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
 	ifgt ifle_else_1749
 	ldc 1
@@ -6981,7 +6966,7 @@ ifle_cont_1750:
 	ldc 1
 	ixor
 	ixor
-	iload 1
+	aload 1
 	invokestatic main.o_param_c_338([Ljava/lang/Object;)F
 	invokestatic main.fneg_cond_280(IF)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -6992,8 +6977,8 @@ ifle_cont_1750:
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fdiv
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -7212,16 +7197,16 @@ ifeq_else_1753:
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	invokestatic main.o_param_r2_360([Ljava/lang/Object;)F
 	fmul
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	invokestatic main.o_param_r3_362([Ljava/lang/Object;)F
 	fmul
@@ -7237,16 +7222,16 @@ ifeq_else_1753:
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	invokestatic main.o_param_r1_358([Ljava/lang/Object;)F
 	fmul
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	invokestatic main.o_param_r3_362([Ljava/lang/Object;)F
 	fmul
@@ -7262,16 +7247,16 @@ ifeq_else_1753:
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	invokestatic main.o_param_r1_358([Ljava/lang/Object;)F
 	fmul
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 1
 	invokestatic main.o_param_r2_360([Ljava/lang/Object;)F
 	fmul
@@ -7326,7 +7311,7 @@ ifeq_cont_1756:
 	iload 1
 	aload 4
 	aload 2
-	invokestatic main.setup_rect_table_502([Ljava/lang/Float;I)[Ljava/lang/Float;
+	invokestatic main.setup_rect_table_502([Ljava/lang/Float;[Ljava/lang/Object;)[Ljava/lang/Float;
 	aastore
 	goto ifeq_cont_1760
 ifeq_else_1759:
@@ -7396,8 +7381,8 @@ ifge_cont_1758:
 	aload 0
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 2
 	invokestatic main.o_param_x_342([Ljava/lang/Object;)F
 	fsub
@@ -7408,8 +7393,8 @@ ifge_cont_1758:
 	aload 0
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 2
 	invokestatic main.o_param_y_344([Ljava/lang/Object;)F
 	fsub
@@ -7420,8 +7405,8 @@ ifge_cont_1758:
 	aload 0
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 2
 	invokestatic main.o_param_z_346([Ljava/lang/Object;)F
 	fsub
@@ -7437,18 +7422,18 @@ ifge_cont_1758:
 	aload 3
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 3
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	aload 3
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	invokestatic main.veciprod2_305([Ljava/lang/Float;FFF)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
@@ -8598,8 +8583,8 @@ ifle_cont_1872:
 	ldc 1
 	isub
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	invokestatic main.sgn_278(F)F
 	fneg
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -8794,19 +8779,19 @@ ifeq_cont_1878:
 	getstatic main/texture_color_262 [Ljava/lang/Float;
 	ldc 0
 	aload 0
-	invokestatic main.o_color_red_352([Ljava/lang/Object;)I
+	invokestatic main.o_color_red_352([Ljava/lang/Object;)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	getstatic main/texture_color_262 [Ljava/lang/Float;
 	ldc 1
 	aload 0
-	invokestatic main.o_color_green_354([Ljava/lang/Object;)I
+	invokestatic main.o_color_green_354([Ljava/lang/Object;)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	getstatic main/texture_color_262 [Ljava/lang/Float;
 	ldc 2
 	aload 0
-	invokestatic main.o_color_blue_356([Ljava/lang/Object;)I
+	invokestatic main.o_color_blue_356([Ljava/lang/Object;)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	iload 2
@@ -9202,8 +9187,8 @@ ifle_else_1907:
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 3
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -9213,8 +9198,8 @@ ifle_else_1907:
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 3
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -9224,8 +9209,8 @@ ifle_else_1907:
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 3
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -9374,8 +9359,8 @@ ifle_else_1923:
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 7
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -9385,8 +9370,8 @@ ifle_else_1923:
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 7
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -9396,8 +9381,8 @@ ifle_else_1923:
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fload 7
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -10354,8 +10339,8 @@ ifle_cont_1990:
 	getstatic main/screenx_dir_270 [Ljava/lang/Float;
 	ldc 0
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fload 3
 	fadd
@@ -10367,8 +10352,8 @@ ifle_cont_1990:
 	getstatic main/screenx_dir_270 [Ljava/lang/Float;
 	ldc 1
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fload 4
 	fadd
@@ -10380,8 +10365,8 @@ ifle_cont_1990:
 	getstatic main/screenx_dir_270 [Ljava/lang/Float;
 	ldc 2
 	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
+	checkcast java/lang/Float
+	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fload 5
 	fadd
@@ -10668,10 +10653,10 @@ ifle_cont_2002:
 	aload 2
 	ldc 1
 	ldc 0.000000
-	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	astore 3
 	ldc 3
-	anewarray java/lang/Integer
+	anewarray java/lang/Float
 	dup
 	ldc 0
 	aload 3
@@ -10688,10 +10673,10 @@ ifle_cont_2002:
 	aload 2
 	ldc 2
 	ldc 0.000000
-	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	astore 3
 	ldc 3
-	anewarray java/lang/Integer
+	anewarray java/lang/Float
 	dup
 	ldc 0
 	aload 3
@@ -10708,10 +10693,10 @@ ifle_cont_2002:
 	aload 2
 	ldc 3
 	ldc 0.000000
-	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	astore 3
 	ldc 3
-	anewarray java/lang/Integer
+	anewarray java/lang/Float
 	dup
 	ldc 0
 	aload 3
@@ -10728,10 +10713,10 @@ ifle_cont_2002:
 	aload 2
 	ldc 4
 	ldc 0.000000
-	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	astore 3
 	ldc 3
-	anewarray java/lang/Integer
+	anewarray java/lang/Float
 	dup
 	ldc 0
 	aload 3
@@ -11254,10 +11239,9 @@ ifge_cont_2014:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 0
 	invokestatic main.create_dirvec_722()[Ljava/lang/Object;
-	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	astore 1
 	ldc 120
-	anewarray java/lang/Integer
+	anewarray [Ljava/lang/Object;
 	dup
 	ldc 0
 	aload 1
@@ -11836,12 +11820,11 @@ ifge_cont_2020:
 	dup
 	ldc 1
 	aload 6
-	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 2
 	fload 2
-	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	aastore
 	return

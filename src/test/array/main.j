@@ -51,10 +51,10 @@
 	getstatic main/c_3 [[[Ljava/lang/Integer;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Integer;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	ldc 0
 	aaload
 	checkcast java/lang/Integer

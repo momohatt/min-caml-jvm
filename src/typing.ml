@@ -13,7 +13,7 @@ let rec deref_typ = function (* replace type variable with its decoded ones (cam
   | Type.Tuple(ts) -> Type.Tuple(List.map deref_typ ts)
   | Type.Array(t) -> Type.Array(deref_typ t)
   | Type.Var({ contents = None } as r) ->
-    (* Format.eprintf "uninstantiated type variable detected; assuming int@."; *)
+    Format.eprintf "uninstantiated type variable detected; assuming int@.";
     r := Some(Type.Int);
     Type.Int
   | Type.Var({ contents = Some(t) } as r) ->
@@ -160,6 +160,7 @@ let rec g env e =
     | Put(e1, e2, e3, t, p) ->
       unify (Type.Array(t)) (g env e1) p;
       unify Type.Int (g env e2) p;
+      unify t (g env e3) p;
       Type.Unit
   with Unify(t1, t2, p) ->
     let errmsg = Printf.sprintf "Type error in line %d, from character %d: unable to unify " (p.pos_lnum) (p.pos_cnum - p.pos_bol) in
