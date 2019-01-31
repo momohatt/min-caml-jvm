@@ -64,7 +64,7 @@ let rec g oc e =
     (match t with
      | Integer -> Printf.fprintf oc "\tcheckcast java/lang/Integer\n"
      | Float   -> Printf.fprintf oc "\tcheckcast java/lang/Float\n"
-     | Ary _   -> Printf.fprintf oc "\tcheckcast [Ljava/lang/Object;\n"
+     | Ary _   -> Printf.fprintf oc "\tcheckcast %s\n" (str_of_ty_obj t)
      | C s     -> Printf.fprintf oc "\tcheckcast %s\n" s
      | Obj     -> ())
   | PutField (x, c, t) -> Printf.fprintf oc "\tputfield %s/%s %s\n"  c x (str_of_ty_sig t)

@@ -624,7 +624,7 @@
 	getstatic main/and_net_254 [[Ljava/lang/Integer;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 0
 	ldc 1
 	anewarray [Ljava/lang/Integer;
@@ -2590,12 +2590,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -2606,22 +2606,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	iload 1
 	ireturn
@@ -2658,12 +2658,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -2674,22 +2674,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	iload 2
 	ireturn
@@ -2726,12 +2726,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -2742,22 +2742,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	iload 3
 	ireturn
@@ -2794,12 +2794,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -2810,22 +2810,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	iload 7
 	ireturn
@@ -2862,12 +2862,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -2878,22 +2878,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	iload 4
 	ireturn
@@ -2930,12 +2930,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -2946,22 +2946,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 5
 	ldc 0
@@ -3002,12 +3002,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3018,22 +3018,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 5
 	ldc 1
@@ -3074,12 +3074,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3090,22 +3090,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 5
 	ldc 2
@@ -3146,12 +3146,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3162,22 +3162,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 5
 	areturn
@@ -3214,12 +3214,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3230,22 +3230,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 6
 	ldc 0
@@ -3286,12 +3286,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3302,22 +3302,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 6
 	ldc 1
@@ -3358,12 +3358,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3374,22 +3374,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 6
 	ldc 2
@@ -3430,12 +3430,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3446,22 +3446,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 8
 	ldc 0
@@ -3502,12 +3502,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3518,22 +3518,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 8
 	ldc 1
@@ -3598,7 +3598,7 @@ IfEq_cont_1624:
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 9
 	dup
 	ldc 9
@@ -3675,7 +3675,7 @@ IfEq_cont_1624:
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 9
 	dup
 	ldc 9
@@ -3752,7 +3752,7 @@ IfEq_cont_1624:
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 9
 	dup
 	ldc 9
@@ -3805,12 +3805,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3821,22 +3821,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 10
 	ldc 0
@@ -3877,12 +3877,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3893,22 +3893,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 10
 	ldc 1
@@ -3949,12 +3949,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -3965,22 +3965,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 10
 	ldc 2
@@ -4021,12 +4021,12 @@ IfEq_cont_1624:
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
@@ -4037,22 +4037,22 @@ IfEq_cont_1624:
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	dup
 	ldc 8
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 9
 	dup
 	ldc 9
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 10
 	dup
 	ldc 10
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 11
 	aload 11
 	areturn
@@ -4065,42 +4065,42 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	dup
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	dup
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 7
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 8
 	aload 1
 	areturn
@@ -4113,42 +4113,42 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	dup
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	dup
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 7
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 8
 	aload 2
 	areturn
@@ -4161,42 +4161,42 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	dup
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	dup
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 7
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 8
 	aload 3
 	areturn
@@ -4209,42 +4209,42 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	dup
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	dup
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 7
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 8
 	aload 4
 	areturn
@@ -4257,42 +4257,42 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	dup
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	dup
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 7
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 8
 	aload 5
 	areturn
@@ -4305,42 +4305,42 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	dup
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	dup
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 7
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 8
 	aload 6
 	areturn
@@ -4353,42 +4353,42 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	dup
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	dup
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 7
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 8
 	aload 7
 	ldc 0
@@ -4405,42 +4405,42 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 2
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 3
 	dup
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	dup
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 5
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 7
 	dup
 	ldc 6
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 8
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 9
 	aload 8
 	ldc 0
@@ -4457,42 +4457,42 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	dup
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	dup
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	dup
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 5
 	dup
 	ldc 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 6
 	dup
 	ldc 6
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 7
 	dup
 	ldc 7
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 8
 	aload 8
 	areturn
@@ -4505,12 +4505,12 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	aload 1
 	areturn
@@ -4523,12 +4523,12 @@ IfEq_cont_1624:
 	dup
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 1
 	dup
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Float;
 	astore 2
 	aload 2
 	areturn
@@ -6594,7 +6594,7 @@ IfEq_cont_1716:
 	aload 7
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	aload 3
 	invokestatic main.o_form_326([Ljava/lang/Object;)I
@@ -6812,7 +6812,7 @@ IfEq_cont_1730:
 	aload 7
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	astore 8
 	aload 2
 	invokestatic main.o_form_326([Ljava/lang/Object;)I
@@ -7949,7 +7949,7 @@ IfEq_else_1805:
 	getstatic main/and_net_254 [[Ljava/lang/Integer;
 	iload 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	ldc 0
 	aload 3
@@ -7977,7 +7977,7 @@ IfEq_cont_1806:
 	aload 1
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 2
 	aload 2
 	ldc 0
@@ -8232,7 +8232,7 @@ IfEq_else_1835:
 	getstatic main/and_net_254 [[Ljava/lang/Integer;
 	iload 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	ldc 0
 	aload 4
@@ -8254,7 +8254,7 @@ IfEq_cont_1836:
 	aload 1
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	aload 3
 	ldc 0
@@ -8332,7 +8332,7 @@ IfEq_cont_1838:
 	getstatic main/or_net_255 [[[Ljava/lang/Integer;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Integer;
 	aload 0
 	invokestatic main.trace_or_matrix_564(I[[Ljava/lang/Integer;[Ljava/lang/Float;)V
 	getstatic main/tmin_258 [Ljava/lang/Float;
@@ -8538,7 +8538,7 @@ IfEq_else_1861:
 	getstatic main/and_net_254 [[Ljava/lang/Integer;
 	iload 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 4
 	ldc 0
 	aload 4
@@ -8560,7 +8560,7 @@ IfEq_cont_1862:
 	aload 1
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Integer;
 	astore 3
 	aload 3
 	ldc 0
@@ -8637,7 +8637,7 @@ IfEq_cont_1864:
 	getstatic main/or_net_255 [[[Ljava/lang/Integer;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Integer;
 	aload 0
 	invokestatic main.trace_or_matrix_fast_578(I[[Ljava/lang/Integer;[Ljava/lang/Object;)V
 	getstatic main/tmin_258 [Ljava/lang/Float;
@@ -9379,7 +9379,7 @@ IfEq_else_1911:
 	getstatic main/or_net_255 [[[Ljava/lang/Integer;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Integer;
 	invokestatic main.shadow_check_one_or_matrix_553(I[[Ljava/lang/Integer;)I
 	ldc 0
 	if_icmpne IfEq_else_1915
@@ -9562,7 +9562,7 @@ IfEq_else_1919:
 	aload 10
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	getstatic main/intersection_point_259 [Ljava/lang/Float;
 	invokestatic main.veccpy_296([Ljava/lang/Float;[Ljava/lang/Float;)V
 	aload 3
@@ -9585,13 +9585,13 @@ IfEq_else_1919:
 	aload 12
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	getstatic main/texture_color_262 [Ljava/lang/Float;
 	invokestatic main.veccpy_296([Ljava/lang/Float;[Ljava/lang/Float;)V
 	aload 12
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	ldc 0.003906
 	fload 9
 	fmul
@@ -9602,7 +9602,7 @@ IfEq_else_1919:
 	aload 13
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	getstatic main/nvector_261 [Ljava/lang/Float;
 	invokestatic main.veccpy_296([Ljava/lang/Float;[Ljava/lang/Float;)V
 	goto IfLE_cont_1926
@@ -9632,7 +9632,7 @@ IfLE_cont_1926:
 	getstatic main/or_net_255 [[[Ljava/lang/Integer;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Integer;
 	invokestatic main.shadow_check_one_or_matrix_553(I[[Ljava/lang/Integer;)I
 	ldc 0
 	if_icmpne IfEq_else_1927
@@ -9753,7 +9753,7 @@ IfEq_else_1935:
 	getstatic main/or_net_255 [[[Ljava/lang/Integer;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Integer;
 	invokestatic main.shadow_check_one_or_matrix_553(I[[Ljava/lang/Integer;)I
 	ldc 0
 	if_icmpne IfEq_else_1937
@@ -9866,7 +9866,7 @@ IfEq_else_1945:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Object;
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
@@ -9879,7 +9879,7 @@ IfEq_else_1947:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Object;
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
@@ -9892,7 +9892,7 @@ IfEq_else_1949:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 2
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Object;
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
@@ -9905,7 +9905,7 @@ IfEq_else_1951:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 3
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Object;
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
@@ -9918,7 +9918,7 @@ IfEq_else_1953:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Object;
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
@@ -9945,24 +9945,24 @@ IfEq_cont_1954:
 	aload 2
 	iload 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	invokestatic main.veccpy_296([Ljava/lang/Float;[Ljava/lang/Float;)V
 	aload 0
 	invokestatic main.p_group_id_378([Ljava/lang/Object;)I
 	aload 3
 	iload 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	aload 4
 	iload 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	invokestatic main.trace_diffuse_ray_80percent_623(I[Ljava/lang/Float;[Ljava/lang/Float;)V
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	aload 5
 	iload 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	invokestatic main.vecaccumv_320([Ljava/lang/Float;[Ljava/lang/Float;[Ljava/lang/Float;)V
 	return
@@ -10009,31 +10009,31 @@ IfEq_cont_1954:
 	aload 5
 	iload 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	invokestatic main.veccpy_296([Ljava/lang/Float;[Ljava/lang/Float;)V
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	aload 6
 	iload 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	invokestatic main.vecadd_314([Ljava/lang/Float;[Ljava/lang/Float;)V
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	aload 7
 	iload 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	invokestatic main.vecadd_314([Ljava/lang/Float;[Ljava/lang/Float;)V
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	aload 8
 	iload 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	invokestatic main.vecadd_314([Ljava/lang/Float;[Ljava/lang/Float;)V
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	aload 9
 	iload 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	invokestatic main.vecadd_314([Ljava/lang/Float;[Ljava/lang/Float;)V
 	aload 2
 	iload 0
@@ -10045,7 +10045,7 @@ IfEq_cont_1954:
 	aload 10
 	iload 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	invokestatic main.vecaccumv_320([Ljava/lang/Float;[Ljava/lang/Float;[Ljava/lang/Float;)V
 	return
@@ -10422,15 +10422,15 @@ IfEq_else_1993:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 4
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Object;
 	aload 5
 	iload 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	aload 6
 	iload 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
 	aload 0
 	invokestatic main.p_received_ray_20percent_376([Ljava/lang/Object;)[[Ljava/lang/Float;
@@ -10438,7 +10438,7 @@ IfEq_else_1993:
 	aload 7
 	iload 1
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [Ljava/lang/Float;
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	invokestatic main.veccpy_296([Ljava/lang/Float;[Ljava/lang/Float;)V
 IfEq_cont_1994:
@@ -11133,7 +11133,7 @@ IfLE_cont_2006:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 5
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Object;
 	astore 11
 	aload 11
 	iload 6
@@ -11877,7 +11877,7 @@ IfLE_cont_2014:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Object;
 	ldc 118
 	invokestatic main.create_dirvec_elements_724([[Ljava/lang/Object;I)V
 	iload 0
@@ -11921,7 +11921,7 @@ IfLE_cont_2018:
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 0
 	aaload
-	checkcast [Ljava/lang/Object;
+	checkcast [[Ljava/lang/Object;
 	ldc 119
 	invokestatic main.init_dirvec_constants_729([[Ljava/lang/Object;I)V
 	iload 0
