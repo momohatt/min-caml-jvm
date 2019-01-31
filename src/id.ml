@@ -8,10 +8,19 @@ let rec pp_list = function
   | x :: xs -> x ^ " " ^ pp_list xs
 
 let count = ref 0
+let pair_count = ref 0
 
 let genid s =
   incr count;
   Printf.sprintf "%s_%d" s !count
+
+let genPairLabel s1 s2 =
+  incr pair_count;
+  (Printf.sprintf "%s_%d" s1 !pair_count, Printf.sprintf "%s_%d" s2 !pair_count)
+
+let genLabel s =
+  incr pair_count;
+  Printf.sprintf "%s_%d" s !pair_count
 
 let rec id_of_typ = function
   | Type.Unit -> "u"

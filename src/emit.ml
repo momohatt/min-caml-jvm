@@ -74,20 +74,19 @@ let rec g oc e =
   | PutStatic(x, c, t) -> Printf.fprintf oc "\tputstatic %s/%s %s\n" c x (str_of_ty_sig t)
   | GetStatic(x, c, t) -> Printf.fprintf oc "\tgetstatic %s/%s %s\n" c x (str_of_ty_sig t)
   | If0(b, bn, e1, [], e3) ->
-    let l_cont = Id.genid (Printf.sprintf "if%s_cont" b) in
+    let l_cont = Id.genLabel (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     Printf.fprintf oc "\tif%s %s\n" b l_cont;
     List.iter (g oc) e3;
     Printf.fprintf oc "%s:\n" l_cont
   | If0(b, bn, e1, e2, []) ->
-    let l_cont = Id.genid (Printf.sprintf "if%s_cont" b) in
+    let l_cont = Id.genLabel (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     Printf.fprintf oc "\tif%s %s\n" bn l_cont;
     List.iter (g oc) e2;
     Printf.fprintf oc "%s:\n" l_cont
   | If0(b, bn, e1, e2, e3) ->
-    let l_else = Id.genid (Printf.sprintf "if%s_else" b) in
-    let l_cont = Id.genid (Printf.sprintf "if%s_cont" b) in
+    let (l_else, l_cont) = Id.genPairLabel (Printf.sprintf "if%s_else" b) (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     Printf.fprintf oc "\tif%s %s\n" bn l_else;
     List.iter (g oc) e2;
@@ -96,22 +95,21 @@ let rec g oc e =
     List.iter (g oc) e3;
     Printf.fprintf oc "%s:\n" l_cont
   | If(b, bn, e1, e2, [], e4) ->
-    let l_cont = Id.genid (Printf.sprintf "if%s_cont" b) in
+    let l_cont = Id.genLabel (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     List.iter (g oc) e2;
     Printf.fprintf oc "\tif_icmp%s %s\n" b l_cont;
     List.iter (g oc) e4;
     Printf.fprintf oc "%s:\n" l_cont
   | If(b, bn, e1, e2, e3, []) ->
-    let l_cont = Id.genid (Printf.sprintf "if%s_cont" b) in
+    let l_cont = Id.genLabel (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     List.iter (g oc) e2;
     Printf.fprintf oc "\tif_icmp%s %s\n" bn l_cont;
     List.iter (g oc) e3;
     Printf.fprintf oc "%s:\n" l_cont
   | If(b, bn, e1, e2, e3, e4) ->
-    let l_else = Id.genid (Printf.sprintf "if%s_else" b) in
-    let l_cont = Id.genid (Printf.sprintf "if%s_cont" b) in
+    let l_else, l_cont = Id.genPairLabel (Printf.sprintf "if%s_else" b) (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
     List.iter (g oc) e2;
     Printf.fprintf oc "\tif_icmp%s %s\n" bn l_else;
