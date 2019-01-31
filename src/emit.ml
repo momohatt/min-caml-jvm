@@ -141,13 +141,13 @@ let f oc dirname (files : Asm.prog) =
             Printf.fprintf oc "\t.limit stack 100\n"; (*TODO*)
             Printf.fprintf oc "\t.limit locals 100\n";
             List.iter (g oc) clinit;
-            Printf.fprintf oc ".end method\t; <clinit>\n\n";
-            Printf.fprintf oc ".method public <init>%s\n" (str_of_ty_sig (fst file.init));
-            Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
-            Printf.fprintf oc "\t.limit locals 10\n";
-            List.iter (g oc) (snd file.init);
-            Printf.fprintf oc ".end method\t; <init>\n\n";
-            List.iter (fun f -> h oc f) file.funs)))
+            Printf.fprintf oc ".end method\t; <clinit>\n\n");
+         Printf.fprintf oc ".method public <init>%s\n" (str_of_ty_sig (fst file.init));
+         Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
+         Printf.fprintf oc "\t.limit locals 10\n";
+         List.iter (g oc) (snd file.init);
+         Printf.fprintf oc ".end method\t; <init>\n\n";
+         List.iter (fun f -> h oc f) file.funs))
     files;
   if !has_closure then
     let oc = open_out (dirname ^  "/cls.j") in

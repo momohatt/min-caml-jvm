@@ -124,6 +124,18 @@ let rec g fv env e =
       | _ -> [Checkcast(typet2tyobj t); Unboxing(typet2ty t)] in
     body @ cast
   | Closure.AppCls _ -> assert false (* closure's type should be Fun *)
+(*
+  | Closure.Tuple(e) when List.for_all (fun (_, t) -> t = snd (List.hd e)) (List.tl e) ->
+    (* 要素の型が全て同じタプル *)
+    let t = snd (List.hd e) in
+    Ldc(I(List.length e)) ::
+    ANewArray(typet2tyobj t) ::
+    List.concat (List.mapi
+                   (fun n (y, t) -> [Dup; Ldc(I(n))] @
+                                    (g fv env y) @
+                                    [AStore(`A)])
+                   e)
+*)
   | Closure.Tuple(e) ->
     Ldc(I(List.length e)) ::
     ANewArray(Obj) ::
@@ -133,6 +145,17 @@ let rec g fv env e =
                                     [Boxing(typet2ty t);
                                      AStore(`A)])
                    e)
+(*
+  | Closure.LetTuple(xts, e1, e2) when List.for_all (fun (_, t) -> t = snd (List.hd xts)) (List.tl xts) ->
+    g fv env e1 @
+    List.concat (List.mapi
+                   (fun n (y, t) ->
+                      let t' = typet2ty t in
+                      [Dup; Ldc(I(n));
+                       ALoad(`A);
+                       Store(t', List.length env + n)]) xts) @
+    g fv ((List.rev xts) @ env) e2
+*)
   | Closure.LetTuple(xts, e1, e2) ->
     g fv env e1 @
     List.concat (List.mapi

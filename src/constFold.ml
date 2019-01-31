@@ -35,6 +35,8 @@ let rec g env e =
      | _ -> Let((x, t), e1', g env e2))
   | Var(x) when Id.mem x env -> List.assoc x env
   | LetRec(f, e) -> LetRec({ f with body = g env f.body }, g env e)
+  | App((Var"int_of_float", t) as e1, [e2]) -> (match g env e2 with Float(f) -> Int(int_of_float f) | e2' -> App(e1, [e2']))
+  | App((Var"float_of_int", t) as e1, [e2]) -> (match g env e2 with Int(n) -> Float(float_of_int n) | e2' -> App(e1, [e2']))
   | App(et1, e2) -> App(et1, List.map (g env) e2)
   | Tuple(e) -> Tuple(List.map (fun e -> g env (fst e), snd e) e)
   | LetTuple(e1, e2, e3) -> LetTuple(e1, e2, g env e3)
