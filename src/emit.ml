@@ -33,6 +33,7 @@ let rec g oc e =
   match e with
   | Load(t, n) -> Printf.fprintf oc "\t%sload %d\n" (str_of_ty t) n
   | Store(t, n) -> Printf.fprintf oc "\t%sstore %d\n" (str_of_ty t) n
+  | Store_c(t, n, c) -> Printf.fprintf oc "\t%sstore %d\t; %s\n" (str_of_ty t) n c
   | ALoad(t)   -> Printf.fprintf oc "\t%saload\n" (str_of_ty t)
   | AStore(t)  -> Printf.fprintf oc "\t%sastore\n" (str_of_ty t)
   | NewArray(t) -> Printf.fprintf oc "\tnewarray %s\n" (match t with `I -> "int" | `F -> "float")

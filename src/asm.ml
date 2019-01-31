@@ -23,6 +23,7 @@ type ty_sig =
 type inst =
   | Load of ty * int
   | Store of ty * int
+  | Store_c of ty * int * string (* comment *)
   | ALoad of ty (* array load *)
   | AStore of ty (* array store *)
   | NewArray of ty_prim

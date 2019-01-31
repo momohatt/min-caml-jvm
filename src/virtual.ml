@@ -83,7 +83,7 @@ let rec g fv env e =
   | Closure.Let((x, Type.Unit), e1, e2) ->
     g fv env e1 @ g fv env e2
   | Closure.Let((x, t), e1, e2) ->
-    g fv env e1 @ [Store(typet2ty t, List.length env)] @ g fv ((x, t) :: env) e2
+    g fv env e1 @ [Store_c(typet2ty t, List.length env, x)] @ g fv ((x, t) :: env) e2
   | Closure.Var(x) when Id.mem x fv ->
     [Load(`A, 0); GetField(x, !classname, List.assoc x fv)]
   | Closure.Var(x) when !is_main && Id.mem3 x !main_globals ->
