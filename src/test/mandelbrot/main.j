@@ -33,19 +33,15 @@ IfEq_else_28:
 	fadd
 	fstore 8
 	fload 7
+	fload 7
+	fmul
 	fstore 9
 	fload 8
+	fload 8
+	fmul
 	fstore 10
 	fload 9
-	fload 9
-	fmul
-	fstore 11
 	fload 10
-	fload 10
-	fmul
-	fstore 12
-	fload 11
-	fload 12
 	fadd
 	ldc 4.000000
 	fcmpl
@@ -54,10 +50,10 @@ IfEq_else_28:
 	iload 0
 	ldc 1
 	isub
+	fload 7
+	fload 8
 	fload 9
 	fload 10
-	fload 11
-	fload 12
 	fload 5
 	fload 6
 	invokestatic main.iloop_13(IFFFFFF)V

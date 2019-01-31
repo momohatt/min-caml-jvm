@@ -48,6 +48,7 @@ let rec g env = function
       new_args
       ys
       (Alpha.g env' body)
+  | App((e1, t), e2) -> App((g env e1, t), List.map (g env) e2)
   | Tuple(ets) -> Tuple(List.map (fun (x, t) -> g env x, t) ets)
   | LetTuple(xts, y, e) -> LetTuple(xts, y, g env e)
   | Array(e1, e2, t) -> Array(g env e1, g env e2, t)

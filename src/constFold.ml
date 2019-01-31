@@ -29,7 +29,9 @@ let rec g env e =
   | Let((x, t), e1, e2) ->
     let e1' = g env e1 in
     (match e1' with
-     | Bool _ | Int _ | Float _ -> g ((x, e1') :: env) e2
+     | Bool _ | Int _ | Float _ ->
+       (Format.eprintf "eliminating variable %s@." x;
+        g ((x, e1') :: env) e2)
      | _ -> Let((x, t), e1', g env e2))
   | Var(x) when Id.mem x env -> List.assoc x env
   | LetRec(f, e) -> LetRec({ f with body = g env f.body }, g env e)

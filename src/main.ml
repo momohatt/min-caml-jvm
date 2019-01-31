@@ -4,6 +4,7 @@ let rec iter n e =
   Format.eprintf "iteration%d.\n" n;
   if n = 0 then e else (
     let e' = Inline.f e in
+    let e' = Alias.f e' in
     let e' = ConstFold.f e' in
     let e' = Elim.f e' in
     if e = e' then e else
@@ -20,7 +21,7 @@ let compile oc dirname e =
   (* Normal.print_t e; *)
   let e = iter !limit e in
   print_endline "-------Passed iter-------";
-  (* Normal.print_t e; *)
+  Normal.print_t e;
   let e = Closure.f e in
   print_endline "-------Passed Closure.f-------";
   (* Closure.print_prog e; *)
