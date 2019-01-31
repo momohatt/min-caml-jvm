@@ -185,8 +185,9 @@ let rec g fv env e =
     done;
     !inst
   | Closure.Array(e1, e2, t) ->
-    g fv env e1 @ g fv env e2 @
-    [Boxing(typet2ty t); InvokeStatic("libmincaml.min_caml_create_array", Fun([PInt; O(Obj)], Array(Obj)))]
+    g fv env e1 @ [ANewArray(typet2tyobj t); Dup; Checkcast(Ary(Obj))] @
+    g fv env e2 @ [Boxing(typet2ty t)] @
+    [InvokeStatic("java/util/Arrays.fill", Fun([Array(Obj); O(Obj)], Void))]
   | Closure.Get(e1, e2, t) ->
     g fv env e1 @ g fv env e2 @ [ALoad(`A); Checkcast(typet2tyobj t); Unboxing(typet2ty t)]
   | Closure.Put(e1, e2, e3, t) ->

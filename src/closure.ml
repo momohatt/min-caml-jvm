@@ -77,9 +77,9 @@ let rec str_of_t (exp : t) : string =
   | Tuple(e) -> ( "( ") ^ String.concat ", " (List.map (fun e -> str_of_t (fst e)) e) ^ " )"
   | LetTuple(l, e1, e2) -> "LET (" ^ (String.concat ", " (List.map fst l)) ^ ") = " ^ (str_of_t e1) ^ " IN\n" ^
                            (str_of_t e2)
-  | Array(e1, e2, _) -> "create_array (" ^ (str_of_t e1) ^ ", " ^ (str_of_t e2) ^ ")"
-  | Get(e1, e2, _)   -> (str_of_t e1) ^ "[ " ^ (str_of_t e2) ^ " ]"
-  | Put(e1, e2, e3, _) -> (str_of_t e1) ^ "[ " ^ (str_of_t e2) ^ " ] <- " ^ (str_of_t e3)
+  | Array(e1, e2, t) -> Printf.sprintf "create_array (%s, %s : %s)" (str_of_t e1) (str_of_t e2) (Type.string_of_t t)
+  | Get(e1, e2, _)   -> Printf.sprintf "%s[ %s ]" (str_of_t e1) (str_of_t e2)
+  | Put(e1, e2, e3, _) -> Printf.sprintf "%s[ %s ] <- %s" (str_of_t e1) (str_of_t e2) (str_of_t e3)
   | ExtArray Id.L(e) -> e
 
 let string_of_t (exp : t) = str_of_t exp

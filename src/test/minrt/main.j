@@ -5501,9 +5501,12 @@ ifle_cont_1644:
 	iload 0
 	ldc 1
 	iadd
+	anewarray java/lang/Integer
+	dup
+	checkcast [Ljava/lang/Object;
 	ldc -1
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
-	invokestatic libmincaml.min_caml_create_array(ILjava/lang/Object;)[Ljava/lang/Object;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	goto ifeq_cont_1648
 ifeq_else_1647:
 	iload 0
@@ -5537,8 +5540,11 @@ ifeq_cont_1648:
 	iload 0
 	ldc 1
 	iadd
+	anewarray [Ljava/lang/Integer;
+	dup
+	checkcast [Ljava/lang/Object;
 	aload 1
-	invokestatic libmincaml.min_caml_create_array(ILjava/lang/Object;)[Ljava/lang/Object;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	goto ifeq_cont_1650
 ifeq_else_1649:
 	iload 0
@@ -10767,8 +10773,11 @@ ifge_cont_1944:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
+	anewarray [Ljava/lang/Object;
+	dup
+	checkcast [Ljava/lang/Object;
 	invokestatic main.create_pixel_693()[Ljava/lang/Object;
-	invokestatic libmincaml.min_caml_create_array(ILjava/lang/Object;)[Ljava/lang/Object;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 1
 	aload 1
 	getstatic main/image_size_265 [Ljava/lang/Integer;
@@ -11067,8 +11076,11 @@ ifge_cont_1948:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
+	anewarray [Ljava/lang/Float;
+	dup
+	checkcast [Ljava/lang/Object;
 	aload 1
-	invokestatic libmincaml.min_caml_create_array(ILjava/lang/Object;)[Ljava/lang/Object;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 2
 	ldc 2
 	anewarray java/lang/Object
@@ -11984,4 +11996,3 @@ ifge_cont_1953:
 	invokestatic main.rt_751(II)V
 	return
 .end method	; main
-
