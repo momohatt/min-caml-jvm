@@ -66,6 +66,7 @@ type fundef = {
 
 type file = {
   classname : string; (* this also becomes the filename (without .j) *)
+  clinit : (ty_sig * inst list) option; (* mainのみ必要(static fieldの初期化のため) *)
   init : ty_sig * inst list;
   funs : fundef list;
   super : string;

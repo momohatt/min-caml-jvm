@@ -227,7 +227,8 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
       | Fun(_, t) -> Fun([Array(Obj)], box_tysig t)
       | _ -> assert false in
     let acc' =
-      { classname = !classname; init = (Fun([Array(Obj)], Void), init);
+      { classname = !classname;
+        init = (Fun([Array(Obj)], Void), init); clinit = None;
         funs = [{ name = ("app", app_tysig); modifiers = "";
                   args = f.args; fv = f.fv;
                   stack = ref 0; locals = ref 0;
@@ -254,16 +255,18 @@ let f { Closure.closures = closures; Closure.globals = glb; Closure.funs = funde
                args = []; fv = [];
                stack = ref 0; locals = ref 0;
                body = main_body } in
-  let main_init =
-    [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void))] @
+  let main_clinit =
     (List.concat @@ List.mapi
        (fun n (x, t, e) ->
           let t' = typet2tysig t in
           g [] [] e @
           [PutStatic(x, !classname, t')]) !main_globals) @
     [Return `V] in
+  let main_init =
+    [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V] in
   { classname = "main";
     init = Fun([Void], Void), main_init;
+    clinit = if !main_globals = [] then None else Some (Fun([Void], Void), main_clinit);
     funs = main_funs @ [main];
     super = "java/lang/Object";
     fields = main_field } ::
