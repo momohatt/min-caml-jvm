@@ -74,8 +74,12 @@ let rec g fv env e =
   | Closure.FMul(e1, e2) -> g fv env e1 @ g fv env e2 @ [Mul `F]
   | Closure.FDiv(e1, e2) -> g fv env e1 @ g fv env e2 @ [Div `F]
   | Closure.FCmp(e1, e2) -> g fv env e1 @ g fv env e2 @ [FCmp]
-  | Closure.IfEq(e1, e2, e3, e4) -> [IfEq(g fv env e1, g fv env e2, g fv env e3, g fv env e4)]
-  | Closure.IfLE(e1, e2, e3, e4) -> [IfLE(g fv env e1, g fv env e2, g fv env e3, g fv env e4)]
+  | Closure.IfEq(Int(0), e1, e3, e4)
+  | Closure.IfEq(e1, Int(0), e3, e4) -> [If0("eq", "ne", g fv env e1, g fv env e3, g fv env e4)]
+  | Closure.IfLE(Int(0), e1, e3, e4) -> [If0("ge", "lt", g fv env e1, g fv env e3, g fv env e4)]
+  | Closure.IfLE(e1, Int(0), e3, e4) -> [If0("le", "gt", g fv env e1, g fv env e3, g fv env e4)]
+  | Closure.IfEq(e1, e2, e3, e4) -> [If("eq", "ne", g fv env e1, g fv env e2, g fv env e3, g fv env e4)]
+  | Closure.IfLE(e1, e2, e3, e4) -> [If("le", "gt", g fv env e1, g fv env e2, g fv env e3, g fv env e4)]
   | Closure.Let((x, Type.Unit), e1, e2) ->
     g fv env e1 @ g fv env e2
   | Closure.Let((x, t), e1, e2) ->

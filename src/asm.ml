@@ -46,8 +46,8 @@ type inst =
   | GetField  of Id.t * string (* classname *) * ty_sig
   | PutStatic of Id.t * string (* classname *) * ty_sig
   | GetStatic of Id.t * string (* classname *) * ty_sig
-  | IfEq of inst list * inst list * inst list * inst list
-  | IfLE of inst list * inst list * inst list * inst list
+  | If0 of string * string * inst list * inst list * inst list
+  | If of string* string * inst list * inst list * inst list * inst list
   | FCmp
   | Return of [`I | `F | `A | `V]
   | CallMath of Id.t * string (* signature *)
