@@ -45,8 +45,8 @@ let rec g oc e =
   | Sub t -> Printf.fprintf oc "\t%ssub\n" (str_of_ty t)
   | Mul t -> Printf.fprintf oc "\t%smul\n" (str_of_ty t)
   | Div t -> Printf.fprintf oc "\t%sdiv\n" (str_of_ty t)
-  | Ftoi  -> Printf.fprintf oc "\tf2i\n"
-  | Itof  -> Printf.fprintf oc "\ti2f\n"
+  | FtoI  -> Printf.fprintf oc "\tf2i\n"
+  | ItoF  -> Printf.fprintf oc "\ti2f\n"
   | FCmp  -> Printf.fprintf oc "\tfcmpl\n"
   | Dup   -> Printf.fprintf oc "\tdup\n"
   | New x -> Printf.fprintf oc "\tnew %s\n" x
@@ -94,6 +94,10 @@ let rec g oc e =
     List.iter (g oc) e4;
     Printf.fprintf oc "%s:\n" l_cont
   | Return t -> Printf.fprintf oc "\t%sreturn\n" (str_of_ty t)
+  | CallMath(f, signature) ->
+    Printf.fprintf oc "\tf2d\n";
+    Printf.fprintf oc "\tinvokestatic java/lang/Math.%s%s\n" f signature;
+    Printf.fprintf oc "\td2f\n";
   | InvokeStatic(f, t) ->
     Printf.fprintf oc "\tinvokestatic %s%s\n" f (str_of_ty_sig t)
   | InvokeVirtual(f, t) ->

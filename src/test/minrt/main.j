@@ -2211,7 +2211,9 @@ IfLE_cont_1622:
 	invokevirtual java/lang/Float/floatValue()F
 	fmul
 	fadd
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fstore 2
 	fload 2
 	ldc 0.000000
@@ -4638,19 +4640,27 @@ IfEq_cont_1624:
 	invokestatic main.rad_395(F)F
 	fstore 1
 	fload 1
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fstore 2
 	fload 1
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	fstore 3
 	invokestatic libmincaml.min_caml_read_float()F
 	invokestatic main.rad_395(F)F
 	fstore 4
 	fload 4
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fstore 5
 	fload 4
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	fstore 6
 	getstatic main/screenz_dir_272 [Ljava/lang/Float;
 	ldc 0
@@ -4772,7 +4782,9 @@ IfEq_cont_1624:
 	invokestatic main.rad_395(F)F
 	fstore 2
 	fload 2
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	fstore 3
 	getstatic main/light_252 [Ljava/lang/Float;
 	ldc 1
@@ -4784,10 +4796,14 @@ IfEq_cont_1624:
 	invokestatic main.rad_395(F)F
 	fstore 4
 	fload 2
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fstore 5
 	fload 4
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	fstore 6
 	getstatic main/light_252 [Ljava/lang/Float;
 	ldc 0
@@ -4797,7 +4813,9 @@ IfEq_cont_1624:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	fload 4
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fstore 7
 	getstatic main/light_252 [Ljava/lang/Float;
 	ldc 2
@@ -4822,42 +4840,54 @@ IfEq_cont_1624:
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fstore 2
 	aload 1
 	ldc 0
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	fstore 3
 	aload 1
 	ldc 1
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fstore 4
 	aload 1
 	ldc 1
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	fstore 5
 	aload 1
 	ldc 2
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fstore 6
 	aload 1
 	ldc 2
 	aaload
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	fstore 7
 	fload 4
 	fload 6
@@ -6011,7 +6041,9 @@ IfEq_cont_1680:
 	goto IfLE_cont_1682
 IfLE_else_1681:
 	fload 9
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fstore 10
 	aload 0
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
@@ -6484,7 +6516,9 @@ IfLE_else_1719:
 	ldc 0
 	fload 6
 	fload 9
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fsub
 	aload 1
 	ldc 4
@@ -6500,7 +6534,9 @@ IfEq_else_1721:
 	ldc 0
 	fload 6
 	fload 9
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fadd
 	aload 1
 	ldc 4
@@ -6704,7 +6740,9 @@ IfLE_else_1731:
 	ldc 0
 	fload 7
 	fload 9
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fsub
 	aload 1
 	ldc 4
@@ -6720,7 +6758,9 @@ IfEq_else_1733:
 	ldc 0
 	fload 7
 	fload 9
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fadd
 	aload 1
 	ldc 4
@@ -8965,7 +9005,9 @@ IfEq_else_1881:
 	invokevirtual java/lang/Float/floatValue()F
 	ldc 0.250000
 	fmul
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	aload 1
 	ldc 1
 	aaload
@@ -8973,7 +9015,9 @@ IfEq_else_1881:
 	invokevirtual java/lang/Float/floatValue()F
 	ldc 0.250000
 	fmul
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	fmul
 	fstore 3
 	getstatic main/texture_color_262 [Ljava/lang/Float;
@@ -9022,7 +9066,9 @@ IfEq_else_1893:
 	fload 4
 	fmul
 	fadd
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	ldc 10.000000
 	fdiv
 	fstore 5
@@ -9034,9 +9080,13 @@ IfEq_else_1893:
 	fmul
 	fstore 6
 	fload 6
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fload 6
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fmul
 	fstore 7
 	getstatic main/texture_color_262 [Ljava/lang/Float;
@@ -9070,7 +9120,9 @@ IfEq_else_1895:
 	fsub
 	aload 0
 	invokestatic main.o_param_a_334([Ljava/lang/Object;)F
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fmul
 	fstore 3
 	aload 1
@@ -9083,7 +9135,9 @@ IfEq_else_1895:
 	fsub
 	aload 0
 	invokestatic main.o_param_c_338([Ljava/lang/Object;)F
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fmul
 	fstore 4
 	fload 3
@@ -9106,7 +9160,9 @@ IfEq_else_1895:
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fstore 6
 	fload 6
-	invokestatic libmincaml.min_caml_atan(F)F
+	f2d
+	invokestatic java/lang/Math.atan(D)D
+	d2f
 	ldc 30.000000
 	fmul
 	ldc 3.141593
@@ -9131,7 +9187,9 @@ IfLE_cont_1900:
 	fsub
 	aload 0
 	invokestatic main.o_param_b_336([Ljava/lang/Object;)F
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fmul
 	fstore 8
 	ldc 0.000100
@@ -9146,7 +9204,9 @@ IfLE_cont_1900:
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fstore 9
 	fload 9
-	invokestatic libmincaml.min_caml_atan(F)F
+	f2d
+	invokestatic java/lang/Math.atan(D)D
+	d2f
 	ldc 30.000000
 	fmul
 	ldc 3.141593
@@ -10996,9 +11056,13 @@ IfLE_cont_2006:
 	.limit stack 100
 	.limit locals 100
 	fload 0
-	invokestatic libmincaml.min_caml_sin(F)F
+	f2d
+	invokestatic java/lang/Math.sin(D)D
+	d2f
 	fload 0
-	invokestatic libmincaml.min_caml_cos(F)F
+	f2d
+	invokestatic java/lang/Math.cos(D)D
+	d2f
 	fdiv
 	freturn
 .end method	; tan_700
@@ -11011,14 +11075,18 @@ IfLE_cont_2006:
 	fmul
 	ldc 0.100000
 	fadd
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fstore 2
 	ldc 1.000000
 	fload 2
 	fdiv
 	fstore 3
 	fload 3
-	invokestatic libmincaml.min_caml_atan(F)F
+	f2d
+	invokestatic java/lang/Math.atan(D)D
+	d2f
 	fstore 4
 	fload 4
 	fload 1
@@ -11046,7 +11114,9 @@ IfLE_cont_2006:
 	fadd
 	ldc 1.000000
 	fadd
-	invokestatic libmincaml.min_caml_sqrt(F)F
+	f2d
+	invokestatic java/lang/Math.sqrt(D)D
+	d2f
 	fstore 7
 	fload 1
 	fload 7

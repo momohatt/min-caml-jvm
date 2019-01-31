@@ -34,8 +34,8 @@ type inst =
   | Sub of ty_prim
   | Mul of ty_prim
   | Div of ty_prim
-  | Ftoi
-  | Itof
+  | ItoF
+  | FtoI
   | Dup
   | New of Id.t
   | Boxing of ty
@@ -50,6 +50,7 @@ type inst =
   | IfLE of inst list * inst list * inst list * inst list
   | FCmp
   | Return of [`I | `F | `A | `V]
+  | CallMath of Id.t * string (* signature *)
   | InvokeStatic of Id.t * ty_sig
   | InvokeVirtual of Id.t * ty_sig
   | InvokeSpecial of Id.t * ty_sig

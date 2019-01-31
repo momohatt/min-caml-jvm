@@ -90,10 +90,15 @@ let rec g fv env e =
     (* Printf.printf "case of Closure.Var(x) (x = %s)\n" x; *)
     assert (Id.mem x env);
     [Load(typet2ty (List.assoc x env), getindex x env)]
-  | Closure.ExtFunApp("float_of_int", e2) ->
-    List.concat (List.map (g fv env) e2) @ [Itof]
-  | Closure.ExtFunApp("int_of_float", e2) ->
-    List.concat (List.map (g fv env) e2) @ [Ftoi]
+  | Closure.ExtFunApp("sin", [e2]) -> g fv env e2 @ [CallMath("sin", "(D)D")]
+  | Closure.ExtFunApp("cos", [e2]) -> g fv env e2 @ [CallMath("cos", "(D)D")]
+  | Closure.ExtFunApp("atan", [e2]) -> g fv env e2 @ [CallMath("atan", "(D)D")]
+  | Closure.ExtFunApp("sqrt", [e2]) -> g fv env e2 @ [CallMath("sqrt", "(D)D")]
+  | Closure.ExtFunApp("abs_float", [e2]) -> g fv env e2 @ [InvokeStatic("java/lang/Math.abs", Fun([PFloat], PFloat))]
+  | Closure.ExtFunApp("float_of_int", [e2]) ->
+    g fv env e2 @ [ItoF]
+  | Closure.ExtFunApp("int_of_float", [e2]) ->
+    g fv env e2 @ [FtoI]
   | Closure.ExtFunApp(f, e2) ->
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("libmincaml.min_caml_" ^ f, typet2tysig (M.find f !Typing.extenv))]
   | Closure.AppDir(f, e2) ->
