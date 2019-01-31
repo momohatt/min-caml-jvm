@@ -50,6 +50,7 @@ let rec g oc e =
   | ItoF  -> Printf.fprintf oc "\ti2f\n"
   | FCmp  -> Printf.fprintf oc "\tfcmpl\n"
   | Dup   -> Printf.fprintf oc "\tdup\n"
+  | Pop   -> Printf.fprintf oc "\tpop\n"
   | New x -> Printf.fprintf oc "\tnew %s\n" x
   | Boxing t -> (match t with
       | `I -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([PInt], O(C "java/lang/Integer"))))

@@ -38,6 +38,7 @@ type inst =
   | ItoF
   | FtoI
   | Dup
+  | Pop
   | New of Id.t
   | Boxing of ty
   | Unboxing of ty

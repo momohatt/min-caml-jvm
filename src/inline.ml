@@ -31,11 +31,15 @@ let rec g env = function
   | If(e1, e2, e3)  -> If(g env e1, g env e2, g env e3)
   | Let(xt, e1, e2) -> Let(xt, g env e1, g env e2)
   | LetRec({ name = (x, t); args = yts; body = e1 } as f, e2) ->
-    let env = if size e1 > !threshold then env else M.add x (yts, e1) env in
+    let env = if size e1 > !threshold then
+        env
+      else
+        (Format.eprintf "inlining %s@." x;
+         M.add x (yts, e1) env)
+    in
     LetRec({ f with body = g env f.body }, g env e2)
   | App((Var(x), t), ys) when M.mem x env ->
     let (args, body) = M.find x env in
-    Format.eprintf "inlining %s@." x;
     let new_args = List.map (fun (_, t) -> Id.gentmp t, t) args in
     let env' =
       List.fold_left2

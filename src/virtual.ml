@@ -180,7 +180,7 @@ let rec g fv env e =
                          Store(t', List.length env + n)]
                       else
                         (* 使われない分は取り出さない *)
-                        []) xts) @
+                        []) xts) @ [Pop] @
     g fv ((List.rev xts) @ env) e2
   | Closure.Array(Int(n) as e1, e2, t) ->
     (* 初期値をlocal variableに(一時的に)store *)
