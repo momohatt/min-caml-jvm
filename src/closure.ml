@@ -5,6 +5,7 @@ type t = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | Float of float
   | Neg of t
   | Not of t
+  | Xor of t * t
   | Add of t * t
   | Sub of t * t
   | Mul of t * t
@@ -47,6 +48,7 @@ let rec str_of_t (exp : t) : string =
   | Float(f) -> "FLOAT " ^ (string_of_float f)
   | Not(e)  -> "~ " ^ (str_of_t e)
   | Neg(e)  -> "- " ^ (str_of_t e)
+  | Xor(e1, e2) -> (str_of_t e1) ^ " ^ " ^ (str_of_t e2)
   | Add(e1, e2) -> (str_of_t e1) ^ " + " ^ (str_of_t e2)
   | Sub(e1, e2) -> (str_of_t e1) ^ " - " ^ (str_of_t e2)
   | Mul(e1, e2) -> (str_of_t e1) ^ " * " ^ (str_of_t e2)
@@ -95,21 +97,23 @@ let print_prog p = print_endline (string_of_prog p)
 
 let toplevel : fundef list ref = ref []
 let closures : (Id.t * closure) list ref = ref []
-let globals : (Id.t * Type.t * Syntax.t) list ref = ref []
+let globals : (Id.t * Type.t * Normal.t) list ref = ref []
 
 let rec collect_globals e =
   match e with
-  | Syntax.Let((x, t), e1, e2, _) ->
+  | Normal.Let(xt, e1, e2) when Elim.effect e1 ->
+    Normal.Let(xt, e1, collect_globals e2)
+  | Normal.Let((x, t), e1, e2) ->
     globals := (x, t, e1) :: !globals;
     collect_globals e2
-  | Syntax.LetRec(e1, e2, p) -> Syntax.LetRec(e1, collect_globals e2, p)
-  | Syntax.LetTuple(e1, e2, e3, p) -> Syntax.LetTuple(e1, e2, collect_globals e3, p) (* [XXX] tupleの場合は集めないことにする *)
+  | Normal.LetRec(e1, e2) -> Normal.LetRec(e1, collect_globals e2)
+  | Normal.LetTuple(e1, e2, e3) -> Normal.LetTuple(e1, e2, collect_globals e3) (* [XXX] tupleの場合は集めないことにする *)
   | _ -> e
 
 let rec fv = function
   | Unit | Int(_) | Float(_) | ExtArray(_) -> S.empty
   | Not(e) | Neg(e) | FNeg(e) -> fv e
-  | Add(e1, e2) | Sub(e1, e2) | Mul(e1, e2) | Div(e1, e2)
+  | Xor(e1, e2) | Add(e1, e2) | Sub(e1, e2) | Mul(e1, e2) | Div(e1, e2)
   | FAdd(e1, e2) | FSub(e1, e2) | FMul(e1, e2) | FDiv(e1, e2) | FCmp(e1, e2) | Array(e1, e2, _) | Get(e1, e2, _) -> S.union (fv e1) (fv e2)
   | IfEq(e1, e2, e3, e4)| IfLE(e1, e2, e3, e4) -> (S.union (fv e1) (S.union (fv e2) (S.union (fv e3) (fv e4))))
   | Let((x, t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
@@ -124,40 +128,41 @@ let rec fv = function
 
 let rec g env known e =
   match e with
-  | Syntax.Unit -> Unit
-  | Syntax.Bool(b) -> if b then Int(1) else Int(0)
-  | Syntax.Int(i) -> Int(i)
-  | Syntax.Float(d) -> Float(d)
-  | Syntax.Neg(x, _) -> Neg(g env known x)
-  | Syntax.Not(x, _) -> Not(g env known x)
-  | Syntax.Add(x, y, _) -> Add(g env known x, g env known y)
-  | Syntax.Sub(x, y, _) -> Sub(g env known x, g env known y)
-  | Syntax.Mul(x, y, _) -> Mul(g env known x, g env known y)
-  | Syntax.Div(x, y, _) -> Div(g env known x, g env known y)
-  | Syntax.FNeg(x, _) -> FNeg(g env known x)
-  | Syntax.FAdd(x, y, _) -> FAdd(g env known x, g env known y)
-  | Syntax.FSub(x, y, _) -> FSub(g env known x, g env known y)
-  | Syntax.FMul(x, y, _) -> FMul(g env known x, g env known y)
-  | Syntax.FDiv(x, y, _) -> FDiv(g env known x, g env known y)
-  | Syntax.Eq(e1, e2, t, _) -> (match t with
+  | Normal.Unit -> Unit
+  | Normal.Bool(b) -> if b then Int(1) else Int(0)
+  | Normal.Int(i) -> Int(i)
+  | Normal.Float(d) -> Float(d)
+  | Normal.Neg(x) -> Neg(g env known x)
+  | Normal.Not(x) -> Not(g env known x)
+  | Normal.Xor(x, y) -> Xor(g env known x, g env known y)
+  | Normal.Add(x, y) -> Add(g env known x, g env known y)
+  | Normal.Sub(x, y) -> Sub(g env known x, g env known y)
+  | Normal.Mul(x, y) -> Mul(g env known x, g env known y)
+  | Normal.Div(x, y) -> Div(g env known x, g env known y)
+  | Normal.FNeg(x) -> FNeg(g env known x)
+  | Normal.FAdd(x, y) -> FAdd(g env known x, g env known y)
+  | Normal.FSub(x, y) -> FSub(g env known x, g env known y)
+  | Normal.FMul(x, y) -> FMul(g env known x, g env known y)
+  | Normal.FDiv(x, y) -> FDiv(g env known x, g env known y)
+  | Normal.Eq(e1, e2, t) -> (match t with
       | Type.Int -> IfEq(g env known e1, g env known e2, Int(1), Int(0))
       | Type.Float -> IfEq(FCmp(g env known e1, g env known e2), Int(0), Int(1), Int(0))
       | _ -> assert false)
-  | Syntax.LE(e1, e2, t, _) -> (match t with
+  | Normal.LE(e1, e2, t) -> (match t with
       | Type.Int -> IfLE(g env known e1, g env known e2, Int(1), Int(0))
       | Type.Float -> IfLE(FCmp(g env known e1, g env known e2), Int(0), Int(1), Int(0))
       | _ -> assert false)
-  | Syntax.If(Syntax.Eq(x, y, Type.Int, _), e1, e2, _) -> IfEq(g env known x, g env known y, g env known e1, g env known e2)
-  | Syntax.If(Syntax.LE(x, y, Type.Int, _), e1, e2, _) -> IfLE(g env known x, g env known y, g env known e1, g env known e2)
-  | Syntax.If(Syntax.Eq(x, y, Type.Float, _), e1, e2, _) -> IfEq(FCmp(g env known x, g env known y), Int(0), g env known e1, g env known e2)
-  | Syntax.If(Syntax.LE(x, y, Type.Float, _), e1, e2, _) -> IfLE(FCmp(g env known x, g env known y), Int(0), g env known e1, g env known e2)
-  | Syntax.If(Syntax.Not(x, _), e1, e2, t) -> g env known (Syntax.If(x, e2, e1, t))
-  | Syntax.If(e1, e2, e3, _) -> IfEq(g env known e1, Int(0), g env known e3, g env known e2)
-  | Syntax.Let((x, t), e1, e2, _) -> Let((x, t), g env known e1, g (M.add x t env) known e2)
-  | Syntax.Var(x) when Id.mem x !closures ->
+  | Normal.If(Normal.Eq(x, y, Type.Int), e1, e2) -> IfEq(g env known x, g env known y, g env known e1, g env known e2)
+  | Normal.If(Normal.LE(x, y, Type.Int), e1, e2) -> IfLE(g env known x, g env known y, g env known e1, g env known e2)
+  | Normal.If(Normal.Eq(x, y, Type.Float), e1, e2) -> IfEq(FCmp(g env known x, g env known y), Int(0), g env known e1, g env known e2)
+  | Normal.If(Normal.LE(x, y, Type.Float), e1, e2) -> IfLE(FCmp(g env known x, g env known y), Int(0), g env known e1, g env known e2)
+  | Normal.If(Normal.Not(x), e1, e2) -> g env known (Normal.If(x, e2, e1))
+  | Normal.If(e1, e2, e3) -> IfEq(g env known e1, Int(0), g env known e3, g env known e2)
+  | Normal.Let((x, t), e1, e2) -> Let((x, t), g env known e1, g (M.add x t env) known e2)
+  | Normal.Var(x) when Id.mem x !closures ->
     MakeCls((x, M.find x env), List.assoc x !closures, Var(x))
-  | Syntax.Var(x) -> Var(x)
-  | Syntax.LetRec({ Syntax.name = (x, t); Syntax.args = yts; Syntax.body = e1 }, e2, _) -> (* 関数定義の場合 (caml2html: closure_letrec) *)
+  | Normal.Var(x) -> Var(x)
+  | Normal.LetRec({ Normal.name = (x, t); Normal.args = yts; Normal.body = e1 }, e2) -> (* 関数定義の場合 (caml2html: closure_letrec) *)
     (* 関数定義let rec x y1 ... yn = e1 in e2の場合は、
        xに自由変数がない(closureを介さずdirectに呼び出せる)
        と仮定し、knownに追加してe1をクロージャ変換してみる *)
@@ -188,17 +193,17 @@ let rec g env known e =
        MakeCls((x, t), { entry = Id.L(x); fv = zts }, e2')) (* 出現していたら削除しない *)
     else
       ((* Format.eprintf "eliminating closure(s) %s@." x; *)
-       e2') (* 出現しなければMakeClsを削除 *)
-  | Syntax.App((Var(x), _), ys, _) when S.mem x known -> (* 関数適用の場合 (caml2html: closure_app) *)
+        e2') (* 出現しなければMakeClsを削除 *)
+  | Normal.App((Var(x), _), ys) when S.mem x known -> (* 関数適用の場合 (caml2html: closure_app) *)
     (* Format.eprintf "directly applying %s@." x; *)
     AppDir(x, List.map (g env known) ys)
-  | Syntax.App((Var(x), _), yts, _) when M.mem x !Typing.extenv -> ExtFunApp(x, (List.map (g env known) yts))
-  | Syntax.App((x, t), yts, _) -> AppCls(g env known x, List.map (g env known) yts, t)
-  | Syntax.Tuple(xs) -> Tuple(List.map (fun e -> g env known (fst e), snd e) xs)
-  | Syntax.LetTuple(xts, y, e, _) -> LetTuple(xts, g env known y, g (M.add_list xts env) known e)
-  | Syntax.Get(x, y, t, _) -> Get(g env known x, g env known y, t)
-  | Syntax.Put(x, y, z, t, _) -> Put(g env known x, g env known y, g env known z, t)
-  | Syntax.Array(e1, e2, t, _) -> Array(g env known e1, g env known e2, t)
+  | Normal.App((Var(x), _), yts) when M.mem x !Typing.extenv -> ExtFunApp(x, (List.map (g env known) yts))
+  | Normal.App((x, t), yts) -> AppCls(g env known x, List.map (g env known) yts, t)
+  | Normal.Tuple(xs) -> Tuple(List.map (fun e -> g env known (fst e), snd e) xs)
+  | Normal.LetTuple(xts, y, e) -> LetTuple(xts, g env known y, g (M.add_list xts env) known e)
+  | Normal.Get(x, y, t) -> Get(g env known x, g env known y, t)
+  | Normal.Put(x, y, z, t) -> Put(g env known x, g env known y, g env known z, t)
+  | Normal.Array(e1, e2, t) -> Array(g env known e1, g env known e2, t)
 
 let f e =
   toplevel := [];
