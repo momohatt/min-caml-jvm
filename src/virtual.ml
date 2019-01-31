@@ -99,6 +99,8 @@ let rec g fv env e =
   | Closure.ExtFunApp("atan", [e2]) -> g fv env e2 @ [CallMath("atan", "(D)D")]
   | Closure.ExtFunApp("sqrt", [e2]) -> g fv env e2 @ [CallMath("sqrt", "(D)D")]
   | Closure.ExtFunApp("abs_float", [e2]) -> g fv env e2 @ [InvokeStatic("java/lang/Math.abs", Fun([PFloat], PFloat))]
+  | Closure.ExtFunApp("fabs", [e2]) -> g fv env e2 @ [InvokeStatic("java/lang/Math.abs", Fun([PFloat], PFloat))]
+  | Closure.ExtFunApp("floor", [e2]) -> g fv env e2 @ [CallMath("floor", "(D)D")]
   | Closure.ExtFunApp("float_of_int", [e2]) ->
     g fv env e2 @ [ItoF]
   | Closure.ExtFunApp("int_of_float", [e2]) ->

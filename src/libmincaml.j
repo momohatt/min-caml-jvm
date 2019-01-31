@@ -26,6 +26,17 @@
     return
 .end method
 
+.method public static min_caml_print_char(I)V
+    .limit stack 5
+    .limit locals 5
+    iload 0
+    i2c
+    getstatic java/lang/System/out Ljava/io/PrintStream;
+    swap
+    invokevirtual java/io/PrintStream/print(C)V
+    return
+.end method
+
 .method public static min_caml_print_newline()V
     .limit stack 5
     .limit locals 5
@@ -36,89 +47,26 @@
     return
 .end method
 
-.method public static min_caml_create_array(ILjava/lang/Object;)[Ljava/lang/Object;
+; 入力はバイナリを想定
+.method public static min_caml_read_float()F
     .limit stack 5
     .limit locals 5
-    iload 0
-    anewarray Ljava/lang/Object;
-Label1:
+    new java/io/DataInputStream
     dup
-    iload 0
-    ldc 1
-    isub
-    dup
-    ;; ref, ref, (n - 1), (n - 1)
-    istore 0
-    ;; ref, ref, (n - 1)
-    dup
-    ;; ref, ref, (n - 1), (n - 1)
-    iflt Label2   ; index < 0
-    ;; ref, ref, (n - 1)
-    aload 1
-    ;; ref, ref, (n - 1), init
-    aastore
-    ;; ref
-    goto Label1
-Label2:
-    ;; ref, ref, (n - 1)
-    pop
-    areturn
+    getstatic java/lang/System/in Ljava/io/InputStream;
+    invokespecial java/io/DataInputStream/<init>(Ljava/io/InputStream;)V
+    invokevirtual java/io/DataInputStream/readFloat()F
+    freturn
 .end method
 
-.method public static min_caml_create_iarray(II)[I
+; 入力はバイナリを想定
+.method public static min_caml_read_int()I
     .limit stack 5
     .limit locals 5
-    iload 0
-    newarray int
-Label1:
+    new java/io/DataInputStream
     dup
-    iload 0
-    ldc 1
-    isub
-    dup
-    ;; ref, ref, (n - 1), (n - 1)
-    istore 0
-    ;; ref, ref, (n - 1)
-    dup
-    ;; ref, ref, (n - 1), (n - 1)
-    iflt Label2   ; index < 0
-    ;; ref, ref, (n - 1)
-    iload 1
-    ;; ref, ref, (n - 1), init
-    iastore
-    ;; ref
-    goto Label1
-Label2:
-    ;; ref, ref, (n - 1)
-    pop
-    areturn
-.end method
-
-.method public static min_caml_create_farray(IF)[F
-    .limit stack 5
-    .limit locals 5
-    iload 0
-    newarray float
-Label1:
-    dup
-    iload 0
-    ldc 1
-    isub
-    dup
-    ;; ref, ref, (n - 1), (n - 1)
-    istore 0
-    ;; ref, ref, (n - 1)
-    dup
-    ;; ref, ref, (n - 1), (n - 1)
-    iflt Label2   ; index < 0
-    ;; ref, ref, (n - 1)
-    fload 1
-    ;; ref, ref, (n - 1), init
-    fastore
-    ;; ref
-    goto Label1
-Label2:
-    ;; ref, ref, (n - 1)
-    pop
-    areturn
+    getstatic java/lang/System/in Ljava/io/InputStream;
+    invokespecial java/io/DataInputStream/<init>(Ljava/io/InputStream;)V
+    invokevirtual java/io/DataInputStream/readInt()I
+    ireturn
 .end method

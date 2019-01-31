@@ -5668,7 +5668,7 @@ ifle_cont_1655:
 	fmul
 	fload 3
 	fadd
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1656
 	ldc 0
@@ -5688,7 +5688,7 @@ ifle_else_1656:
 	fmul
 	fload 4
 	fadd
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1658
 	ldc 0
@@ -6126,7 +6126,7 @@ ifeq_cont_1681:
 	fmul
 	fload 4
 	fadd
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1686
 	ldc 0
@@ -6143,7 +6143,7 @@ ifle_else_1686:
 	fmul
 	fload 5
 	fadd
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1688
 	ldc 0
@@ -6192,7 +6192,7 @@ ifle_cont_1687:
 	fmul
 	fload 3
 	fadd
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1694
 	ldc 0
@@ -6209,7 +6209,7 @@ ifle_else_1694:
 	fmul
 	fload 5
 	fadd
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1696
 	ldc 0
@@ -6258,7 +6258,7 @@ ifle_cont_1695:
 	fmul
 	fload 3
 	fadd
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1702
 	ldc 0
@@ -6275,7 +6275,7 @@ ifle_else_1702:
 	fmul
 	fload 4
 	fadd
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1704
 	ldc 0
@@ -7501,7 +7501,7 @@ ifge_cont_1756:
 	aload 0
 	invokestatic main.o_param_a_334([Ljava/lang/Object;)F
 	fload 1
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1764
 	ldc 0
@@ -7510,7 +7510,7 @@ ifle_else_1764:
 	aload 0
 	invokestatic main.o_param_b_336([Ljava/lang/Object;)F
 	fload 2
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1766
 	ldc 0
@@ -7519,7 +7519,7 @@ ifle_else_1766:
 	aload 0
 	invokestatic main.o_param_c_338([Ljava/lang/Object;)F
 	fload 3
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1768
 	ldc 1
@@ -8761,7 +8761,9 @@ ifeq_cont_1851:
 	fload 3
 	ldc 0.050000
 	fmul
-	invokestatic libmincaml.min_caml_floor(F)F
+	f2d
+	invokestatic java/lang/Math.floor(D)D
+	d2f
 	ldc 20.000000
 	fmul
 	fstore 4
@@ -8791,7 +8793,9 @@ ifle_cont_1857:
 	fload 5
 	ldc 0.050000
 	fmul
-	invokestatic libmincaml.min_caml_floor(F)F
+	f2d
+	invokestatic java/lang/Math.floor(D)D
+	d2f
 	ldc 20.000000
 	fmul
 	fstore 6
@@ -8913,7 +8917,9 @@ ifeq_else_1866:
 	fstore 5
 	fload 5
 	fload 5
-	invokestatic libmincaml.min_caml_floor(F)F
+	f2d
+	invokestatic java/lang/Math.floor(D)D
+	d2f
 	fsub
 	ldc 3.141593
 	fmul
@@ -8989,13 +8995,13 @@ ifeq_else_1868:
 	fstore 5
 	ldc 0.000100
 	fload 3
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1871
 	fload 4
 	fload 3
 	fdiv
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fstore 6
 	fload 6
 	f2d
@@ -9012,7 +9018,9 @@ ifle_cont_1872:
 	fstore 6
 	fload 6
 	fload 6
-	invokestatic libmincaml.min_caml_floor(F)F
+	f2d
+	invokestatic java/lang/Math.floor(D)D
+	d2f
 	fsub
 	fstore 7
 	aload 1
@@ -9032,13 +9040,13 @@ ifle_cont_1872:
 	fstore 8
 	ldc 0.000100
 	fload 5
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fcmpl
 	ifgt ifle_else_1873
 	fload 8
 	fload 5
 	fdiv
-	invokestatic libmincaml.min_caml_fabs(F)F
+	invokestatic java/lang/Math.abs(F)F
 	fstore 9
 	fload 9
 	f2d
@@ -9055,7 +9063,9 @@ ifle_cont_1874:
 	fstore 9
 	fload 9
 	fload 9
-	invokestatic libmincaml.min_caml_floor(F)F
+	f2d
+	invokestatic java/lang/Math.floor(D)D
+	d2f
 	fsub
 	fstore 10
 	ldc 0.150000
@@ -11996,3 +12006,4 @@ ifge_cont_1953:
 	invokestatic main.rt_751(II)V
 	return
 .end method	; main
+
