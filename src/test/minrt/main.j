@@ -5252,9 +5252,7 @@ ifle_cont_1630:
 	aastore
 	astore 10
 	iload 4
-	ifne ifeq_else_1631
-	goto ifeq_cont_1632
-ifeq_else_1631:
+	ifeq ifeq_cont_1631
 	aload 10
 	ldc 0
 	invokestatic libmincaml.min_caml_read_float()F
@@ -5273,15 +5271,15 @@ ifeq_else_1631:
 	invokestatic main.rad_395(F)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifeq_cont_1632:
+ifeq_cont_1631:
 	iload 2
 	ldc 2
-	if_icmpne ifeq_else_1633
+	if_icmpne ifeq_else_1632
 	ldc 1
-	goto ifeq_cont_1634
-ifeq_else_1633:
+	goto ifeq_cont_1633
+ifeq_else_1632:
 	iload 7
-ifeq_cont_1634:
+ifeq_cont_1633:
 	istore 11
 	ldc 0.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -5363,7 +5361,7 @@ ifeq_cont_1634:
 	aastore
 	iload 2
 	ldc 3
-	if_icmpne ifeq_else_1635
+	if_icmpne ifeq_else_1634
 	aload 5
 	ldc 0
 	aaload
@@ -5375,17 +5373,17 @@ ifeq_cont_1634:
 	fload 14
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1637
+	ifne ifeq_else_1636
 	ldc 0.000000
-	goto ifeq_cont_1638
-ifeq_else_1637:
+	goto ifeq_cont_1637
+ifeq_else_1636:
 	fload 14
 	invokestatic main.sgn_278(F)F
 	fload 14
 	fload 14
 	fmul
 	fdiv
-ifeq_cont_1638:
+ifeq_cont_1637:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	aload 5
@@ -5399,17 +5397,17 @@ ifeq_cont_1638:
 	fload 15
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1639
+	ifne ifeq_else_1638
 	ldc 0.000000
-	goto ifeq_cont_1640
-ifeq_else_1639:
+	goto ifeq_cont_1639
+ifeq_else_1638:
 	fload 15
 	invokestatic main.sgn_278(F)F
 	fload 15
 	fload 15
 	fmul
 	fdiv
-ifeq_cont_1640:
+ifeq_cont_1639:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	aload 5
@@ -5423,41 +5421,37 @@ ifeq_cont_1640:
 	fload 16
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1641
+	ifne ifeq_else_1640
 	ldc 0.000000
-	goto ifeq_cont_1642
-ifeq_else_1641:
+	goto ifeq_cont_1641
+ifeq_else_1640:
 	fload 16
 	invokestatic main.sgn_278(F)F
 	fload 16
 	fload 16
 	fmul
 	fdiv
-ifeq_cont_1642:
+ifeq_cont_1641:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1636
-ifeq_else_1635:
+	goto ifeq_cont_1635
+ifeq_else_1634:
 	iload 2
 	ldc 2
-	if_icmpne ifeq_else_1643
+	if_icmpne ifeq_cont_1642
 	aload 5
 	iload 7
 	ldc 1
 	ixor
 	invokestatic main.vecunit_sgn_299([Ljava/lang/Float;I)V
-	goto ifeq_cont_1644
-ifeq_else_1643:
-ifeq_cont_1644:
-ifeq_cont_1636:
+ifeq_cont_1642:
+ifeq_cont_1635:
 	iload 4
-	ifne ifeq_else_1645
-	goto ifeq_cont_1646
-ifeq_else_1645:
+	ifeq ifeq_cont_1643
 	aload 5
 	aload 10
 	invokestatic main.rotate_quadratic_matrix_401([Ljava/lang/Float;[Ljava/lang/Float;)V
-ifeq_cont_1646:
+ifeq_cont_1643:
 	ldc 1
 ifeq_cont_1628:
 	ireturn
@@ -5468,25 +5462,23 @@ ifeq_cont_1628:
 	.limit locals 100
 	ldc 60
 	iload 0
-	if_icmpgt ifle_else_1647
-	goto ifle_cont_1648
-ifle_else_1647:
+	if_icmple ifle_cont_1644
 	iload 0
 	invokestatic main.read_nth_object_404(I)I
-	ifne ifeq_else_1649
+	ifne ifeq_else_1645
 	getstatic main/n_objects_248 [Ljava/lang/Integer;
 	ldc 0
 	iload 0
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-	goto ifeq_cont_1650
-ifeq_else_1649:
+	goto ifeq_cont_1646
+ifeq_else_1645:
 	iload 0
 	ldc 1
 	iadd
 	invokestatic main.read_object_406(I)V
-ifeq_cont_1650:
-ifle_cont_1648:
+ifeq_cont_1646:
+ifle_cont_1644:
 	return
 .end method	; read_object_406
 
@@ -5505,15 +5497,15 @@ ifle_cont_1648:
 	istore 1
 	iload 1
 	ldc -1
-	if_icmpne ifeq_else_1651
+	if_icmpne ifeq_else_1647
 	iload 0
 	ldc 1
 	iadd
 	ldc -1
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	invokestatic libmincaml.min_caml_create_array(ILjava/lang/Object;)[Ljava/lang/Object;
-	goto ifeq_cont_1652
-ifeq_else_1651:
+	goto ifeq_cont_1648
+ifeq_else_1647:
 	iload 0
 	ldc 1
 	iadd
@@ -5525,7 +5517,7 @@ ifeq_else_1651:
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	aload 2
-ifeq_cont_1652:
+ifeq_cont_1648:
 	areturn
 .end method	; read_net_item_410
 
@@ -5541,14 +5533,14 @@ ifeq_cont_1652:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ldc -1
-	if_icmpne ifeq_else_1653
+	if_icmpne ifeq_else_1649
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	invokestatic libmincaml.min_caml_create_array(ILjava/lang/Object;)[Ljava/lang/Object;
-	goto ifeq_cont_1654
-ifeq_else_1653:
+	goto ifeq_cont_1650
+ifeq_else_1649:
 	iload 0
 	ldc 1
 	iadd
@@ -5559,7 +5551,7 @@ ifeq_else_1653:
 	aload 1
 	aastore
 	aload 2
-ifeq_cont_1654:
+ifeq_cont_1650:
 	areturn
 .end method	; read_or_network_412
 
@@ -5575,9 +5567,7 @@ ifeq_cont_1654:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ldc -1
-	if_icmpne ifeq_else_1655
-	goto ifeq_cont_1656
-ifeq_else_1655:
+	if_icmpeq ifeq_cont_1651
 	getstatic main/and_net_254 [[Ljava/lang/Integer;
 	iload 0
 	aload 1
@@ -5586,7 +5576,7 @@ ifeq_else_1655:
 	ldc 1
 	iadd
 	invokestatic main.read_and_network_414(I)V
-ifeq_cont_1656:
+ifeq_cont_1651:
 	return
 .end method	; read_and_network_414
 
@@ -5616,10 +5606,10 @@ ifeq_cont_1656:
 	invokevirtual java/lang/Float/floatValue()F
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1657
+	ifne ifeq_else_1652
 	ldc 0
-	goto ifeq_cont_1658
-ifeq_else_1657:
+	goto ifeq_cont_1653
+ifeq_else_1652:
 	aload 0
 	invokestatic main.o_param_abc_340([Ljava/lang/Object;)[Ljava/lang/Float;
 	astore 8
@@ -5632,12 +5622,12 @@ ifeq_else_1657:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
-	ifgt ifle_else_1659
+	ifgt ifle_else_1654
 	ldc 1
-	goto ifle_cont_1660
-ifle_else_1659:
+	goto ifle_cont_1655
+ifle_else_1654:
 	ldc 0
-ifle_cont_1660:
+ifle_cont_1655:
 	ldc 1
 	ixor
 	ixor
@@ -5674,10 +5664,10 @@ ifle_cont_1660:
 	fadd
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1661
+	ifgt ifle_else_1656
 	ldc 0
-	goto ifle_cont_1662
-ifle_else_1661:
+	goto ifle_cont_1657
+ifle_else_1656:
 	aload 8
 	iload 7
 	aaload
@@ -5694,19 +5684,19 @@ ifle_else_1661:
 	fadd
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1663
+	ifgt ifle_else_1658
 	ldc 0
-	goto ifle_cont_1664
-ifle_else_1663:
+	goto ifle_cont_1659
+ifle_else_1658:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	fload 10
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 1
-ifle_cont_1664:
-ifle_cont_1662:
-ifeq_cont_1658:
+ifle_cont_1659:
+ifle_cont_1657:
+ifeq_cont_1653:
 	ireturn
 .end method	; solver_rect_surface_418
 
@@ -5722,7 +5712,7 @@ ifeq_cont_1658:
 	ldc 1
 	ldc 2
 	invokestatic main.solver_rect_surface_418([Ljava/lang/Object;[Ljava/lang/Float;FFFIII)I
-	ifne ifeq_else_1665
+	ifne ifeq_else_1660
 	aload 0
 	aload 1
 	fload 3
@@ -5732,7 +5722,7 @@ ifeq_cont_1658:
 	ldc 2
 	ldc 0
 	invokestatic main.solver_rect_surface_418([Ljava/lang/Object;[Ljava/lang/Float;FFFIII)I
-	ifne ifeq_else_1667
+	ifne ifeq_else_1662
 	aload 0
 	aload 1
 	fload 4
@@ -5742,20 +5732,20 @@ ifeq_cont_1658:
 	ldc 0
 	ldc 1
 	invokestatic main.solver_rect_surface_418([Ljava/lang/Object;[Ljava/lang/Float;FFFIII)I
-	ifne ifeq_else_1669
+	ifne ifeq_else_1664
 	ldc 0
-	goto ifeq_cont_1670
-ifeq_else_1669:
+	goto ifeq_cont_1665
+ifeq_else_1664:
 	ldc 3
-ifeq_cont_1670:
-	goto ifeq_cont_1668
-ifeq_else_1667:
+ifeq_cont_1665:
+	goto ifeq_cont_1663
+ifeq_else_1662:
 	ldc 2
-ifeq_cont_1668:
-	goto ifeq_cont_1666
-ifeq_else_1665:
+ifeq_cont_1663:
+	goto ifeq_cont_1661
+ifeq_else_1660:
 	ldc 1
-ifeq_cont_1666:
+ifeq_cont_1661:
 	ireturn
 .end method	; solver_rect_427
 
@@ -5772,10 +5762,10 @@ ifeq_cont_1666:
 	fload 6
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1671
+	ifgt ifle_else_1666
 	ldc 0
-	goto ifle_cont_1672
-ifle_else_1671:
+	goto ifle_cont_1667
+ifle_else_1666:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	aload 5
@@ -5789,7 +5779,7 @@ ifle_else_1671:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 1
-ifle_cont_1672:
+ifle_cont_1667:
 	ireturn
 .end method	; solver_surface_433
 
@@ -5819,10 +5809,10 @@ ifle_cont_1672:
 	fstore 4
 	aload 0
 	invokestatic main.o_isrot_332([Ljava/lang/Object;)I
-	ifne ifeq_else_1673
+	ifne ifeq_else_1668
 	fload 4
-	goto ifeq_cont_1674
-ifeq_else_1673:
+	goto ifeq_cont_1669
+ifeq_else_1668:
 	fload 4
 	fload 2
 	fload 3
@@ -5845,7 +5835,7 @@ ifeq_else_1673:
 	invokestatic main.o_param_r3_362([Ljava/lang/Object;)F
 	fmul
 	fadd
-ifeq_cont_1674:
+ifeq_cont_1669:
 	freturn
 .end method	; quadratic_439
 
@@ -5875,10 +5865,10 @@ ifeq_cont_1674:
 	fstore 7
 	aload 0
 	invokestatic main.o_isrot_332([Ljava/lang/Object;)I
-	ifne ifeq_else_1675
+	ifne ifeq_else_1670
 	fload 7
-	goto ifeq_cont_1676
-ifeq_else_1675:
+	goto ifeq_cont_1671
+ifeq_else_1670:
 	fload 7
 	fload 3
 	fload 5
@@ -5915,7 +5905,7 @@ ifeq_else_1675:
 	ldc 2.000000
 	fdiv
 	fadd
-ifeq_cont_1676:
+ifeq_cont_1671:
 	freturn
 .end method	; bilinear_444
 
@@ -5943,10 +5933,10 @@ ifeq_cont_1676:
 	fload 5
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1677
+	ifne ifeq_else_1672
 	ldc 0
-	goto ifeq_cont_1678
-ifeq_else_1677:
+	goto ifeq_cont_1673
+ifeq_else_1672:
 	aload 0
 	aload 1
 	ldc 0
@@ -5977,14 +5967,14 @@ ifeq_else_1677:
 	aload 0
 	invokestatic main.o_form_326([Ljava/lang/Object;)I
 	ldc 3
-	if_icmpne ifeq_else_1679
+	if_icmpne ifeq_else_1674
 	fload 7
 	ldc 1.000000
 	fsub
-	goto ifeq_cont_1680
-ifeq_else_1679:
+	goto ifeq_cont_1675
+ifeq_else_1674:
 	fload 7
-ifeq_cont_1680:
+ifeq_cont_1675:
 	fstore 8
 	fload 6
 	fload 6
@@ -5997,10 +5987,10 @@ ifeq_cont_1680:
 	fload 9
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1681
+	ifgt ifle_else_1676
 	ldc 0
-	goto ifle_cont_1682
-ifle_else_1681:
+	goto ifle_cont_1677
+ifle_else_1676:
 	fload 9
 	f2d
 	invokestatic java/lang/Math.sqrt(D)D
@@ -6008,13 +5998,13 @@ ifle_else_1681:
 	fstore 10
 	aload 0
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
-	ifne ifeq_else_1683
+	ifne ifeq_else_1678
 	fload 10
 	fneg
-	goto ifeq_cont_1684
-ifeq_else_1683:
+	goto ifeq_cont_1679
+ifeq_else_1678:
 	fload 10
-ifeq_cont_1684:
+ifeq_cont_1679:
 	fstore 11
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
@@ -6026,8 +6016,8 @@ ifeq_cont_1684:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 1
-ifle_cont_1682:
-ifeq_cont_1678:
+ifle_cont_1677:
+ifeq_cont_1673:
 	ireturn
 .end method	; solver_second_452
 
@@ -6071,34 +6061,34 @@ ifeq_cont_1678:
 	istore 7
 	iload 7
 	ldc 1
-	if_icmpne ifeq_else_1685
+	if_icmpne ifeq_else_1680
 	aload 3
 	aload 1
 	fload 4
 	fload 5
 	fload 6
 	invokestatic main.solver_rect_427([Ljava/lang/Object;[Ljava/lang/Float;FFF)I
-	goto ifeq_cont_1686
-ifeq_else_1685:
+	goto ifeq_cont_1681
+ifeq_else_1680:
 	iload 7
 	ldc 2
-	if_icmpne ifeq_else_1687
+	if_icmpne ifeq_else_1682
 	aload 3
 	aload 1
 	fload 4
 	fload 5
 	fload 6
 	invokestatic main.solver_surface_433([Ljava/lang/Object;[Ljava/lang/Float;FFF)I
-	goto ifeq_cont_1688
-ifeq_else_1687:
+	goto ifeq_cont_1683
+ifeq_else_1682:
 	aload 3
 	aload 1
 	fload 4
 	fload 5
 	fload 6
 	invokestatic main.solver_second_452([Ljava/lang/Object;[Ljava/lang/Float;FFF)I
-ifeq_cont_1688:
-ifeq_cont_1686:
+ifeq_cont_1683:
+ifeq_cont_1681:
 	ireturn
 .end method	; solver_458
 
@@ -6132,10 +6122,10 @@ ifeq_cont_1686:
 	fadd
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1691
+	ifgt ifle_else_1686
 	ldc 0
-	goto ifle_cont_1692
-ifle_else_1691:
+	goto ifle_cont_1687
+ifle_else_1686:
 	aload 0
 	invokestatic main.o_param_c_338([Ljava/lang/Object;)F
 	fload 6
@@ -6149,10 +6139,10 @@ ifle_else_1691:
 	fadd
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1693
+	ifgt ifle_else_1688
 	ldc 0
-	goto ifle_cont_1694
-ifle_else_1693:
+	goto ifle_cont_1689
+ifle_else_1688:
 	aload 2
 	ldc 1
 	aaload
@@ -6160,17 +6150,17 @@ ifle_else_1693:
 	invokevirtual java/lang/Float/floatValue()F
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1695
+	ifne ifeq_else_1690
 	ldc 1
-	goto ifeq_cont_1696
-ifeq_else_1695:
+	goto ifeq_cont_1691
+ifeq_else_1690:
 	ldc 0
-ifeq_cont_1696:
+ifeq_cont_1691:
 	ldc 1
 	ixor
-ifle_cont_1694:
-ifle_cont_1692:
-	ifne ifeq_else_1689
+ifle_cont_1689:
+ifle_cont_1687:
+	ifne ifeq_else_1684
 	aload 2
 	ldc 2
 	aaload
@@ -6198,10 +6188,10 @@ ifle_cont_1692:
 	fadd
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1699
+	ifgt ifle_else_1694
 	ldc 0
-	goto ifle_cont_1700
-ifle_else_1699:
+	goto ifle_cont_1695
+ifle_else_1694:
 	aload 0
 	invokestatic main.o_param_c_338([Ljava/lang/Object;)F
 	fload 7
@@ -6215,10 +6205,10 @@ ifle_else_1699:
 	fadd
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1701
+	ifgt ifle_else_1696
 	ldc 0
-	goto ifle_cont_1702
-ifle_else_1701:
+	goto ifle_cont_1697
+ifle_else_1696:
 	aload 2
 	ldc 3
 	aaload
@@ -6226,17 +6216,17 @@ ifle_else_1701:
 	invokevirtual java/lang/Float/floatValue()F
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1703
+	ifne ifeq_else_1698
 	ldc 1
-	goto ifeq_cont_1704
-ifeq_else_1703:
+	goto ifeq_cont_1699
+ifeq_else_1698:
 	ldc 0
-ifeq_cont_1704:
+ifeq_cont_1699:
 	ldc 1
 	ixor
-ifle_cont_1702:
-ifle_cont_1700:
-	ifne ifeq_else_1697
+ifle_cont_1697:
+ifle_cont_1695:
+	ifne ifeq_else_1692
 	aload 2
 	ldc 4
 	aaload
@@ -6264,10 +6254,10 @@ ifle_cont_1700:
 	fadd
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1707
+	ifgt ifle_else_1702
 	ldc 0
-	goto ifle_cont_1708
-ifle_else_1707:
+	goto ifle_cont_1703
+ifle_else_1702:
 	aload 0
 	invokestatic main.o_param_b_336([Ljava/lang/Object;)F
 	fload 8
@@ -6281,10 +6271,10 @@ ifle_else_1707:
 	fadd
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1709
+	ifgt ifle_else_1704
 	ldc 0
-	goto ifle_cont_1710
-ifle_else_1709:
+	goto ifle_cont_1705
+ifle_else_1704:
 	aload 2
 	ldc 5
 	aaload
@@ -6292,45 +6282,45 @@ ifle_else_1709:
 	invokevirtual java/lang/Float/floatValue()F
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1711
+	ifne ifeq_else_1706
 	ldc 1
-	goto ifeq_cont_1712
-ifeq_else_1711:
+	goto ifeq_cont_1707
+ifeq_else_1706:
 	ldc 0
-ifeq_cont_1712:
+ifeq_cont_1707:
 	ldc 1
 	ixor
-ifle_cont_1710:
-ifle_cont_1708:
-	ifne ifeq_else_1705
+ifle_cont_1705:
+ifle_cont_1703:
+	ifne ifeq_else_1700
 	ldc 0
-	goto ifeq_cont_1706
-ifeq_else_1705:
+	goto ifeq_cont_1701
+ifeq_else_1700:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	fload 8
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 3
-ifeq_cont_1706:
-	goto ifeq_cont_1698
-ifeq_else_1697:
+ifeq_cont_1701:
+	goto ifeq_cont_1693
+ifeq_else_1692:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	fload 7
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 2
-ifeq_cont_1698:
-	goto ifeq_cont_1690
-ifeq_else_1689:
+ifeq_cont_1693:
+	goto ifeq_cont_1685
+ifeq_else_1684:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	fload 6
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 1
-ifeq_cont_1690:
+ifeq_cont_1685:
 	ireturn
 .end method	; solver_rect_fast_462
 
@@ -6344,10 +6334,10 @@ ifeq_cont_1690:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
-	ifgt ifle_else_1713
+	ifgt ifle_else_1708
 	ldc 0
-	goto ifle_cont_1714
-ifle_else_1713:
+	goto ifle_cont_1709
+ifle_else_1708:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	aload 1
@@ -6376,7 +6366,7 @@ ifle_else_1713:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 1
-ifle_cont_1714:
+ifle_cont_1709:
 	ireturn
 .end method	; solver_surface_fast_469
 
@@ -6392,10 +6382,10 @@ ifle_cont_1714:
 	fload 5
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1715
+	ifne ifeq_else_1710
 	ldc 0
-	goto ifeq_cont_1716
-ifeq_else_1715:
+	goto ifeq_cont_1711
+ifeq_else_1710:
 	aload 1
 	ldc 1
 	aaload
@@ -6429,14 +6419,14 @@ ifeq_else_1715:
 	aload 0
 	invokestatic main.o_form_326([Ljava/lang/Object;)I
 	ldc 3
-	if_icmpne ifeq_else_1717
+	if_icmpne ifeq_else_1712
 	fload 7
 	ldc 1.000000
 	fsub
-	goto ifeq_cont_1718
-ifeq_else_1717:
+	goto ifeq_cont_1713
+ifeq_else_1712:
 	fload 7
-ifeq_cont_1718:
+ifeq_cont_1713:
 	fstore 8
 	fload 6
 	fload 6
@@ -6449,13 +6439,13 @@ ifeq_cont_1718:
 	fload 9
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1719
+	ifgt ifle_else_1714
 	ldc 0
-	goto ifle_cont_1720
-ifle_else_1719:
+	goto ifle_cont_1715
+ifle_else_1714:
 	aload 0
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
-	ifne ifeq_else_1721
+	ifne ifeq_else_1716
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	fload 6
@@ -6472,8 +6462,8 @@ ifle_else_1719:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1722
-ifeq_else_1721:
+	goto ifeq_cont_1717
+ifeq_else_1716:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	fload 6
@@ -6490,10 +6480,10 @@ ifeq_else_1721:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifeq_cont_1722:
+ifeq_cont_1717:
 	ldc 1
-ifle_cont_1720:
-ifeq_cont_1716:
+ifle_cont_1715:
+ifeq_cont_1711:
 	ireturn
 .end method	; solver_second_fast_475
 
@@ -6545,7 +6535,7 @@ ifeq_cont_1716:
 	istore 9
 	iload 9
 	ldc 1
-	if_icmpne ifeq_else_1723
+	if_icmpne ifeq_else_1718
 	aload 3
 	aload 1
 	invokestatic main.d_vec_385([Ljava/lang/Object;)[Ljava/lang/Float;
@@ -6554,27 +6544,27 @@ ifeq_cont_1716:
 	fload 5
 	fload 6
 	invokestatic main.solver_rect_fast_462([Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;FFF)I
-	goto ifeq_cont_1724
-ifeq_else_1723:
+	goto ifeq_cont_1719
+ifeq_else_1718:
 	iload 9
 	ldc 2
-	if_icmpne ifeq_else_1725
+	if_icmpne ifeq_else_1720
 	aload 3
 	aload 8
 	fload 4
 	fload 5
 	fload 6
 	invokestatic main.solver_surface_fast_469([Ljava/lang/Object;[Ljava/lang/Float;FFF)I
-	goto ifeq_cont_1726
-ifeq_else_1725:
+	goto ifeq_cont_1721
+ifeq_else_1720:
 	aload 3
 	aload 8
 	fload 4
 	fload 5
 	fload 6
 	invokestatic main.solver_second_fast_475([Ljava/lang/Object;[Ljava/lang/Float;FFF)I
-ifeq_cont_1726:
-ifeq_cont_1724:
+ifeq_cont_1721:
+ifeq_cont_1719:
 	ireturn
 .end method	; solver_fast_481
 
@@ -6588,10 +6578,10 @@ ifeq_cont_1724:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
-	ifgt ifle_else_1727
+	ifgt ifle_else_1722
 	ldc 0
-	goto ifle_cont_1728
-ifle_else_1727:
+	goto ifle_cont_1723
+ifle_else_1722:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	aload 1
@@ -6608,7 +6598,7 @@ ifle_else_1727:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
 	ldc 1
-ifle_cont_1728:
+ifle_cont_1723:
 	ireturn
 .end method	; solver_surface_fast2_485
 
@@ -6624,10 +6614,10 @@ ifle_cont_1728:
 	fload 6
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1729
+	ifne ifeq_else_1724
 	ldc 0
-	goto ifeq_cont_1730
-ifeq_else_1729:
+	goto ifeq_cont_1725
+ifeq_else_1724:
 	aload 1
 	ldc 1
 	aaload
@@ -6669,13 +6659,13 @@ ifeq_else_1729:
 	fload 9
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1731
+	ifgt ifle_else_1726
 	ldc 0
-	goto ifle_cont_1732
-ifle_else_1731:
+	goto ifle_cont_1727
+ifle_else_1726:
 	aload 0
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
-	ifne ifeq_else_1733
+	ifne ifeq_else_1728
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	fload 7
@@ -6692,8 +6682,8 @@ ifle_else_1731:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1734
-ifeq_else_1733:
+	goto ifeq_cont_1729
+ifeq_else_1728:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	fload 7
@@ -6710,10 +6700,10 @@ ifeq_else_1733:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifeq_cont_1734:
+ifeq_cont_1729:
 	ldc 1
-ifle_cont_1732:
-ifeq_cont_1730:
+ifle_cont_1727:
+ifeq_cont_1725:
 	ireturn
 .end method	; solver_second_fast2_492
 
@@ -6759,7 +6749,7 @@ ifeq_cont_1730:
 	istore 9
 	iload 9
 	ldc 1
-	if_icmpne ifeq_else_1735
+	if_icmpne ifeq_else_1730
 	aload 2
 	aload 1
 	invokestatic main.d_vec_385([Ljava/lang/Object;)[Ljava/lang/Float;
@@ -6768,11 +6758,11 @@ ifeq_cont_1730:
 	fload 5
 	fload 6
 	invokestatic main.solver_rect_fast_462([Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;FFF)I
-	goto ifeq_cont_1736
-ifeq_else_1735:
+	goto ifeq_cont_1731
+ifeq_else_1730:
 	iload 9
 	ldc 2
-	if_icmpne ifeq_else_1737
+	if_icmpne ifeq_else_1732
 	aload 2
 	aload 8
 	aload 3
@@ -6780,8 +6770,8 @@ ifeq_else_1735:
 	fload 5
 	fload 6
 	invokestatic main.solver_surface_fast2_485([Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;FFF)I
-	goto ifeq_cont_1738
-ifeq_else_1737:
+	goto ifeq_cont_1733
+ifeq_else_1732:
 	aload 2
 	aload 8
 	aload 3
@@ -6789,8 +6779,8 @@ ifeq_else_1737:
 	fload 5
 	fload 6
 	invokestatic main.solver_second_fast2_492([Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;FFF)I
-ifeq_cont_1738:
-ifeq_cont_1736:
+ifeq_cont_1733:
+ifeq_cont_1731:
 	ireturn
 .end method	; solver_fast2_499
 
@@ -6834,14 +6824,14 @@ ifeq_cont_1736:
 	invokevirtual java/lang/Float/floatValue()F
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1739
+	ifne ifeq_else_1734
 	aload 2
 	ldc 1
 	ldc 0.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1740
-ifeq_else_1739:
+	goto ifeq_cont_1735
+ifeq_else_1734:
 	aload 2
 	ldc 0
 	aload 1
@@ -6853,12 +6843,12 @@ ifeq_else_1739:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
-	ifgt ifle_else_1741
+	ifgt ifle_else_1736
 	ldc 1
-	goto ifle_cont_1742
-ifle_else_1741:
+	goto ifle_cont_1737
+ifle_else_1736:
 	ldc 0
-ifle_cont_1742:
+ifle_cont_1737:
 	ldc 1
 	ixor
 	ixor
@@ -6878,7 +6868,7 @@ ifle_cont_1742:
 	fdiv
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifeq_cont_1740:
+ifeq_cont_1735:
 	aload 0
 	ldc 1
 	aaload
@@ -6886,14 +6876,14 @@ ifeq_cont_1740:
 	invokevirtual java/lang/Float/floatValue()F
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1743
+	ifne ifeq_else_1738
 	aload 2
 	ldc 3
 	ldc 0.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1744
-ifeq_else_1743:
+	goto ifeq_cont_1739
+ifeq_else_1738:
 	aload 2
 	ldc 2
 	aload 1
@@ -6905,12 +6895,12 @@ ifeq_else_1743:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
-	ifgt ifle_else_1745
+	ifgt ifle_else_1740
 	ldc 1
-	goto ifle_cont_1746
-ifle_else_1745:
+	goto ifle_cont_1741
+ifle_else_1740:
 	ldc 0
-ifle_cont_1746:
+ifle_cont_1741:
 	ldc 1
 	ixor
 	ixor
@@ -6930,7 +6920,7 @@ ifle_cont_1746:
 	fdiv
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifeq_cont_1744:
+ifeq_cont_1739:
 	aload 0
 	ldc 2
 	aaload
@@ -6938,14 +6928,14 @@ ifeq_cont_1744:
 	invokevirtual java/lang/Float/floatValue()F
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1747
+	ifne ifeq_else_1742
 	aload 2
 	ldc 5
 	ldc 0.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1748
-ifeq_else_1747:
+	goto ifeq_cont_1743
+ifeq_else_1742:
 	aload 2
 	ldc 4
 	aload 1
@@ -6957,12 +6947,12 @@ ifeq_else_1747:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
-	ifgt ifle_else_1749
+	ifgt ifle_else_1744
 	ldc 1
-	goto ifle_cont_1750
-ifle_else_1749:
+	goto ifle_cont_1745
+ifle_else_1744:
 	ldc 0
-ifle_cont_1750:
+ifle_cont_1745:
 	ldc 1
 	ixor
 	ixor
@@ -6982,7 +6972,7 @@ ifle_cont_1750:
 	fdiv
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifeq_cont_1748:
+ifeq_cont_1743:
 	aload 2
 	areturn
 .end method	; setup_rect_table_502
@@ -7042,14 +7032,14 @@ ifeq_cont_1748:
 	fload 3
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1751
+	ifgt ifle_else_1746
 	aload 2
 	ldc 0
 	ldc 0.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifle_cont_1752
-ifle_else_1751:
+	goto ifle_cont_1747
+ifle_else_1746:
 	aload 2
 	ldc 0
 	ldc -1.000000
@@ -7084,7 +7074,7 @@ ifle_else_1751:
 	fneg
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifle_cont_1752:
+ifle_cont_1747:
 	aload 2
 	areturn
 .end method	; setup_surface_table_505
@@ -7173,7 +7163,7 @@ ifle_cont_1752:
 	aastore
 	aload 1
 	invokestatic main.o_isrot_332([Ljava/lang/Object;)I
-	ifne ifeq_else_1753
+	ifne ifeq_else_1748
 	aload 2
 	ldc 1
 	fload 4
@@ -7189,8 +7179,8 @@ ifle_cont_1752:
 	fload 6
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1754
-ifeq_else_1753:
+	goto ifeq_cont_1749
+ifeq_else_1748:
 	aload 2
 	ldc 1
 	fload 4
@@ -7266,13 +7256,11 @@ ifeq_else_1753:
 	fsub
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifeq_cont_1754:
+ifeq_cont_1749:
 	fload 3
 	ldc 0.000000
 	fcmpl
-	ifne ifeq_else_1755
-	goto ifeq_cont_1756
-ifeq_else_1755:
+	ifeq ifeq_cont_1750
 	aload 2
 	ldc 4
 	ldc 1.000000
@@ -7280,7 +7268,7 @@ ifeq_else_1755:
 	fdiv
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifeq_cont_1756:
+ifeq_cont_1750:
 	aload 2
 	areturn
 .end method	; setup_second_table_508
@@ -7289,7 +7277,7 @@ ifeq_cont_1756:
 	.limit stack 100
 	.limit locals 100
 	iload 1
-	iflt ifge_else_1757
+	iflt ifge_cont_1751
 	getstatic main/objects_249 [[Ljava/lang/Object;
 	iload 1
 	aaload
@@ -7306,42 +7294,40 @@ ifeq_cont_1756:
 	istore 5
 	iload 5
 	ldc 1
-	if_icmpne ifeq_else_1759
+	if_icmpne ifeq_else_1752
 	aload 3
 	iload 1
 	aload 4
 	aload 2
 	invokestatic main.setup_rect_table_502([Ljava/lang/Float;[Ljava/lang/Object;)[Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1760
-ifeq_else_1759:
+	goto ifeq_cont_1753
+ifeq_else_1752:
 	iload 5
 	ldc 2
-	if_icmpne ifeq_else_1761
+	if_icmpne ifeq_else_1754
 	aload 3
 	iload 1
 	aload 4
 	aload 2
 	invokestatic main.setup_surface_table_505([Ljava/lang/Float;[Ljava/lang/Object;)[Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1762
-ifeq_else_1761:
+	goto ifeq_cont_1755
+ifeq_else_1754:
 	aload 3
 	iload 1
 	aload 4
 	aload 2
 	invokestatic main.setup_second_table_508([Ljava/lang/Float;[Ljava/lang/Object;)[Ljava/lang/Float;
 	aastore
-ifeq_cont_1762:
-ifeq_cont_1760:
+ifeq_cont_1755:
+ifeq_cont_1753:
 	aload 0
 	iload 1
 	ldc 1
 	isub
 	invokestatic main.iter_setup_dirvec_constants_511([Ljava/lang/Object;I)V
-	goto ifge_cont_1758
-ifge_else_1757:
-ifge_cont_1758:
+ifge_cont_1751:
 	return
 .end method	; iter_setup_dirvec_constants_511
 
@@ -7364,7 +7350,7 @@ ifge_cont_1758:
 	.limit stack 100
 	.limit locals 100
 	iload 1
-	iflt ifge_else_1763
+	iflt ifge_cont_1756
 	getstatic main/objects_249 [[Ljava/lang/Object;
 	iload 1
 	aaload
@@ -7414,7 +7400,7 @@ ifge_cont_1758:
 	aastore
 	iload 4
 	ldc 2
-	if_icmpne ifeq_else_1765
+	if_icmpne ifeq_else_1757
 	aload 3
 	ldc 3
 	aload 2
@@ -7437,13 +7423,11 @@ ifge_cont_1758:
 	invokestatic main.veciprod2_305([Ljava/lang/Float;FFF)F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1766
-ifeq_else_1765:
+	goto ifeq_cont_1758
+ifeq_else_1757:
 	iload 4
 	ldc 2
-	if_icmpgt ifle_else_1767
-	goto ifle_cont_1768
-ifle_else_1767:
+	if_icmple ifle_cont_1759
 	aload 2
 	aload 3
 	ldc 0
@@ -7466,26 +7450,24 @@ ifle_else_1767:
 	ldc 3
 	iload 4
 	ldc 3
-	if_icmpne ifeq_else_1769
+	if_icmpne ifeq_else_1760
 	fload 5
 	ldc 1.000000
 	fsub
-	goto ifeq_cont_1770
-ifeq_else_1769:
+	goto ifeq_cont_1761
+ifeq_else_1760:
 	fload 5
-ifeq_cont_1770:
+ifeq_cont_1761:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifle_cont_1768:
-ifeq_cont_1766:
+ifle_cont_1759:
+ifeq_cont_1758:
 	aload 0
 	iload 1
 	ldc 1
 	isub
 	invokestatic main.setup_startp_constants_516([Ljava/lang/Float;I)V
-	goto ifge_cont_1764
-ifge_else_1763:
-ifge_cont_1764:
+ifge_cont_1756:
 	return
 .end method	; setup_startp_constants_516
 
@@ -7515,44 +7497,44 @@ ifge_cont_1764:
 	fload 1
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1773
+	ifgt ifle_else_1764
 	ldc 0
-	goto ifle_cont_1774
-ifle_else_1773:
+	goto ifle_cont_1765
+ifle_else_1764:
 	aload 0
 	invokestatic main.o_param_b_336([Ljava/lang/Object;)F
 	fload 2
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1775
+	ifgt ifle_else_1766
 	ldc 0
-	goto ifle_cont_1776
-ifle_else_1775:
+	goto ifle_cont_1767
+ifle_else_1766:
 	aload 0
 	invokestatic main.o_param_c_338([Ljava/lang/Object;)F
 	fload 3
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1777
+	ifgt ifle_else_1768
 	ldc 1
-	goto ifle_cont_1778
-ifle_else_1777:
+	goto ifle_cont_1769
+ifle_else_1768:
 	ldc 0
-ifle_cont_1778:
+ifle_cont_1769:
 	ldc 1
 	ixor
-ifle_cont_1776:
-ifle_cont_1774:
-	ifne ifeq_else_1771
+ifle_cont_1767:
+ifle_cont_1765:
+	ifne ifeq_else_1762
 	aload 0
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
 	ldc 1
 	ixor
-	goto ifeq_cont_1772
-ifeq_else_1771:
+	goto ifeq_cont_1763
+ifeq_else_1762:
 	aload 0
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
-ifeq_cont_1772:
+ifeq_cont_1763:
 	ireturn
 .end method	; is_rect_outside_521
 
@@ -7571,12 +7553,12 @@ ifeq_cont_1772:
 	ldc 0.000000
 	fload 4
 	fcmpl
-	ifgt ifle_else_1779
+	ifgt ifle_else_1770
 	ldc 1
-	goto ifle_cont_1780
-ifle_else_1779:
+	goto ifle_cont_1771
+ifle_else_1770:
 	ldc 0
-ifle_cont_1780:
+ifle_cont_1771:
 	ldc 1
 	ixor
 	ixor
@@ -7597,26 +7579,26 @@ ifle_cont_1780:
 	aload 0
 	invokestatic main.o_form_326([Ljava/lang/Object;)I
 	ldc 3
-	if_icmpne ifeq_else_1781
+	if_icmpne ifeq_else_1772
 	fload 4
 	ldc 1.000000
 	fsub
-	goto ifeq_cont_1782
-ifeq_else_1781:
+	goto ifeq_cont_1773
+ifeq_else_1772:
 	fload 4
-ifeq_cont_1782:
+ifeq_cont_1773:
 	fstore 5
 	aload 0
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
 	ldc 0.000000
 	fload 5
 	fcmpl
-	ifgt ifle_else_1783
+	ifgt ifle_else_1774
 	ldc 1
-	goto ifle_cont_1784
-ifle_else_1783:
+	goto ifle_cont_1775
+ifle_else_1774:
 	ldc 0
-ifle_cont_1784:
+ifle_cont_1775:
 	ldc 1
 	ixor
 	ixor
@@ -7648,31 +7630,31 @@ ifle_cont_1784:
 	istore 7
 	iload 7
 	ldc 1
-	if_icmpne ifeq_else_1785
+	if_icmpne ifeq_else_1776
 	aload 0
 	fload 4
 	fload 5
 	fload 6
 	invokestatic main.is_rect_outside_521([Ljava/lang/Object;FFF)I
-	goto ifeq_cont_1786
-ifeq_else_1785:
+	goto ifeq_cont_1777
+ifeq_else_1776:
 	iload 7
 	ldc 2
-	if_icmpne ifeq_else_1787
+	if_icmpne ifeq_else_1778
 	aload 0
 	fload 4
 	fload 5
 	fload 6
 	invokestatic main.is_plane_outside_526([Ljava/lang/Object;FFF)I
-	goto ifeq_cont_1788
-ifeq_else_1787:
+	goto ifeq_cont_1779
+ifeq_else_1778:
 	aload 0
 	fload 4
 	fload 5
 	fload 6
 	invokestatic main.is_second_outside_531([Ljava/lang/Object;FFF)I
-ifeq_cont_1788:
-ifeq_cont_1786:
+ifeq_cont_1779:
+ifeq_cont_1777:
 	ireturn
 .end method	; is_outside_536
 
@@ -7687,10 +7669,10 @@ ifeq_cont_1786:
 	istore 5
 	iload 5
 	ldc -1
-	if_icmpne ifeq_else_1789
+	if_icmpne ifeq_else_1780
 	ldc 1
-	goto ifeq_cont_1790
-ifeq_else_1789:
+	goto ifeq_cont_1781
+ifeq_else_1780:
 	getstatic main/objects_249 [[Ljava/lang/Object;
 	iload 5
 	aaload
@@ -7699,7 +7681,7 @@ ifeq_else_1789:
 	fload 3
 	fload 4
 	invokestatic main.is_outside_536([Ljava/lang/Object;FFF)I
-	ifne ifeq_else_1791
+	ifne ifeq_else_1782
 	iload 0
 	ldc 1
 	iadd
@@ -7708,11 +7690,11 @@ ifeq_else_1789:
 	fload 3
 	fload 4
 	invokestatic main.check_all_inside_541(I[Ljava/lang/Integer;FFF)I
-	goto ifeq_cont_1792
-ifeq_else_1791:
+	goto ifeq_cont_1783
+ifeq_else_1782:
 	ldc 0
-ifeq_cont_1792:
-ifeq_cont_1790:
+ifeq_cont_1783:
+ifeq_cont_1781:
 	ireturn
 .end method	; check_all_inside_541
 
@@ -7725,10 +7707,10 @@ ifeq_cont_1790:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ldc -1
-	if_icmpne ifeq_else_1793
+	if_icmpne ifeq_else_1784
 	ldc 0
-	goto ifeq_cont_1794
-ifeq_else_1793:
+	goto ifeq_cont_1785
+ifeq_else_1784:
 	aload 1
 	iload 0
 	aaload
@@ -7747,40 +7729,40 @@ ifeq_else_1793:
 	invokevirtual java/lang/Float/floatValue()F
 	fstore 4
 	iload 3
-	ifne ifeq_else_1797
+	ifne ifeq_else_1788
 	ldc 0
-	goto ifeq_cont_1798
-ifeq_else_1797:
+	goto ifeq_cont_1789
+ifeq_else_1788:
 	ldc -0.200000
 	fload 4
 	fcmpl
-	ifgt ifle_else_1799
+	ifgt ifle_else_1790
 	ldc 1
-	goto ifle_cont_1800
-ifle_else_1799:
+	goto ifle_cont_1791
+ifle_else_1790:
 	ldc 0
-ifle_cont_1800:
+ifle_cont_1791:
 	ldc 1
 	ixor
-ifeq_cont_1798:
-	ifne ifeq_else_1795
+ifeq_cont_1789:
+	ifne ifeq_else_1786
 	getstatic main/objects_249 [[Ljava/lang/Object;
 	iload 2
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
-	ifne ifeq_else_1801
+	ifne ifeq_else_1792
 	ldc 0
-	goto ifeq_cont_1802
-ifeq_else_1801:
+	goto ifeq_cont_1793
+ifeq_else_1792:
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	invokestatic main.shadow_check_and_group_547(I[Ljava/lang/Integer;)I
-ifeq_cont_1802:
-	goto ifeq_cont_1796
-ifeq_else_1795:
+ifeq_cont_1793:
+	goto ifeq_cont_1787
+ifeq_else_1786:
 	fload 4
 	ldc 0.010000
 	fadd
@@ -7833,18 +7815,18 @@ ifeq_else_1795:
 	fload 7
 	fload 8
 	invokestatic main.check_all_inside_541(I[Ljava/lang/Integer;FFF)I
-	ifne ifeq_else_1803
+	ifne ifeq_else_1794
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	invokestatic main.shadow_check_and_group_547(I[Ljava/lang/Integer;)I
-	goto ifeq_cont_1804
-ifeq_else_1803:
+	goto ifeq_cont_1795
+ifeq_else_1794:
 	ldc 1
-ifeq_cont_1804:
-ifeq_cont_1796:
-ifeq_cont_1794:
+ifeq_cont_1795:
+ifeq_cont_1787:
+ifeq_cont_1785:
 	ireturn
 .end method	; shadow_check_and_group_547
 
@@ -7859,10 +7841,10 @@ ifeq_cont_1794:
 	istore 2
 	iload 2
 	ldc -1
-	if_icmpne ifeq_else_1805
+	if_icmpne ifeq_else_1796
 	ldc 0
-	goto ifeq_cont_1806
-ifeq_else_1805:
+	goto ifeq_cont_1797
+ifeq_else_1796:
 	getstatic main/and_net_254 [[Ljava/lang/Integer;
 	iload 2
 	aaload
@@ -7873,17 +7855,17 @@ ifeq_else_1805:
 	invokestatic main.shadow_check_and_group_547(I[Ljava/lang/Integer;)I
 	istore 4
 	iload 4
-	ifne ifeq_else_1807
+	ifne ifeq_else_1798
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	invokestatic main.shadow_check_one_or_group_550(I[Ljava/lang/Integer;)I
-	goto ifeq_cont_1808
-ifeq_else_1807:
+	goto ifeq_cont_1799
+ifeq_else_1798:
 	ldc 1
-ifeq_cont_1808:
-ifeq_cont_1806:
+ifeq_cont_1799:
+ifeq_cont_1797:
 	ireturn
 .end method	; shadow_check_one_or_group_550
 
@@ -7903,26 +7885,26 @@ ifeq_cont_1806:
 	istore 3
 	iload 3
 	ldc -1
-	if_icmpne ifeq_else_1809
+	if_icmpne ifeq_else_1800
 	ldc 0
-	goto ifeq_cont_1810
-ifeq_else_1809:
+	goto ifeq_cont_1801
+ifeq_else_1800:
 	iload 3
 	ldc 99
-	if_icmpne ifeq_else_1813
+	if_icmpne ifeq_else_1804
 	ldc 1
-	goto ifeq_cont_1814
-ifeq_else_1813:
+	goto ifeq_cont_1805
+ifeq_else_1804:
 	iload 3
 	getstatic main/light_dirvec_275 [Ljava/lang/Object;
 	getstatic main/intersection_point_259 [Ljava/lang/Float;
 	invokestatic main.solver_fast_481(I[Ljava/lang/Object;[Ljava/lang/Float;)I
 	istore 4
 	iload 4
-	ifne ifeq_else_1815
+	ifne ifeq_else_1806
 	ldc 0
-	goto ifeq_cont_1816
-ifeq_else_1815:
+	goto ifeq_cont_1807
+ifeq_else_1806:
 	ldc -0.100000
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
@@ -7930,45 +7912,45 @@ ifeq_else_1815:
 	checkcast java/lang/Float
 	invokevirtual java/lang/Float/floatValue()F
 	fcmpl
-	ifgt ifle_else_1817
+	ifgt ifle_else_1808
 	ldc 0
-	goto ifle_cont_1818
-ifle_else_1817:
+	goto ifle_cont_1809
+ifle_else_1808:
 	ldc 1
 	aload 2
 	invokestatic main.shadow_check_one_or_group_550(I[Ljava/lang/Integer;)I
-	ifne ifeq_else_1819
+	ifne ifeq_else_1810
 	ldc 0
-	goto ifeq_cont_1820
-ifeq_else_1819:
+	goto ifeq_cont_1811
+ifeq_else_1810:
 	ldc 1
-ifeq_cont_1820:
-ifle_cont_1818:
-ifeq_cont_1816:
-ifeq_cont_1814:
-	ifne ifeq_else_1811
+ifeq_cont_1811:
+ifle_cont_1809:
+ifeq_cont_1807:
+ifeq_cont_1805:
+	ifne ifeq_else_1802
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	invokestatic main.shadow_check_one_or_matrix_553(I[[Ljava/lang/Integer;)I
-	goto ifeq_cont_1812
-ifeq_else_1811:
+	goto ifeq_cont_1803
+ifeq_else_1802:
 	ldc 1
 	aload 2
 	invokestatic main.shadow_check_one_or_group_550(I[Ljava/lang/Integer;)I
-	ifne ifeq_else_1821
+	ifne ifeq_else_1812
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	invokestatic main.shadow_check_one_or_matrix_553(I[[Ljava/lang/Integer;)I
-	goto ifeq_cont_1822
-ifeq_else_1821:
+	goto ifeq_cont_1813
+ifeq_else_1812:
 	ldc 1
-ifeq_cont_1822:
-ifeq_cont_1812:
-ifeq_cont_1810:
+ifeq_cont_1813:
+ifeq_cont_1803:
+ifeq_cont_1801:
 	ireturn
 .end method	; shadow_check_one_or_matrix_553
 
@@ -7983,33 +7965,29 @@ ifeq_cont_1810:
 	istore 3
 	iload 3
 	ldc -1
-	if_icmpne ifeq_else_1823
-	goto ifeq_cont_1824
-ifeq_else_1823:
+	if_icmpeq ifeq_cont_1814
 	iload 3
 	aload 2
 	getstatic main/startp_268 [Ljava/lang/Float;
 	invokestatic main.solver_458(I[Ljava/lang/Float;[Ljava/lang/Float;)I
 	istore 4
 	iload 4
-	ifne ifeq_else_1825
+	ifne ifeq_else_1815
 	getstatic main/objects_249 [[Ljava/lang/Object;
 	iload 3
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
-	ifne ifeq_else_1827
-	goto ifeq_cont_1828
-ifeq_else_1827:
+	ifeq ifeq_cont_1817
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	aload 2
 	invokestatic main.solve_each_element_556(I[Ljava/lang/Integer;[Ljava/lang/Float;)V
-ifeq_cont_1828:
-	goto ifeq_cont_1826
-ifeq_else_1825:
+ifeq_cont_1817:
+	goto ifeq_cont_1816
+ifeq_else_1815:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	aaload
@@ -8019,9 +7997,7 @@ ifeq_else_1825:
 	fload 5
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1829
-	goto ifle_cont_1830
-ifle_else_1829:
+	ifle ifle_cont_1818
 	getstatic main/tmin_258 [Ljava/lang/Float;
 	ldc 0
 	aaload
@@ -8029,9 +8005,7 @@ ifle_else_1829:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 5
 	fcmpl
-	ifgt ifle_else_1831
-	goto ifle_cont_1832
-ifle_else_1831:
+	ifle ifle_cont_1819
 	fload 5
 	ldc 0.010000
 	fadd
@@ -8084,9 +8058,7 @@ ifle_else_1831:
 	fload 8
 	fload 9
 	invokestatic main.check_all_inside_541(I[Ljava/lang/Integer;FFF)I
-	ifne ifeq_else_1833
-	goto ifeq_cont_1834
-ifeq_else_1833:
+	ifeq ifeq_cont_1820
 	getstatic main/tmin_258 [Ljava/lang/Float;
 	ldc 0
 	fload 6
@@ -8107,17 +8079,17 @@ ifeq_else_1833:
 	iload 4
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-ifeq_cont_1834:
-ifle_cont_1832:
-ifle_cont_1830:
+ifeq_cont_1820:
+ifle_cont_1819:
+ifle_cont_1818:
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	aload 2
 	invokestatic main.solve_each_element_556(I[Ljava/lang/Integer;[Ljava/lang/Float;)V
-ifeq_cont_1826:
-ifeq_cont_1824:
+ifeq_cont_1816:
+ifeq_cont_1814:
 	return
 .end method	; solve_each_element_556
 
@@ -8132,9 +8104,7 @@ ifeq_cont_1824:
 	istore 3
 	iload 3
 	ldc -1
-	if_icmpne ifeq_else_1835
-	goto ifeq_cont_1836
-ifeq_else_1835:
+	if_icmpeq ifeq_cont_1821
 	getstatic main/and_net_254 [[Ljava/lang/Integer;
 	iload 3
 	aaload
@@ -8150,7 +8120,7 @@ ifeq_else_1835:
 	aload 1
 	aload 2
 	invokestatic main.solve_one_or_network_560(I[Ljava/lang/Integer;[Ljava/lang/Float;)V
-ifeq_cont_1836:
+ifeq_cont_1821:
 	return
 .end method	; solve_one_or_network_560
 
@@ -8170,27 +8140,23 @@ ifeq_cont_1836:
 	istore 4
 	iload 4
 	ldc -1
-	if_icmpne ifeq_else_1837
-	goto ifeq_cont_1838
-ifeq_else_1837:
+	if_icmpeq ifeq_cont_1822
 	iload 4
 	ldc 99
-	if_icmpne ifeq_else_1839
+	if_icmpne ifeq_else_1823
 	ldc 1
 	aload 3
 	aload 2
 	invokestatic main.solve_one_or_network_560(I[Ljava/lang/Integer;[Ljava/lang/Float;)V
-	goto ifeq_cont_1840
-ifeq_else_1839:
+	goto ifeq_cont_1824
+ifeq_else_1823:
 	iload 4
 	aload 2
 	getstatic main/startp_268 [Ljava/lang/Float;
 	invokestatic main.solver_458(I[Ljava/lang/Float;[Ljava/lang/Float;)I
 	istore 5
 	iload 5
-	ifne ifeq_else_1841
-	goto ifeq_cont_1842
-ifeq_else_1841:
+	ifeq ifeq_cont_1825
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	aaload
@@ -8204,23 +8170,21 @@ ifeq_else_1841:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 6
 	fcmpl
-	ifgt ifle_else_1843
-	goto ifle_cont_1844
-ifle_else_1843:
+	ifle ifle_cont_1826
 	ldc 1
 	aload 3
 	aload 2
 	invokestatic main.solve_one_or_network_560(I[Ljava/lang/Integer;[Ljava/lang/Float;)V
-ifle_cont_1844:
-ifeq_cont_1842:
-ifeq_cont_1840:
+ifle_cont_1826:
+ifeq_cont_1825:
+ifeq_cont_1824:
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	aload 2
 	invokestatic main.trace_or_matrix_564(I[[Ljava/lang/Integer;[Ljava/lang/Float;)V
-ifeq_cont_1838:
+ifeq_cont_1822:
 	return
 .end method	; trace_or_matrix_564
 
@@ -8248,22 +8212,22 @@ ifeq_cont_1838:
 	fload 1
 	ldc -0.100000
 	fcmpl
-	ifgt ifle_else_1845
+	ifgt ifle_else_1827
 	ldc 0
-	goto ifle_cont_1846
-ifle_else_1845:
+	goto ifle_cont_1828
+ifle_else_1827:
 	ldc 100000000.000000
 	fload 1
 	fcmpl
-	ifgt ifle_else_1847
+	ifgt ifle_else_1829
 	ldc 1
-	goto ifle_cont_1848
-ifle_else_1847:
+	goto ifle_cont_1830
+ifle_else_1829:
 	ldc 0
-ifle_cont_1848:
+ifle_cont_1830:
 	ldc 1
 	ixor
-ifle_cont_1846:
+ifle_cont_1828:
 	ireturn
 .end method	; judge_intersection_568
 
@@ -8281,32 +8245,28 @@ ifle_cont_1846:
 	istore 4
 	iload 4
 	ldc -1
-	if_icmpne ifeq_else_1849
-	goto ifeq_cont_1850
-ifeq_else_1849:
+	if_icmpeq ifeq_cont_1831
 	iload 4
 	aload 2
 	invokestatic main.solver_fast2_499(I[Ljava/lang/Object;)I
 	istore 5
 	iload 5
-	ifne ifeq_else_1851
+	ifne ifeq_else_1832
 	getstatic main/objects_249 [[Ljava/lang/Object;
 	iload 4
 	aaload
 	checkcast [Ljava/lang/Object;
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
-	ifne ifeq_else_1853
-	goto ifeq_cont_1854
-ifeq_else_1853:
+	ifeq ifeq_cont_1834
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	aload 2
 	invokestatic main.solve_each_element_fast_570(I[Ljava/lang/Integer;[Ljava/lang/Object;)V
-ifeq_cont_1854:
-	goto ifeq_cont_1852
-ifeq_else_1851:
+ifeq_cont_1834:
+	goto ifeq_cont_1833
+ifeq_else_1832:
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	aaload
@@ -8316,9 +8276,7 @@ ifeq_else_1851:
 	fload 6
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1855
-	goto ifle_cont_1856
-ifle_else_1855:
+	ifle ifle_cont_1835
 	getstatic main/tmin_258 [Ljava/lang/Float;
 	ldc 0
 	aaload
@@ -8326,9 +8284,7 @@ ifle_else_1855:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 6
 	fcmpl
-	ifgt ifle_else_1857
-	goto ifle_cont_1858
-ifle_else_1857:
+	ifle ifle_cont_1836
 	fload 6
 	ldc 0.010000
 	fadd
@@ -8381,9 +8337,7 @@ ifle_else_1857:
 	fload 9
 	fload 10
 	invokestatic main.check_all_inside_541(I[Ljava/lang/Integer;FFF)I
-	ifne ifeq_else_1859
-	goto ifeq_cont_1860
-ifeq_else_1859:
+	ifeq ifeq_cont_1837
 	getstatic main/tmin_258 [Ljava/lang/Float;
 	ldc 0
 	fload 7
@@ -8404,17 +8358,17 @@ ifeq_else_1859:
 	iload 5
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-ifeq_cont_1860:
-ifle_cont_1858:
-ifle_cont_1856:
+ifeq_cont_1837:
+ifle_cont_1836:
+ifle_cont_1835:
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	aload 2
 	invokestatic main.solve_each_element_fast_570(I[Ljava/lang/Integer;[Ljava/lang/Object;)V
-ifeq_cont_1852:
-ifeq_cont_1850:
+ifeq_cont_1833:
+ifeq_cont_1831:
 	return
 .end method	; solve_each_element_fast_570
 
@@ -8429,9 +8383,7 @@ ifeq_cont_1850:
 	istore 3
 	iload 3
 	ldc -1
-	if_icmpne ifeq_else_1861
-	goto ifeq_cont_1862
-ifeq_else_1861:
+	if_icmpeq ifeq_cont_1838
 	getstatic main/and_net_254 [[Ljava/lang/Integer;
 	iload 3
 	aaload
@@ -8447,7 +8399,7 @@ ifeq_else_1861:
 	aload 1
 	aload 2
 	invokestatic main.solve_one_or_network_fast_574(I[Ljava/lang/Integer;[Ljava/lang/Object;)V
-ifeq_cont_1862:
+ifeq_cont_1838:
 	return
 .end method	; solve_one_or_network_fast_574
 
@@ -8467,26 +8419,22 @@ ifeq_cont_1862:
 	istore 4
 	iload 4
 	ldc -1
-	if_icmpne ifeq_else_1863
-	goto ifeq_cont_1864
-ifeq_else_1863:
+	if_icmpeq ifeq_cont_1839
 	iload 4
 	ldc 99
-	if_icmpne ifeq_else_1865
+	if_icmpne ifeq_else_1840
 	ldc 1
 	aload 3
 	aload 2
 	invokestatic main.solve_one_or_network_fast_574(I[Ljava/lang/Integer;[Ljava/lang/Object;)V
-	goto ifeq_cont_1866
-ifeq_else_1865:
+	goto ifeq_cont_1841
+ifeq_else_1840:
 	iload 4
 	aload 2
 	invokestatic main.solver_fast2_499(I[Ljava/lang/Object;)I
 	istore 5
 	iload 5
-	ifne ifeq_else_1867
-	goto ifeq_cont_1868
-ifeq_else_1867:
+	ifeq ifeq_cont_1842
 	getstatic main/solver_dist_256 [Ljava/lang/Float;
 	ldc 0
 	aaload
@@ -8500,23 +8448,21 @@ ifeq_else_1867:
 	invokevirtual java/lang/Float/floatValue()F
 	fload 6
 	fcmpl
-	ifgt ifle_else_1869
-	goto ifle_cont_1870
-ifle_else_1869:
+	ifle ifle_cont_1843
 	ldc 1
 	aload 3
 	aload 2
 	invokestatic main.solve_one_or_network_fast_574(I[Ljava/lang/Integer;[Ljava/lang/Object;)V
-ifle_cont_1870:
-ifeq_cont_1868:
-ifeq_cont_1866:
+ifle_cont_1843:
+ifeq_cont_1842:
+ifeq_cont_1841:
 	iload 0
 	ldc 1
 	iadd
 	aload 1
 	aload 2
 	invokestatic main.trace_or_matrix_fast_578(I[[Ljava/lang/Integer;[Ljava/lang/Object;)V
-ifeq_cont_1864:
+ifeq_cont_1839:
 	return
 .end method	; trace_or_matrix_fast_578
 
@@ -8544,22 +8490,22 @@ ifeq_cont_1864:
 	fload 1
 	ldc -0.100000
 	fcmpl
-	ifgt ifle_else_1871
+	ifgt ifle_else_1844
 	ldc 0
-	goto ifle_cont_1872
-ifle_else_1871:
+	goto ifle_cont_1845
+ifle_else_1844:
 	ldc 100000000.000000
 	fload 1
 	fcmpl
-	ifgt ifle_else_1873
+	ifgt ifle_else_1846
 	ldc 1
-	goto ifle_cont_1874
-ifle_else_1873:
+	goto ifle_cont_1847
+ifle_else_1846:
 	ldc 0
-ifle_cont_1874:
+ifle_cont_1847:
 	ldc 1
 	ixor
-ifle_cont_1872:
+ifle_cont_1845:
 	ireturn
 .end method	; judge_intersection_fast_582
 
@@ -8666,7 +8612,7 @@ ifle_cont_1872:
 	fstore 6
 	aload 0
 	invokestatic main.o_isrot_332([Ljava/lang/Object;)I
-	ifne ifeq_else_1875
+	ifne ifeq_else_1848
 	getstatic main/nvector_261 [Ljava/lang/Float;
 	ldc 0
 	fload 4
@@ -8682,8 +8628,8 @@ ifle_cont_1872:
 	fload 6
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1876
-ifeq_else_1875:
+	goto ifeq_cont_1849
+ifeq_else_1848:
 	getstatic main/nvector_261 [Ljava/lang/Float;
 	ldc 0
 	fload 4
@@ -8735,7 +8681,7 @@ ifeq_else_1875:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifeq_cont_1876:
+ifeq_cont_1849:
 	getstatic main/nvector_261 [Ljava/lang/Float;
 	aload 0
 	invokestatic main.o_isinvert_330([Ljava/lang/Object;)I
@@ -8751,22 +8697,22 @@ ifeq_cont_1876:
 	istore 2
 	iload 2
 	ldc 1
-	if_icmpne ifeq_else_1877
+	if_icmpne ifeq_else_1850
 	aload 1
 	invokestatic main.get_nvector_rect_584([Ljava/lang/Float;)V
-	goto ifeq_cont_1878
-ifeq_else_1877:
+	goto ifeq_cont_1851
+ifeq_else_1850:
 	iload 2
 	ldc 2
-	if_icmpne ifeq_else_1879
+	if_icmpne ifeq_else_1852
 	aload 0
 	invokestatic main.get_nvector_plane_586([Ljava/lang/Object;)V
-	goto ifeq_cont_1880
-ifeq_else_1879:
+	goto ifeq_cont_1853
+ifeq_else_1852:
 	aload 0
 	invokestatic main.get_nvector_second_588([Ljava/lang/Object;)V
-ifeq_cont_1880:
-ifeq_cont_1878:
+ifeq_cont_1853:
+ifeq_cont_1851:
 	return
 .end method	; get_nvector_590
 
@@ -8796,7 +8742,7 @@ ifeq_cont_1878:
 	aastore
 	iload 2
 	ldc 1
-	if_icmpne ifeq_else_1881
+	if_icmpne ifeq_else_1854
 	aload 1
 	ldc 0
 	aaload
@@ -8818,12 +8764,12 @@ ifeq_cont_1878:
 	fload 4
 	fsub
 	fcmpl
-	ifgt ifle_else_1883
+	ifgt ifle_else_1856
 	ldc 1
-	goto ifle_cont_1884
-ifle_else_1883:
+	goto ifle_cont_1857
+ifle_else_1856:
 	ldc 0
-ifle_cont_1884:
+ifle_cont_1857:
 	ldc 1
 	ixor
 	istore 4
@@ -8848,43 +8794,43 @@ ifle_cont_1884:
 	fload 6
 	fsub
 	fcmpl
-	ifgt ifle_else_1885
+	ifgt ifle_else_1858
 	ldc 1
-	goto ifle_cont_1886
-ifle_else_1885:
+	goto ifle_cont_1859
+ifle_else_1858:
 	ldc 0
-ifle_cont_1886:
+ifle_cont_1859:
 	ldc 1
 	ixor
 	istore 6
 	getstatic main/texture_color_262 [Ljava/lang/Float;
 	ldc 1
 	iload 4
-	ifne ifeq_else_1887
+	ifne ifeq_else_1860
 	iload 6
-	ifne ifeq_else_1889
+	ifne ifeq_else_1862
 	ldc 255.000000
-	goto ifeq_cont_1890
-ifeq_else_1889:
+	goto ifeq_cont_1863
+ifeq_else_1862:
 	ldc 0.000000
-ifeq_cont_1890:
-	goto ifeq_cont_1888
-ifeq_else_1887:
+ifeq_cont_1863:
+	goto ifeq_cont_1861
+ifeq_else_1860:
 	iload 6
-	ifne ifeq_else_1891
+	ifne ifeq_else_1864
 	ldc 0.000000
-	goto ifeq_cont_1892
-ifeq_else_1891:
+	goto ifeq_cont_1865
+ifeq_else_1864:
 	ldc 255.000000
-ifeq_cont_1892:
-ifeq_cont_1888:
+ifeq_cont_1865:
+ifeq_cont_1861:
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1882
-ifeq_else_1881:
+	goto ifeq_cont_1855
+ifeq_else_1854:
 	iload 2
 	ldc 2
-	if_icmpne ifeq_else_1893
+	if_icmpne ifeq_else_1866
 	aload 1
 	ldc 1
 	aaload
@@ -8923,11 +8869,11 @@ ifeq_else_1881:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1894
-ifeq_else_1893:
+	goto ifeq_cont_1867
+ifeq_else_1866:
 	iload 2
 	ldc 3
-	if_icmpne ifeq_else_1895
+	if_icmpne ifeq_else_1868
 	aload 1
 	ldc 0
 	aaload
@@ -8992,11 +8938,11 @@ ifeq_else_1893:
 	fmul
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1896
-ifeq_else_1895:
+	goto ifeq_cont_1869
+ifeq_else_1868:
 	iload 2
 	ldc 4
-	if_icmpne ifeq_else_1897
+	if_icmpne ifeq_cont_1870
 	aload 1
 	ldc 0
 	aaload
@@ -9039,7 +8985,7 @@ ifeq_else_1895:
 	fload 3
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1899
+	ifgt ifle_else_1871
 	fload 4
 	fload 3
 	fdiv
@@ -9053,10 +8999,10 @@ ifeq_else_1895:
 	fmul
 	ldc 3.141593
 	fdiv
-	goto ifle_cont_1900
-ifle_else_1899:
+	goto ifle_cont_1872
+ifle_else_1871:
 	ldc 15.000000
-ifle_cont_1900:
+ifle_cont_1872:
 	fstore 6
 	fload 6
 	fload 6
@@ -9082,7 +9028,7 @@ ifle_cont_1900:
 	fload 5
 	invokestatic libmincaml.min_caml_fabs(F)F
 	fcmpl
-	ifgt ifle_else_1901
+	ifgt ifle_else_1873
 	fload 8
 	fload 5
 	fdiv
@@ -9096,10 +9042,10 @@ ifle_cont_1900:
 	fmul
 	ldc 3.141593
 	fdiv
-	goto ifle_cont_1902
-ifle_else_1901:
+	goto ifle_cont_1874
+ifle_else_1873:
 	ldc 15.000000
-ifle_cont_1902:
+ifle_cont_1874:
 	fstore 9
 	fload 9
 	fload 9
@@ -9127,12 +9073,12 @@ ifle_cont_1902:
 	ldc 0.000000
 	fload 11
 	fcmpl
-	ifgt ifle_else_1903
+	ifgt ifle_else_1875
 	fload 11
-	goto ifle_cont_1904
-ifle_else_1903:
+	goto ifle_cont_1876
+ifle_else_1875:
 	ldc 0.000000
-ifle_cont_1904:
+ifle_cont_1876:
 	fstore 12
 	getstatic main/texture_color_262 [Ljava/lang/Float;
 	ldc 2
@@ -9143,12 +9089,10 @@ ifle_cont_1904:
 	fdiv
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	goto ifeq_cont_1898
-ifeq_else_1897:
-ifeq_cont_1898:
-ifeq_cont_1896:
-ifeq_cont_1894:
-ifeq_cont_1882:
+ifeq_cont_1870:
+ifeq_cont_1869:
+ifeq_cont_1867:
+ifeq_cont_1855:
 	return
 .end method	; utexture_593
 
@@ -9158,20 +9102,16 @@ ifeq_cont_1882:
 	fload 0
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1905
-	goto ifle_cont_1906
-ifle_else_1905:
+	ifle ifle_cont_1877
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	fload 0
 	getstatic main/texture_color_262 [Ljava/lang/Float;
 	invokestatic main.vecaccum_310([Ljava/lang/Float;F[Ljava/lang/Float;)V
-ifle_cont_1906:
+ifle_cont_1877:
 	fload 1
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1907
-	goto ifle_cont_1908
-ifle_else_1907:
+	ifle ifle_cont_1878
 	fload 1
 	fload 1
 	fmul
@@ -9215,7 +9155,7 @@ ifle_else_1907:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifle_cont_1908:
+ifle_cont_1878:
 	return
 .end method	; add_light_596
 
@@ -9223,7 +9163,7 @@ ifle_cont_1908:
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	iflt ifge_else_1909
+	iflt ifge_cont_1879
 	getstatic main/reflections_276 [[Ljava/lang/Object;
 	iload 0
 	aaload
@@ -9234,9 +9174,7 @@ ifle_cont_1908:
 	astore 5
 	aload 5
 	invokestatic main.judge_intersection_fast_582([Ljava/lang/Object;)I
-	ifne ifeq_else_1911
-	goto ifeq_cont_1912
-ifeq_else_1911:
+	ifeq ifeq_cont_1880
 	getstatic main/intersected_object_id_260 [Ljava/lang/Integer;
 	ldc 0
 	aaload
@@ -9254,14 +9192,14 @@ ifeq_else_1911:
 	iload 6
 	aload 4
 	invokestatic main.r_surface_id_389([Ljava/lang/Object;)I
-	if_icmpne ifeq_else_1913
+	if_icmpne ifeq_cont_1881
 	ldc 0
 	getstatic main/or_net_255 [[[Ljava/lang/Integer;
 	ldc 0
 	aaload
 	checkcast [[Ljava/lang/Integer;
 	invokestatic main.shadow_check_one_or_matrix_553(I[[Ljava/lang/Integer;)I
-	ifne ifeq_else_1915
+	ifne ifeq_cont_1882
 	getstatic main/nvector_261 [Ljava/lang/Float;
 	aload 5
 	invokestatic main.d_vec_385([Ljava/lang/Object;)[Ljava/lang/Float;
@@ -9287,13 +9225,9 @@ ifeq_else_1911:
 	fload 10
 	fload 2
 	invokestatic main.add_light_596(FFF)V
-	goto ifeq_cont_1916
-ifeq_else_1915:
-ifeq_cont_1916:
-	goto ifeq_cont_1914
-ifeq_else_1913:
-ifeq_cont_1914:
-ifeq_cont_1912:
+ifeq_cont_1882:
+ifeq_cont_1881:
+ifeq_cont_1880:
 	iload 0
 	ldc 1
 	isub
@@ -9301,9 +9235,7 @@ ifeq_cont_1912:
 	fload 2
 	aload 3
 	invokestatic main.trace_reflections_600(IFF[Ljava/lang/Float;)V
-	goto ifge_cont_1910
-ifge_else_1909:
-ifge_cont_1910:
+ifge_cont_1879:
 	return
 .end method	; trace_reflections_600
 
@@ -9312,13 +9244,13 @@ ifge_cont_1910:
 	.limit locals 100
 	iload 0
 	ldc 4
-	if_icmpgt ifle_else_1917
+	if_icmpgt ifle_cont_1883
 	aload 3
 	invokestatic main.p_surface_ids_370([Ljava/lang/Object;)[Ljava/lang/Integer;
 	astore 5
 	aload 2
 	invokestatic main.judge_intersection_568([Ljava/lang/Float;)I
-	ifne ifeq_else_1919
+	ifne ifeq_else_1884
 	aload 5
 	iload 0
 	ldc 1
@@ -9326,9 +9258,7 @@ ifge_cont_1910:
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	iload 0
-	ifne ifeq_else_1921
-	goto ifeq_cont_1922
-ifeq_else_1921:
+	ifeq ifeq_cont_1886
 	aload 2
 	getstatic main/light_252 [Ljava/lang/Float;
 	invokestatic main.veciprod_302([Ljava/lang/Float;[Ljava/lang/Float;)F
@@ -9337,9 +9267,7 @@ ifeq_else_1921:
 	fload 6
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1923
-	goto ifle_cont_1924
-ifle_else_1923:
+	ifle ifle_cont_1887
 	fload 6
 	fload 6
 	fmul
@@ -9387,10 +9315,10 @@ ifle_else_1923:
 	fadd
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-ifle_cont_1924:
-ifeq_cont_1922:
-	goto ifeq_cont_1920
-ifeq_else_1919:
+ifle_cont_1887:
+ifeq_cont_1886:
+	goto ifeq_cont_1885
+ifeq_else_1884:
 	getstatic main/intersected_object_id_260 [Ljava/lang/Integer;
 	ldc 0
 	aaload
@@ -9448,7 +9376,7 @@ ifeq_else_1919:
 	aload 7
 	invokestatic main.o_diffuse_348([Ljava/lang/Object;)F
 	fcmpl
-	ifgt ifle_else_1925
+	ifgt ifle_else_1888
 	aload 11
 	iload 0
 	ldc 1
@@ -9480,14 +9408,14 @@ ifeq_else_1919:
 	checkcast [Ljava/lang/Float;
 	getstatic main/nvector_261 [Ljava/lang/Float;
 	invokestatic main.veccpy_296([Ljava/lang/Float;[Ljava/lang/Float;)V
-	goto ifle_cont_1926
-ifle_else_1925:
+	goto ifle_cont_1889
+ifle_else_1888:
 	aload 11
 	iload 0
 	ldc 0
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-ifle_cont_1926:
+ifle_cont_1889:
 	ldc -2.000000
 	aload 2
 	getstatic main/nvector_261 [Ljava/lang/Float;
@@ -9509,7 +9437,7 @@ ifle_cont_1926:
 	aaload
 	checkcast [[Ljava/lang/Integer;
 	invokestatic main.shadow_check_one_or_matrix_553(I[[Ljava/lang/Integer;)I
-	ifne ifeq_else_1927
+	ifne ifeq_cont_1890
 	getstatic main/nvector_261 [Ljava/lang/Float;
 	getstatic main/light_252 [Ljava/lang/Float;
 	invokestatic main.veciprod_302([Ljava/lang/Float;[Ljava/lang/Float;)F
@@ -9526,9 +9454,7 @@ ifle_cont_1926:
 	fload 15
 	fload 13
 	invokestatic main.add_light_596(FFF)V
-	goto ifeq_cont_1928
-ifeq_else_1927:
-ifeq_cont_1928:
+ifeq_cont_1890:
 	getstatic main/intersection_point_259 [Ljava/lang/Float;
 	invokestatic main.setup_startp_519([Ljava/lang/Float;)V
 	getstatic main/n_reflections_277 [Ljava/lang/Integer;
@@ -9545,14 +9471,10 @@ ifeq_cont_1928:
 	fload 1
 	ldc 0.100000
 	fcmpl
-	ifgt ifle_else_1929
-	goto ifle_cont_1930
-ifle_else_1929:
+	ifle ifle_cont_1891
 	ldc 4
 	iload 0
-	if_icmpgt ifle_else_1931
-	goto ifle_cont_1932
-ifle_else_1931:
+	if_icmple ifle_cont_1892
 	aload 5
 	iload 0
 	ldc 1
@@ -9561,10 +9483,10 @@ ifle_else_1931:
 	ineg
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-ifle_cont_1932:
+ifle_cont_1892:
 	iload 8
 	ldc 2
-	if_icmpne ifeq_else_1933
+	if_icmpne ifeq_cont_1893
 	fload 1
 	ldc 1.000000
 	aload 7
@@ -9586,14 +9508,10 @@ ifle_cont_1932:
 	invokevirtual java/lang/Float/floatValue()F
 	fadd
 	invokestatic main.trace_ray_605(IF[Ljava/lang/Float;[Ljava/lang/Object;F)V
-	goto ifeq_cont_1934
-ifeq_else_1933:
-ifeq_cont_1934:
-ifle_cont_1930:
-ifeq_cont_1920:
-	goto ifle_cont_1918
-ifle_else_1917:
-ifle_cont_1918:
+ifeq_cont_1893:
+ifle_cont_1891:
+ifeq_cont_1885:
+ifle_cont_1883:
 	return
 .end method	; trace_ray_605
 
@@ -9602,9 +9520,7 @@ ifle_cont_1918:
 	.limit locals 100
 	aload 0
 	invokestatic main.judge_intersection_fast_582([Ljava/lang/Object;)I
-	ifne ifeq_else_1935
-	goto ifeq_cont_1936
-ifeq_else_1935:
+	ifeq ifeq_cont_1894
 	getstatic main/objects_249 [[Ljava/lang/Object;
 	getstatic main/intersected_object_id_260 [Ljava/lang/Integer;
 	ldc 0
@@ -9627,7 +9543,7 @@ ifeq_else_1935:
 	aaload
 	checkcast [[Ljava/lang/Integer;
 	invokestatic main.shadow_check_one_or_matrix_553(I[[Ljava/lang/Integer;)I
-	ifne ifeq_else_1937
+	ifne ifeq_cont_1895
 	getstatic main/nvector_261 [Ljava/lang/Float;
 	getstatic main/light_252 [Ljava/lang/Float;
 	invokestatic main.veciprod_302([Ljava/lang/Float;[Ljava/lang/Float;)F
@@ -9636,12 +9552,12 @@ ifeq_else_1935:
 	fload 3
 	ldc 0.000000
 	fcmpl
-	ifgt ifle_else_1939
+	ifgt ifle_else_1896
 	ldc 0.000000
-	goto ifle_cont_1940
-ifle_else_1939:
+	goto ifle_cont_1897
+ifle_else_1896:
 	fload 3
-ifle_cont_1940:
+ifle_cont_1897:
 	fstore 4
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	fload 1
@@ -9652,10 +9568,8 @@ ifle_cont_1940:
 	fmul
 	getstatic main/texture_color_262 [Ljava/lang/Float;
 	invokestatic main.vecaccum_310([Ljava/lang/Float;F[Ljava/lang/Float;)V
-	goto ifeq_cont_1938
-ifeq_else_1937:
-ifeq_cont_1938:
-ifeq_cont_1936:
+ifeq_cont_1895:
+ifeq_cont_1894:
 	return
 .end method	; trace_diffuse_ray_611
 
@@ -9663,7 +9577,7 @@ ifeq_cont_1936:
 	.limit stack 100
 	.limit locals 100
 	iload 3
-	iflt ifge_else_1941
+	iflt ifge_cont_1898
 	aload 0
 	iload 3
 	aaload
@@ -9675,7 +9589,7 @@ ifeq_cont_1936:
 	ldc 0.000000
 	fload 4
 	fcmpl
-	ifgt ifle_else_1943
+	ifgt ifle_else_1899
 	aload 0
 	iload 3
 	aaload
@@ -9684,8 +9598,8 @@ ifeq_cont_1936:
 	ldc 150.000000
 	fdiv
 	invokestatic main.trace_diffuse_ray_611([Ljava/lang/Object;F)V
-	goto ifle_cont_1944
-ifle_else_1943:
+	goto ifle_cont_1900
+ifle_else_1899:
 	aload 0
 	iload 3
 	ldc 1
@@ -9696,7 +9610,7 @@ ifle_else_1943:
 	ldc -150.000000
 	fdiv
 	invokestatic main.trace_diffuse_ray_611([Ljava/lang/Object;F)V
-ifle_cont_1944:
+ifle_cont_1900:
 	aload 0
 	aload 1
 	aload 2
@@ -9704,9 +9618,7 @@ ifle_cont_1944:
 	ldc 2
 	isub
 	invokestatic main.iter_trace_diffuse_rays_614([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;I)V
-	goto ifge_cont_1942
-ifge_else_1941:
-ifge_cont_1942:
+ifge_cont_1898:
 	return
 .end method	; iter_trace_diffuse_rays_614
 
@@ -9727,9 +9639,7 @@ ifge_cont_1942:
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	ifne ifeq_else_1945
-	goto ifeq_cont_1946
-ifeq_else_1945:
+	ifeq ifeq_cont_1901
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 0
 	aaload
@@ -9737,12 +9647,10 @@ ifeq_else_1945:
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
-ifeq_cont_1946:
+ifeq_cont_1901:
 	iload 0
 	ldc 1
-	if_icmpne ifeq_else_1947
-	goto ifeq_cont_1948
-ifeq_else_1947:
+	if_icmpeq ifeq_cont_1902
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 1
 	aaload
@@ -9750,12 +9658,10 @@ ifeq_else_1947:
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
-ifeq_cont_1948:
+ifeq_cont_1902:
 	iload 0
 	ldc 2
-	if_icmpne ifeq_else_1949
-	goto ifeq_cont_1950
-ifeq_else_1949:
+	if_icmpeq ifeq_cont_1903
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 2
 	aaload
@@ -9763,12 +9669,10 @@ ifeq_else_1949:
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
-ifeq_cont_1950:
+ifeq_cont_1903:
 	iload 0
 	ldc 3
-	if_icmpne ifeq_else_1951
-	goto ifeq_cont_1952
-ifeq_else_1951:
+	if_icmpeq ifeq_cont_1904
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 3
 	aaload
@@ -9776,12 +9680,10 @@ ifeq_else_1951:
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
-ifeq_cont_1952:
+ifeq_cont_1904:
 	iload 0
 	ldc 4
-	if_icmpne ifeq_else_1953
-	goto ifeq_cont_1954
-ifeq_else_1953:
+	if_icmpeq ifeq_cont_1905
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 4
 	aaload
@@ -9789,7 +9691,7 @@ ifeq_else_1953:
 	aload 1
 	aload 2
 	invokestatic main.trace_diffuse_rays_619([[Ljava/lang/Object;[Ljava/lang/Float;[Ljava/lang/Float;)V
-ifeq_cont_1954:
+ifeq_cont_1905:
 	return
 .end method	; trace_diffuse_ray_80percent_623
 
@@ -9923,7 +9825,7 @@ ifeq_cont_1954:
 	.limit locals 100
 	iload 1
 	ldc 4
-	if_icmpgt ifle_else_1955
+	if_icmpgt ifle_cont_1906
 	aload 0
 	invokestatic main.p_surface_ids_370([Ljava/lang/Object;)[Ljava/lang/Integer;
 	astore 2
@@ -9932,7 +9834,7 @@ ifeq_cont_1954:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	iflt ifge_else_1957
+	iflt ifge_cont_1907
 	aload 0
 	invokestatic main.p_calc_diffuse_372([Ljava/lang/Object;)[Ljava/lang/Integer;
 	astore 3
@@ -9941,24 +9843,18 @@ ifeq_cont_1954:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	ifne ifeq_else_1959
-	goto ifeq_cont_1960
-ifeq_else_1959:
+	ifeq ifeq_cont_1908
 	aload 0
 	iload 1
 	invokestatic main.calc_diffuse_using_1point_627([Ljava/lang/Object;I)V
-ifeq_cont_1960:
+ifeq_cont_1908:
 	aload 0
 	iload 1
 	ldc 1
 	iadd
 	invokestatic main.do_without_neighbors_636([Ljava/lang/Object;I)V
-	goto ifge_cont_1958
-ifge_else_1957:
-ifge_cont_1958:
-	goto ifle_cont_1956
-ifle_else_1955:
-ifle_cont_1956:
+ifge_cont_1907:
+ifle_cont_1906:
 	return
 .end method	; do_without_neighbors_636
 
@@ -9973,15 +9869,15 @@ ifle_cont_1956:
 	iload 1
 	ldc 1
 	iadd
-	if_icmpgt ifle_else_1961
+	if_icmpgt ifle_else_1909
 	ldc 0
-	goto ifle_cont_1962
-ifle_else_1961:
+	goto ifle_cont_1910
+ifle_else_1909:
 	iload 1
-	ifgt ifle_else_1963
+	ifgt ifle_else_1911
 	ldc 0
-	goto ifle_cont_1964
-ifle_else_1963:
+	goto ifle_cont_1912
+ifle_else_1911:
 	getstatic main/image_size_265 [Ljava/lang/Integer;
 	ldc 0
 	aaload
@@ -9990,20 +9886,20 @@ ifle_else_1963:
 	iload 0
 	ldc 1
 	iadd
-	if_icmpgt ifle_else_1965
+	if_icmpgt ifle_else_1913
 	ldc 0
-	goto ifle_cont_1966
-ifle_else_1965:
+	goto ifle_cont_1914
+ifle_else_1913:
 	iload 0
-	ifgt ifle_else_1967
+	ifgt ifle_else_1915
 	ldc 0
-	goto ifle_cont_1968
-ifle_else_1967:
+	goto ifle_cont_1916
+ifle_else_1915:
 	ldc 1
-ifle_cont_1968:
-ifle_cont_1966:
-ifle_cont_1964:
-ifle_cont_1962:
+ifle_cont_1916:
+ifle_cont_1914:
+ifle_cont_1912:
+ifle_cont_1910:
 	ireturn
 .end method	; neighbors_exist_639
 
@@ -10038,7 +9934,7 @@ ifle_cont_1962:
 	iload 4
 	invokestatic main.get_surface_id_643([Ljava/lang/Object;I)I
 	iload 5
-	if_icmpne ifeq_else_1969
+	if_icmpne ifeq_else_1917
 	aload 3
 	iload 0
 	aaload
@@ -10046,7 +9942,7 @@ ifle_cont_1962:
 	iload 4
 	invokestatic main.get_surface_id_643([Ljava/lang/Object;I)I
 	iload 5
-	if_icmpne ifeq_else_1971
+	if_icmpne ifeq_else_1919
 	aload 2
 	iload 0
 	ldc 1
@@ -10056,7 +9952,7 @@ ifle_cont_1962:
 	iload 4
 	invokestatic main.get_surface_id_643([Ljava/lang/Object;I)I
 	iload 5
-	if_icmpne ifeq_else_1973
+	if_icmpne ifeq_else_1921
 	aload 2
 	iload 0
 	ldc 1
@@ -10066,24 +9962,24 @@ ifle_cont_1962:
 	iload 4
 	invokestatic main.get_surface_id_643([Ljava/lang/Object;I)I
 	iload 5
-	if_icmpne ifeq_else_1975
+	if_icmpne ifeq_else_1923
 	ldc 1
-	goto ifeq_cont_1976
-ifeq_else_1975:
+	goto ifeq_cont_1924
+ifeq_else_1923:
 	ldc 0
-ifeq_cont_1976:
-	goto ifeq_cont_1974
-ifeq_else_1973:
+ifeq_cont_1924:
+	goto ifeq_cont_1922
+ifeq_else_1921:
 	ldc 0
-ifeq_cont_1974:
-	goto ifeq_cont_1972
-ifeq_else_1971:
+ifeq_cont_1922:
+	goto ifeq_cont_1920
+ifeq_else_1919:
 	ldc 0
-ifeq_cont_1972:
-	goto ifeq_cont_1970
-ifeq_else_1969:
+ifeq_cont_1920:
+	goto ifeq_cont_1918
+ifeq_else_1917:
 	ldc 0
-ifeq_cont_1970:
+ifeq_cont_1918:
 	ireturn
 .end method	; neighbors_are_available_646
 
@@ -10097,26 +9993,26 @@ ifeq_cont_1970:
 	astore 6
 	iload 5
 	ldc 4
-	if_icmpgt ifle_else_1977
+	if_icmpgt ifle_cont_1925
 	aload 6
 	iload 5
 	invokestatic main.get_surface_id_643([Ljava/lang/Object;I)I
-	iflt ifge_else_1979
+	iflt ifge_cont_1926
 	iload 0
 	aload 2
 	aload 3
 	aload 4
 	iload 5
 	invokestatic main.neighbors_are_available_646(I[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)I
-	ifne ifeq_else_1981
+	ifne ifeq_else_1927
 	aload 3
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
 	iload 5
 	invokestatic main.do_without_neighbors_636([Ljava/lang/Object;I)V
-	goto ifeq_cont_1982
-ifeq_else_1981:
+	goto ifeq_cont_1928
+ifeq_else_1927:
 	aload 6
 	invokestatic main.p_calc_diffuse_372([Ljava/lang/Object;)[Ljava/lang/Integer;
 	astore 7
@@ -10125,16 +10021,14 @@ ifeq_else_1981:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	ifne ifeq_else_1983
-	goto ifeq_cont_1984
-ifeq_else_1983:
+	ifeq ifeq_cont_1929
 	iload 0
 	aload 2
 	aload 3
 	aload 4
 	iload 5
 	invokestatic main.calc_diffuse_using_5points_630(I[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
-ifeq_cont_1984:
+ifeq_cont_1929:
 	iload 0
 	iload 1
 	aload 2
@@ -10144,13 +10038,9 @@ ifeq_cont_1984:
 	ldc 1
 	iadd
 	invokestatic main.try_exploit_neighbors_652(II[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
-ifeq_cont_1982:
-	goto ifge_cont_1980
-ifge_else_1979:
-ifge_cont_1980:
-	goto ifle_cont_1978
-ifle_else_1977:
-ifle_cont_1978:
+ifeq_cont_1928:
+ifge_cont_1926:
+ifle_cont_1925:
 	return
 .end method	; try_exploit_neighbors_652
 
@@ -10194,18 +10084,18 @@ ifle_cont_1978:
 	istore 1
 	iload 1
 	ldc 255
-	if_icmpgt ifle_else_1985
+	if_icmpgt ifle_else_1930
 	iload 1
-	iflt ifge_else_1987
+	iflt ifge_else_1932
 	iload 1
-	goto ifge_cont_1988
-ifge_else_1987:
+	goto ifge_cont_1933
+ifge_else_1932:
 	ldc 0
-ifge_cont_1988:
-	goto ifle_cont_1986
-ifle_else_1985:
+ifge_cont_1933:
+	goto ifle_cont_1931
+ifle_else_1930:
 	ldc 255
-ifle_cont_1986:
+ifle_cont_1931:
 	istore 2
 	iload 2
 	invokestatic libmincaml.min_caml_print_int(I)V
@@ -10247,13 +10137,13 @@ ifle_cont_1986:
 	.limit locals 100
 	iload 1
 	ldc 4
-	if_icmpgt ifle_else_1989
+	if_icmpgt ifle_cont_1934
 	aload 0
 	iload 1
 	invokestatic main.get_surface_id_643([Ljava/lang/Object;I)I
 	istore 2
 	iload 2
-	iflt ifge_else_1991
+	iflt ifge_cont_1935
 	aload 0
 	invokestatic main.p_calc_diffuse_372([Ljava/lang/Object;)[Ljava/lang/Integer;
 	astore 3
@@ -10262,9 +10152,7 @@ ifle_cont_1986:
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	ifne ifeq_else_1993
-	goto ifeq_cont_1994
-ifeq_else_1993:
+	ifeq ifeq_cont_1936
 	aload 0
 	invokestatic main.p_group_id_378([Ljava/lang/Object;)I
 	istore 4
@@ -10298,18 +10186,14 @@ ifeq_else_1993:
 	checkcast [Ljava/lang/Float;
 	getstatic main/diffuse_ray_263 [Ljava/lang/Float;
 	invokestatic main.veccpy_296([Ljava/lang/Float;[Ljava/lang/Float;)V
-ifeq_cont_1994:
+ifeq_cont_1936:
 	aload 0
 	iload 1
 	ldc 1
 	iadd
 	invokestatic main.pretrace_diffuse_rays_665([Ljava/lang/Object;I)V
-	goto ifge_cont_1992
-ifge_else_1991:
-ifge_cont_1992:
-	goto ifle_cont_1990
-ifle_else_1989:
-ifle_cont_1990:
+ifge_cont_1935:
+ifle_cont_1934:
 	return
 .end method	; pretrace_diffuse_rays_665
 
@@ -10317,7 +10201,7 @@ ifle_cont_1990:
 	.limit stack 100
 	.limit locals 100
 	iload 1
-	iflt ifge_else_1995
+	iflt ifge_cont_1937
 	getstatic main/scan_pitch_267 [Ljava/lang/Float;
 	ldc 0
 	aaload
@@ -10419,9 +10303,7 @@ ifle_cont_1990:
 	fload 4
 	fload 5
 	invokestatic main.pretrace_pixels_668([[Ljava/lang/Object;IIFFF)V
-	goto ifge_cont_1996
-ifge_else_1995:
-ifge_cont_1996:
+ifge_cont_1937:
 	return
 .end method	; pretrace_pixels_668
 
@@ -10510,9 +10392,7 @@ ifge_cont_1996:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	iload 0
-	if_icmpgt ifle_else_1997
-	goto ifle_cont_1998
-ifle_else_1997:
+	if_icmple ifle_cont_1938
 	getstatic main/rgb_264 [Ljava/lang/Float;
 	aload 3
 	iload 0
@@ -10524,15 +10404,15 @@ ifle_else_1997:
 	iload 1
 	aload 4
 	invokestatic main.neighbors_exist_639(II[[Ljava/lang/Object;)I
-	ifne ifeq_else_1999
+	ifne ifeq_else_1939
 	aload 3
 	iload 0
 	aaload
 	checkcast [Ljava/lang/Object;
 	ldc 0
 	invokestatic main.do_without_neighbors_636([Ljava/lang/Object;I)V
-	goto ifeq_cont_2000
-ifeq_else_1999:
+	goto ifeq_cont_1940
+ifeq_else_1939:
 	iload 0
 	iload 1
 	aload 2
@@ -10540,7 +10420,7 @@ ifeq_else_1999:
 	aload 4
 	ldc 0
 	invokestatic main.try_exploit_neighbors_652(II[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
-ifeq_cont_2000:
+ifeq_cont_1940:
 	invokestatic main.write_rgb_663()V
 	iload 0
 	ldc 1
@@ -10550,7 +10430,7 @@ ifeq_cont_2000:
 	aload 3
 	aload 4
 	invokestatic main.scan_pixel_679(II[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;)V
-ifle_cont_1998:
+ifle_cont_1938:
 	return
 .end method	; scan_pixel_679
 
@@ -10563,9 +10443,7 @@ ifle_cont_1998:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	iload 0
-	if_icmpgt ifle_else_2001
-	goto ifle_cont_2002
-ifle_else_2001:
+	if_icmple ifle_cont_1941
 	getstatic main/image_size_265 [Ljava/lang/Integer;
 	ldc 1
 	aaload
@@ -10574,16 +10452,14 @@ ifle_else_2001:
 	ldc 1
 	isub
 	iload 0
-	if_icmpgt ifle_else_2003
-	goto ifle_cont_2004
-ifle_else_2003:
+	if_icmple ifle_cont_1942
 	aload 3
 	iload 0
 	ldc 1
 	iadd
 	iload 4
 	invokestatic main.pretrace_line_675([[Ljava/lang/Object;II)V
-ifle_cont_2004:
+ifle_cont_1942:
 	ldc 0
 	iload 0
 	aload 1
@@ -10600,7 +10476,7 @@ ifle_cont_2004:
 	ldc 2
 	invokestatic main.add_mod5_283(II)I
 	invokestatic main.scan_line_685(I[[Ljava/lang/Object;[[Ljava/lang/Object;[[Ljava/lang/Object;I)V
-ifle_cont_2002:
+ifle_cont_1941:
 	return
 .end method	; scan_line_685
 
@@ -10866,7 +10742,7 @@ ifle_cont_2002:
 	.limit stack 100
 	.limit locals 100
 	iload 1
-	iflt ifge_else_2005
+	iflt ifge_else_1943
 	aload 0
 	iload 1
 	invokestatic main.create_pixel_693()[Ljava/lang/Object;
@@ -10876,10 +10752,10 @@ ifle_cont_2002:
 	ldc 1
 	isub
 	invokestatic main.init_line_elements_695([[Ljava/lang/Object;I)[[Ljava/lang/Object;
-	goto ifge_cont_2006
-ifge_else_2005:
+	goto ifge_cont_1944
+ifge_else_1943:
 	aload 0
-ifge_cont_2006:
+ifge_cont_1944:
 	areturn
 .end method	; init_line_elements_695
 
@@ -10958,7 +10834,7 @@ ifge_cont_2006:
 	.limit locals 100
 	ldc 5
 	iload 0
-	if_icmpgt ifle_else_2007
+	if_icmpgt ifle_else_1945
 	fload 1
 	fload 1
 	fmul
@@ -11062,8 +10938,8 @@ ifge_cont_2006:
 	fload 8
 	fload 9
 	invokestatic main.vecset_286([Ljava/lang/Float;FFF)V
-	goto ifle_cont_2008
-ifle_else_2007:
+	goto ifle_cont_1946
+ifle_else_1945:
 	fload 2
 	fload 3
 	invokestatic main.adjust_position_702(FF)F
@@ -11080,7 +10956,7 @@ ifle_else_2007:
 	iload 5
 	iload 6
 	invokestatic main.calc_dirvec_705(IFFFFII)V
-ifle_cont_2008:
+ifle_cont_1946:
 	return
 .end method	; calc_dirvec_705
 
@@ -11088,7 +10964,7 @@ ifle_cont_2008:
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	iflt ifge_else_2009
+	iflt ifge_cont_1947
 	iload 0
 	i2f
 	ldc 0.200000
@@ -11130,9 +11006,7 @@ ifle_cont_2008:
 	invokestatic main.add_mod5_283(II)I
 	iload 3
 	invokestatic main.calc_dirvecs_713(IFII)V
-	goto ifge_cont_2010
-ifge_else_2009:
-ifge_cont_2010:
+ifge_cont_1947:
 	return
 .end method	; calc_dirvecs_713
 
@@ -11140,7 +11014,7 @@ ifge_cont_2010:
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	iflt ifge_else_2011
+	iflt ifge_cont_1948
 	iload 0
 	i2f
 	ldc 0.200000
@@ -11163,9 +11037,7 @@ ifge_cont_2010:
 	ldc 4
 	iadd
 	invokestatic main.calc_dirvec_rows_718(III)V
-	goto ifge_cont_2012
-ifge_else_2011:
-ifge_cont_2012:
+ifge_cont_1948:
 	return
 .end method	; calc_dirvec_rows_718
 
@@ -11215,7 +11087,7 @@ ifge_cont_2012:
 	.limit stack 100
 	.limit locals 100
 	iload 1
-	iflt ifge_else_2013
+	iflt ifge_cont_1949
 	aload 0
 	iload 1
 	invokestatic main.create_dirvec_722()[Ljava/lang/Object;
@@ -11225,9 +11097,7 @@ ifge_cont_2012:
 	ldc 1
 	isub
 	invokestatic main.create_dirvec_elements_724([[Ljava/lang/Object;I)V
-	goto ifge_cont_2014
-ifge_else_2013:
-ifge_cont_2014:
+ifge_cont_1949:
 	return
 .end method	; create_dirvec_elements_724
 
@@ -11235,7 +11105,7 @@ ifge_cont_2014:
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	iflt ifge_else_2015
+	iflt ifge_cont_1950
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 0
 	invokestatic main.create_dirvec_722()[Ljava/lang/Object;
@@ -11733,9 +11603,7 @@ ifge_cont_2014:
 	ldc 1
 	isub
 	invokestatic main.create_dirvecs_727(I)V
-	goto ifge_cont_2016
-ifge_else_2015:
-ifge_cont_2016:
+ifge_cont_1950:
 	return
 .end method	; create_dirvecs_727
 
@@ -11743,7 +11611,7 @@ ifge_cont_2016:
 	.limit stack 100
 	.limit locals 100
 	iload 1
-	iflt ifge_else_2017
+	iflt ifge_cont_1951
 	aload 0
 	iload 1
 	aaload
@@ -11754,9 +11622,7 @@ ifge_cont_2016:
 	ldc 1
 	isub
 	invokestatic main.init_dirvec_constants_729([[Ljava/lang/Object;I)V
-	goto ifge_cont_2018
-ifge_else_2017:
-ifge_cont_2018:
+ifge_cont_1951:
 	return
 .end method	; init_dirvec_constants_729
 
@@ -11764,7 +11630,7 @@ ifge_cont_2018:
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	iflt ifge_else_2019
+	iflt ifge_cont_1952
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 0
 	aaload
@@ -11775,9 +11641,7 @@ ifge_cont_2018:
 	ldc 1
 	isub
 	invokestatic main.init_vecset_constants_732(I)V
-	goto ifge_cont_2020
-ifge_else_2019:
-ifge_cont_2020:
+ifge_cont_1952:
 	return
 .end method	; init_vecset_constants_732
 
@@ -12001,7 +11865,7 @@ ifge_cont_2020:
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	iflt ifge_else_2021
+	iflt ifge_cont_1953
 	getstatic main/objects_249 [[Ljava/lang/Object;
 	iload 0
 	aaload
@@ -12010,42 +11874,34 @@ ifge_cont_2020:
 	aload 1
 	invokestatic main.o_reflectiontype_328([Ljava/lang/Object;)I
 	ldc 2
-	if_icmpne ifeq_else_2023
+	if_icmpne ifeq_cont_1954
 	ldc 1.000000
 	aload 1
 	invokestatic main.o_diffuse_348([Ljava/lang/Object;)F
 	fcmpl
-	ifgt ifle_else_2025
-	goto ifle_cont_2026
-ifle_else_2025:
+	ifle ifle_cont_1955
 	aload 1
 	invokestatic main.o_form_326([Ljava/lang/Object;)I
 	istore 2
 	iload 2
 	ldc 1
-	if_icmpne ifeq_else_2027
+	if_icmpne ifeq_else_1956
 	iload 0
 	aload 1
 	invokestatic main.setup_rect_reflection_743(I[Ljava/lang/Object;)V
-	goto ifeq_cont_2028
-ifeq_else_2027:
+	goto ifeq_cont_1957
+ifeq_else_1956:
 	iload 2
 	ldc 2
-	if_icmpne ifeq_else_2029
+	if_icmpne ifeq_cont_1958
 	iload 0
 	aload 1
 	invokestatic main.setup_surface_reflection_746(I[Ljava/lang/Object;)V
-	goto ifeq_cont_2030
-ifeq_else_2029:
-ifeq_cont_2030:
-ifeq_cont_2028:
-ifle_cont_2026:
-	goto ifeq_cont_2024
-ifeq_else_2023:
-ifeq_cont_2024:
-	goto ifge_cont_2022
-ifge_else_2021:
-ifge_cont_2022:
+ifeq_cont_1958:
+ifeq_cont_1957:
+ifle_cont_1955:
+ifeq_cont_1954:
+ifge_cont_1953:
 	return
 .end method	; setup_reflections_749
 
