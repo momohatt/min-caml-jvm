@@ -2564,60 +2564,6 @@ ifeq_cont_1624:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	iload 1
 	ireturn
 .end method	; o_texturetype_324
@@ -2627,65 +2573,11 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
 	ldc 1
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	iload 2
 	ireturn
 .end method	; o_form_326
@@ -2695,65 +2587,11 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
 	ldc 2
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	iload 3
 	ireturn
 .end method	; o_reflectiontype_328
@@ -2763,65 +2601,11 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
 	ldc 6
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	iload 7
 	ireturn
 .end method	; o_isinvert_330
@@ -2831,65 +2615,11 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
 	ldc 3
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	iload 4
 	ireturn
 .end method	; o_isrot_332
@@ -2899,65 +2629,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 5
 	ldc 0
 	aaload
@@ -2971,65 +2646,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 5
 	ldc 1
 	aaload
@@ -3043,65 +2663,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 5
 	ldc 2
 	aaload
@@ -3115,65 +2680,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
 	ldc 4
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 5
 	areturn
 .end method	; o_param_abc_340
@@ -3183,65 +2693,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 6
 	ldc 0
 	aaload
@@ -3255,65 +2710,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 6
 	ldc 1
 	aaload
@@ -3327,65 +2727,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
 	ldc 5
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 6
 	ldc 2
 	aaload
@@ -3399,65 +2744,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 8
 	ldc 0
 	aaload
@@ -3471,65 +2761,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
 	ldc 7
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 8
 	ldc 1
 	aaload
@@ -3543,65 +2778,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
 	ldc 8
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 9
 	ldc 0
 	aaload
@@ -3615,65 +2795,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
 	ldc 8
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 9
 	ldc 1
 	aaload
@@ -3687,65 +2812,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
 	ldc 8
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 9
 	ldc 2
 	aaload
@@ -3759,65 +2829,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 10
 	ldc 0
 	aaload
@@ -3831,65 +2846,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 10
 	ldc 1
 	aaload
@@ -3903,65 +2863,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
 	ldc 9
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 10
-	dup
-	ldc 10
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 11
 	aload 10
 	ldc 2
 	aaload
@@ -3974,61 +2879,6 @@ ifeq_cont_1624:
 	.limit stack 100
 	.limit locals 100
 	aload 0
-	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 3
-	dup
-	ldc 3
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 8
-	dup
-	ldc 8
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 9
-	dup
-	ldc 9
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 10
 	dup
 	ldc 10
 	aaload
@@ -4047,41 +2897,6 @@ ifeq_cont_1624:
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 2
-	dup
-	ldc 2
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 3
-	dup
-	ldc 3
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 8
 	aload 1
 	areturn
 .end method	; p_rgb_366
@@ -4091,45 +2906,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 1
-	dup
 	ldc 1
 	aaload
 	checkcast [[Ljava/lang/Float;
 	astore 2
-	dup
-	ldc 2
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 3
-	dup
-	ldc 3
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 8
 	aload 2
 	areturn
 .end method	; p_intersection_points_368
@@ -4139,45 +2919,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 2
-	dup
 	ldc 2
 	aaload
 	checkcast [Ljava/lang/Integer;
 	astore 3
-	dup
-	ldc 3
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 8
 	aload 3
 	areturn
 .end method	; p_surface_ids_370
@@ -4187,45 +2932,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 2
-	dup
-	ldc 2
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 3
-	dup
 	ldc 3
 	aaload
 	checkcast [Ljava/lang/Integer;
 	astore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 8
 	aload 4
 	areturn
 .end method	; p_calc_diffuse_372
@@ -4235,45 +2945,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 2
-	dup
-	ldc 2
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 3
-	dup
-	ldc 3
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 4
-	dup
 	ldc 4
 	aaload
 	checkcast [[Ljava/lang/Float;
 	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 8
 	aload 5
 	areturn
 .end method	; p_energy_374
@@ -4283,45 +2958,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 2
-	dup
-	ldc 2
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 3
-	dup
-	ldc 3
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 5
-	dup
 	ldc 5
 	aaload
 	checkcast [[Ljava/lang/Float;
 	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 8
 	aload 6
 	areturn
 .end method	; p_received_ray_20percent_376
@@ -4331,45 +2971,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 2
-	dup
-	ldc 2
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 3
-	dup
-	ldc 3
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 6
-	dup
 	ldc 6
 	aaload
 	checkcast [Ljava/lang/Integer;
 	astore 7
-	dup
-	ldc 7
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 8
 	aload 7
 	ldc 0
 	aaload
@@ -4383,45 +2988,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 2
-	dup
-	ldc 1
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 3
-	dup
-	ldc 2
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 4
-	dup
-	ldc 3
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 5
-	dup
-	ldc 4
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 5
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 7
-	dup
 	ldc 6
 	aaload
 	checkcast [Ljava/lang/Integer;
 	astore 8
-	dup
-	ldc 7
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 9
 	aload 8
 	ldc 0
 	iload 1
@@ -4434,41 +3004,6 @@ ifeq_cont_1624:
 	.limit stack 100
 	.limit locals 100
 	aload 0
-	dup
-	ldc 0
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 2
-	dup
-	ldc 2
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 3
-	dup
-	ldc 3
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 4
-	dup
-	ldc 4
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 5
-	dup
-	ldc 5
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 6
-	dup
-	ldc 6
-	aaload
-	checkcast [Ljava/lang/Integer;
-	astore 7
 	dup
 	ldc 7
 	aaload
@@ -4487,11 +3022,6 @@ ifeq_cont_1624:
 	aaload
 	checkcast [Ljava/lang/Float;
 	astore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [[Ljava/lang/Float;
-	astore 2
 	aload 1
 	areturn
 .end method	; d_vec_385
@@ -4500,11 +3030,6 @@ ifeq_cont_1624:
 	.limit stack 100
 	.limit locals 100
 	aload 0
-	dup
-	ldc 0
-	aaload
-	checkcast [Ljava/lang/Float;
-	astore 1
 	dup
 	ldc 1
 	aaload
@@ -4524,17 +3049,6 @@ ifeq_cont_1624:
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [Ljava/lang/Object;
-	astore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Float
-	invokevirtual java/lang/Float/floatValue()F
-	fstore 3
 	iload 1
 	ireturn
 .end method	; r_surface_id_389
@@ -4544,22 +3058,10 @@ ifeq_cont_1624:
 	.limit locals 100
 	aload 0
 	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
 	ldc 1
 	aaload
 	checkcast [Ljava/lang/Object;
 	astore 2
-	dup
-	ldc 2
-	aaload
-	checkcast java/lang/Float
-	invokevirtual java/lang/Float/floatValue()F
-	fstore 3
 	aload 2
 	areturn
 .end method	; r_dvec_391
@@ -4568,17 +3070,6 @@ ifeq_cont_1624:
 	.limit stack 100
 	.limit locals 100
 	aload 0
-	dup
-	ldc 0
-	aaload
-	checkcast java/lang/Integer
-	invokevirtual java/lang/Integer/intValue()I
-	istore 1
-	dup
-	ldc 1
-	aaload
-	checkcast [Ljava/lang/Object;
-	astore 2
 	dup
 	ldc 2
 	aaload

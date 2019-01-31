@@ -171,12 +171,16 @@ let rec g fv env e =
     g fv env e1 @
     List.concat (List.mapi
                    (fun n (y, t) ->
-                      let t' = typet2ty t in
-                      [Dup; Ldc(I(n));
-                       ALoad(`A);
-                       Checkcast(typet2tyobj t);
-                       Unboxing(t');
-                       Store(t', List.length env + n)]) xts) @
+                      if S.mem y (Closure.fv e2) then
+                        let t' = typet2ty t in
+                        [Dup; Ldc(I(n));
+                         ALoad(`A);
+                         Checkcast(typet2tyobj t);
+                         Unboxing(t');
+                         Store(t', List.length env + n)]
+                      else
+                        (* 使われない分は取り出さない *)
+                        []) xts) @
     g fv ((List.rev xts) @ env) e2
   | Closure.Array(Int(n) as e1, e2, t) ->
     (* 初期値をlocal variableに(一時的に)store *)
