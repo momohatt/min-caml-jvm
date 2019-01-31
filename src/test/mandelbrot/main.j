@@ -6,18 +6,18 @@
 	aload 0
 	invokespecial java/lang/Object/<init>()V
 	return
-.end method
+.end method	; <init>
 
-.method public static iloop(IFFFFFF)V
+.method public static iloop_13(IFFFFFF)V
 	.limit stack 100
 	.limit locals 100
 	iload 0
 	ldc 0
-	if_icmpne IfEq_else_4
+	if_icmpne IfEq_else_28
 	ldc 1
 	invokestatic libmincaml.min_caml_print_int(I)V
-	goto IfEq_cont_5
-IfEq_else_4:
+	goto IfEq_cont_29
+IfEq_else_28:
 	fload 3
 	fload 4
 	fsub
@@ -47,12 +47,10 @@ IfEq_else_4:
 	fload 11
 	fload 12
 	fadd
-	ldc 2.000000
-	ldc 2.000000
-	fmul
+	ldc 4.000000
 	fcmpl
 	ldc 0
-	if_icmpgt IfLE_else_6
+	if_icmpgt IfLE_else_30
 	iload 0
 	ldc 1
 	isub
@@ -62,24 +60,24 @@ IfEq_else_4:
 	fload 12
 	fload 5
 	fload 6
-	invokestatic main.iloop(IFFFFFF)V
-	goto IfLE_cont_7
-IfLE_else_6:
+	invokestatic main.iloop_13(IFFFFFF)V
+	goto IfLE_cont_31
+IfLE_else_30:
 	ldc 0
 	invokestatic libmincaml.min_caml_print_int(I)V
-IfLE_cont_7:
-IfEq_cont_5:
+IfLE_cont_31:
+IfEq_cont_29:
 	return
-.end method
+.end method	; iloop_13
 
-.method public static xloop(II)V
+.method public static xloop_6(II)V
 	.limit stack 100
 	.limit locals 100
 	ldc 400
 	iload 0
-	if_icmpgt IfLE_else_8
-	goto IfLE_cont_9
-IfLE_else_8:
+	if_icmpgt IfLE_else_32
+	goto IfLE_cont_33
+IfLE_else_32:
 	iload 0
 	i2f
 	ldc 2.000000
@@ -105,41 +103,41 @@ IfLE_else_8:
 	ldc 0.000000
 	fload 2
 	fload 3
-	invokestatic main.iloop(IFFFFFF)V
+	invokestatic main.iloop_13(IFFFFFF)V
 	iload 0
 	ldc 1
 	iadd
 	iload 1
-	invokestatic main.xloop(II)V
-IfLE_cont_9:
+	invokestatic main.xloop_6(II)V
+IfLE_cont_33:
 	return
-.end method
+.end method	; xloop_6
 
-.method public static yloop(I)V
+.method public static yloop_4(I)V
 	.limit stack 100
 	.limit locals 100
 	ldc 400
 	iload 0
-	if_icmpgt IfLE_else_10
-	goto IfLE_cont_11
-IfLE_else_10:
+	if_icmpgt IfLE_else_34
+	goto IfLE_cont_35
+IfLE_else_34:
 	invokestatic libmincaml.min_caml_print_newline()V
 	ldc 0
 	iload 0
-	invokestatic main.xloop(II)V
+	invokestatic main.xloop_6(II)V
 	iload 0
 	ldc 1
 	iadd
-	invokestatic main.yloop(I)V
-IfLE_cont_11:
+	invokestatic main.yloop_4(I)V
+IfLE_cont_35:
 	return
-.end method
+.end method	; yloop_4
 
 .method public static main([Ljava/lang/String;)V
 	.limit stack 100
 	.limit locals 100
 	ldc 0
-	invokestatic main.yloop(I)V
+	invokestatic main.yloop_4(I)V
 	return
-.end method
+.end method	; main
 
