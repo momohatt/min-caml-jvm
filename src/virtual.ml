@@ -99,10 +99,9 @@ let rec g fv env e =
   | Closure.ExtFunApp("abs_float", [e2]) -> g fv env e2 @ [InvokeStatic("java/lang/Math.abs", Fun([PFloat], PFloat))]
   | Closure.ExtFunApp("fabs", [e2]) -> g fv env e2 @ [InvokeStatic("java/lang/Math.abs", Fun([PFloat], PFloat))]
   | Closure.ExtFunApp("floor", [e2]) -> g fv env e2 @ [CallMath("floor", "(D)D")]
-  | Closure.ExtFunApp("float_of_int", [e2]) ->
-    g fv env e2 @ [ItoF]
-  | Closure.ExtFunApp("int_of_float", [e2]) ->
-    g fv env e2 @ [FtoI]
+  | Closure.ExtFunApp("float_of_int", [e2]) -> g fv env e2 @ [ItoF]
+  | Closure.ExtFunApp("int_of_float", [e2]) -> g fv env e2 @ [FtoI]
+  | Closure.ExtFunApp("truncate", [e2]) -> g fv env e2 @ [FtoI]
   | Closure.ExtFunApp(f, e2) ->
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("libmincaml.min_caml_" ^ f, typet2tysig (M.find f !Typing.extenv))]
   | Closure.AppDir(f, e2) ->
@@ -252,7 +251,7 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
 
 let f { Closure.closures = closures; Closure.globals = glb; Closure.funs = fundef; Closure.body = e } : Asm.prog =
   (* List.iter (fun f -> let { Closure.name = (x, _); _} = f in print_endline x) fundef; *)
-  Printf.printf "globals = %s\n" (String.concat " " (List.map (fun (x, _, _) -> x) glb));
+  (* Printf.printf "globals = %s\n" (String.concat " " (List.map (fun (x, _, _) -> x) glb)); *)
   (* この時点でfundefは遅く定義された方から並んでいる *)
   main_globals := List.rev glb;
   (* main以外の関数を変換 *)

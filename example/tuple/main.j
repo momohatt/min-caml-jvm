@@ -1,39 +1,39 @@
 .class public main
 .super java/lang/Object
-.field public static a_1 [Ljava/lang/Integer;
-.field public static b_2 [[Ljava/lang/Integer;
-.field public static c_3 [[[Ljava/lang/Integer;
+.field public static a_2 [[Ljava/lang/Object;
+.field public static b_3 [[[Ljava/lang/Object;
 .method public static <clinit>()V
 	.limit stack 100
 	.limit locals 100
-	ldc 10
+	ldc 2
+	anewarray java/lang/Object
+	dup
+	ldc 0
+	ldc 2
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	aastore
+	dup
+	ldc 1
+	ldc 3
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	aastore
 	astore 0
 	ldc 1
-	anewarray java/lang/Integer
+	anewarray [Ljava/lang/Object;
 	dup
 	ldc 0
 	aload 0
 	aastore
-	putstatic main/a_1 [Ljava/lang/Integer;
-	getstatic main/a_1 [Ljava/lang/Integer;
+	putstatic main/a_2 [[Ljava/lang/Object;
+	getstatic main/a_2 [[Ljava/lang/Object;
 	astore 0
 	ldc 1
-	anewarray [Ljava/lang/Integer;
+	anewarray [[Ljava/lang/Object;
 	dup
 	ldc 0
 	aload 0
 	aastore
-	putstatic main/b_2 [[Ljava/lang/Integer;
-	getstatic main/b_2 [[Ljava/lang/Integer;
-	astore 0
-	ldc 1
-	anewarray [[Ljava/lang/Integer;
-	dup
-	ldc 0
-	aload 0
-	aastore
-	putstatic main/c_3 [[[Ljava/lang/Integer;
+	putstatic main/b_3 [[[Ljava/lang/Object;
 	return
 .end method	; <clinit>
 
@@ -48,18 +48,23 @@
 .method public static main([Ljava/lang/String;)V
 	.limit stack 100
 	.limit locals 100
-	getstatic main/c_3 [[[Ljava/lang/Integer;
+	getstatic main/b_3 [[[Ljava/lang/Object;
 	ldc 0
 	aaload
-	checkcast [[Ljava/lang/Integer;
+	checkcast [[Ljava/lang/Object;
 	ldc 0
 	aaload
-	checkcast [Ljava/lang/Integer;
-	ldc 0
+	checkcast [Ljava/lang/Object;
+	dup
+	ldc 1
 	aaload
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
+	istore 0
+	pop
+	iload 0
 	invokestatic libmincaml.min_caml_print_int(I)V
+	invokestatic libmincaml.min_caml_print_newline()V
 	return
 .end method	; main
 

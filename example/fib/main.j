@@ -6,50 +6,37 @@
 	aload 0
 	invokespecial java/lang/Object/<init>()V
 	return
-.end method
+.end method	; <init>
 
-.method public static ack(II)I
+.method public static fib_2(I)I
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	ldc 0
-	if_icmpgt IfLE_else_1
-	iload 1
 	ldc 1
+	if_icmpgt ifle_else_1
+	iload 0
+	goto ifle_cont_1
+ifle_else_1:
+	iload 0
+	ldc 1
+	isub
+	invokestatic main.fib_2(I)I
+	iload 0
+	ldc 2
+	isub
+	invokestatic main.fib_2(I)I
 	iadd
-	goto IfLE_cont_2
-IfLE_else_1:
-	iload 1
-	ldc 0
-	if_icmpgt IfLE_else_3
-	iload 0
-	ldc 1
-	isub
-	ldc 1
-	invokestatic main.ack(II)I
-	goto IfLE_cont_4
-IfLE_else_3:
-	iload 0
-	ldc 1
-	isub
-	iload 0
-	iload 1
-	ldc 1
-	isub
-	invokestatic main.ack(II)I
-	invokestatic main.ack(II)I
-IfLE_cont_4:
-IfLE_cont_2:
+ifle_cont_1:
 	ireturn
-.end method
+.end method	; fib_2
 
 .method public static main([Ljava/lang/String;)V
 	.limit stack 100
 	.limit locals 100
-	ldc 3
-	ldc 10
-	invokestatic main.ack(II)I
+	ldc 30
+	invokestatic main.fib_2(I)I
 	invokestatic libmincaml.min_caml_print_int(I)V
+	invokestatic libmincaml.min_caml_print_newline()V
 	return
-.end method
+.end method	; main
 

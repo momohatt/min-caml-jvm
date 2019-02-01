@@ -6,44 +6,44 @@
 	aload 0
 	invokespecial java/lang/Object/<init>()V
 	return
-.end method
+.end method	; <init>
 
-.method public static gcd(II)I
+.method public static gcd_2(II)I
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	ldc 0
-	if_icmpne IfEq_else_1
+	ifne ifeq_else_1
 	iload 1
-	goto IfEq_cont_2
-IfEq_else_1:
+	goto ifeq_cont_1
+ifeq_else_1:
 	iload 0
 	iload 1
-	if_icmpgt IfLE_else_3
+	if_icmpgt ifle_else_2
 	iload 0
 	iload 1
 	iload 0
 	isub
-	invokestatic main.gcd(II)I
-	goto IfLE_cont_4
-IfLE_else_3:
+	invokestatic main.gcd_2(II)I
+	goto ifle_cont_2
+ifle_else_2:
 	iload 1
 	iload 0
 	iload 1
 	isub
-	invokestatic main.gcd(II)I
-IfLE_cont_4:
-IfEq_cont_2:
+	invokestatic main.gcd_2(II)I
+ifle_cont_2:
+ifeq_cont_1:
 	ireturn
-.end method
+.end method	; gcd_2
 
 .method public static main([Ljava/lang/String;)V
 	.limit stack 100
 	.limit locals 100
 	ldc 21600
 	ldc 337500
-	invokestatic main.gcd(II)I
+	invokestatic main.gcd_2(II)I
 	invokestatic libmincaml.min_caml_print_int(I)V
+	invokestatic libmincaml.min_caml_print_newline()V
 	return
-.end method
+.end method	; main
 

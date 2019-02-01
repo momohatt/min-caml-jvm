@@ -32,9 +32,9 @@ let compile oc dirname e =
 
 let file f =
   let id = String.sub f 0 ((String.length f) - 3) in
+  let inchan = open_in f in
   Sys.command ("mkdir -p " ^ id) |> ignore;
   let ofilename = id ^ "/main.j" in
-  let inchan = open_in f in
   let outchan = open_out ofilename in
   try
     compile outchan id (Lexing.from_channel inchan);
