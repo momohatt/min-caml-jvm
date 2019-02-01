@@ -26,7 +26,7 @@ $ java main
 Make sure to place `libmincaml.class` in your working directory.
 
 ## Examples
-See [examples/](https://github.com/momohatt/min-caml-jvm/tree/master/examples)
+See [example/](https://github.com/momohatt/min-caml-jvm/tree/master/example)
 
 ## References
 * [min-caml](https://github.com/esumii/min-caml)
