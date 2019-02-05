@@ -1,4 +1,4 @@
-type closure = { entry : Id.l; fv : (Id.t * Type.t) list }
+type closure = { name : Id.t; typ : Type.t; fv : (Id.t * Type.t) list }
 type t = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | Unit
   | Int of int
@@ -20,8 +20,8 @@ type t = (* クロージャ変換後の式 (caml2html: closure_t) *)
   | IfLE of t * t * t * t
   | Let of (Id.t * Type.t) * t * t
   | Var of Id.t
-  | MakeCls of (Id.t * Type.t) * closure * t
-  | AppCls of t * t list * Type.t
+  | MakeCls of Id.t * closure * t
+  | AppCls of t * t list * Type.t (* type of closure (function) *)
   | AppDir of Id.t * t list
   | ExtFunApp of Id.t * t list
   | Tuple of (t * Type.t) list
@@ -38,7 +38,7 @@ type prog = {
   closures : (Id.t * closure) list;
   globals : (Id.t * Type.t * t) list;
   funs : fundef list;
-  body : t;
+  main : t;
 }
 
 let rec str_of_t (exp : t) : string =
@@ -68,8 +68,8 @@ let rec str_of_t (exp : t) : string =
      | IfEq _ | IfLE _ -> "LET " ^ x ^ " =\n" ^ (str_of_t e1) ^ ( "IN\n") ^ (str_of_t e2)
      | _ -> "LET " ^ x ^ " = " ^ (str_of_t e1) ^ " IN\n" ^ (str_of_t e2))
   | Var(x) -> "VAR " ^ x
-  | MakeCls((f, _), { entry = Id.L(l); fv = xl }, e) ->
-    "MAKECLS " ^ f ^ " = <" ^ l ^ ", {" ^ (String.concat ", " (List.map fst xl)) ^ "}> IN\n" ^ (str_of_t e)
+  | MakeCls(f, e1, e2) ->
+    "MAKECLS " ^ f ^ " = <" ^ e1.name ^ ", {" ^ (String.concat ", " (List.map fst e1.fv)) ^ "}> IN\n" ^ (str_of_t e2)
   | AppCls(e1, e2, t) ->
     Printf.sprintf "(AppCls %s : %s (%s))" (str_of_t e1) (Type.string_of_t t) (String.concat " " (List.map (fun e -> str_of_t e) e2))
   | AppDir(e1, e2) -> e1 ^ " " ^ String.concat " " (List.map (fun e -> str_of_t e) e2)
@@ -89,7 +89,7 @@ let string_of_fundef (f : fundef) =
   Printf.sprintf "%s (%s) : %s=\n%s" l (String.concat ", " (List.map fst f.args)) (Type.string_of_t t) (str_of_t e)
 
 let rec string_of_prog p =
-  String.concat "\n\n" (List.map string_of_fundef p.funs) ^ "\n" ^ string_of_t p.body
+  String.concat "\n\n" (List.map string_of_fundef p.funs) ^ "\n" ^ string_of_t p.main
 
 let print_t (exp : t) = print_endline (string_of_t exp)
 let print_fundef f = print_endline (string_of_fundef f)
@@ -119,7 +119,7 @@ let rec fv = function
   | Let((x, t), e1, e2) -> S.union (fv e1) (S.remove x (fv e2))
   | Var(x) when Id.mem3 x !globals -> S.empty
   | Var(x) -> S.singleton x
-  | MakeCls((x, t), { fv = ys; _ }, e) -> S.remove x (S.union (S.of_list (List.map fst ys)) (fv e))
+  | MakeCls(x, { fv = ys; _ }, e) -> S.remove x (S.union (S.of_list (List.map fst ys)) (fv e))
   | AppCls(x, ys, _) -> S.union (fv x) (List.fold_left (fun s n -> S.union (fv n) s) S.empty ys)
   | ExtFunApp(_, xs) | AppDir(_, xs) -> List.fold_left (fun s n -> S.union (fv n) s) S.empty xs
   | Tuple(xs) -> List.fold_left (fun s n -> S.union (fv n) s) S.empty (List.map fst xs)
@@ -159,8 +159,8 @@ let rec g env known e =
   | Normal.If(Normal.Not(x), e1, e2) -> g env known (Normal.If(x, e2, e1))
   | Normal.If(e1, e2, e3) -> IfEq(g env known e1, Int(0), g env known e3, g env known e2)
   | Normal.Let((x, t), e1, e2) -> Let((x, t), g env known e1, g (M.add x t env) known e2)
-  | Normal.Var(x) when Id.mem x !closures ->
-    MakeCls((x, M.find x env), List.assoc x !closures, Var(x))
+  (* | Normal.Var(x) when Id.mem x !closures ->
+     MakeCls(x, List.assoc x !closures, Var(x)) *)
   | Normal.Var(x) -> Var(x)
   | Normal.LetRec({ Normal.name = (x, t); Normal.args = yts; Normal.body = e1 }, e2) -> (* 関数定義の場合 (caml2html: closure_letrec) *)
     (* 関数定義let rec x y1 ... yn = e1 in e2の場合は、
@@ -171,8 +171,7 @@ let rec g env known e =
     let known' = S.add x known in
     let e1' = g (M.add_list yts env') known' e1 in
     (* 本当に自由変数がなかったか、変換結果e1'を確認する *)
-    (* 注意: e1'にx自身が変数として出現する場合はclosureが必要!
-       (thanks to nuevo-namasute and azounoman; test/cls-bug2.ml参照) *)
+    (* 注意: e1'にx自身が変数として出現する場合はclosureが必要! *)
     let zs = S.diff (fv e1') (S.of_list (List.map fst yts)) in
     let known', e1' =
       if S.is_empty zs then known', e1' else
@@ -187,10 +186,8 @@ let rec g env known e =
     toplevel := { name = (x, t); args = yts; fv = zts; body = e1' } :: !toplevel; (* トップレベル関数を追加 *)
     let e2' = g env' known' e2 in
     if S.mem x (fv e2') then (* xが変数としてe2'に出現するか *)
-      (closures := (x, { entry = Id.L(x); fv = zts }) :: !closures;
-       let e1'' = g (M.add_list yts env') known' e1 in
-       toplevel := { (List.hd !toplevel) with body = e1'' } :: (List.tl !toplevel);
-       MakeCls((x, t), { entry = Id.L(x); fv = zts }, e2')) (* 出現していたら削除しない *)
+      (closures := (x, { name = x; typ = t; fv = zts }) :: !closures;
+       MakeCls(x, { name = x; typ = t; fv = zts }, e2')) (* 出現していたら削除しない *)
     else
       ((* Format.eprintf "eliminating closure(s) %s@." x; *)
         e2') (* 出現しなければMakeClsを削除 *)
@@ -205,10 +202,43 @@ let rec g env known e =
   | Normal.Put(x, y, z, t) -> Put(g env known x, g env known y, g env known z, t)
   | Normal.Array(e1, e2, t) -> Array(g env known e1, g env known e2, t)
 
+let rec insert_makecls e =
+  match e with
+  | Not(e1)      -> Not(insert_makecls e1)
+  | Neg(e1)      -> Neg(insert_makecls e1)
+  | Xor(e1, e2)  -> Xor(insert_makecls e1, insert_makecls e2)
+  | Add(e1, e2)  -> Add(insert_makecls e1, insert_makecls e2)
+  | Sub(e1, e2)  -> Sub(insert_makecls e1, insert_makecls e2)
+  | Mul(e1, e2)  -> Mul(insert_makecls e1, insert_makecls e2)
+  | Div(e1, e2)  -> Div(insert_makecls e1, insert_makecls e2)
+  | FNeg(e1)     -> FNeg(insert_makecls e1)
+  | FAdd(e1, e2) -> FAdd(insert_makecls e1, insert_makecls e2)
+  | FSub(e1, e2) -> FSub(insert_makecls e1, insert_makecls e2)
+  | FMul(e1, e2) -> FMul(insert_makecls e1, insert_makecls e2)
+  | FDiv(e1, e2) -> FDiv(insert_makecls e1, insert_makecls e2)
+  | FCmp(e1, e2) -> FCmp(insert_makecls e1, insert_makecls e2)
+  | IfEq(e1, e2, e3, e4) -> IfEq(insert_makecls e1, insert_makecls e2, insert_makecls e3, insert_makecls e4)
+  | IfLE(e1, e2, e3, e4) -> IfLE(insert_makecls e1, insert_makecls e2, insert_makecls e3, insert_makecls e4)
+  | Let(xt, e2, e3) -> Let(xt, insert_makecls e2, insert_makecls e3)
+  | Var(x) when Id.mem x !closures -> MakeCls(x, List.assoc x !closures, Var(x))
+  | AppCls(Var(x), e2s, t) when Id.mem x !closures ->
+    MakeCls(x, List.assoc x !closures, AppCls(Var(x), List.map insert_makecls e2s, t))
+  | AppCls(e1, e2s, t) -> AppCls(insert_makecls e1, List.map insert_makecls e2s, t)
+  | AppDir(x, e2ts) -> AppDir(x, List.map insert_makecls e2ts)
+  | ExtFunApp(x, e2ts) -> ExtFunApp(x, List.map insert_makecls e2ts)
+  | Tuple(ets) -> Tuple(List.map (fun (e, t) -> insert_makecls e, t) ets)
+  | LetTuple(xts, e2, e3) -> LetTuple(xts, insert_makecls e2, insert_makecls e3)
+  | Array(e1, e2, t) -> Array(insert_makecls e1, insert_makecls e2, t)
+  | Get(e1, e2, t) -> Get(insert_makecls e1, insert_makecls e2, t)
+  | Put(e1, e2, e3, t) -> Put(insert_makecls e1, insert_makecls e2, insert_makecls e3, t)
+  | _ -> e
+
 let f e =
   toplevel := [];
   globals := [];
   let e = collect_globals e in
   let e' = g M.empty S.empty e in
   let globals = List.map (fun (x, t, e) -> (x, t, g M.empty S.empty e)) !globals in
-  { closures = !closures; globals = globals; funs = !toplevel; body = e' }
+  let funs = List.map (fun f : fundef -> { f with body = insert_makecls f.body }) !toplevel in
+  let e' = insert_makecls e' in
+  { closures = !closures; globals = globals; funs = funs; main = e' }

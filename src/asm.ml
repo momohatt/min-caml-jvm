@@ -21,6 +21,7 @@ type ty_sig =
   | O of ty_obj
 
 type inst =
+  | Comment of string
   | Load of ty * int
   | Store of ty * int
   | Store_c of ty * int * string (* comment *)
@@ -44,10 +45,10 @@ type inst =
   | Unboxing of ty
   | Checkcast of ty_obj
   (* NOTE: mainクラスはstatic fieldのみを持ち、closureクラスはnon-static fieldのみを持つ *)
-  | PutField  of Id.t * string (* classname *) * ty_sig
-  | GetField  of Id.t * string (* classname *) * ty_sig
-  | PutStatic of Id.t * string (* classname *) * ty_sig
-  | GetStatic of Id.t * string (* classname *) * ty_sig
+  | PutField  of Id.t * string (* classname *) * ty_obj
+  | GetField  of Id.t * string (* classname *) * ty_obj
+  | PutStatic of Id.t * string (* classname *) * ty_obj
+  | GetStatic of Id.t * string (* classname *) * ty_obj
   (* If0: comparison with zero *)
   | If0 of string (* branch cond. *) * string (* negative branch cond. *) * inst list * inst list * inst list
   | If of  string (* branch cond. *) * string (* negative branch cond. *) * inst list * inst list * inst list * inst list
@@ -67,18 +68,18 @@ type fundef = {
   modifiers : modifiers list;
   args : (Id.t * ty_sig) list;
   fv : (Id.t * ty_sig) list;
-  stack : int ref;  (* stack limits *)
-  locals : int ref; (* locals limits *)
+  stack : int;  (* stack limits *)
+  locals : int; (* locals limits *)
   body : inst list
 }
 
 type file = {
-  classname : string; (* this also becomes the filename (without .j) *)
+  classname : string;        (* this also becomes the filename (without .j) *)
   clinit : fundef option;    (* class initializer, mainのみ必要(static fieldの初期化のため) *)
   init : ty_sig * inst list;
   funs : fundef list;
   super : string;
-  fields : (Id.t * ty_sig) list
+  fields : (Id.t * ty_obj) list
 }
 
 type prog = file list

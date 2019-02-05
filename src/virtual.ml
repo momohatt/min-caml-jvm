@@ -39,11 +39,8 @@ let rec typet2tysig (t : Type.t) : ty_sig = match Typing.deref_typ t with
   | Type.Var _ -> assert false
 
 let rec box_tysig t = match t with
-  | PInt -> O(Integer)
-  | PFloat -> O(Float)
-  | Array(t) -> Array(t)
   | Fun _ -> O(C "cls")
-  | _ -> t
+  | _ -> O(Obj)
 
 let rec tysig2tyobj t = match t with
   | Void -> Ary(Obj) (* ?? *)
@@ -82,12 +79,18 @@ let rec g fv env e =
     g fv env e1 @ g fv env e2
   | Closure.Let((x, t), e1, e2) ->
     g fv env e1 @ [Store_c(typet2ty t, List.length env, x)] @ g fv ((x, t) :: env) e2
-  | Closure.Var(x) when Id.mem x fv ->
-    [Load(`A, 0); GetField(x, !classname, List.assoc x fv)]
+  | Closure.Var(x) when Id.mem x fv -> (* when x is free variable *)
+    [Load(`A, 0); GetField(x, !classname, tysig2tyobj @@ List.assoc x fv)]
   | Closure.Var(x) when !is_main && Id.mem3 x !main_globals ->
     (* Printf.printf "case of Closure.Var(x) when x is global (x = %s)\n" x; *)
     let (_, t, _) = List.find (fun (y, _, _) -> x = y) !main_globals in
-    [GetStatic(x, !classname, typet2tysig t)]
+    [GetStatic(x, !classname, typet2tyobj t)]
+(*
+  | Closure.Var(x) when Id.mem x !toplevel -> (* when cls.app is recursive *)
+    assert (not (Id.mem x fv)); (* assured from the order of match *)
+    assert (not !is_main); (* should be within cls.app *)
+    [Load(`A, 0)]
+*)
   | Closure.Var(x) ->
     (* Printf.printf "case of Closure.Var(x) (x = %s)\n" x; *)
     assert (Id.mem x env);
@@ -106,9 +109,9 @@ let rec g fv env e =
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("libmincaml.min_caml_" ^ f, typet2tysig (M.find f !Typing.extenv))]
   | Closure.AppDir(f, e2) ->
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("main." ^ f, List.assoc f !toplevel)]
-  | Closure.AppCls(Var(f) as e1, e2, Fun(ts, t)) ->
+  | Closure.AppCls(Var(f) as e1, e2, Fun(ts, t)) when not (Id.mem f env) -> (* when the closure name is known *)
     let body =
-      (g fv env e1) @
+      g fv env e1 @
       g fv env (Tuple(List.combine e2 ts)) @
       (if Id.mem f !toplevel then
          (match List.assoc f !toplevel with
@@ -118,12 +121,12 @@ let rec g fv env e =
          [InvokeVirtual("cls_" ^ f ^ "/app", Fun([Array(Obj)], O(Obj)))]) in
     let cast =
       match t with
-      | Type.Unit -> body
+      | Type.Unit -> []
       | _ -> [Checkcast(typet2tyobj t); Unboxing(typet2ty t)] in
     body @ cast
   | Closure.AppCls(e1, e2, Fun(ts, t)) ->
     let body =
-      (g fv env e1) @
+      g fv env e1 @
       g fv env (Tuple(List.combine e2 ts)) @
       [InvokeVirtual("cls/app", Fun([Array(Obj)], O(Obj)))] in
     let cast =
@@ -171,7 +174,7 @@ let rec g fv env e =
     g fv env e1 @ g fv env e2 @ [ALoad(`A); Checkcast(typet2tyobj t); Unboxing(typet2ty t)]
   | Closure.Put(e1, e2, e3, t) ->
     g fv env e1 @ g fv env e2 @ g fv env e3 @ [Boxing(typet2ty t); AStore(`A)]
-  | Closure.MakeCls((_, t), { entry = Id.L(f); fv = yts }, e) ->
+  | Closure.MakeCls(_, { name = f; typ = t; fv = yts }, e) ->
     let args = List.map (fun (x, t) -> (Closure.Var(x), t)) yts in
     [New("cls_" ^ f); Dup] @ (g fv env (Closure.Tuple(args))) @
     [InvokeSpecial("cls_" ^ f ^ "/<init>", Fun([Array(Obj)], Void)); Store(`A, List.length env)] @
@@ -188,7 +191,7 @@ let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.bod
     toplevel := (x, t') :: !toplevel;
     if !is_main then
       let env' = List.rev yts in
-      { name = (x, t'); modifiers = [Static]; args; fv; stack = ref 100; locals = ref 100;
+      { name = (x, t'); modifiers = [Static]; args; fv; stack = 100; locals = 100;
         body = g fv env' e @ [Return (typet2ty rt)] }
     else
       ((* closure *)
@@ -207,7 +210,7 @@ let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.bod
                              Store(t', List.length env' + n)]) yts) in
         let epilogue = [Boxing(typet2ty rt); Return(`A)] in
         let env' = (List.rev yts) @ env' in
-        { name = (x, t'); modifiers = [Static]; args; fv; stack = ref 100; locals = ref 100;
+        { name = (x, t'); modifiers = [Static]; args; fv; stack = 100; locals = 100;
           body = prologue @ g fv env' e @ epilogue })
   | _ -> assert false
 
@@ -225,7 +228,7 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
     is_main := false;
     let f = h f in
     let closure : Closure.closure = List.assoc (fst f.name) closures in
-    let fields = List.map (fun (x, t) -> x, typet2tysig t) closure.fv in
+    let fields = List.map (fun (x, t) -> x, typet2tyobj t) closure.fv in
     let init =
       [Load(`A, 0); Load(`A, 1); InvokeSpecial("cls/<init>", Fun([Array(Obj)], Void))] @
       (List.concat @@ List.mapi
@@ -233,7 +236,7 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
                            Load(`A, 1);
                            Ldc(I(n));
                            ALoad(`A);
-                           Checkcast(tysig2tyobj t);
+                           Checkcast(t);
                            PutField(x, !classname, t)]) fields) @
       [Return `V]
     in
@@ -245,12 +248,12 @@ let rec to_files closures acc (main_funs : Asm.fundef list) (fundefs : Closure.f
         init = (Fun([Array(Obj)], Void), init); clinit = None;
         funs = [{ name = ("app", app_tysig); modifiers = [];
                   args = f.args; fv = f.fv;
-                  stack = ref 100; locals = ref 100;
+                  stack = 100; locals = 100;
                   body = f.body }];
         super = "cls"; fields = fields } :: acc in
     to_files closures acc' main_funs xf
 
-let f { Closure.closures = closures; Closure.globals = glb; Closure.funs = fundef; Closure.body = e } : Asm.prog =
+let f { Closure.closures = closures; Closure.globals = glb; Closure.funs = fundef; Closure.main = e } : Asm.prog =
   (* List.iter (fun f -> let { Closure.name = (x, _); _} = f in print_endline x) fundef; *)
   (* Printf.printf "globals = %s\n" (String.concat " " (List.map (fun (x, _, _) -> x) glb)); *)
   (* この時点でfundefは遅く定義された方から並んでいる *)
@@ -264,24 +267,23 @@ let f { Closure.closures = closures; Closure.globals = glb; Closure.funs = funde
   let main_body = (g [] [] e) @ [Return `V] in
   let main_field =
     List.map
-      (fun (x, t, e) -> (x, typet2tysig t))
+      (fun (x, t, e) -> (x, typet2tyobj t))
       !main_globals in
   let main = { name = ("main", Fun([Array(C "java/lang/String")], Void));
                modifiers = [Static];
                args = []; fv = [];
-               stack = ref 100; locals = ref 100;
+               stack = 100; locals = 100;
                body = main_body } in
   let main_clinit_body =
     (List.concat @@ List.mapi
        (fun n (x, t, e) ->
-          let t' = typet2tysig t in
           g [] [] e @
-          [PutStatic(x, !classname, t')]) !main_globals) @
+          [PutStatic(x, !classname, typet2tyobj t)]) !main_globals) @
     [Return `V] in
   let main_clinit =
     { name = "<clinit>", Fun([Void], Void);
       modifiers = []; args = []; fv = [];
-      stack = ref 100; locals = ref 100;
+      stack = 100; locals = 100;
       body = main_clinit_body } in
   let main_init =
     [Load(`A, 0); InvokeSpecial("java/lang/Object/<init>", Fun([Void], Void)); Return `V] in

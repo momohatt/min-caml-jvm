@@ -157,7 +157,7 @@ let rec g (exp : Syntax.t) : t =
   | Syntax.LetRec({ Syntax.name = (x, t); Syntax.args = yts; Syntax.body = e1 }, e2, _) ->
     LetRec({ name = (x, t); args = yts; body = g e1 }, g e2)
   | Syntax.App((Syntax.Var("xor"), _), [e1; e2], _) -> Xor(g e1, g e2)
-  | Syntax.App((e1, t), e2, _) -> App((g e1, t), List.map (g ) e2)
+  | Syntax.App((e1, t), e2, _) -> App((g e1, t), List.map g e2)
   | Syntax.Tuple(es) -> Tuple(List.map (fun (x, t) -> g x, t) es)
   | Syntax.LetTuple(xts, e1, e2, _) -> LetTuple(xts, g e1, g e2)
   | Syntax.Array(e1, e2, t, _) -> Array(g e1, g e2, t)

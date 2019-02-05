@@ -35,6 +35,7 @@ let rec str_of_modifiers m = match m with
 
 let rec g oc e =
   match e with
+  | Comment(s) -> Printf.fprintf oc "\t; %s\n" s
   | Load(t, n) -> Printf.fprintf oc "\t%sload %d\n" (str_of_ty t) n
   | Store(t, n) -> Printf.fprintf oc "\t%sstore %d\n" (str_of_ty t) n
   | Store_c(t, n, c) -> Printf.fprintf oc "\t%sstore %d\t; %s\n" (str_of_ty t) n c
@@ -73,10 +74,10 @@ let rec g oc e =
      | Ary _   -> Printf.fprintf oc "\tcheckcast %s\n" (str_of_ty_obj t)
      | C s     -> Printf.fprintf oc "\tcheckcast %s\n" s
      | Obj     -> ())
-  | PutField (x, c, t) -> Printf.fprintf oc "\tputfield %s/%s %s\n"  c x (str_of_ty_sig t)
-  | GetField (x, c, t) -> Printf.fprintf oc "\tgetfield %s/%s %s\n"  c x (str_of_ty_sig t)
-  | PutStatic(x, c, t) -> Printf.fprintf oc "\tputstatic %s/%s %s\n" c x (str_of_ty_sig t)
-  | GetStatic(x, c, t) -> Printf.fprintf oc "\tgetstatic %s/%s %s\n" c x (str_of_ty_sig t)
+  | PutField (x, c, t) -> Printf.fprintf oc "\tputfield %s/%s %s\n"  c x (str_of_ty_obj t)
+  | GetField (x, c, t) -> Printf.fprintf oc "\tgetfield %s/%s %s\n"  c x (str_of_ty_obj t)
+  | PutStatic(x, c, t) -> Printf.fprintf oc "\tputstatic %s/%s %s\n" c x (str_of_ty_obj t)
+  | GetStatic(x, c, t) -> Printf.fprintf oc "\tgetstatic %s/%s %s\n" c x (str_of_ty_obj t)
   | If0(b, bn, e1, [], e3) -> (* optimization for less branch *)
     let l_cont = Id.genLabel (Printf.sprintf "if%s_cont" b) in
     List.iter (g oc) e1;
@@ -136,8 +137,8 @@ let rec g oc e =
 
 let h oc f =
   Printf.fprintf oc ".method public %s%s%s\n" (str_of_modifiers f.modifiers) (fst f.name) (str_of_ty_sig (snd f.name));
-  Printf.fprintf oc "\t.limit stack %d\n" !(f.stack);
-  Printf.fprintf oc "\t.limit locals %d\n" !(f.locals);
+  Printf.fprintf oc "\t.limit stack %d\n" f.stack;
+  Printf.fprintf oc "\t.limit locals %d\n" f.locals;
   List.iter (fun e -> g oc e) f.body;
   Printf.fprintf oc ".end method\t; %s\n\n" (fst f.name)
 
@@ -151,7 +152,7 @@ let f oc dirname (files : Asm.prog) =
          Printf.fprintf oc ".class public %s\n" (file.classname);
          Printf.fprintf oc ".super %s\n" (file.super);
          List.iter (fun field ->
-             Printf.fprintf oc ".field public %s %s\n" (fst field) (str_of_ty_sig (snd field)))
+             Printf.fprintf oc ".field public %s %s\n" (fst field) (str_of_ty_obj (snd field)))
            file.fields;
          Printf.fprintf oc ".method public <init>%s\n" (str_of_ty_sig (fst file.init));
          Printf.fprintf oc "\t.limit stack 10\n"; (*TODO*)
@@ -166,15 +167,15 @@ let f oc dirname (files : Asm.prog) =
          Printf.fprintf oc ".super %s\n" (file.super);
          List.iter (fun field ->
              (* only main class can have static field *)
-             Printf.fprintf oc ".field public static %s %s\n" (fst field) (str_of_ty_sig (snd field)))
+             Printf.fprintf oc ".field public static %s %s\n" (fst field) (str_of_ty_obj (snd field)))
            file.fields;
          (* <clinit> *)
          (match file.clinit with
           | None -> ()
           | Some(clinit) ->
             Printf.fprintf oc ".method public static <clinit>%s\n" (str_of_ty_sig (snd clinit.name));
-            Printf.fprintf oc "\t.limit stack %d\n" !(clinit.stack);
-            Printf.fprintf oc "\t.limit locals %d\n" !(clinit.locals);
+            Printf.fprintf oc "\t.limit stack %d\n" clinit.stack;
+            Printf.fprintf oc "\t.limit locals %d\n" clinit.locals;
             List.iter (g oc) clinit.body;
             Printf.fprintf oc ".end method\t; <clinit>\n\n");
          (* <init> *)
