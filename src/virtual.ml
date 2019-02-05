@@ -179,6 +179,7 @@ let rec g fv env e =
   | Closure.ExtArray _ -> assert false
 
 let h { Closure.name = (x, t); Closure.args = yts; Closure.fv = zts; Closure.body = e } =
+  (* Printf.printf "Closure.name = %s\n" x; *)
   match t with
   | Type.Fun(_, rt) ->
     let t' = typet2tysig t in

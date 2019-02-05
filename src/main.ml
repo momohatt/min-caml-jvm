@@ -18,14 +18,14 @@ let compile oc dirname e =
   let e = Normal.f e in
   let e = Alpha.f e in
   print_endline "-------Passed Normal.f-------";
-  (* Normal.print_t e; *)
+  Normal.print_t e;
   let e = iter !limit e in
   print_endline "-------Passed iter-------";
-  (* Normal.print_t e; *)
+  Normal.print_t e;
   let e = Closure.f e in
   print_endline "-------Passed Closure.f-------";
-  (* Closure.print_prog e;
-     print_newline (); *)
+  Closure.print_prog e;
+  print_newline ();
   let e = Virtual.f e in
   print_endline "-------Passed Virtual.f-------";
   Emit.f oc dirname e

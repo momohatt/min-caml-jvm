@@ -39,6 +39,8 @@ let rec g = function
     else
       (Format.eprintf "eliminating function %s@." x;
        e2')
+  | App((e1, t), e2s) -> App((g e1, t), List.map g e2s)
+  | Tuple(es) -> Tuple(List.map (fun (e, t) -> (g e, t)) es)
   | LetTuple(xts, y, e) ->
     let xs = List.map fst xts in
     let e' = g e in
@@ -46,6 +48,9 @@ let rec g = function
     if List.exists (fun x -> S.mem x live) xs then LetTuple(xts, y, e') else
       (Format.eprintf "eliminating variables %s@." (Id.pp_list xs);
        e')
+  | Array(e1, e2, t) -> Array(g e1, g e2, t)
+  | Get(e1, e2, t) -> Get(g e1, g e2, t)
+  | Put(e1, e2, e3, t) -> Put(g e1, g e2, g e3, t)
   | e -> e
 
 let f e = g e
