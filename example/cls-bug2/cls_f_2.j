@@ -52,6 +52,7 @@
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	invokevirtual cls/app([Ljava/lang/Object;)Ljava/lang/Object;
+	pop
 ifge_cont_1:
 	areturn
 .end method	; app

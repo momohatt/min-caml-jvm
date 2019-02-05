@@ -26,6 +26,7 @@
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	invokevirtual cls/app([Ljava/lang/Object;)Ljava/lang/Object;
+	pop
 	return
 .end method	; main
 

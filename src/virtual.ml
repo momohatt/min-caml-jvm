@@ -121,7 +121,7 @@ let rec g fv env e =
          [InvokeVirtual("cls_" ^ f ^ "/app", Fun([Array(Obj)], O(Obj)))]) in
     let cast =
       match t with
-      | Type.Unit -> []
+      | Type.Unit -> [Pop] (* [XXX] in order to balance the stack height *)
       | _ -> [Checkcast(typet2tyobj t); Unboxing(typet2ty t)] in
     body @ cast
   | Closure.AppCls(e1, e2, Fun(ts, t)) ->
@@ -131,7 +131,7 @@ let rec g fv env e =
       [InvokeVirtual("cls/app", Fun([Array(Obj)], O(Obj)))] in
     let cast =
       match t with
-      | Type.Unit -> body
+      | Type.Unit -> [Pop] (* [XXX] in order to balance the stack height *)
       | _ -> [Checkcast(typet2tyobj t); Unboxing(typet2ty t)] in
     body @ cast
   | Closure.AppCls _ -> assert false (* closure's type should be Fun *)
