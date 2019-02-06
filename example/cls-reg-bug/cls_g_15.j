@@ -91,32 +91,42 @@
 	istore 2
 	aload 0
 	getfield cls_g_15/v1_5 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	aload 0
 	getfield cls_g_15/v2_6 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	iadd
 	aload 0
 	getfield cls_g_15/v3_7 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	iadd
 	aload 0
 	getfield cls_g_15/v4_8 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	iadd
 	aload 0
 	getfield cls_g_15/v5_9 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	iadd
 	aload 0
 	getfield cls_g_15/v6_10 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	iadd
 	aload 0
 	getfield cls_g_15/v7_11 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	iadd
 	aload 0
 	getfield cls_g_15/v8_12 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	iadd
 	aload 0
 	getfield cls_g_15/v9_13 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	iadd
 	aload 0
 	getfield cls_g_15/v10_14 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	iadd
 	istore 3	; r_17
 	iload 2
@@ -129,60 +139,70 @@
 	ldc 0
 	aload 0
 	getfield cls_g_15/v10_14 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 1
 	aload 0
 	getfield cls_g_15/v1_5 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 2
 	aload 0
 	getfield cls_g_15/v2_6 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 3
 	aload 0
 	getfield cls_g_15/v3_7 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 4
 	aload 0
 	getfield cls_g_15/v4_8 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 5
 	aload 0
 	getfield cls_g_15/v5_9 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 6
 	aload 0
 	getfield cls_g_15/v6_10 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 7
 	aload 0
 	getfield cls_g_15/v7_11 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 8
 	aload 0
 	getfield cls_g_15/v8_12 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	dup
 	ldc 9
 	aload 0
 	getfield cls_g_15/v9_13 Ljava/lang/Integer;
+	invokevirtual java/lang/Integer/intValue()I
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
 	invokespecial cls_g_15/<init>([Ljava/lang/Object;)V
@@ -196,7 +216,7 @@
 	ineg
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-	invokevirtual cls/app([Ljava/lang/Object;)Ljava/lang/Object;
+	invokevirtual cls_g_15/app([Ljava/lang/Object;)Ljava/lang/Object;
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	goto ifle_cont_1

@@ -137,7 +137,7 @@
 	ldc 1
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	aastore
-	invokevirtual cls/app([Ljava/lang/Object;)Ljava/lang/Object;
+	invokevirtual cls_g_15/app([Ljava/lang/Object;)Ljava/lang/Object;
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
 	ireturn

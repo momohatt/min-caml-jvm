@@ -50,6 +50,13 @@ let rec tysig2tyobj t = match t with
   | Fun _ -> C "cls"
   | O(t) -> t
 
+let rec tysig2ty t = match t with
+  | PInt -> `I
+  | PFloat -> `F
+  | Void -> `V
+  | Array _ -> `A
+  | _ -> assert false
+
 (* fv: fvs of *current* function *)
 let rec g fv env e =
   match e with
@@ -80,7 +87,8 @@ let rec g fv env e =
   | Closure.Let((x, t), e1, e2) ->
     g fv env e1 @ [Store_c(typet2ty t, List.length env, x)] @ g fv ((x, t) :: env) e2
   | Closure.Var(x) when Id.mem x fv -> (* when x is free variable *)
-    [Load(`A, 0); GetField(x, !classname, tysig2tyobj @@ List.assoc x fv)]
+    let t = List.assoc x fv in
+    [Load(`A, 0); GetField(x, !classname, tysig2tyobj t); Unboxing(tysig2ty t)]
   | Closure.Var(x) when !is_main && Id.mem3 x !main_globals ->
     (* Printf.printf "case of Closure.Var(x) when x is global (x = %s)\n" x; *)
     let (_, t, _) = List.find (fun (y, _, _) -> x = y) !main_globals in
@@ -109,7 +117,7 @@ let rec g fv env e =
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("libmincaml.min_caml_" ^ f, typet2tysig (M.find f !Typing.extenv))]
   | Closure.AppDir(f, e2) ->
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("main." ^ f, List.assoc f !toplevel)]
-  | Closure.AppCls(Var(f) as e1, e2, Fun(ts, t)) when not (Id.mem f env) -> (* when the closure name is known *)
+  | Closure.AppCls(Var(f) as e1, e2, Fun(ts, t)) -> (* when the closure name is known *)
     let body =
       g fv env e1 @
       g fv env (Tuple(List.combine e2 ts)) @
