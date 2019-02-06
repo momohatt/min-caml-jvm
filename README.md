@@ -35,7 +35,7 @@ See [example/](https://github.com/momohatt/min-caml-jvm/tree/master/example)
 * Output jasmin class files consists of one main class file and (possibly) several closure class files.
 * Global variables are treated as static fields of main class.
 * Every closure class inherits from an abstract class named `cls` (closure), which would look like as follows in Java:
-```
+```java
 public abstract class cls {
     public cls(Object... arg) {}
     public abstract Object app(Object... arg);
