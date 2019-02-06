@@ -10,3 +10,4 @@ parser.ml
 parser.mli
 *.class
 *.ppm
+src/test/

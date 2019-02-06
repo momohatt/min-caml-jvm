@@ -111,7 +111,7 @@ let rec g fv env e =
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("libmincaml.min_caml_" ^ f, typet2tysig (M.find f !Typing.extenv))]
   | Closure.AppDir(f, e2) ->
     List.concat (List.map (g fv env) e2) @ [InvokeStatic("main." ^ f, List.assoc f !toplevel)]
-  | Closure.AppCls(Var(f) as e1, e2, Fun(ts, t)) -> (* when the closure name is known *)
+  | Closure.AppCls(Var(f) as e1, e2, Fun(ts, t)) when Id.mem f !toplevel -> (* when the closure name is known *)
     let body =
       g fv env e1 @
       g fv env (Tuple(List.combine e2 ts)) @
