@@ -8,7 +8,7 @@
 	return
 .end method	; <init>
 
-.method public static f_2(I)I
+.method public static f_3(I)I
 	.limit stack 100
 	.limit locals 100
 	iload 0
@@ -20,18 +20,19 @@ ifeq_else_1:
 	iload 0
 	ldc 1
 	isub
-	invokestatic main.f_2(I)I
+	invokestatic main.f_3(I)I
 	iadd
 ifeq_cont_1:
 	ireturn
-.end method	; f_2
+.end method	; f_3
 
 .method public static main([Ljava/lang/String;)V
 	.limit stack 100
 	.limit locals 100
 	ldc 123
-	invokestatic main.f_2(I)I
+	invokestatic main.f_3(I)I
 	invokestatic libmincaml.min_caml_print_int(I)V
+	invokestatic libmincaml.min_caml_print_newline()V
 	return
 .end method	; main
 

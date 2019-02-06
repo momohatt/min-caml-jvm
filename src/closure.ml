@@ -159,8 +159,6 @@ let rec g env known e =
   | Normal.If(Normal.Not(x), e1, e2) -> g env known (Normal.If(x, e2, e1))
   | Normal.If(e1, e2, e3) -> IfEq(g env known e1, Int(0), g env known e3, g env known e2)
   | Normal.Let((x, t), e1, e2) -> Let((x, t), g env known e1, g (M.add x t env) known e2)
-  (* | Normal.Var(x) when Id.mem x !closures ->
-     MakeCls(x, List.assoc x !closures, Var(x)) *)
   | Normal.Var(x) -> Var(x)
   | Normal.LetRec({ Normal.name = (x, t); Normal.args = yts; Normal.body = e1 }, e2) -> (* 関数定義の場合 (caml2html: closure_letrec) *)
     (* 関数定義let rec x y1 ... yn = e1 in e2の場合は、

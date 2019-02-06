@@ -1,4 +1,4 @@
-.class public cls_f_2
+.class public cls_f_3
 .super cls
 .method public <init>([Ljava/lang/Object;)V
 	.limit stack 10
@@ -23,11 +23,11 @@
 	iflt ifge_cont_1
 	iload 2
 	invokestatic libmincaml.min_caml_print_int(I)V
-	new cls_f_2
+	new cls_f_3
 	dup
 	ldc 0
 	anewarray java/lang/Object
-	invokespecial cls_f_2/<init>([Ljava/lang/Object;)V
+	invokespecial cls_f_3/<init>([Ljava/lang/Object;)V
 	astore 3
 	aload 3
 	astore 3
@@ -37,7 +37,7 @@
 	ldc 0
 	aload 3
 	aastore
-	astore 3	; a_5
+	astore 3	; a_7
 	aload 3
 	ldc 0
 	aaload

@@ -41,8 +41,8 @@ type inst =
   | Dup
   | Pop
   | New of Id.t
-  | Boxing of ty
-  | Unboxing of ty
+  | Boxing of ty_sig
+  | Unboxing of ty_sig
   | Checkcast of ty_obj
   (* NOTE: mainクラスはstatic fieldのみを持ち、closureクラスはnon-static fieldのみを持つ *)
   | PutField  of Id.t * string (* classname *) * ty_obj

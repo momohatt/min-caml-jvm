@@ -12,27 +12,27 @@
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	ifne ifeq_else_1
+	ifne ifeq_else_11
 	iload 1
-	goto ifeq_cont_1
-ifeq_else_1:
+	goto ifeq_cont_11
+ifeq_else_11:
 	iload 0
 	iload 1
-	if_icmpgt ifle_else_2
+	if_icmpgt ifle_else_12
 	iload 0
 	iload 1
 	iload 0
 	isub
 	invokestatic main.gcd_2(II)I
-	goto ifle_cont_2
-ifle_else_2:
+	goto ifle_cont_12
+ifle_else_12:
 	iload 1
 	iload 0
 	iload 1
 	isub
 	invokestatic main.gcd_2(II)I
-ifle_cont_2:
-ifeq_cont_1:
+ifle_cont_12:
+ifeq_cont_11:
 	ireturn
 .end method	; gcd_2
 

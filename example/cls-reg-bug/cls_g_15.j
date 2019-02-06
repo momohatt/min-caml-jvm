@@ -130,7 +130,7 @@
 	iadd
 	istore 3	; r_17
 	iload 2
-	ifgt ifle_else_1
+	ifgt ifle_else_2
 	new cls_g_15
 	dup
 	ldc 10
@@ -219,10 +219,10 @@
 	invokevirtual cls_g_15/app([Ljava/lang/Object;)Ljava/lang/Object;
 	checkcast java/lang/Integer
 	invokevirtual java/lang/Integer/intValue()I
-	goto ifle_cont_1
-ifle_else_1:
+	goto ifle_cont_2
+ifle_else_2:
 	iload 3
-ifle_cont_1:
+ifle_cont_2:
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	areturn
 .end method	; app

@@ -58,15 +58,13 @@ let rec g oc e =
   | Pop   -> Printf.fprintf oc "\tpop\n"
   | New x -> Printf.fprintf oc "\tnew %s\n" x
   | Boxing t -> (match t with
-      | `I -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([PInt], O(C "java/lang/Integer"))))
-      | `F -> g oc (InvokeStatic("java/lang/Float/valueOf", Fun([PFloat], O(C "java/lang/Float"))))
-      | `A -> ()
-      | `V -> ())
+      | PInt -> g oc (InvokeStatic("java/lang/Integer/valueOf", Fun([PInt], O(C "java/lang/Integer"))))
+      | PFloat -> g oc (InvokeStatic("java/lang/Float/valueOf", Fun([PFloat], O(C "java/lang/Float"))))
+      | _ -> ())
   | Unboxing t -> (match t with
-      | `I -> g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], PInt)))
-      | `F -> g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], PFloat)))
-      | `A -> ()
-      | `V -> ())
+      | PInt -> g oc (InvokeVirtual("java/lang/Integer/intValue", Fun([Void], PInt)))
+      | PFloat -> g oc (InvokeVirtual("java/lang/Float/floatValue", Fun([Void], PFloat)))
+      | _ -> ())
   | Checkcast t ->
     (match t with
      | Integer -> Printf.fprintf oc "\tcheckcast java/lang/Integer\n"

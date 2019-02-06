@@ -12,11 +12,11 @@
 	.limit stack 100
 	.limit locals 100
 	iload 0
-	ifne ifeq_else_1
+	ifne ifeq_else_13
 	ldc 1
 	invokestatic libmincaml.min_caml_print_int(I)V
-	goto ifeq_cont_1
-ifeq_else_1:
+	goto ifeq_cont_13
+ifeq_else_13:
 	fload 3
 	fload 4
 	fsub
@@ -44,7 +44,7 @@ ifeq_else_1:
 	fadd
 	ldc 4.000000
 	fcmpl
-	ifgt ifle_else_2
+	ifgt ifle_else_14
 	iload 0
 	ldc 1
 	isub
@@ -55,12 +55,12 @@ ifeq_else_1:
 	fload 5
 	fload 6
 	invokestatic main.iloop_13(IFFFFFF)V
-	goto ifle_cont_2
-ifle_else_2:
+	goto ifle_cont_14
+ifle_else_14:
 	ldc 0
 	invokestatic libmincaml.min_caml_print_int(I)V
-ifle_cont_2:
-ifeq_cont_1:
+ifle_cont_14:
+ifeq_cont_13:
 	return
 .end method	; iloop_13
 
@@ -69,7 +69,7 @@ ifeq_cont_1:
 	.limit locals 100
 	ldc 400
 	iload 0
-	if_icmple ifle_cont_3
+	if_icmple ifle_cont_15
 	iload 0
 	i2f
 	ldc 2.000000
@@ -101,7 +101,7 @@ ifeq_cont_1:
 	iadd
 	iload 1
 	invokestatic main.xloop_6(II)V
-ifle_cont_3:
+ifle_cont_15:
 	return
 .end method	; xloop_6
 
@@ -110,7 +110,7 @@ ifle_cont_3:
 	.limit locals 100
 	ldc 400
 	iload 0
-	if_icmple ifle_cont_4
+	if_icmple ifle_cont_16
 	invokestatic libmincaml.min_caml_print_newline()V
 	ldc 0
 	iload 0
@@ -119,7 +119,7 @@ ifle_cont_3:
 	ldc 1
 	iadd
 	invokestatic main.yloop_4(I)V
-ifle_cont_4:
+ifle_cont_16:
 	return
 .end method	; yloop_4
 

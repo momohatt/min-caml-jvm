@@ -13,10 +13,10 @@
 	.limit locals 100
 	iload 0
 	ldc 1
-	if_icmpgt ifle_else_1
+	if_icmpgt ifle_else_10
 	iload 0
-	goto ifle_cont_1
-ifle_else_1:
+	goto ifle_cont_10
+ifle_else_10:
 	iload 0
 	ldc 1
 	isub
@@ -26,7 +26,7 @@ ifle_else_1:
 	isub
 	invokestatic main.fib_2(I)I
 	iadd
-ifle_cont_1:
+ifle_cont_10:
 	ireturn
 .end method	; fib_2
 
