@@ -49,6 +49,10 @@
 	ldc 0
 	anewarray java/lang/Float
 	astore 0	; dummy_1614
+	ldc 60
+	anewarray [Ljava/lang/Object;
+	dup
+	checkcast [Ljava/lang/Object;
 	ldc 11
 	anewarray java/lang/Object
 	dup
@@ -100,303 +104,31 @@
 	ldc 10
 	aload 0
 	aastore
-	astore 1
-	ldc 60
-	anewarray [Ljava/lang/Object;
-	dup
-	ldc 0
-	aload 1
-	aastore
-	dup
-	ldc 1
-	aload 1
-	aastore
-	dup
-	ldc 2
-	aload 1
-	aastore
-	dup
-	ldc 3
-	aload 1
-	aastore
-	dup
-	ldc 4
-	aload 1
-	aastore
-	dup
-	ldc 5
-	aload 1
-	aastore
-	dup
-	ldc 6
-	aload 1
-	aastore
-	dup
-	ldc 7
-	aload 1
-	aastore
-	dup
-	ldc 8
-	aload 1
-	aastore
-	dup
-	ldc 9
-	aload 1
-	aastore
-	dup
-	ldc 10
-	aload 1
-	aastore
-	dup
-	ldc 11
-	aload 1
-	aastore
-	dup
-	ldc 12
-	aload 1
-	aastore
-	dup
-	ldc 13
-	aload 1
-	aastore
-	dup
-	ldc 14
-	aload 1
-	aastore
-	dup
-	ldc 15
-	aload 1
-	aastore
-	dup
-	ldc 16
-	aload 1
-	aastore
-	dup
-	ldc 17
-	aload 1
-	aastore
-	dup
-	ldc 18
-	aload 1
-	aastore
-	dup
-	ldc 19
-	aload 1
-	aastore
-	dup
-	ldc 20
-	aload 1
-	aastore
-	dup
-	ldc 21
-	aload 1
-	aastore
-	dup
-	ldc 22
-	aload 1
-	aastore
-	dup
-	ldc 23
-	aload 1
-	aastore
-	dup
-	ldc 24
-	aload 1
-	aastore
-	dup
-	ldc 25
-	aload 1
-	aastore
-	dup
-	ldc 26
-	aload 1
-	aastore
-	dup
-	ldc 27
-	aload 1
-	aastore
-	dup
-	ldc 28
-	aload 1
-	aastore
-	dup
-	ldc 29
-	aload 1
-	aastore
-	dup
-	ldc 30
-	aload 1
-	aastore
-	dup
-	ldc 31
-	aload 1
-	aastore
-	dup
-	ldc 32
-	aload 1
-	aastore
-	dup
-	ldc 33
-	aload 1
-	aastore
-	dup
-	ldc 34
-	aload 1
-	aastore
-	dup
-	ldc 35
-	aload 1
-	aastore
-	dup
-	ldc 36
-	aload 1
-	aastore
-	dup
-	ldc 37
-	aload 1
-	aastore
-	dup
-	ldc 38
-	aload 1
-	aastore
-	dup
-	ldc 39
-	aload 1
-	aastore
-	dup
-	ldc 40
-	aload 1
-	aastore
-	dup
-	ldc 41
-	aload 1
-	aastore
-	dup
-	ldc 42
-	aload 1
-	aastore
-	dup
-	ldc 43
-	aload 1
-	aastore
-	dup
-	ldc 44
-	aload 1
-	aastore
-	dup
-	ldc 45
-	aload 1
-	aastore
-	dup
-	ldc 46
-	aload 1
-	aastore
-	dup
-	ldc 47
-	aload 1
-	aastore
-	dup
-	ldc 48
-	aload 1
-	aastore
-	dup
-	ldc 49
-	aload 1
-	aastore
-	dup
-	ldc 50
-	aload 1
-	aastore
-	dup
-	ldc 51
-	aload 1
-	aastore
-	dup
-	ldc 52
-	aload 1
-	aastore
-	dup
-	ldc 53
-	aload 1
-	aastore
-	dup
-	ldc 54
-	aload 1
-	aastore
-	dup
-	ldc 55
-	aload 1
-	aastore
-	dup
-	ldc 56
-	aload 1
-	aastore
-	dup
-	ldc 57
-	aload 1
-	aastore
-	dup
-	ldc 58
-	aload 1
-	aastore
-	dup
-	ldc 59
-	aload 1
-	aastore
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/objects_249 [[Ljava/lang/Object;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/screen_250 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/viewpoint_251 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/light_252 [Ljava/lang/Float;
 	ldc 255.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -408,6 +140,10 @@
 	aload 0
 	aastore
 	putstatic main/beam_253 [Ljava/lang/Float;
+	ldc 50
+	anewarray [Ljava/lang/Integer;
+	dup
+	checkcast [Ljava/lang/Object;
 	ldc -1
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 	astore 0
@@ -417,209 +153,7 @@
 	ldc 0
 	aload 0
 	aastore
-	astore 0
-	ldc 50
-	anewarray [Ljava/lang/Integer;
-	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
-	dup
-	ldc 3
-	aload 0
-	aastore
-	dup
-	ldc 4
-	aload 0
-	aastore
-	dup
-	ldc 5
-	aload 0
-	aastore
-	dup
-	ldc 6
-	aload 0
-	aastore
-	dup
-	ldc 7
-	aload 0
-	aastore
-	dup
-	ldc 8
-	aload 0
-	aastore
-	dup
-	ldc 9
-	aload 0
-	aastore
-	dup
-	ldc 10
-	aload 0
-	aastore
-	dup
-	ldc 11
-	aload 0
-	aastore
-	dup
-	ldc 12
-	aload 0
-	aastore
-	dup
-	ldc 13
-	aload 0
-	aastore
-	dup
-	ldc 14
-	aload 0
-	aastore
-	dup
-	ldc 15
-	aload 0
-	aastore
-	dup
-	ldc 16
-	aload 0
-	aastore
-	dup
-	ldc 17
-	aload 0
-	aastore
-	dup
-	ldc 18
-	aload 0
-	aastore
-	dup
-	ldc 19
-	aload 0
-	aastore
-	dup
-	ldc 20
-	aload 0
-	aastore
-	dup
-	ldc 21
-	aload 0
-	aastore
-	dup
-	ldc 22
-	aload 0
-	aastore
-	dup
-	ldc 23
-	aload 0
-	aastore
-	dup
-	ldc 24
-	aload 0
-	aastore
-	dup
-	ldc 25
-	aload 0
-	aastore
-	dup
-	ldc 26
-	aload 0
-	aastore
-	dup
-	ldc 27
-	aload 0
-	aastore
-	dup
-	ldc 28
-	aload 0
-	aastore
-	dup
-	ldc 29
-	aload 0
-	aastore
-	dup
-	ldc 30
-	aload 0
-	aastore
-	dup
-	ldc 31
-	aload 0
-	aastore
-	dup
-	ldc 32
-	aload 0
-	aastore
-	dup
-	ldc 33
-	aload 0
-	aastore
-	dup
-	ldc 34
-	aload 0
-	aastore
-	dup
-	ldc 35
-	aload 0
-	aastore
-	dup
-	ldc 36
-	aload 0
-	aastore
-	dup
-	ldc 37
-	aload 0
-	aastore
-	dup
-	ldc 38
-	aload 0
-	aastore
-	dup
-	ldc 39
-	aload 0
-	aastore
-	dup
-	ldc 40
-	aload 0
-	aastore
-	dup
-	ldc 41
-	aload 0
-	aastore
-	dup
-	ldc 42
-	aload 0
-	aastore
-	dup
-	ldc 43
-	aload 0
-	aastore
-	dup
-	ldc 44
-	aload 0
-	aastore
-	dup
-	ldc 45
-	aload 0
-	aastore
-	dup
-	ldc 46
-	aload 0
-	aastore
-	dup
-	ldc 47
-	aload 0
-	aastore
-	dup
-	ldc 48
-	aload 0
-	aastore
-	dup
-	ldc 49
-	aload 0
-	aastore
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/and_net_254 [[Ljava/lang/Integer;
 	getstatic main/and_net_254 [[Ljava/lang/Integer;
 	ldc 0
@@ -670,23 +204,13 @@
 	aload 0
 	aastore
 	putstatic main/tmin_258 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/intersection_point_259 [Ljava/lang/Float;
 	ldc 0
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
@@ -698,77 +222,37 @@
 	aload 0
 	aastore
 	putstatic main/intersected_object_id_260 [Ljava/lang/Integer;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/nvector_261 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/texture_color_262 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/diffuse_ray_263 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/rgb_264 [Ljava/lang/Float;
 	ldc 0
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
@@ -808,113 +292,53 @@
 	aload 0
 	aastore
 	putstatic main/scan_pitch_267 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/startp_268 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/startp_fast_269 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/screenx_dir_270 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/screeny_dir_271 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/screenz_dir_272 [Ljava/lang/Float;
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 0
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 0
-	aastore
-	dup
-	ldc 1
-	aload 0
-	aastore
-	dup
-	ldc 2
-	aload 0
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/ptrace_dirvec_273 [Ljava/lang/Float;
 	ldc 0.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -941,30 +365,12 @@
 	ldc 0
 	anewarray [Ljava/lang/Object;
 	astore 2	; dummy_vs_1613
-	aload 2
-	astore 3
 	ldc 5
 	anewarray [[Ljava/lang/Object;
 	dup
-	ldc 0
-	aload 3
-	aastore
-	dup
-	ldc 1
-	aload 3
-	aastore
-	dup
-	ldc 2
-	aload 3
-	aastore
-	dup
-	ldc 3
-	aload 3
-	aastore
-	dup
-	ldc 4
-	aload 3
-	aastore
+	checkcast [Ljava/lang/Object;
+	aload 2
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	ldc 0.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
@@ -972,268 +378,20 @@
 	ldc 0
 	anewarray java/lang/Float
 	astore 0	; dummyf2_1608
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 1
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 1
-	aastore
-	dup
-	ldc 1
-	aload 1
-	aastore
-	dup
-	ldc 2
-	aload 1
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 1	; v3_1609
-	aload 0
-	astore 2
 	ldc 60
 	anewarray [Ljava/lang/Float;
 	dup
-	ldc 0
-	aload 2
-	aastore
-	dup
-	ldc 1
-	aload 2
-	aastore
-	dup
-	ldc 2
-	aload 2
-	aastore
-	dup
-	ldc 3
-	aload 2
-	aastore
-	dup
-	ldc 4
-	aload 2
-	aastore
-	dup
-	ldc 5
-	aload 2
-	aastore
-	dup
-	ldc 6
-	aload 2
-	aastore
-	dup
-	ldc 7
-	aload 2
-	aastore
-	dup
-	ldc 8
-	aload 2
-	aastore
-	dup
-	ldc 9
-	aload 2
-	aastore
-	dup
-	ldc 10
-	aload 2
-	aastore
-	dup
-	ldc 11
-	aload 2
-	aastore
-	dup
-	ldc 12
-	aload 2
-	aastore
-	dup
-	ldc 13
-	aload 2
-	aastore
-	dup
-	ldc 14
-	aload 2
-	aastore
-	dup
-	ldc 15
-	aload 2
-	aastore
-	dup
-	ldc 16
-	aload 2
-	aastore
-	dup
-	ldc 17
-	aload 2
-	aastore
-	dup
-	ldc 18
-	aload 2
-	aastore
-	dup
-	ldc 19
-	aload 2
-	aastore
-	dup
-	ldc 20
-	aload 2
-	aastore
-	dup
-	ldc 21
-	aload 2
-	aastore
-	dup
-	ldc 22
-	aload 2
-	aastore
-	dup
-	ldc 23
-	aload 2
-	aastore
-	dup
-	ldc 24
-	aload 2
-	aastore
-	dup
-	ldc 25
-	aload 2
-	aastore
-	dup
-	ldc 26
-	aload 2
-	aastore
-	dup
-	ldc 27
-	aload 2
-	aastore
-	dup
-	ldc 28
-	aload 2
-	aastore
-	dup
-	ldc 29
-	aload 2
-	aastore
-	dup
-	ldc 30
-	aload 2
-	aastore
-	dup
-	ldc 31
-	aload 2
-	aastore
-	dup
-	ldc 32
-	aload 2
-	aastore
-	dup
-	ldc 33
-	aload 2
-	aastore
-	dup
-	ldc 34
-	aload 2
-	aastore
-	dup
-	ldc 35
-	aload 2
-	aastore
-	dup
-	ldc 36
-	aload 2
-	aastore
-	dup
-	ldc 37
-	aload 2
-	aastore
-	dup
-	ldc 38
-	aload 2
-	aastore
-	dup
-	ldc 39
-	aload 2
-	aastore
-	dup
-	ldc 40
-	aload 2
-	aastore
-	dup
-	ldc 41
-	aload 2
-	aastore
-	dup
-	ldc 42
-	aload 2
-	aastore
-	dup
-	ldc 43
-	aload 2
-	aastore
-	dup
-	ldc 44
-	aload 2
-	aastore
-	dup
-	ldc 45
-	aload 2
-	aastore
-	dup
-	ldc 46
-	aload 2
-	aastore
-	dup
-	ldc 47
-	aload 2
-	aastore
-	dup
-	ldc 48
-	aload 2
-	aastore
-	dup
-	ldc 49
-	aload 2
-	aastore
-	dup
-	ldc 50
-	aload 2
-	aastore
-	dup
-	ldc 51
-	aload 2
-	aastore
-	dup
-	ldc 52
-	aload 2
-	aastore
-	dup
-	ldc 53
-	aload 2
-	aastore
-	dup
-	ldc 54
-	aload 2
-	aastore
-	dup
-	ldc 55
-	aload 2
-	aastore
-	dup
-	ldc 56
-	aload 2
-	aastore
-	dup
-	ldc 57
-	aload 2
-	aastore
-	dup
-	ldc 58
-	aload 2
-	aastore
-	dup
-	ldc 59
-	aload 2
-	aastore
+	checkcast [Ljava/lang/Object;
+	aload 0
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 2	; consts_1610
 	ldc 2
 	anewarray java/lang/Object
@@ -1268,6 +426,10 @@
 	aload 1
 	aastore
 	astore 2	; dummydv_1607
+	ldc 180
+	anewarray [Ljava/lang/Object;
+	dup
+	checkcast [Ljava/lang/Object;
 	ldc 3
 	anewarray java/lang/Object
 	dup
@@ -1284,729 +446,7 @@
 	ldc 0.000000
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	astore 3
-	ldc 180
-	anewarray [Ljava/lang/Object;
-	dup
-	ldc 0
-	aload 3
-	aastore
-	dup
-	ldc 1
-	aload 3
-	aastore
-	dup
-	ldc 2
-	aload 3
-	aastore
-	dup
-	ldc 3
-	aload 3
-	aastore
-	dup
-	ldc 4
-	aload 3
-	aastore
-	dup
-	ldc 5
-	aload 3
-	aastore
-	dup
-	ldc 6
-	aload 3
-	aastore
-	dup
-	ldc 7
-	aload 3
-	aastore
-	dup
-	ldc 8
-	aload 3
-	aastore
-	dup
-	ldc 9
-	aload 3
-	aastore
-	dup
-	ldc 10
-	aload 3
-	aastore
-	dup
-	ldc 11
-	aload 3
-	aastore
-	dup
-	ldc 12
-	aload 3
-	aastore
-	dup
-	ldc 13
-	aload 3
-	aastore
-	dup
-	ldc 14
-	aload 3
-	aastore
-	dup
-	ldc 15
-	aload 3
-	aastore
-	dup
-	ldc 16
-	aload 3
-	aastore
-	dup
-	ldc 17
-	aload 3
-	aastore
-	dup
-	ldc 18
-	aload 3
-	aastore
-	dup
-	ldc 19
-	aload 3
-	aastore
-	dup
-	ldc 20
-	aload 3
-	aastore
-	dup
-	ldc 21
-	aload 3
-	aastore
-	dup
-	ldc 22
-	aload 3
-	aastore
-	dup
-	ldc 23
-	aload 3
-	aastore
-	dup
-	ldc 24
-	aload 3
-	aastore
-	dup
-	ldc 25
-	aload 3
-	aastore
-	dup
-	ldc 26
-	aload 3
-	aastore
-	dup
-	ldc 27
-	aload 3
-	aastore
-	dup
-	ldc 28
-	aload 3
-	aastore
-	dup
-	ldc 29
-	aload 3
-	aastore
-	dup
-	ldc 30
-	aload 3
-	aastore
-	dup
-	ldc 31
-	aload 3
-	aastore
-	dup
-	ldc 32
-	aload 3
-	aastore
-	dup
-	ldc 33
-	aload 3
-	aastore
-	dup
-	ldc 34
-	aload 3
-	aastore
-	dup
-	ldc 35
-	aload 3
-	aastore
-	dup
-	ldc 36
-	aload 3
-	aastore
-	dup
-	ldc 37
-	aload 3
-	aastore
-	dup
-	ldc 38
-	aload 3
-	aastore
-	dup
-	ldc 39
-	aload 3
-	aastore
-	dup
-	ldc 40
-	aload 3
-	aastore
-	dup
-	ldc 41
-	aload 3
-	aastore
-	dup
-	ldc 42
-	aload 3
-	aastore
-	dup
-	ldc 43
-	aload 3
-	aastore
-	dup
-	ldc 44
-	aload 3
-	aastore
-	dup
-	ldc 45
-	aload 3
-	aastore
-	dup
-	ldc 46
-	aload 3
-	aastore
-	dup
-	ldc 47
-	aload 3
-	aastore
-	dup
-	ldc 48
-	aload 3
-	aastore
-	dup
-	ldc 49
-	aload 3
-	aastore
-	dup
-	ldc 50
-	aload 3
-	aastore
-	dup
-	ldc 51
-	aload 3
-	aastore
-	dup
-	ldc 52
-	aload 3
-	aastore
-	dup
-	ldc 53
-	aload 3
-	aastore
-	dup
-	ldc 54
-	aload 3
-	aastore
-	dup
-	ldc 55
-	aload 3
-	aastore
-	dup
-	ldc 56
-	aload 3
-	aastore
-	dup
-	ldc 57
-	aload 3
-	aastore
-	dup
-	ldc 58
-	aload 3
-	aastore
-	dup
-	ldc 59
-	aload 3
-	aastore
-	dup
-	ldc 60
-	aload 3
-	aastore
-	dup
-	ldc 61
-	aload 3
-	aastore
-	dup
-	ldc 62
-	aload 3
-	aastore
-	dup
-	ldc 63
-	aload 3
-	aastore
-	dup
-	ldc 64
-	aload 3
-	aastore
-	dup
-	ldc 65
-	aload 3
-	aastore
-	dup
-	ldc 66
-	aload 3
-	aastore
-	dup
-	ldc 67
-	aload 3
-	aastore
-	dup
-	ldc 68
-	aload 3
-	aastore
-	dup
-	ldc 69
-	aload 3
-	aastore
-	dup
-	ldc 70
-	aload 3
-	aastore
-	dup
-	ldc 71
-	aload 3
-	aastore
-	dup
-	ldc 72
-	aload 3
-	aastore
-	dup
-	ldc 73
-	aload 3
-	aastore
-	dup
-	ldc 74
-	aload 3
-	aastore
-	dup
-	ldc 75
-	aload 3
-	aastore
-	dup
-	ldc 76
-	aload 3
-	aastore
-	dup
-	ldc 77
-	aload 3
-	aastore
-	dup
-	ldc 78
-	aload 3
-	aastore
-	dup
-	ldc 79
-	aload 3
-	aastore
-	dup
-	ldc 80
-	aload 3
-	aastore
-	dup
-	ldc 81
-	aload 3
-	aastore
-	dup
-	ldc 82
-	aload 3
-	aastore
-	dup
-	ldc 83
-	aload 3
-	aastore
-	dup
-	ldc 84
-	aload 3
-	aastore
-	dup
-	ldc 85
-	aload 3
-	aastore
-	dup
-	ldc 86
-	aload 3
-	aastore
-	dup
-	ldc 87
-	aload 3
-	aastore
-	dup
-	ldc 88
-	aload 3
-	aastore
-	dup
-	ldc 89
-	aload 3
-	aastore
-	dup
-	ldc 90
-	aload 3
-	aastore
-	dup
-	ldc 91
-	aload 3
-	aastore
-	dup
-	ldc 92
-	aload 3
-	aastore
-	dup
-	ldc 93
-	aload 3
-	aastore
-	dup
-	ldc 94
-	aload 3
-	aastore
-	dup
-	ldc 95
-	aload 3
-	aastore
-	dup
-	ldc 96
-	aload 3
-	aastore
-	dup
-	ldc 97
-	aload 3
-	aastore
-	dup
-	ldc 98
-	aload 3
-	aastore
-	dup
-	ldc 99
-	aload 3
-	aastore
-	dup
-	ldc 100
-	aload 3
-	aastore
-	dup
-	ldc 101
-	aload 3
-	aastore
-	dup
-	ldc 102
-	aload 3
-	aastore
-	dup
-	ldc 103
-	aload 3
-	aastore
-	dup
-	ldc 104
-	aload 3
-	aastore
-	dup
-	ldc 105
-	aload 3
-	aastore
-	dup
-	ldc 106
-	aload 3
-	aastore
-	dup
-	ldc 107
-	aload 3
-	aastore
-	dup
-	ldc 108
-	aload 3
-	aastore
-	dup
-	ldc 109
-	aload 3
-	aastore
-	dup
-	ldc 110
-	aload 3
-	aastore
-	dup
-	ldc 111
-	aload 3
-	aastore
-	dup
-	ldc 112
-	aload 3
-	aastore
-	dup
-	ldc 113
-	aload 3
-	aastore
-	dup
-	ldc 114
-	aload 3
-	aastore
-	dup
-	ldc 115
-	aload 3
-	aastore
-	dup
-	ldc 116
-	aload 3
-	aastore
-	dup
-	ldc 117
-	aload 3
-	aastore
-	dup
-	ldc 118
-	aload 3
-	aastore
-	dup
-	ldc 119
-	aload 3
-	aastore
-	dup
-	ldc 120
-	aload 3
-	aastore
-	dup
-	ldc 121
-	aload 3
-	aastore
-	dup
-	ldc 122
-	aload 3
-	aastore
-	dup
-	ldc 123
-	aload 3
-	aastore
-	dup
-	ldc 124
-	aload 3
-	aastore
-	dup
-	ldc 125
-	aload 3
-	aastore
-	dup
-	ldc 126
-	aload 3
-	aastore
-	dup
-	ldc 127
-	aload 3
-	aastore
-	dup
-	ldc 128
-	aload 3
-	aastore
-	dup
-	ldc 129
-	aload 3
-	aastore
-	dup
-	ldc 130
-	aload 3
-	aastore
-	dup
-	ldc 131
-	aload 3
-	aastore
-	dup
-	ldc 132
-	aload 3
-	aastore
-	dup
-	ldc 133
-	aload 3
-	aastore
-	dup
-	ldc 134
-	aload 3
-	aastore
-	dup
-	ldc 135
-	aload 3
-	aastore
-	dup
-	ldc 136
-	aload 3
-	aastore
-	dup
-	ldc 137
-	aload 3
-	aastore
-	dup
-	ldc 138
-	aload 3
-	aastore
-	dup
-	ldc 139
-	aload 3
-	aastore
-	dup
-	ldc 140
-	aload 3
-	aastore
-	dup
-	ldc 141
-	aload 3
-	aastore
-	dup
-	ldc 142
-	aload 3
-	aastore
-	dup
-	ldc 143
-	aload 3
-	aastore
-	dup
-	ldc 144
-	aload 3
-	aastore
-	dup
-	ldc 145
-	aload 3
-	aastore
-	dup
-	ldc 146
-	aload 3
-	aastore
-	dup
-	ldc 147
-	aload 3
-	aastore
-	dup
-	ldc 148
-	aload 3
-	aastore
-	dup
-	ldc 149
-	aload 3
-	aastore
-	dup
-	ldc 150
-	aload 3
-	aastore
-	dup
-	ldc 151
-	aload 3
-	aastore
-	dup
-	ldc 152
-	aload 3
-	aastore
-	dup
-	ldc 153
-	aload 3
-	aastore
-	dup
-	ldc 154
-	aload 3
-	aastore
-	dup
-	ldc 155
-	aload 3
-	aastore
-	dup
-	ldc 156
-	aload 3
-	aastore
-	dup
-	ldc 157
-	aload 3
-	aastore
-	dup
-	ldc 158
-	aload 3
-	aastore
-	dup
-	ldc 159
-	aload 3
-	aastore
-	dup
-	ldc 160
-	aload 3
-	aastore
-	dup
-	ldc 161
-	aload 3
-	aastore
-	dup
-	ldc 162
-	aload 3
-	aastore
-	dup
-	ldc 163
-	aload 3
-	aastore
-	dup
-	ldc 164
-	aload 3
-	aastore
-	dup
-	ldc 165
-	aload 3
-	aastore
-	dup
-	ldc 166
-	aload 3
-	aastore
-	dup
-	ldc 167
-	aload 3
-	aastore
-	dup
-	ldc 168
-	aload 3
-	aastore
-	dup
-	ldc 169
-	aload 3
-	aastore
-	dup
-	ldc 170
-	aload 3
-	aastore
-	dup
-	ldc 171
-	aload 3
-	aastore
-	dup
-	ldc 172
-	aload 3
-	aastore
-	dup
-	ldc 173
-	aload 3
-	aastore
-	dup
-	ldc 174
-	aload 3
-	aastore
-	dup
-	ldc 175
-	aload 3
-	aastore
-	dup
-	ldc 176
-	aload 3
-	aastore
-	dup
-	ldc 177
-	aload 3
-	aastore
-	dup
-	ldc 178
-	aload 3
-	aastore
-	dup
-	ldc 179
-	aload 3
-	aastore
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	putstatic main/reflections_276 [[Ljava/lang/Object;
 	ldc 0
 	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
@@ -3043,23 +1483,13 @@ ifeq_else_6:
 	istore 3	; refltype_1184
 	invokestatic libmincaml.min_caml_read_int()I
 	istore 4	; isrot_p_1185
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 5
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 5
-	aastore
-	dup
-	ldc 1
-	aload 5
-	aastore
-	dup
-	ldc 2
-	aload 5
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 5	; abc_1186
 	aload 5
 	ldc 0
@@ -3076,23 +1506,13 @@ ifeq_else_6:
 	invokestatic libmincaml.min_caml_read_float()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 6
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 6
-	aastore
-	dup
-	ldc 1
-	aload 6
-	aastore
-	dup
-	ldc 2
-	aload 6
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 6	; xyz_1190
 	aload 6
 	ldc 0
@@ -3145,23 +1565,13 @@ ifle_cont_7:
 	invokestatic libmincaml.min_caml_read_float()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 9
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 9
-	aastore
-	dup
-	ldc 1
-	aload 9
-	aastore
-	dup
-	ldc 2
-	aload 9
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 9	; color_1198
 	aload 9
 	ldc 0
@@ -3178,23 +1588,13 @@ ifle_cont_7:
 	invokestatic libmincaml.min_caml_read_float()F
 	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
 	aastore
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 10
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 10
-	aastore
-	dup
-	ldc 1
-	aload 10
-	aastore
-	dup
-	ldc 2
-	aload 10
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 10	; rotation_1202
 	iload 4
 	ifeq ifeq_cont_8
@@ -3235,27 +1635,13 @@ ifeq_else_9:
 	iload 7
 ifeq_cont_9:
 	istore 11	; m_invert2_1204
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 12
 	ldc 4
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 12
-	aastore
-	dup
-	ldc 1
-	aload 12
-	aastore
-	dup
-	ldc 2
-	aload 12
-	aastore
-	dup
-	ldc 3
-	aload 12
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 12	; ctbl_1205
 	ldc 11
 	anewarray java/lang/Object
@@ -5108,35 +3494,13 @@ ifeq_cont_61:
 .method public static setup_rect_table_502([Ljava/lang/Float;[Ljava/lang/Object;)[Ljava/lang/Float;
 	.limit stack 100
 	.limit locals 100
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 2
 	ldc 6
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 2
-	aastore
-	dup
-	ldc 1
-	aload 2
-	aastore
-	dup
-	ldc 2
-	aload 2
-	aastore
-	dup
-	ldc 3
-	aload 2
-	aastore
-	dup
-	ldc 4
-	aload 2
-	aastore
-	dup
-	ldc 5
-	aload 2
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 2	; const_1107
 	aload 0
 	ldc 0
@@ -5379,27 +3743,13 @@ ifeq_cont_69:
 .method public static setup_surface_table_505([Ljava/lang/Float;[Ljava/lang/Object;)[Ljava/lang/Float;
 	.limit stack 100
 	.limit locals 100
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 2
 	ldc 4
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 2
-	aastore
-	dup
-	ldc 1
-	aload 2
-	aastore
-	dup
-	ldc 2
-	aload 2
-	aastore
-	dup
-	ldc 3
-	aload 2
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 2	; const_1101
 	aload 0
 	ldc 0
@@ -5541,31 +3891,13 @@ ifle_cont_72:
 .method public static setup_second_table_508([Ljava/lang/Float;[Ljava/lang/Object;)[Ljava/lang/Float;
 	.limit stack 100
 	.limit locals 100
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 2
 	ldc 5
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 2
-	aastore
-	dup
-	ldc 1
-	aload 2
-	aastore
-	dup
-	ldc 2
-	aload 2
-	aastore
-	dup
-	ldc 3
-	aload 2
-	aastore
-	dup
-	ldc 4
-	aload 2
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 2	; const_1089
 	aload 1
 	aload 0
@@ -9940,128 +8272,60 @@ ifle_cont_197:
 .method public static create_float5x3array_691()[[Ljava/lang/Float;
 	.limit stack 100
 	.limit locals 100
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 1
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 1
-	aastore
-	dup
-	ldc 1
-	aload 1
-	aastore
-	dup
-	ldc 2
-	aload 1
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 1	; vec_828
-	aload 1
-	astore 2
 	ldc 5
 	anewarray [Ljava/lang/Float;
 	dup
-	ldc 0
-	aload 2
-	aastore
-	dup
-	ldc 1
-	aload 2
-	aastore
-	dup
-	ldc 2
-	aload 2
-	aastore
-	dup
-	ldc 3
-	aload 2
-	aastore
-	dup
-	ldc 4
-	aload 2
-	aastore
+	checkcast [Ljava/lang/Object;
+	aload 1
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 2	; array_829
 	aload 2
 	ldc 1
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 3
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 3
-	aastore
-	dup
-	ldc 1
-	aload 3
-	aastore
-	dup
-	ldc 2
-	aload 3
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	aastore
 	aload 2
 	ldc 2
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 3
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 3
-	aastore
-	dup
-	ldc 1
-	aload 3
-	aastore
-	dup
-	ldc 2
-	aload 3
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	aastore
 	aload 2
 	ldc 3
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 3
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 3
-	aastore
-	dup
-	ldc 1
-	aload 3
-	aastore
-	dup
-	ldc 2
-	aload 3
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	aastore
 	aload 2
 	ldc 4
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 3
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 3
-	aastore
-	dup
-	ldc 1
-	aload 3
-	aastore
-	dup
-	ldc 2
-	aload 3
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	aastore
 	aload 2
 	areturn
@@ -10070,77 +8334,31 @@ ifle_cont_197:
 .method public static create_pixel_693()[Ljava/lang/Object;
 	.limit stack 100
 	.limit locals 100
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 1
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 1
-	aastore
-	dup
-	ldc 1
-	aload 1
-	aastore
-	dup
-	ldc 2
-	aload 1
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 1	; m_rgb_820
 	invokestatic main.create_float5x3array_691()[[Ljava/lang/Float;
 	astore 2	; m_isect_ps_821
-	ldc 0
-	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
-	astore 3
 	ldc 5
 	anewarray java/lang/Integer
 	dup
+	checkcast [Ljava/lang/Object;
 	ldc 0
-	aload 3
-	aastore
-	dup
-	ldc 1
-	aload 3
-	aastore
-	dup
-	ldc 2
-	aload 3
-	aastore
-	dup
-	ldc 3
-	aload 3
-	aastore
-	dup
-	ldc 4
-	aload 3
-	aastore
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 3	; m_sids_822
-	ldc 0
-	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
-	astore 4
 	ldc 5
 	anewarray java/lang/Integer
 	dup
+	checkcast [Ljava/lang/Object;
 	ldc 0
-	aload 4
-	aastore
-	dup
-	ldc 1
-	aload 4
-	aastore
-	dup
-	ldc 2
-	aload 4
-	aastore
-	dup
-	ldc 3
-	aload 4
-	aastore
-	dup
-	ldc 4
-	aload 4
-	aastore
+	invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 4	; m_cdif_823
 	invokestatic main.create_float5x3array_691()[[Ljava/lang/Float;
 	astore 5	; m_engy_824
@@ -10546,23 +8764,13 @@ ifge_cont_202:
 .method public static create_dirvec_722()[Ljava/lang/Object;
 	.limit stack 100
 	.limit locals 100
-	ldc 0.000000
-	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
-	astore 1
 	ldc 3
 	anewarray java/lang/Float
 	dup
-	ldc 0
-	aload 1
-	aastore
-	dup
-	ldc 1
-	aload 1
-	aastore
-	dup
-	ldc 2
-	aload 1
-	aastore
+	checkcast [Ljava/lang/Object;
+	ldc 0.000000
+	invokestatic java/lang/Float/valueOf(F)Ljava/lang/Float;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	astore 1	; v3_795
 	getstatic main/n_objects_248 [Ljava/lang/Integer;
 	ldc 0
@@ -10613,490 +8821,12 @@ ifge_cont_203:
 	iflt ifge_cont_204
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 0
-	invokestatic main.create_dirvec_722()[Ljava/lang/Object;
-	astore 1
 	ldc 120
 	anewarray [Ljava/lang/Object;
 	dup
-	ldc 0
-	aload 1
-	aastore
-	dup
-	ldc 1
-	aload 1
-	aastore
-	dup
-	ldc 2
-	aload 1
-	aastore
-	dup
-	ldc 3
-	aload 1
-	aastore
-	dup
-	ldc 4
-	aload 1
-	aastore
-	dup
-	ldc 5
-	aload 1
-	aastore
-	dup
-	ldc 6
-	aload 1
-	aastore
-	dup
-	ldc 7
-	aload 1
-	aastore
-	dup
-	ldc 8
-	aload 1
-	aastore
-	dup
-	ldc 9
-	aload 1
-	aastore
-	dup
-	ldc 10
-	aload 1
-	aastore
-	dup
-	ldc 11
-	aload 1
-	aastore
-	dup
-	ldc 12
-	aload 1
-	aastore
-	dup
-	ldc 13
-	aload 1
-	aastore
-	dup
-	ldc 14
-	aload 1
-	aastore
-	dup
-	ldc 15
-	aload 1
-	aastore
-	dup
-	ldc 16
-	aload 1
-	aastore
-	dup
-	ldc 17
-	aload 1
-	aastore
-	dup
-	ldc 18
-	aload 1
-	aastore
-	dup
-	ldc 19
-	aload 1
-	aastore
-	dup
-	ldc 20
-	aload 1
-	aastore
-	dup
-	ldc 21
-	aload 1
-	aastore
-	dup
-	ldc 22
-	aload 1
-	aastore
-	dup
-	ldc 23
-	aload 1
-	aastore
-	dup
-	ldc 24
-	aload 1
-	aastore
-	dup
-	ldc 25
-	aload 1
-	aastore
-	dup
-	ldc 26
-	aload 1
-	aastore
-	dup
-	ldc 27
-	aload 1
-	aastore
-	dup
-	ldc 28
-	aload 1
-	aastore
-	dup
-	ldc 29
-	aload 1
-	aastore
-	dup
-	ldc 30
-	aload 1
-	aastore
-	dup
-	ldc 31
-	aload 1
-	aastore
-	dup
-	ldc 32
-	aload 1
-	aastore
-	dup
-	ldc 33
-	aload 1
-	aastore
-	dup
-	ldc 34
-	aload 1
-	aastore
-	dup
-	ldc 35
-	aload 1
-	aastore
-	dup
-	ldc 36
-	aload 1
-	aastore
-	dup
-	ldc 37
-	aload 1
-	aastore
-	dup
-	ldc 38
-	aload 1
-	aastore
-	dup
-	ldc 39
-	aload 1
-	aastore
-	dup
-	ldc 40
-	aload 1
-	aastore
-	dup
-	ldc 41
-	aload 1
-	aastore
-	dup
-	ldc 42
-	aload 1
-	aastore
-	dup
-	ldc 43
-	aload 1
-	aastore
-	dup
-	ldc 44
-	aload 1
-	aastore
-	dup
-	ldc 45
-	aload 1
-	aastore
-	dup
-	ldc 46
-	aload 1
-	aastore
-	dup
-	ldc 47
-	aload 1
-	aastore
-	dup
-	ldc 48
-	aload 1
-	aastore
-	dup
-	ldc 49
-	aload 1
-	aastore
-	dup
-	ldc 50
-	aload 1
-	aastore
-	dup
-	ldc 51
-	aload 1
-	aastore
-	dup
-	ldc 52
-	aload 1
-	aastore
-	dup
-	ldc 53
-	aload 1
-	aastore
-	dup
-	ldc 54
-	aload 1
-	aastore
-	dup
-	ldc 55
-	aload 1
-	aastore
-	dup
-	ldc 56
-	aload 1
-	aastore
-	dup
-	ldc 57
-	aload 1
-	aastore
-	dup
-	ldc 58
-	aload 1
-	aastore
-	dup
-	ldc 59
-	aload 1
-	aastore
-	dup
-	ldc 60
-	aload 1
-	aastore
-	dup
-	ldc 61
-	aload 1
-	aastore
-	dup
-	ldc 62
-	aload 1
-	aastore
-	dup
-	ldc 63
-	aload 1
-	aastore
-	dup
-	ldc 64
-	aload 1
-	aastore
-	dup
-	ldc 65
-	aload 1
-	aastore
-	dup
-	ldc 66
-	aload 1
-	aastore
-	dup
-	ldc 67
-	aload 1
-	aastore
-	dup
-	ldc 68
-	aload 1
-	aastore
-	dup
-	ldc 69
-	aload 1
-	aastore
-	dup
-	ldc 70
-	aload 1
-	aastore
-	dup
-	ldc 71
-	aload 1
-	aastore
-	dup
-	ldc 72
-	aload 1
-	aastore
-	dup
-	ldc 73
-	aload 1
-	aastore
-	dup
-	ldc 74
-	aload 1
-	aastore
-	dup
-	ldc 75
-	aload 1
-	aastore
-	dup
-	ldc 76
-	aload 1
-	aastore
-	dup
-	ldc 77
-	aload 1
-	aastore
-	dup
-	ldc 78
-	aload 1
-	aastore
-	dup
-	ldc 79
-	aload 1
-	aastore
-	dup
-	ldc 80
-	aload 1
-	aastore
-	dup
-	ldc 81
-	aload 1
-	aastore
-	dup
-	ldc 82
-	aload 1
-	aastore
-	dup
-	ldc 83
-	aload 1
-	aastore
-	dup
-	ldc 84
-	aload 1
-	aastore
-	dup
-	ldc 85
-	aload 1
-	aastore
-	dup
-	ldc 86
-	aload 1
-	aastore
-	dup
-	ldc 87
-	aload 1
-	aastore
-	dup
-	ldc 88
-	aload 1
-	aastore
-	dup
-	ldc 89
-	aload 1
-	aastore
-	dup
-	ldc 90
-	aload 1
-	aastore
-	dup
-	ldc 91
-	aload 1
-	aastore
-	dup
-	ldc 92
-	aload 1
-	aastore
-	dup
-	ldc 93
-	aload 1
-	aastore
-	dup
-	ldc 94
-	aload 1
-	aastore
-	dup
-	ldc 95
-	aload 1
-	aastore
-	dup
-	ldc 96
-	aload 1
-	aastore
-	dup
-	ldc 97
-	aload 1
-	aastore
-	dup
-	ldc 98
-	aload 1
-	aastore
-	dup
-	ldc 99
-	aload 1
-	aastore
-	dup
-	ldc 100
-	aload 1
-	aastore
-	dup
-	ldc 101
-	aload 1
-	aastore
-	dup
-	ldc 102
-	aload 1
-	aastore
-	dup
-	ldc 103
-	aload 1
-	aastore
-	dup
-	ldc 104
-	aload 1
-	aastore
-	dup
-	ldc 105
-	aload 1
-	aastore
-	dup
-	ldc 106
-	aload 1
-	aastore
-	dup
-	ldc 107
-	aload 1
-	aastore
-	dup
-	ldc 108
-	aload 1
-	aastore
-	dup
-	ldc 109
-	aload 1
-	aastore
-	dup
-	ldc 110
-	aload 1
-	aastore
-	dup
-	ldc 111
-	aload 1
-	aastore
-	dup
-	ldc 112
-	aload 1
-	aastore
-	dup
-	ldc 113
-	aload 1
-	aastore
-	dup
-	ldc 114
-	aload 1
-	aastore
-	dup
-	ldc 115
-	aload 1
-	aastore
-	dup
-	ldc 116
-	aload 1
-	aastore
-	dup
-	ldc 117
-	aload 1
-	aastore
-	dup
-	ldc 118
-	aload 1
-	aastore
-	dup
-	ldc 119
-	aload 1
-	aastore
+	checkcast [Ljava/lang/Object;
+	invokestatic main.create_dirvec_722()[Ljava/lang/Object;
+	invokestatic java/util/Arrays.fill([Ljava/lang/Object;Ljava/lang/Object;)V
 	aastore
 	getstatic main/dirvecs_274 [[[Ljava/lang/Object;
 	iload 0

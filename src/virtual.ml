@@ -159,7 +159,7 @@ let rec g fv env e =
              Store(typet2ty t, List.length env + n)])
          xts') @
     [Pop] @ g fv ((List.rev (List.map (fun (y, t, _) -> (y, t)) xts')) @ env) e2
-  | Closure.Array(Int(n) as e1, e2, t) ->
+  | Closure.Array(Int(n) as e1, e2, t) when n <= 2 ->
     (* 初期値をlocal variableに(一時的に)store *)
     let inst = ref (g fv env e2 @ [Boxing(typet2tysig t); Store(`A, List.length env)] @ g fv env e1) in
     inst := !inst @ [ANewArray(typet2tyobj t)];
